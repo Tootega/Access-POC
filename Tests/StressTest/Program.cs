@@ -27,7 +27,7 @@ namespace StressTest
         public static void LoginParallel()
         {
             _Start = DateTime.Now.Ticks;
-            Console.WriteLine("Carreganddo Usuários");
+            Console.WriteLine("Carregando Usuários");
             var data = File.ReadAllLines(@"D:\Tootega\Source\Access-POC\Tests\Assets\Users.csv");
             var users = new Dictionary<string, XUser>();
             for (int i = 0; i < 1_000_000; i++)
@@ -43,7 +43,7 @@ namespace StressTest
                 _Running++;
                 ThreadPool.QueueUserWorkItem((a) => Do(0));
             }
-            Console.WriteLine($"Inciando Stress {DateTime.Now}");
+            Console.WriteLine($"Iniciando Stress {DateTime.Now}");
             Statistic();
         }
 
@@ -58,7 +58,7 @@ namespace StressTest
                 Thread.Sleep(5000);
                 if (_Running == 0)
                 {
-                    Console.WriteLine($"Finalizado {DateTime.Now} Doração {et}");
+                    Console.WriteLine($"Finalizado {DateTime.Now} Duração {et}");
                     _Wait = false;
                 }
             }
