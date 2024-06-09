@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\LauncherID\LauncherID.csproj" />
     <ProjectReference Include="..\..\Application\Launcher\Launcher.csproj" />
     <ProjectReference Include="..\..\Core\TAF.Access\TAF.Access.csproj" />
   </ItemGroup>
