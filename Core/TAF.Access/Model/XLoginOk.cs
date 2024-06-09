@@ -6,5 +6,6 @@ namespace TFX.Access.Model
     {
         public Guid ID { get; set; }
         public Guid UserID { get; set; }
+        public long RAM { get; set; }
     }
 }
