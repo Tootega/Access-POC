@@ -38,7 +38,7 @@ namespace StressTest
             XSessionCache.Users.Swap(users);
             //Do(0);
 
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 90; i++)
             {
                 _Running++;
                 ThreadPool.QueueUserWorkItem((a) => Do(0));
@@ -75,7 +75,7 @@ namespace StressTest
                     {
 
                         using var st = new StringContent("{ \"Login\": \"" + _Data[i].Login + "\" }", Encoding.UTF8, "application/json");
-                        using HttpResponseMessage response = client.PostAsync("http://localhost:5000/Access/Login", st).Result;
+                        using HttpResponseMessage response = client.PostAsync("http://192.168.1.7:5000/Access/Login", st).Result;
                         response.EnsureSuccessStatusCode();
                         var data = response.Content.ReadAsStringAsync().Result;
                         XLoginOk res = JsonSerializer.Deserialize<XLoginOk>(data);
