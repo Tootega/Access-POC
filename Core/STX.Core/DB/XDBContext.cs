@@ -84,7 +84,6 @@ namespace STX.Core
 
         private void SelectProvider(DbContextOptionsBuilder pBuilder)
         {
-            Debug.WriteLine(Provider + " " + GetConnectionString());
             switch (Provider)
             {
                 case XProvider.SQLServer:
@@ -133,10 +132,10 @@ namespace STX.Core
 
         protected String GetConnectionString()
         {
-            var stringConn = XEnvironment.Read("DATABASE_CONNECTION", "");
+            var stringConn = XEnvironment.Read("DB_CONNECTION", "Server=TOOTEGAWS;Initial Catalog=SITTAX-POC;Persist Security Info=False;Integrated Security=true;MultipleActiveResultSets=true;Encrypt=True;TrustServerCertificate=true;Connection Timeout=300;");
             if (!string.IsNullOrEmpty(stringConn))
                 return stringConn;
-            throw new XError("Value for evironment variable 'DATABASE_CONNECTION' is not found");
+            throw new XError("Value for evironment variable 'DB_CONNECTION' is not found");
         }
 
         public XProvider Provider

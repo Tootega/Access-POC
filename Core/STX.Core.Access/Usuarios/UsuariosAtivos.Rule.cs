@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using STX.Core.Controllers;
+using STX.Core.Services;
 
 namespace STX.Core.Access.Usuarios
 {
-    public class UsuariosAtivosRule : UsuariosAtivosService.XRule
+    public class UsuariosAtivosRule : BaseUsuariosAtivosRule
     {
-        public UsuariosAtivosRule(UsuariosAtivosService pService)
+        public UsuariosAtivosRule(XService pService)
                :base(pService)
         {
         }

@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\STX.App.Core.BSS\STX.App.Core.BSS.csproj" />
+      <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
     </ItemGroup>
 
     <ItemGroup>

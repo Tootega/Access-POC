@@ -7,11 +7,22 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 
 using STX.Access.Model;
+using STX.Core.Exceptions;
 
 namespace STX.Access.Cache
 {
+    public delegate Dictionary<string, XUser> XRefreshCache();
     public class XSessionManager
     {
+        public static event XRefreshCache RefreshCache;
+        public static void DoRefreshCache()
+        {
+            if (RefreshCache == null)
+                throw new XError("Evento de busca de dados não atribuido");
+            lock (XSessionCache.Users)
+                XSessionCache.Users.Swap(RefreshCache());
+        }
+
         public static XLoginOk DoLogin(HttpContext pHttpContext, XUserLogin pLogin)
         {
             var usr = XSessionCache.Users.GetUser(pLogin.Login);

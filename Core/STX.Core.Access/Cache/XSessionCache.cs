@@ -9,6 +9,7 @@ namespace STX.Access.Cache
     {
         public static XCacheUser Users;
 
+
         private static Dictionary<Guid, XLoginOk> _Cache = new Dictionary<Guid, XLoginOk>();
         private static Dictionary<string, XUser> _Users = new Dictionary<string, XUser>();
 

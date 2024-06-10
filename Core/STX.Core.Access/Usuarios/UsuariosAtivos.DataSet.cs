@@ -39,6 +39,13 @@ namespace STX.Core.Access.Usuarios
         UsuariosAtivosDataSet Select(UsuariosAtivosFilter pFilter, Boolean pFull = false);
     }
 
+        public abstract class BaseUsuariosAtivosRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>
+        {
+            public BaseUsuariosAtivosRule(XService pOwner)
+                :base(pOwner)
+            {
+            }
+        }
     public class UsuariosAtivosDataSet : XDataSet<UsuariosAtivosTuple>
     {
     }

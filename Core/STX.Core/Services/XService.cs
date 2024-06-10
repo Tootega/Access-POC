@@ -20,7 +20,7 @@ namespace STX.Core.Services
         public XService(XService pOwner)
         {
             Owner = pOwner;
-            Logger = pOwner.Logger;
+            Logger = pOwner?.Logger;
         }
 
         public XService(ILogger<XService> pLogger)

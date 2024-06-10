@@ -7,8 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core.Access.DB;
 using STX.Core.Model;
-using TFX.Core.Model;
-using TFX.Access.Model;
 using STX.Core.Services;
 using STX.Core.Access.Usuarios;
 
@@ -86,13 +84,6 @@ namespace STX.Core.Access.Usuarios
             get
             {
                 return (DBContext)ProtectedContext  ?? GetContext<DBContext>();
-            }
-        }
-        public abstract class XRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>
-        {
-            public XRule(XService pOwner)
-                :base(pOwner)
-            {
             }
         }
 

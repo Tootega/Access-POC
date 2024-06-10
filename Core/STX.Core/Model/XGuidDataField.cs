@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using STX.Access.Model;
 
@@ -20,9 +20,10 @@ namespace STX.Core.Model
         public XGuidDataField(String pName, XFieldState pState = XFieldState.Empty, Guid? pValue = null, Object pOldValue = null)
         {
             Name = pName;
-            Value = pValue;
+            if (pValue.HasValue)
+                Value = pValue.Value;
             OldValue = pOldValue;
             State = pState;
-        }
+        }        
     }
 }
