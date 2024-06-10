@@ -1,0 +1,83 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>TFX.Access</RootNamespace>
+      <MyType>DASE</MyType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TAF.Access.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="STX.Core.Access.dsmdl" />
+    <None Remove="TAF.Access.dsmdl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="STX.Core.Access.dsmdl">
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>STX.Core.Access.Module.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\STX.Core\STX.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DB\TAF.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TAF.dsorm</DependentUpon>
+      <Visible>False</Visible>
+    </Compile>
+    <Compile Update="DB\TAF.Usuario.cs">
+      <Visible>False</Visible>
+      <DependentUpon>TAF.dsorm</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\AssemblyInfo.cs">
+      <Visible>True</Visible>
+    </Compile>
+    <Compile Update="STX.Core.Access.Module.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>STX.Core.Access.dsmdl</DependentUpon>
+    </Compile>
+    <Compile Update="Usuarios\UsuariosAtivos.Controller.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
+      <Visible>False</Visible>
+    </Compile>
+    <Compile Update="Usuarios\UsuariosAtivos.DataSet.cs">
+      <Visible>False</Visible>
+      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
+    </Compile>
+    <Compile Update="Usuarios\UsuariosAtivos.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
+    </Compile>
+    <Compile Update="Usuarios\UsuariosAtivos.Service.cs">
+      <Visible>False</Visible>
+      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DB\TAF.dsorm">
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>TAF.cs</LastGenOutput>
+    </None>
+    <None Update="Usuarios\UsuariosAtivos.dssvc">
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>UsuariosAtivos.Controller.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

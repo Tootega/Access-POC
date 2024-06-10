@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\TAF.Access\TAF.Access.csproj" />
+    <ProjectReference Include="..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\AssemblyInfo.cs">
+      <Visible>True</Visible>
+    </Compile>
   </ItemGroup>
 
 </Project>

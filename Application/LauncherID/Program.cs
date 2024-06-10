@@ -21,7 +21,6 @@ namespace Launcher
         {
             Initialize();
             var builder = WebApplication.CreateBuilder(args);
-
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -45,7 +44,7 @@ namespace Launcher
 
             App.MapControllers();
 
-            App.Run();
+            App.Run("http://+:5000");
         }
 
         private static void Initialize()

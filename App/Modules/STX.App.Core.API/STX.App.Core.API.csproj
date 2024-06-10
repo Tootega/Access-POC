@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <MyType>DASE</MyType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="STX.App.Core.API.dsmdl" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="STX.App.Core.API.dsmdl">
+        <Generator>XDASEGenerator</Generator>
+        <LastGenOutput>STX.App.Core.API.cs</LastGenOutput>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\STX.App.Core.BSS\STX.App.Core.BSS.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Properties\AssemblyInfo.cs">
+        <Visible>True</Visible>
+      </Compile>
+      <Compile Update="STX.App.Core.API.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>STX.App.Core.API.dsmdl</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>

@@ -7,8 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\TAF.Access\TAF.Access.csproj" />
-  </ItemGroup>
-
 </Project>
