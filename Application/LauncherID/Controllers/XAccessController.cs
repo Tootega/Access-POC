@@ -4,10 +4,10 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-using TFX.Access;
-using TFX.Access.Authorize;
-using TFX.Access.Cache;
-using TFX.Access.Model;
+using STX.Access;
+using STX.Access.Authorize;
+using STX.Access.Cache;
+using STX.Access.Model;
 
 namespace Launcher.Controllers
 {

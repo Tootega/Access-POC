@@ -24,11 +24,6 @@
       <Compile Update="Properties\AssemblyInfo.cs">
         <Visible>True</Visible>
       </Compile>
-      <Compile Update="STX.App.Core.API.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>STX.App.Core.API.dsmdl</DependentUpon>
-      </Compile>
     </ItemGroup>
 
 </Project>

@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core.Access.DB;
 using STX.Core.Model;
-using TFX.Core.Model;
-using TFX.Access.Model;
+using STX.Core.Interfaces;
+using STX.Access.Model;
 using STX.Core.Services;
 
 namespace STX.Core.Access.Usuarios
@@ -16,13 +16,28 @@ namespace STX.Core.Access.Usuarios
 
     public class UsuariosAtivosTuple : XServiceDataTuple
     {
-
         public XGuidDataField TAFxUsuarioID {get;set;}
         public XStringDataField Login {get;set;}
         public XInt16DataField Ativo {get;set;}
     }
 
-    public class UsuariosAtivosRequest : XRequest {public Guid TAFxUsuarioID {get;set;}}
+    public class UsuariosAtivosFilter : XFilter
+    {
+        public XInt16DataField Ativo {get;set;}
+        public XStringDataField Login {get;set;}
+    }
+
+    public class UsuariosAtivosRequest : XRequest
+    {
+    public Guid TAFxUsuarioID {get;set;}
+    }
+
+    public interface IUsuariosAtivosService : XIService
+    {
+        void Flush(UsuariosAtivosDataSet pDataSet);
+        UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true);
+        UsuariosAtivosDataSet Select(UsuariosAtivosFilter pFilter, Boolean pFull = false);
+    }
 
     public class UsuariosAtivosDataSet : XDataSet<UsuariosAtivosTuple>
     {

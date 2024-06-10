@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using STX.Core.Model;
 
-namespace TFX.Access.Model
+namespace STX.Access.Model
 {
 
     public class XDecimalDataField : XDataField<Decimal?>

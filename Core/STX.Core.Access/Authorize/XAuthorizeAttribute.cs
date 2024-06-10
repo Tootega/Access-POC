@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 
-namespace TFX.Access.Authorize
+namespace STX.Access.Authorize
 {
     public class XAuthorizeAttribute : AuthorizeAttribute
     {

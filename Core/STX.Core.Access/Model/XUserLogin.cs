@@ -1,4 +1,4 @@
-namespace TFX.Access.Model
+namespace STX.Access.Model
 {
     public class XUserLogin
     {

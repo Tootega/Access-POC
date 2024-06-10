@@ -79,7 +79,7 @@ namespace STX.Core.Access.Usuarios
             return DBContext.Create(pOwner);
         }
 
-        private XIServiceRuleA _Rule;
+        private XIServiceRuleC _Rule;
 
         public DBContext Context
         {
@@ -88,7 +88,7 @@ namespace STX.Core.Access.Usuarios
                 return (DBContext)ProtectedContext  ?? GetContext<DBContext>();
             }
         }
-        public abstract class XRule : XServiceRuleA<List<UsuariosAtivosTuple>, UsuariosAtivosRequest>
+        public abstract class XRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>
         {
             public XRule(XService pOwner)
                 :base(pOwner)
@@ -133,16 +133,30 @@ namespace STX.Core.Access.Usuarios
         }
 
 
-        public UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, Boolean pFull)
+        public UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull)
         {
             var ctx = Context;
             var query = from TAFxUsuario in ctx.TAFxUsuario
                         select new {TAFxUsuario};
 
-            query = _Rule?.InternalGetWhere(query, pRequest, pFull);
+            query = _Rule?.InternalGetWhere(query,  pRequest, pFilter, pFull);
 
             if (pRequest != null)
                 query = query.Where(q => q.TAFxUsuario.TAFxUsuarioID == pRequest.TAFxUsuarioID);
+
+            if (pFilter != null)
+            {
+                if (pFilter.Ativo != null && pFilter.Ativo.State != XFieldState.Empty)
+                    query = query.Where(q => q.TAFxUsuario.Ativo == pFilter.Ativo.Value);
+                if (pFilter.Login != null && pFilter.Login.State != XFieldState.Empty)
+                    query = query.Where(q => q.TAFxUsuario.Login == pFilter.Login.Value);
+            }
+
+            if (pFilter?.SkipRows > 0)
+                query = query.Skip(pFilter.SkipRows);
+
+            if (pFilter?.TakeRows > 0)
+                query = query.Take(pFilter.TakeRows);
 
             var dst = query.Select(q => new UsuariosAtivosTuple(){TAFxUsuarioID = new XGuidDataField("TAFxUsuarioID", XFieldState.Empty, q.TAFxUsuario.TAFxUsuarioID),
                                       Login = new XStringDataField("Login", XFieldState.Empty, q.TAFxUsuario.Login),

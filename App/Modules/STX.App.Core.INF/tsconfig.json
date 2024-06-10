@@ -13,7 +13,7 @@
     "removeComments": false,
     "sourceMap": true,
     "noImplicitReturns": true,
-    "outFile": "../../../TFX-Core/TFX.Core.Service/wwwroot/static/js/STX.App.Core.INF.js",
+    "outFile": "../../../STX-Core/STX.Core.Service/wwwroot/static/js/STX.App.Core.INF.js",
     "target": "es6",
     "module": "system",
     "strict": false,

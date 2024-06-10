@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-using TFX.Access.Cache;
+using STX.Access.Cache;
 
-namespace TFX.Access.Authorize
+namespace STX.Access.Authorize
 {
     public class XAuthorizeFilterAttribute : TypeFilterAttribute
     {

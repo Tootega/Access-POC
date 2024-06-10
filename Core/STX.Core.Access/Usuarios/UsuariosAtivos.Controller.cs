@@ -22,7 +22,7 @@ namespace STX.Core.Access.Usuarios
         [HttpPost("GetByPK")]
         public UsuariosAtivosDataSet GetByPK([FromBody] UsuariosAtivosRequest pRequest)
         {
-            var dataset = _Service.Select(pRequest, true);
+            var dataset = _Service.Select(pRequest, null, true);
             return dataset;
         }
 
@@ -33,6 +33,13 @@ namespace STX.Core.Access.Usuarios
             return new OkResult();
         }
 
+
+        [HttpPost("Search")]
+        public UsuariosAtivosDataSet Search([FromBody] UsuariosAtivosFilter pFilter)
+        {
+            var dataset = _Service.Select(null, pFilter, false);
+            return dataset;
+        }
 
     }
 }

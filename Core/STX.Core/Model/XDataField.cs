@@ -5,11 +5,11 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-using STX.Core.Reflections;
+using STX.Core.Interfaces;
 
 using STX.Core.Model;
 
-namespace TFX.Access.Model
+namespace STX.Access.Model
 {
 
     public class XDataField<T> : XIDataField

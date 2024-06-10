@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using STX.Core.Model;
 
-namespace TFX.Core.Model
+namespace STX.Core.Model
 {
 
     public class XServiceDataTuple

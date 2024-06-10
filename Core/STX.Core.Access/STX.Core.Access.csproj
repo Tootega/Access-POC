@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>TFX.Access</RootNamespace>
+    <RootNamespace>STX.Access</RootNamespace>
       <MyType>DASE</MyType>
   </PropertyGroup>
 
@@ -48,6 +48,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>STX.Core.Access.dsmdl</DependentUpon>
+      <Visible>False</Visible>
     </Compile>
     <Compile Update="Usuarios\UsuariosAtivos.Controller.cs">
       <DesignTime>True</DesignTime>

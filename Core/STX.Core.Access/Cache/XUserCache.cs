@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using TFX.Access.Model;
+using STX.Access.Model;
 
-namespace TFX.Access.Cache
+namespace STX.Access.Cache
 {
     public class XCacheUser
     {

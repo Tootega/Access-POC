@@ -6,5 +6,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("Tootega Pesquisa e Inovação")]
 [assembly: NeutralResourcesLanguage("pt-BR")]
 [assembly: ComVisible(false)]
-[assembly: global::TFX.Core.Reflections.XAssemblyType(TFX.Core.Reflections.XLayer.Server)]
 [assembly: Guid("565065C6-AE16-4A13-A7BF-D6910086D4F2")]

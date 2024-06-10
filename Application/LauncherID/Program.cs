@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using TFX.Access;
-using TFX.Access.Cache;
-using TFX.Access.Model;
+using STX.Access;
+using STX.Access.Cache;
+using STX.Access.Model;
 
 namespace Launcher
 {

@@ -1,6 +1,6 @@
 using STX.Core.Model;
 
-namespace STX.Core.Reflections
+namespace STX.Core.Interfaces
 {
     public interface XIDataField
     {

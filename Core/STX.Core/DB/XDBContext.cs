@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using STX.Core.Exceptions;
-using STX.Core.Reflections;
+using STX.Core.Interfaces;
 
 namespace STX.Core
 {

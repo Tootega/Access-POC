@@ -36,11 +36,6 @@
       <Compile Update="Properties\AssemblyInfo.cs">
         <Visible>True</Visible>
       </Compile>
-      <Compile Update="STX.App.Core.INF.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>STX.App.Core.INF.dsmdl</DependentUpon>
-      </Compile>
     </ItemGroup>
 
     <ItemGroup>

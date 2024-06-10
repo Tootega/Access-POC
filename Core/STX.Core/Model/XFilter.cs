@@ -1,4 +1,6 @@
-﻿namespace STX.Core.Model
+using System;
+
+namespace STX.Core.Model
 {
     public class XFilter : XDataTuple
     {

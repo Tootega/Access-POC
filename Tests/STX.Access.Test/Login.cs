@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-using TFX.Access.Cache;
+using STX.Access.Cache;
 
 namespace TAF.Access.Test
 {

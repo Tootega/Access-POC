@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>TFX.Access</RootNamespace>
+    <RootNamespace>STX.Access</RootNamespace>
   </PropertyGroup>
 
     <ItemGroup>

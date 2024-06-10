@@ -1,6 +1,6 @@
 using System;
 
-namespace TFX.Access
+namespace STX.Access
 {
     public static class XTAFDefault
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-using TFX.Access.Model;
+using STX.Access.Model;
 
 namespace STX.Core.Model
 {

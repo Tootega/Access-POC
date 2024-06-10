@@ -1,6 +1,6 @@
 using System;
 
-namespace TFX.Access.Model
+namespace STX.Access.Model
 {
     public record XLoginOk
     {

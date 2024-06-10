@@ -1,5 +1,5 @@
-using TFX.Access.Cache;
-using TFX.Access.Model;
+using STX.Access.Cache;
+using STX.Access.Model;
 
 namespace TAF.Access.Test
 {
