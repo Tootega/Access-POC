@@ -8,8 +8,8 @@ namespace STX.Core.Access.Usuarios
 {
     public class UsuariosAtivosRule : BaseUsuariosAtivosRule
     {
-        public UsuariosAtivosRule(XService pService)
-               :base(pService)
+        public UsuariosAtivosRule(UsuariosAtivosService pService)
+            :base(pService)
         {
         }
 

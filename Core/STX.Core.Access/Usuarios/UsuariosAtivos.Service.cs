@@ -12,7 +12,6 @@ using STX.Core.Access.Usuarios;
 
 namespace STX.Core.Access.Usuarios
 {
-
     public class UsuariosAtivosService : XService
     {
         public class DBContext : XDBContext
@@ -47,17 +46,6 @@ namespace STX.Core.Access.Usuarios
             {
                 ConfigureTAFxUsuario(pBuilder);
             }
-
-            protected override void OnConfiguring(DbContextOptionsBuilder pOtionsBuilder)
-            {
-#if DEBUG
-                pOtionsBuilder.EnableSensitiveDataLogging(true);
-                pOtionsBuilder.LogTo(s => Debug.WriteLine(s));
-                pOtionsBuilder.EnableDetailedErrors(true);
-                pOtionsBuilder.EnableSensitiveDataLogging(true);
-#endif
-                base.OnConfiguring(pOtionsBuilder);
-            }
         }
 
         public UsuariosAtivosService(XService pOwner)
@@ -72,12 +60,12 @@ namespace STX.Core.Access.Usuarios
             _Rule = new UsuariosAtivosRule(this);
         }
 
+        private XIServiceRuleC _Rule;
+
         protected override XDBContext CreateContext(XDBContext pOwner)
         {
             return DBContext.Create(pOwner);
         }
-
-        private XIServiceRuleC _Rule;
 
         public DBContext Context
         {
@@ -86,7 +74,6 @@ namespace STX.Core.Access.Usuarios
                 return (DBContext)ProtectedContext  ?? GetContext<DBContext>();
             }
         }
-
 
         public void Flush(UsuariosAtivosDataSet pDataSet)
         {
@@ -122,7 +109,6 @@ namespace STX.Core.Access.Usuarios
                 }
             }
         }
-
 
         public UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull)
         {

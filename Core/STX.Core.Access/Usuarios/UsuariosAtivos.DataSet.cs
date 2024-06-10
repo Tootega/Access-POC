@@ -13,7 +13,6 @@ using STX.Core.Services;
 
 namespace STX.Core.Access.Usuarios
 {
-
     public class UsuariosAtivosTuple : XServiceDataTuple
     {
         public XGuidDataField TAFxUsuarioID {get;set;}
@@ -29,7 +28,7 @@ namespace STX.Core.Access.Usuarios
 
     public class UsuariosAtivosRequest : XRequest
     {
-    public Guid TAFxUsuarioID {get;set;}
+        public Guid TAFxUsuarioID {get;set;}
     }
 
     public interface IUsuariosAtivosService : XIService
@@ -39,13 +38,14 @@ namespace STX.Core.Access.Usuarios
         UsuariosAtivosDataSet Select(UsuariosAtivosFilter pFilter, Boolean pFull = false);
     }
 
-        public abstract class BaseUsuariosAtivosRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>
+    public abstract class BaseUsuariosAtivosRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>
+    {
+        public BaseUsuariosAtivosRule(XService pOwner)
+            :base(pOwner)
         {
-            public BaseUsuariosAtivosRule(XService pOwner)
-                :base(pOwner)
-            {
-            }
         }
+    }
+
     public class UsuariosAtivosDataSet : XDataSet<UsuariosAtivosTuple>
     {
     }
