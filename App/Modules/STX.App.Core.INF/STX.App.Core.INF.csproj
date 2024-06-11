@@ -66,6 +66,12 @@
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
+      <Compile Update="Menu\UserManu.Service.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>UserManu.dssvc</DependentUpon>
+        <Visible>False</Visible>
+      </Compile>
       <Compile Update="Perfil\Perfil.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
@@ -99,6 +105,10 @@
       <None Update="DB\COR.dsorm">
         <Generator>XDASEGenerator</Generator>
         <LastGenOutput>COR.cs</LastGenOutput>
+      </None>
+      <None Update="Menu\UserManu.dssvc">
+        <Generator>XDASEGenerator</Generator>
+        <LastGenOutput>UserManu.Service.cs</LastGenOutput>
       </None>
       <None Update="Perfil\Perfil.dssam">
         <Generator>XDASEGenerator</Generator>

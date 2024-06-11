@@ -36,7 +36,11 @@ export class MenuComponent implements OnInit
 
     ngOnInit()
     {
-        this.userMenuService.search().subscribe(data => { this.PrepareData(data.Tuples); });
+        this.userMenuService.search().subscribe(value => this.PrepareData(value.Tuples), error => this.Error(error));
+    }
+
+    Error(erro: any)
+    {
     }
 
     PrepareData(pData: XArray<UserMenuTuple>)

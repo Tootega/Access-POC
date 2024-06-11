@@ -4,6 +4,7 @@ using System.IO;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -11,6 +12,7 @@ using STX.Access;
 using STX.Access.Cache;
 using STX.Access.Model;
 using STX.App.Core.INF;
+using STX.App.Core.INF.DB;
 using STX.Core.Access.Usuarios;
 using STX.Core.Services;
 
@@ -24,16 +26,27 @@ namespace Launcher
         {
             Initialize();
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(b =>
+                b.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader()
+                 .WithExposedHeaders("*"));
+            });
+
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddControllers().AddJsonOptions(jsonOptions =>
+            builder.Services.AddControllers().AddJsonOptions(js =>
             {
-                jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
+                js.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
 
             ConfigureServices(builder.Services);
 
+            builder.Services.AddDbContext<STXAppCoreINFContext>();
             App = builder.Build();
             if (App.Environment.IsDevelopment())
             {
@@ -42,10 +55,15 @@ namespace Launcher
             }
             App.UseHttpsRedirection();
 
+            App.UseCors();
             App.UseAuthorization();
-
             App.MapControllers();
-            App.Run("http://+:5000");
+
+            //using var scop = App.Services.CreateScope();
+            //using var ctl1 = scop.ServiceProvider.GetRequiredService<STXAppCoreINFContext>();
+            //ctl1.Database.Migrate();
+
+            App.Run("https://+:5000");
         }
 
         private static void Initialize()
@@ -68,7 +86,6 @@ namespace Launcher
                 options.AllowSynchronousIO = true;
             });
             new STXAppCoreINFModule().Initialize(pServices);
-
         }
     }
 }

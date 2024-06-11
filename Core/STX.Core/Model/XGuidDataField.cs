@@ -6,6 +6,20 @@ namespace STX.Core.Model
 {
     public class XGuidDataField : XDataField<Guid?>
     {
+        public static XGuidDataField operator +(XGuidDataField pField, Guid pValue)
+        {
+            var fld = new XGuidDataField();
+            fld.Value = pValue;
+            if (pField != null)
+            {
+                fld.Name = pField.Name;
+                fld.State = pField.State;
+                fld.OldValue = pField.OldValue;
+            }
+            return fld;
+        }
+
+
         public XGuidDataField()
         {
         }
@@ -24,6 +38,6 @@ namespace STX.Core.Model
                 Value = pValue.Value;
             OldValue = pOldValue;
             State = pState;
-        }        
+        }
     }
 }

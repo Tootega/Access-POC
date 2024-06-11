@@ -12,5 +12,10 @@ namespace STX.Access.Model
         {
             get; set;
         }
+        protected virtual T NewTuple()
+        {
+            return default;
+        }
+
     }
 }

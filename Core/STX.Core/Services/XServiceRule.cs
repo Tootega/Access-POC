@@ -125,6 +125,11 @@ namespace STX.Core.Services
             Log = pService.Logger;
         }
 
+        protected virtual T New() 
+        {
+            return default;
+        }
+
         protected ILogger Log;
 
         void XIServiceRule.InternalAfterFlush(Object pTuples)

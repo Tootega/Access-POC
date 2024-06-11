@@ -2,7 +2,7 @@ using System;
 
 namespace STX.Core.Model
 {
-    public class XSAMApplication
+    public abstract class XSAMApplication
     {
         public string Title
         {

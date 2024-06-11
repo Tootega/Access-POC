@@ -28,6 +28,7 @@ namespace STX.Core
 
     public class XDBContext : DbContext
     {
+
         public XDBContext(DbContextOptions pOptions)
             : base(pOptions)
         {

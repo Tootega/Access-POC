@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -12,8 +13,22 @@ using STX.Core.Model;
 namespace STX.Access.Model
 {
 
-    public class XDataField<T> : XIDataField
+    public class XDataField
     {
+        public void Set<TValue, T>(TValue pField, T Value)
+        {
+        }
+
+    }
+
+    public class XDataField<T> : XDataField, XIDataField
+    {
+
+        public static implicit operator T(XDataField<T> pField)
+        {                                                                 
+            return pField.Value;
+        }
+
         public XDataField()
         {
         }
