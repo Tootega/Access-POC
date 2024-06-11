@@ -28,14 +28,14 @@ export class StageComponent extends XStageComponent implements OnInit, AfterView
     SearchValue: any;
     public Items = ["Zilma Maria dos Reis",
         "Rosilda Ribeiro Souza",
-        "Isabela  Barros de AraÃºjo",
+        "Isabela  Barros de Araújo",
         "Daniela Filha da Heloisa",
         "Ana Caroline Rodrigues",
         "Lucia da Costa Oliveira",
         "Natalia Damasceno",
-        "ValÃ©ria Alve",
+        "Valéria Alve",
         "Victor Ivan Porto Ferreira Rocha",
-        "Diego GregÃ³rio",
+        "Diego Gregório",
         "Leia Alves",
         "karleia Neres de Souz",
         "Valdivino Filgueir",
@@ -44,7 +44,7 @@ export class StageComponent extends XStageComponent implements OnInit, AfterView
         "Hildiane Pereira Espindula ",
         "Maura Pereira Da Silva andrade",
         "Mariza Amaral",
-        "DÃ©bora Cristin"];
+        "Débora Cristin"];
 
     SelectValue(pValue: any)
     {

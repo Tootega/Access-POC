@@ -57,8 +57,6 @@
     <Folder Include="src\material\Utils\" />
     <Folder Include="src\menu\" />
     <Folder Include="src\stage\" />
-    <Folder Include="src\STX.App.Core.Web\" />
-    <Folder Include="src\STX.App.Core.Web\Perfil\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="angular.json" />
@@ -187,8 +185,6 @@
     <TypeScriptCompile Include="src\stage\GlobalErrorHandler.ts" />
     <TypeScriptCompile Include="src\stage\stage.module.ts" />
     <TypeScriptCompile Include="src\stage\theme.service.ts" />
-    <TypeScriptCompile Include="src\STX.App.Core.Web\Perfil\PerfilDireito.Model.ts" />
-    <TypeScriptCompile Include="src\STX.App.Core.Web\Perfil\PerfilDireito.Service.Rule.ts" />
     <TypeScriptCompile Include="_references.ts" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />

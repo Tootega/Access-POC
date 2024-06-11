@@ -1,0 +1,49 @@
+<div>
+    <div class='col-8-auto py-2 ttg-navbar .bg-primary.bg-gradient'>
+        <nav class='navbar navbar-expand navbar-light'>
+            <div class='navbar-nav'>
+                <div class='nav-item px-1 ms-sm-1' id='{{CloseBtnID}}'>
+                    <button type='button' class='btn btn-danger btn-sm p-2 border-right-5' (click)='Close($event)'>
+                        <i class='bi bi-x-circle '></i>
+                        <span> Fechar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{PreviewBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Preview($event)'>
+                        <i class='bi bi-eyeglasses'></i>
+                        <span> Vizualizar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{EditBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Edit($event)'>
+                        <i class='bi bi-pencil'></i>
+                        <span> Editar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{SaveBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Save($event)'>
+                        <i class='bi bi-check-square'></i>
+                        <span> Salvar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{DeleteBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Save($event)'>
+                        <i class='bi bi-trash'></i>
+                        <span> Deletar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{RecycleBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Save($event)'>
+                        <i class='bi bi-arrow-counterclockwise'></i>
+                        <span> Recuperar </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id='{{FormAreaID}}'>
+    </div>
+    <div class='ttg-line-1'>
+    </div>
+</div>
+

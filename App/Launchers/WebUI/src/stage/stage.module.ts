@@ -1,5 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StageComponent } from './stage.component';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from '../menu/app.menu';
@@ -62,21 +64,27 @@ import { ServiceImportSTXAppCoreINF, ServiceSTXAppCoreINF } from '../STX-App-Cor
 import { ComponentImportSTXCoreAccess, ComponentSTXCoreAccess } from '../STX-Core-Access/RegisterComponent';
 import { ServiceImportSTXCoreAccess, ServiceSTXCoreAccess } from '../STX-Core-Access/RegisterService';
 
+
+
 @NgModule({
-    declarations: [StageComponent, MenuComponent,
-        //ComponentImportSTXAppCoreINF,
-        //ComponentImportSTXCoreAccess,
+    declarations: [
+        StageComponent,
+        MenuComponent,
+        ComponentImportSTXAppCoreINF, 
     ],
     imports: [
         NgbDatepickerModule, NgbDatepicker, NgbTimepicker, NgbTimepickerModule,
         HttpClientModule,
+        BrowserAnimationsModule,
+        BrowserModule,
         HttpClientModule,
+        BrowserAnimationsModule,
         FormsModule,
         NgbModule,
         MatDatepickerModule,
         MatFormFieldModule,
         MatNativeDateModule,
-        MatInputModule, 
+        MatInputModule,
         MatDialogModule,
         MatButtonModule,
         MatButtonToggleModule,
@@ -119,8 +127,7 @@ import { ServiceImportSTXCoreAccess, ServiceSTXCoreAccess } from '../STX-Core-Ac
     ],
     providers: [UserMenuService,
         ServiceImportSTXAppCoreINF,
-        //ServiceImportSTXCoreAccess,
-         
+
         { provide: ErrorHandler, useClass: GlobalErrorHandler, },
         { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
         { provide: LOCALE_ID, useValue: 'pt-PT' },
