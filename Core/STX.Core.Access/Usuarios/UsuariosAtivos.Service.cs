@@ -23,18 +23,21 @@ namespace STX.Core.Access.Usuarios
             }
 
             private DBContext(DbContextOptions<DBContext> pOtions, XDBContext pOwner)
-                   :base(pOtions, pOwner)
+                   : base(pOtions, pOwner)
             {
             }
 
-            internal DbSet<TAFxUsuario> TAFxUsuario{get; set;}
+            internal DbSet<TAFxUsuario> TAFxUsuario
+            {
+                get; set;
+            }
 
             private void ConfigureTAFxUsuario(ModelBuilder pBuilder)
             {
                 pBuilder.Entity<TAFxUsuario>(ett =>
                 {
                     ett.HasKey(e => e.TAFxUsuarioID).HasName("PK_TAFxUsuario");
-                    
+
                     ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.Property(d => d.Login).HasColumnType(GetDBType("String", 0, 0));
                     ett.Property(d => d.Ativo).HasColumnType(GetDBType("Int16", 0, 0));
@@ -49,13 +52,13 @@ namespace STX.Core.Access.Usuarios
         }
 
         public UsuariosAtivosService(XService pOwner)
-               :base(pOwner)
+               : base(pOwner)
         {
             _Rule = new UsuariosAtivosRule(this);
         }
 
         public UsuariosAtivosService(ILogger<XService> pLogger)
-               :base(pLogger)
+               : base(pLogger)
         {
             _Rule = new UsuariosAtivosRule(this);
         }
@@ -71,7 +74,7 @@ namespace STX.Core.Access.Usuarios
         {
             get
             {
-                return (DBContext)ProtectedContext  ?? GetContext<DBContext>();
+                return (DBContext)ProtectedContext ?? GetContext<DBContext>();
             }
         }
 
@@ -114,9 +117,12 @@ namespace STX.Core.Access.Usuarios
         {
             var ctx = Context;
             var query = from TAFxUsuario in ctx.TAFxUsuario
-                        select new {TAFxUsuario};
+                        select new
+                        {
+                            TAFxUsuario
+                        };
 
-            query = _Rule?.InternalGetWhere(query,  pRequest, pFilter, pFull);
+            query = _Rule?.InternalGetWhere(query, pRequest, pFilter, pFull);
 
             if (pRequest != null)
                 query = query.Where(q => q.TAFxUsuario.TAFxUsuarioID == pRequest.TAFxUsuarioID);
@@ -135,9 +141,12 @@ namespace STX.Core.Access.Usuarios
             if (pFilter?.TakeRows > 0)
                 query = query.Take(pFilter.TakeRows);
 
-            var dst = query.Select(q => new UsuariosAtivosTuple(){TAFxUsuarioID = new XGuidDataField("TAFxUsuarioID", XFieldState.Empty, q.TAFxUsuario.TAFxUsuarioID),
-                                      Login = new XStringDataField("Login", XFieldState.Empty, q.TAFxUsuario.Login),
-                                      Ativo = new XInt16DataField("Ativo", XFieldState.Empty, q.TAFxUsuario.Ativo)});
+            var dst = query.Select(q => new UsuariosAtivosTuple()
+            {
+                TAFxUsuarioID = new XGuidDataField("TAFxUsuarioID", XFieldState.Empty, q.TAFxUsuario.TAFxUsuarioID),
+                Login = new XStringDataField("Login", XFieldState.Empty, q.TAFxUsuario.Login),
+                Ativo = new XInt16DataField("Ativo", XFieldState.Empty, q.TAFxUsuario.Ativo)
+            });
             var dataset = new UsuariosAtivosDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

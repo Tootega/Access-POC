@@ -4,22 +4,21 @@ using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using STX.Core.Access.DB;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxUsuario
+    public  partial class CORxPerfil
     {
-        [Display(Name = "Pessoa")]
+        [Display(Name = "Perfil")]
         [Required()]
-        public Guid CORxPessoaID {get; set;}
+        public Guid? CORxPerfilID {get; set;} = Guid.Empty;
 
-        [Display(Name = "Usuário")]
+        [Display(Name = "Nome do Perfil")]
+        [MaxLength(45)]
         [Required()]
-        public Guid? CORxUsuarioID {get; set;} = Guid.Empty;
+        public String Nome {get; set;}
 
-        public TAFxUsuario TAFxUsuario {get; set;}
-        public CORxPessoa CORxPessoa {get; set;}
         public List<CORxUsuarioPerfil> CORxUsuarioPerfil {get; set;} = new List<CORxUsuarioPerfil>();
+        public List<CORxPerfilDireiro> CORxPerfilDireiro {get; set;} = new List<CORxPerfilDireiro>();
     }
 }
