@@ -81,6 +81,12 @@ namespace STX.App.Core.INF.Menu
             return dataset;
         }
 
+        UserManuDataSet IUserManuService.Select(UserManuFilter pFilter, Boolean pFull = false)
+        {
+            var dataset = Select(null, pFilter, pFull);
+            return dataset;
+        }
+
         public UserManuDataSet Select(UserManuRequest pRequest, UserManuFilter pFilter, Boolean pFull)
         {
             var ctx = Context;
@@ -105,16 +111,13 @@ namespace STX.App.Core.INF.Menu
                 query = query.Take(pFilter.TakeRows);
 
             var dst = query.Select(q => new UserManuTuple(){CORxRecursoID = new XGuidDataField("CORxRecursoID", XFieldState.Empty, q.CORxRecurso.CORxRecursoID),
-                                Nome = new XStringDataField("Nome", XFieldState.Empty, q.CORxRecurso.Nome),
-                                MenuGrupo = new XStringDataField("MenuGrupo", XFieldState.Empty, null)});
+                                Titulo = new XStringDataField("Titulo", XFieldState.Empty, q.CORxRecurso.Nome),
+                                Modulo = new XStringDataField("Modulo", XFieldState.Empty, null),
+                                Icone = new XStringDataField("Icone", XFieldState.Empty, null),
+                                Ordem = new XInt32DataField("Ordem", XFieldState.Empty, 0)});
             var dataset = new UserManuDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;
-        }
-
-        public UserManuDataSet Select(UserManuFilter pFilter, bool pFull = false)
-        {
-            throw new NotImplementedException();
         }
     }
 }

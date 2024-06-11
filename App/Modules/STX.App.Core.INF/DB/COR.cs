@@ -12,6 +12,11 @@ namespace STX.App.Core.INF.DB
     public class STXAppCoreINFContext : STXCoreAccessContext
     {
 
+        public STXAppCoreINFContext(DbContextOptions pOptions)
+          : base(pOptions)
+        {
+        
+        }
 
         public STXAppCoreINFContext(DbContextOptions<STXAppCoreINFContext> pOptions)
           : base(pOptions)

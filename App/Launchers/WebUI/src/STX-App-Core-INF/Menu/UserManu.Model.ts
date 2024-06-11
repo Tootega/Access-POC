@@ -18,8 +18,10 @@ export namespace STXAppCoreINFMenuUserManuMDL
             override GetPKValue(): any { return this.CORxRecursoID.Value; }
 
         CORxRecursoID = new XDataField('CORxRecursoID', XFieldState.Empty, () => 'XGuid', () => '');
-        Nome = new XDataField('Nome', XFieldState.Empty, () => 'XString', () => '');
-        MenuGrupo = new XDataField('MenuGrupo', XFieldState.Empty, () => 'XString', () => '');
+        Titulo = new XDataField('Titulo', XFieldState.Empty, () => 'XString', () => '');
+        Modulo = new XDataField('Modulo', XFieldState.Empty, () => 'XString', () => '');
+        Icone = new XDataField('Icone', XFieldState.Empty, () => 'XString', () => '');
+        Ordem = new XDataField('Ordem', XFieldState.Empty, () => 'XInt32', () => '');
 
     }
 

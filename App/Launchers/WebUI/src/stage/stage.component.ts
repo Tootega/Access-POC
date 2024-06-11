@@ -28,14 +28,14 @@ export class StageComponent extends XStageComponent implements OnInit, AfterView
     SearchValue: any;
     public Items = ["Zilma Maria dos Reis",
         "Rosilda Ribeiro Souza",
-        "Isabela  Barros de Araújo",
+        "Isabela  Barros de AraÃºjo",
         "Daniela Filha da Heloisa",
         "Ana Caroline Rodrigues",
         "Lucia da Costa Oliveira",
         "Natalia Damasceno",
-        "Valéria Alve",
+        "ValÃ©ria Alve",
         "Victor Ivan Porto Ferreira Rocha",
-        "Diego Gregório",
+        "Diego GregÃ³rio",
         "Leia Alves",
         "karleia Neres de Souz",
         "Valdivino Filgueir",
@@ -44,7 +44,7 @@ export class StageComponent extends XStageComponent implements OnInit, AfterView
         "Hildiane Pereira Espindula ",
         "Maura Pereira Da Silva andrade",
         "Mariza Amaral",
-        "Débora Cristin"];
+        "DÃ©bora Cristin"];
 
     SelectValue(pValue: any)
     {
@@ -93,7 +93,7 @@ export class StageComponent extends XStageComponent implements OnInit, AfterView
     {
         try
         {
-            let view = XFactory.CreateApp(StageComponent.Instance, StageComponent.Instance, StageComponent.Instance.ElementContainer, pItem.SYSxComponenteID.Value);
+            let view = XFactory.CreateApp(StageComponent.Instance, StageComponent.Instance, StageComponent.Instance.ElementContainer, pItem.CORxRecursoID.Value);
             let nelm = <HTMLElement>view.location.nativeElement;
             (<any>nelm).View = view;
             nelm.parentElement?.removeChild(nelm);
@@ -101,7 +101,7 @@ export class StageComponent extends XStageComponent implements OnInit, AfterView
         }
         catch (Err)
         {
-            StageComponent.Instance.CloseByID(pItem.SYSxComponenteID.Value);
+            StageComponent.Instance.CloseByID(pItem.CORxRecursoID.Value);
             StageComponent.Instance.PrepareError(Err, "Erro ao Criar Aplicativo [" + pItem.Titulo + "]", pContainer);
         }
     }

@@ -16,7 +16,7 @@ namespace STX.App.Core.INF.Perfil
             Title = "Perfil de Acesso";
             Module = "STX.App.Core.INF";
             Icon = "";
-            MenuID = new Guid("657A9FA0-53A7-493F-90BB-9286D46C50C6");
+            MenuID = new Guid("99DF499E-844F-47EE-AEE6-C6462B18A3E0");
             Ordem = 1;
         }
     }

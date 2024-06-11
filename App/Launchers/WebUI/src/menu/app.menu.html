@@ -15,7 +15,7 @@
       <ul class="sub-menu">
         <li><a class="link_name" href="#">{{grp.Modulo}}</a></li>
         <li *ngFor="let item of grp.SubMenus">
-            <a id="{{item.SYSxComponenteID.Value}}" #refEl (click)="[Premiere(refEl)]">{{item.Titulo.Value}}</a>
+            <a id="{{item.CORxRecursoID.Value}}" #refEl (click)="[Premiere(refEl)]">{{item.Titulo.Value}}</a>
         </li>
       </ul>
     </li>

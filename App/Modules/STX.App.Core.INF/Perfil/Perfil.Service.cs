@@ -182,7 +182,7 @@ namespace STX.App.Core.INF.Perfil
             _Rule = new PerfilRule(this);
         }
 
-        private XIServiceRuleA _Rule;
+        private XIServiceRuleC _Rule;
 
         protected override XDBContext CreateContext(XDBContext pOwner)
         {
@@ -255,20 +255,38 @@ namespace STX.App.Core.INF.Perfil
 
         public PerfilDataSet GetByPK(PerfilRequest pRequest, Boolean pFull = true)
         {
-            var dataset = Select(pRequest, pFull);
+            var dataset = Select(pRequest, null, pFull);
             return dataset;
         }
 
-        public PerfilDataSet Select(PerfilRequest pRequest, Boolean pFull)
+        PerfilDataSet IPerfilService.Select(PerfilFilter pFilter, Boolean pFull = false)
+        {
+            var dataset = Select(null, pFilter, pFull);
+            return dataset;
+        }
+
+        public PerfilDataSet Select(PerfilRequest pRequest, PerfilFilter pFilter, Boolean pFull)
         {
             var ctx = Context;
             var query = from CORxPerfil in ctx.CORxPerfil
                         select new {CORxPerfil};
 
-            query = _Rule?.InternalGetWhere(query, pRequest, pFull);
+            query = _Rule?.InternalGetWhere(query,  pRequest, pFilter, pFull);
 
             if (pRequest != null)
                 query = query.Where(q => q.CORxPerfil.CORxPerfilID == pRequest.CORxPerfilID);
+
+            if (pFilter != null)
+            {
+                if (pFilter.Nome != null && pFilter.Nome.State != XFieldState.Empty)
+                    query = query.Where(q => q.CORxPerfil.Nome == pFilter.Nome.Value);
+            }
+
+            if (pFilter?.SkipRows > 0)
+                query = query.Skip(pFilter.SkipRows);
+
+            if (pFilter?.TakeRows > 0)
+                query = query.Take(pFilter.TakeRows);
 
             var PerfilDireito = pFull ? from CORxPerfilDireiro in ctx.CORxPerfilDireiro
                         join CORxDireiro in ctx.CORxDireiro on CORxPerfilDireiro.CORxDireiroID equals CORxDireiro.CORxDireiroID

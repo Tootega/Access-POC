@@ -8,22 +8,22 @@ export class UserMenuGrouped
 export class UserMenuTuple
 {
     Titulo: XDataField;
-    SYSxRecursoModuloID: XDataField;
-    SYSxRecursoTipoID: XDataField;
-    PrimaryKeyID: XDataField;
+    //SYSxRecursoModuloID: XDataField;
+    //SYSxRecursoTipoID: XDataField;
+    //PrimaryKeyID: XDataField;
     Ordem: XDataField;
-    Abreviatura: XDataField;
-    SYSxComponenteID: XDataField;
-    SYSxComponenteTipoID: XDataField;
-    SYSxEstadoID: XDataField;
-    Vezes: XDataField;
-    UltimaVez: XDataField;
+    //Abreviatura: XDataField;
+    CORxRecursoID: XDataField;
+    //SYSxComponenteTipoID: XDataField;
+    //SYSxEstadoID: XDataField;
+    //Vezes: XDataField;
+    //UltimaVez: XDataField;
     Modulo: XDataField;
-    Tipo: XDataField;
+    //Tipo: XDataField;
     Icone: XDataField;
-    TipoIcone: XDataField;
-    Externo: XDataField;
-    URL: XDataField;
-    Descricao: XDataField;
-    SYSxRecursoID: XDataField;
+    //TipoIcone: XDataField;
+    //Externo: XDataField;
+    //URL: XDataField;
+    //Descricao: XDataField;
+    //SYSxRecursoID: XDataField;
 }

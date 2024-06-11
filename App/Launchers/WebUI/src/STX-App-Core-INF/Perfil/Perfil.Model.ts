@@ -45,4 +45,9 @@ export namespace STXAppCoreINFPerfilPerfilMDL
     {
         CORxPerfilID?: string;
     }
+
+    export class PerfilFilter extends XFilter
+    {
+        Nome = new XDataField('Nome', XFieldState.Empty, () => 'XString', () => '');
+    }
 }

@@ -130,7 +130,7 @@ export class XSearchComponent<T extends XDataTuple, D extends XDataSet<T>> exten
     override ngAfterViewInit(): void
     {
         super.ngAfterViewInit();
-        this.SearchGrid.OnSelectionChange = () => this.SelectionChanged(<T>this.SearchGrid.SelectedTuple);
+        this.SearchGrid.OnSelectionChange = () => this.SelectionChanged(<T>this.SearchGrid?.SelectedTuple);
         this.SearchGrid.OnRowDBLClick = () => this.Edit(null);
 
         this.CloseBtn = this.GetHTMLElement(this.CloseBtnID);

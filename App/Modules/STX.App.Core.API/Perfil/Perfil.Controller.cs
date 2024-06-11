@@ -20,7 +20,7 @@ namespace STX.App.Core.INF.Perfil
         [HttpPost("GetByPK")]
         public PerfilDataSet GetByPK([FromBody] PerfilRequest pRequest)
         {
-            var dataset = _Service.Select(pRequest, true);
+            var dataset = _Service.Select(pRequest, null, true);
             return dataset;
         }
 
@@ -29,6 +29,13 @@ namespace STX.App.Core.INF.Perfil
         {
             _Service.Flush(pDataSet);
             return new OkResult();
+        }
+
+        [HttpPost("Search")]
+        public PerfilDataSet Search([FromBody] PerfilFilter pFilter)
+        {
+            var dataset = _Service.Select(null, pFilter, false);
+            return dataset;
         }
     }
 }

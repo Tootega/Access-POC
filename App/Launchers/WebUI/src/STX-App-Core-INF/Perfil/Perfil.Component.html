@@ -38,12 +38,69 @@
                         <span> Recuperar </span>
                     </button>
                 </div>
+                <div class='nav-item px-1' id='{{SearchBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Search($event)'>
+                        <i class='bi bi-search'></i>
+                        <span> Pesquisar </span>
+                    </button>
+                </div>
             </div>
         </nav>
     </div>
     <div id='{{FormAreaID}}'>
     </div>
     <div class='ttg-line-1'>
+    </div>
+    <div id='{{SearchAreaID}}'>
+        <form class='row g justify-content' (submit)="Search($event)" action="javascript:void(0);">
+                <div XStringEditor class='col-sm-16'  Field='Nome' Title='Nome do Perfil' [Tuple]='Filter'>
+                    <label for='ccd8bd5c-0252-45a3-8bee-e21343d3171b' class='form-label text-nowrap'>Nome do Perfil</label>
+                </div>
+        </form>
+        <div class='ttg-line-1'>
+        </div>
+        <XSearchGrid id='SearchGridInstance' Titles='Nome|Nome do Perfil' >
+            <table #Body class='w-100'>
+                <thead class='ttg-tb-hd t-100'>
+                    <tr class='w-100'>
+                        <ng-container #Container name='HeadContainer'>
+                            <ng-template #Template name='CheckTemplate' let-data='data'>
+                                <th class='text-nowrap' scope='col'>
+                                    <input type='checkbox' (click)='data.CheckedAll($event, {Body})'>
+                                </th>
+                            </ng-template>
+                        <ng-template #Template name='TitleTemplate' let-data='data'>
+                            <th class='text-nowrap' (click)='data.SortGrid($event, (data.Field))' scope='col'>
+                                    <i class='bi  pe-none'>
+                                    </i>
+                                    <span class='pe-none'>
+                                        {{data.Title}}
+                                    </span>
+                                </th>
+                            </ng-template>
+                        </ng-container>
+                    </tr>
+                </thead>
+                <tbody class='w-100'>
+                    <ng-container #Container name='RowContainer'>
+                        <ng-template #Template name='RowTemplate' let-data='data'>
+                            <tr class='ttg-row t-100' scope='row' [(attr.IsSelected)]='data.IsSelected'>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+                    <ng-template #Template name='ColumnTemplate' let-field='field'>
+                        <td>
+                            {{field.DisplayText}}
+                        </td>
+                    </ng-template>
+                    <ng-template #Template name='RowCheckTemplate' let-data='data'>
+                        <td>
+                            <input onclick='event.stopPropagation()' type='checkbox' [(checked)]='data.IsChecked'>
+                        </td>
+                    </ng-template>
+                </tbody>
+            </table>
+        </XSearchGrid>
     </div>
 </div>
 

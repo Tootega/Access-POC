@@ -18,25 +18,51 @@
         <XData Name="IsPK" ID="4C978027-1415-4708-B665-2CE6690CEBAC" Type="Boolean">true</XData>
       </XValues>
     </XSVCField>
-    <XSVCField ID="6C32F0F2-CA09-4F27-B38F-19FEA3A0B808" ParentID="8D3829BD-E71B-4A0C-B5E4-88390B68D88F">
+    <XSVCField ID="6C32F0F2-CA09-4F27-B38F-19FEA3A0B808" ParentID="8D3829BD-E71B-4A0C-B5E4-88390B68D88F" Name="Titulo">
       <XValues>
         <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="8D3829BD-E71B-4A0C-B5E4-88390B68D88F" Text="Nome" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="UserManu" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">8D3829BD-E71B-4A0C-B5E4-88390B68D88F</XParentData>
       </XValues>
     </XSVCField>
     <XSVCField ID="331A8292-4D91-4CA6-83D0-90740C245445" ParentID="2E56DA98-1E9D-4BA3-9811-0F037AA7E831">
       <XValues>
-        <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="2E56DA98-1E9D-4BA3-9811-0F037AA7E831" Text="UserDataField" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="UserManu" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">2E56DA98-1E9D-4BA3-9811-0F037AA7E831</XParentData>
+        <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="2E56DA98-1E9D-4BA3-9811-0F037AA7E831" Text="Modulo" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="UserManu" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">2E56DA98-1E9D-4BA3-9811-0F037AA7E831</XParentData>
+      </XValues>
+    </XSVCField>
+    <XSVCField ID="80518322-3F55-4754-A5D7-6FE1A0B378F7" ParentID="9DF65B61-DD2A-4492-BDD0-951F7CDDE891">
+      <XValues>
+        <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="9DF65B61-DD2A-4492-BDD0-951F7CDDE891" Text="Icone" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="UserManu" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">9DF65B61-DD2A-4492-BDD0-951F7CDDE891</XParentData>
+      </XValues>
+    </XSVCField>
+    <XSVCField ID="1C90FD79-1327-4375-9B69-2546CE5C1D88" ParentID="356EFB8B-1E4C-4A61-9815-937F7A977E0B">
+      <XValues>
+        <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="356EFB8B-1E4C-4A61-9815-937F7A977E0B" Text="Ordem" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="UserManu" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">356EFB8B-1E4C-4A61-9815-937F7A977E0B</XParentData>
       </XValues>
     </XSVCField>
   </XSVCResultSet>
   <XSVCUserFields Name="UserFields" ID="6A12278F-CFD6-4C73-96FC-4EE118993B91">
     <XValues />
-    <XSVCUserField ID="2E56DA98-1E9D-4BA3-9811-0F037AA7E831" Name="MenuGrupo">
+    <XSVCUserField ID="2E56DA98-1E9D-4BA3-9811-0F037AA7E831" Name="Modulo">
       <XValues>
         <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
           <XLanguage IETFCode="pt-br" IsDefault="true">User Data Field</XLanguage>
         </XData>
         <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62</XData>
+      </XValues>
+    </XSVCUserField>
+    <XSVCUserField ID="9DF65B61-DD2A-4492-BDD0-951F7CDDE891" Name="Icone">
+      <XValues>
+        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+          <XLanguage IETFCode="pt-br" IsDefault="true">User Data Field</XLanguage>
+        </XData>
+        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62</XData>
+      </XValues>
+    </XSVCUserField>
+    <XSVCUserField ID="356EFB8B-1E4C-4A61-9815-937F7A977E0B" Name="Ordem">
+      <XValues>
+        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+          <XLanguage IETFCode="pt-br" IsDefault="true">User Data Field</XLanguage>
+        </XData>
+        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">FAADA046-C1B9-4E89-9B64-310E272FC0CC</XData>
       </XValues>
     </XSVCUserField>
   </XSVCUserFields>

@@ -107,7 +107,7 @@ export class XStageComponent extends XComponent
     Premiere(pItem: UserMenuTuple)
     {
         let td = new XTabData();
-        td.ID = pItem.SYSxComponenteID.Value;
+        td.ID = pItem.CORxRecursoID.Value;
         td.Title = pItem.Titulo.Value;
         this.TabControl.AddTab(td);
         this.CreateApp(td.TabElement, pItem);
@@ -121,7 +121,7 @@ export class XStageComponent extends XComponent
     CreateApp(pElement: HTMLElement, pItem: UserMenuTuple)
     {
         this.DoLoad(pElement, pItem);
-        this.ShowApp(pItem.SYSxComponenteID.Value);
+        this.ShowApp(pItem.CORxRecursoID.Value);
     }
 
     DoLoad(pContainer: HTMLElement, pItem: UserMenuTuple)

@@ -3,8 +3,8 @@ using System;
 using System.Linq;
 using STX.Core.Model;
 using Microsoft.Extensions.DependencyInjection;
-using STX.App.Core.INF.Perfil;
 using STX.App.Core.INF.Menu;
+using STX.App.Core.INF.Perfil;
 
 namespace STX.App.Core.INF
 {
@@ -12,9 +12,9 @@ namespace STX.App.Core.INF
     {
         public override void Initialize(IServiceCollection pServices)
         {
+            pServices.AddScoped<IUserManuService, UserManuService>();
             pServices.AddScoped<IPerfilService, PerfilService>();
             pServices.AddScoped<IPerfilDireitoService, PerfilDireitoService>();
-            pServices.AddScoped<IUserManuService, UserManuService>();
         }
     }
 }

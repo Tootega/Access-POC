@@ -20,6 +20,23 @@ export namespace STXAppCoreINFPerfilPerfilSVC
         }
 
 
+        override DoSearch(pCallback: XMethod<XDataSet<XDataTuple>>)
+        {
+            let filter = new STXAppCoreINFPerfilPerfilMDL.PerfilFilter();
+            this.Search(filter, pCallback);
+        }
+
+        Search(pFilter: STXAppCoreINFPerfilPerfilMDL.PerfilFilter, pCallback: XMethod<STXAppCoreINFPerfilPerfilMDL.PerfilDataSet>)
+        {
+            let ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil/search`, pFilter);
+            ret.subscribe({
+                next: (dst) =>
+                {
+                    let ndst = new STXAppCoreINFPerfilPerfilMDL.PerfilDataSet(<any>dst);
+                    pCallback.apply(ndst, [ndst]);
+                }
+            });
+        }
 
         GetByPK(pRequest: STXAppCoreINFPerfilPerfilMDL.PerfilRequest, pCallback: XMethod<STXAppCoreINFPerfilPerfilMDL.PerfilDataSet>)
         {

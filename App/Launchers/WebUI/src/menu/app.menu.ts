@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit
 
     Premiere(pElement: HTMLElement)
     {
-        let menu = this.MenuItems.FirstOrNull(x => x.SYSxComponenteID.Value == pElement.id);
+        let menu = this.MenuItems.FirstOrNull(x => x.CORxRecursoID.Value == pElement.id);
         StageComponent.Instance.Premiere(menu);
     }
 

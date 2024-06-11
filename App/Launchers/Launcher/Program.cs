@@ -46,7 +46,7 @@ namespace Launcher
 
             ConfigureServices(builder.Services);
 
-            builder.Services.AddDbContext<STXAppCoreINFContext>();
+            //builder.Services.AddDbContext<STXAppCoreINFContext>();
             App = builder.Build();
             if (App.Environment.IsDevelopment())
             {

@@ -19,6 +19,11 @@ namespace STX.App.Core.INF.Perfil
         public PerfilDireitoTuple[] PerfilDireito {get;set;}
     }
 
+    public class PerfilFilter : XFilter
+    {
+        public XStringDataField Nome {get;set;}
+    }
+
     public class PerfilRequest : XRequest
     {
         public Guid CORxPerfilID {get;set;}
@@ -28,10 +33,11 @@ namespace STX.App.Core.INF.Perfil
     {
         void Flush(PerfilDataSet pDataSet);
         PerfilDataSet GetByPK(PerfilRequest pRequest, Boolean pFull = true);
-        PerfilDataSet Select(PerfilRequest pRequest, Boolean pFull);
+        PerfilDataSet Select(PerfilFilter pFilter, Boolean pFull = false);
+        PerfilDataSet Select(PerfilRequest pRequest, PerfilFilter pFilter, Boolean pFull);
     }
 
-    public abstract class BasePerfilRule : XServiceRuleA<List<PerfilTuple>, PerfilRequest>
+    public abstract class BasePerfilRule : XServiceRuleC<List<PerfilTuple>, PerfilFilter, PerfilRequest>
     {
         public BasePerfilRule(XService pOwner)
             :base(pOwner)

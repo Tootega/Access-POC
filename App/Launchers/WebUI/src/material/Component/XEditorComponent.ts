@@ -8,5 +8,5 @@ export class XEditorComponent extends XComponent
         super(pElmRef);
     }
     DataSet: XDataSet<XDataTuple>;
-    //CurrentTuple: XDataTuple;
+    
 }

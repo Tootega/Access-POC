@@ -29,8 +29,10 @@ namespace STX.App.Core.INF.Menu
                     var app = tp.CreateInstance<XSAMApplication>();
                     var tpl = new UserManuTuple();
                     tpl.CORxRecursoID = new XGuidDataField("CORxRecursoID", XFieldState.Unchanged, app.MenuID);
-                    tpl.Nome = new XStringDataField("Nome", XFieldState.Unchanged, app.Title);
-                    tpl.MenuGrupo = new XStringDataField("MenuGrupo", XFieldState.Unchanged, "POC");
+                    tpl.Titulo = new XStringDataField("Titulo", XFieldState.Unchanged, app.Title);
+                    tpl.Modulo = new XStringDataField("Modulo", XFieldState.Unchanged, "POC");
+                    tpl.Icone = new XStringDataField("Icone ", XFieldState.Unchanged, "X");
+                    tpl.Ordem = new XInt32DataField("Ordem ", XFieldState.Unchanged, 1);
                     pTuples.Add(tpl);
                 }
             }
