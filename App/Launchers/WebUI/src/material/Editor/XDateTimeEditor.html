@@ -1,0 +1,13 @@
+<ng-template #footerTemplate let-model="model">
+    <button class='btn btn-primary btn-sm m-1 float-start' (click)="Date = Today; d.toggle()">Hoje</button>
+    <button class='btn btn-secondary btn-sm m-1 float-end' (click)="d.toggle()">Fechar</button>
+</ng-template>
+
+<ng-content></ng-content>
+<div class="input-group">
+    <input class="form-control" ngbDatepicker (dateSelect)="OnSelected($event)" [footerTemplate]="footerTemplate" #d="ngbDatepicker" />
+    <button class="btn btn-primary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+</div>
+
+
+

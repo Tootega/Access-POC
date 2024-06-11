@@ -9,13 +9,13 @@ namespace STX.Core.Access.Usuarios
     [ApiController]
     public class UsuariosAtivosController : XController
     {
-        public UsuariosAtivosController(UsuariosAtivosService pService, ILogger<XController> pLogger)
+        public UsuariosAtivosController(IUsuariosAtivosService pService, ILogger<XController> pLogger)
                :base(pLogger)
         {
             _Service = pService;
         }
 
-        private readonly UsuariosAtivosService _Service;
+        private readonly IUsuariosAtivosService _Service;
 
         [HttpPost("GetByPK")]
         public UsuariosAtivosDataSet GetByPK([FromBody] UsuariosAtivosRequest pRequest)

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core.Access.DB;
 using STX.Core.Model;
 using STX.Core.Interfaces;
 using STX.Access.Model;
@@ -36,6 +35,7 @@ namespace STX.Core.Access.Usuarios
         void Flush(UsuariosAtivosDataSet pDataSet);
         UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true);
         UsuariosAtivosDataSet Select(UsuariosAtivosFilter pFilter, Boolean pFull = false);
+        UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull);
     }
 
     public abstract class BaseUsuariosAtivosRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>

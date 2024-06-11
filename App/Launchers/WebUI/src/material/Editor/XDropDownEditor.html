@@ -1,0 +1,10 @@
+<ng-content></ng-content>
+<div class="input-group">
+    <input class="form-control" [value]="DisplayText" />
+    <button class="btn btn-primary bi bi-caret-down-square" type="button" (click)="DoShow($event)"></button>
+</div>
+
+<div id="POP{{UUID}}" class="dropdown-menu" style="padding:0">
+    <div XDropDownGrid id="GRD{{UUID}}">
+    </div>
+</div>

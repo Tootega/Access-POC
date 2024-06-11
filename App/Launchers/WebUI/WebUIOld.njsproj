@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="..\..\packages\Microsoft.TypeScript.MSBuild.4.5.2\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\..\packages\Microsoft.TypeScript.MSBuild.4.5.2\build\Microsoft.TypeScript.MSBuild.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>NodejsConsoleApp1</Name>
+    <RootNamespace>NodejsConsoleApp1</RootNamespace>
+    <SaveNodeJsSettingsInProjectFile>False</SaveNodeJsSettingsInProjectFile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Build</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{bfc13e6b-bf88-4291-badc-23dfa1d104cd}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <StartWebBrowser>False</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\assets\" />
+    <Folder Include="src\assets\favicon\" />
+    <Folder Include="src\assets\images\" />
+    <Folder Include="src\assets\images\themes\" />
+    <Folder Include="src\environments\" />
+    <Folder Include="src\material\" />
+    <Folder Include="src\material\Component\" />
+    <Folder Include="src\material\Data\" />
+    <Folder Include="src\material\Editor\" />
+    <Folder Include="src\material\Factory\" />
+    <Folder Include="src\material\Forms\" />
+    <Folder Include="src\material\Mask\" />
+    <Folder Include="src\material\TabControl\" />
+    <Folder Include="src\material\Table\" />
+    <Folder Include="src\material\Utils\" />
+    <Folder Include="src\menu\" />
+    <Folder Include="src\stage\" />
+    <Folder Include="src\STX.App.Core.Web\" />
+    <Folder Include="src\STX.App.Core.Web\Perfil\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular.json" />
+    <Content Include="karma.conf.js" />
+    <Content Include="src\assets\.gitkeep" />
+    <Content Include="src\assets\favicon\android-icon-144x144.png" />
+    <Content Include="src\assets\favicon\android-icon-192x192.png" />
+    <Content Include="src\assets\favicon\android-icon-36x36.png" />
+    <Content Include="src\assets\favicon\android-icon-48x48.png" />
+    <Content Include="src\assets\favicon\android-icon-72x72.png" />
+    <Content Include="src\assets\favicon\android-icon-96x96.png" />
+    <Content Include="src\assets\favicon\apple-icon-114x114.png" />
+    <Content Include="src\assets\favicon\apple-icon-120x120.png" />
+    <Content Include="src\assets\favicon\apple-icon-144x144.png" />
+    <Content Include="src\assets\favicon\apple-icon-152x152.png" />
+    <Content Include="src\assets\favicon\apple-icon-180x180.png" />
+    <Content Include="src\assets\favicon\apple-icon-57x57.png" />
+    <Content Include="src\assets\favicon\apple-icon-60x60.png" />
+    <Content Include="src\assets\favicon\apple-icon-72x72.png" />
+    <Content Include="src\assets\favicon\apple-icon-76x76.png" />
+    <Content Include="src\assets\favicon\apple-icon-precomposed.png" />
+    <Content Include="src\assets\favicon\apple-icon.png" />
+    <Content Include="src\assets\favicon\browserconfig.xml" />
+    <Content Include="src\assets\favicon\favicon-16x16.png" />
+    <Content Include="src\assets\favicon\favicon-32x32.png" />
+    <Content Include="src\assets\favicon\favicon-96x96.png" />
+    <Content Include="src\assets\favicon\favicon.ico" />
+    <Content Include="src\assets\favicon\manifest.json" />
+    <Content Include="src\assets\favicon\ms-icon-144x144.png" />
+    <Content Include="src\assets\favicon\ms-icon-150x150.png" />
+    <Content Include="src\assets\favicon\ms-icon-310x310.png" />
+    <Content Include="src\assets\favicon\ms-icon-70x70.png" />
+    <Content Include="src\assets\images\themes\arya-blue.png" />
+    <Content Include="src\assets\images\themes\arya-green.png" />
+    <Content Include="src\assets\images\themes\arya-orange.png" />
+    <Content Include="src\assets\images\themes\arya-purple.png" />
+    <Content Include="src\assets\images\themes\bootstrap4-dark-blue.svg" />
+    <Content Include="src\assets\images\themes\bootstrap4-dark-purple.svg" />
+    <Content Include="src\assets\images\themes\bootstrap4-light-blue.svg" />
+    <Content Include="src\assets\images\themes\bootstrap4-light-purple.svg" />
+    <Content Include="src\assets\images\themes\fluent-light.png" />
+    <Content Include="src\assets\images\themes\luna-amber.png" />
+    <Content Include="src\assets\images\themes\luna-blue.png" />
+    <Content Include="src\assets\images\themes\luna-green.png" />
+    <Content Include="src\assets\images\themes\luna-pink.png" />
+    <Content Include="src\assets\images\themes\md-dark-deeppurple.svg" />
+    <Content Include="src\assets\images\themes\md-dark-indigo.svg" />
+    <Content Include="src\assets\images\themes\md-light-deeppurple.svg" />
+    <Content Include="src\assets\images\themes\md-light-indigo.svg" />
+    <Content Include="src\assets\images\themes\mira.jpg" />
+    <Content Include="src\assets\images\themes\nano.jpg" />
+    <Content Include="src\assets\images\themes\nova-accent.png" />
+    <Content Include="src\assets\images\themes\nova-alt.png" />
+    <Content Include="src\assets\images\themes\nova-vue.png" />
+    <Content Include="src\assets\images\themes\nova.png" />
+    <Content Include="src\assets\images\themes\rhea.png" />
+    <Content Include="src\assets\images\themes\saga-blue.png" />
+    <Content Include="src\assets\images\themes\saga-green.png" />
+    <Content Include="src\assets\images\themes\saga-orange.png" />
+    <Content Include="src\assets\images\themes\saga-purple.png" />
+    <Content Include="src\assets\images\themes\soho-dark.png" />
+    <Content Include="src\assets\images\themes\soho-light.png" />
+    <Content Include="src\assets\images\themes\vela-blue.png" />
+    <Content Include="src\assets\images\themes\vela-green.png" />
+    <Content Include="src\assets\images\themes\vela-orange.png" />
+    <Content Include="src\assets\images\themes\vela-purple.png" />
+    <Content Include="src\assets\images\themes\viva-dark.svg" />
+    <Content Include="src\assets\images\themes\viva-light.svg" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\material\Editor\XDateEditor.html" />
+    <Content Include="src\material\Editor\XDateTimeEditor.html" />
+    <Content Include="src\material\Editor\XDecimalEditor.html" />
+    <Content Include="src\material\Editor\XDropDownEditor.html" />
+    <Content Include="src\material\Editor\XSearchEditor.html" />
+    <Content Include="src\material\Editor\XStringEditor.html" />
+    <Content Include="src\material\Editor\XTimeEditor.html" />
+    <Content Include="src\material\Forms\XFormTabControl.html" />
+    <Content Include="src\material\TabControl\XMainTabControl.html" />
+    <Content Include="src\material\TabControl\XTabControl.html" />
+    <Content Include="src\material\Table\XDropDownGrid.html" />
+    <Content Include="src\material\Table\XTable.html" />
+    <Content Include="src\menu\app.menu.html" />
+    <Content Include="src\menu\app.menu.scss" />
+    <Content Include="src\stage\stage.component.css" />
+    <Content Include="src\stage\stage.component.html" />
+    <Content Include="src\styles.scss" />
+    <Content Include="tsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\material\Component\XComponent.ts" />
+    <TypeScriptCompile Include="src\material\Component\XEditorComponent.ts" />
+    <TypeScriptCompile Include="src\material\Component\XSearchComponent.ts" />
+    <TypeScriptCompile Include="src\material\Component\XSplash.ts" />
+    <TypeScriptCompile Include="src\material\Component\XStageComponent.ts" />
+    <TypeScriptCompile Include="src\material\Data\Menu.Model.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XDateEditor.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XDateTimeEditor.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XDecimalEditor.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XDropDownEditor.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XEditor.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XSearchEditor.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XStringEditor.ts" />
+    <TypeScriptCompile Include="src\material\Editor\XTimeEditor.ts" />
+    <TypeScriptCompile Include="src\material\Factory\XFactory.ts" />
+    <TypeScriptCompile Include="src\material\Forms\XFormTabControl.ts" />
+    <TypeScriptCompile Include="src\material\Mask\XBaseMask.ts" />
+    <TypeScriptCompile Include="src\material\Mask\XDateMask.ts" />
+    <TypeScriptCompile Include="src\material\Mask\XDecimal.ts" />
+    <TypeScriptCompile Include="src\material\Mask\XDecimalMask.ts" />
+    <TypeScriptCompile Include="src\material\Mask\XStringMask.ts" />
+    <TypeScriptCompile Include="src\material\Mask\XVarManager.ts" />
+    <TypeScriptCompile Include="src\material\TabControl\XMainTabControl.ts" />
+    <TypeScriptCompile Include="src\material\TabControl\XTabControl.ts" />
+    <TypeScriptCompile Include="src\material\Table\XDropDownGrid.ts" />
+    <TypeScriptCompile Include="src\material\Table\XSearchGrid.ts" />
+    <TypeScriptCompile Include="src\material\Table\XTable.ts" />
+    <TypeScriptCompile Include="src\material\Utils\XMatUtils.ts" />
+    <TypeScriptCompile Include="src\material\XTootega.ts" />
+    <TypeScriptCompile Include="src\menu\app.menu.ts" />
+    <TypeScriptCompile Include="src\menu\user-menu.service.ts" />
+    <TypeScriptCompile Include="src\stage\stage.component.ts" />
+    <TypeScriptCompile Include="src\stage\GlobalErrorHandler.ts" />
+    <TypeScriptCompile Include="src\stage\stage.module.ts" />
+    <TypeScriptCompile Include="src\stage\theme.service.ts" />
+    <TypeScriptCompile Include="src\STX.App.Core.Web\Perfil\PerfilDireito.Model.ts" />
+    <TypeScriptCompile Include="src\STX.App.Core.Web\Perfil\PerfilDireito.Service.Rule.ts" />
+    <TypeScriptCompile Include="_references.ts" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+  </Target>
+  <Import Project="..\..\packages\Microsoft.TypeScript.MSBuild.4.5.2\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\..\packages\Microsoft.TypeScript.MSBuild.4.5.2\build\Microsoft.TypeScript.MSBuild.targets')" />
+</Project>

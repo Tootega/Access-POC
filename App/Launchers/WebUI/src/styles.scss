@@ -1,0 +1,324 @@
+html, body {
+    min-height: 600px;
+    max-height: 100%;
+    min-width: 700px;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--surface-a);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+.btn {
+    line-height: 0.8em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
+
+ttg-rowg {
+    line-height: 1.5rem;
+}
+
+.ttg-rowg:hover {
+    background-color: rgba(var(--bs-primary-rgb), .10);
+}
+
+.ttg-rowg[isselected=true] {
+    background-color: rgba(var(--bs-primary-rgb), .15);
+}
+
+.ttg-row {
+    line-height: 2.5rem;
+}
+
+.ttg-row:hover {
+    background-color: rgba(var(--bs-primary-rgb), .10);
+}
+
+.ttg-row[isselected=true] {
+    background-color: rgba(var(--bs-primary-rgb), .15);
+}
+
+.form-control {
+    line-height: 1.8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.form-label {
+    margin-bottom: 0;
+}
+
+.ttg-line-1 {
+    height: 0.5em;
+}
+
+.ttg-display {
+}
+
+.ttg-display[visible=true] {
+    display: unset;
+}
+
+.ttg-display[visible=false] {
+    display: none;
+}
+
+.ttg-cel {
+    pointer-events: none
+}
+
+.ttg-navbar {
+    background-image: linear-gradient(180deg, rgba(var(--bs-primary-rgb), .10), rgba(var(--bs-primary-rgb), .15));
+}
+
+.ttg-tb-hd {
+    background-image: linear-gradient(180deg, rgba(var(--bs-primary-rgb), .20), rgba(var(--bs-primary-rgb), .25));
+}
+
+.ttg-bar-btn {
+    width: 2.3rem;
+    height: 2.3rem;
+}
+
+.container-fluid {
+    max-height: 100%;
+}
+
+.ttg-ttab-sl {
+    line-height: 0.7rem;
+}
+
+.ttg-h-1 {
+    height: 1rem;
+}
+
+.navbar {
+    --bs-navbar-padding-y: 0.0rem;
+}
+
+.modal {
+    --bs-modal-header-padding: 0.2rem 1rem;
+    --bs-modal-padding: 0.5rem;
+}
+
+@media (min-width: 576px) {
+    .col-sm-31 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .col-sm-31 {
+        flex: 0 0 auto;
+        width: 96.875%;
+    }
+
+    .col-sm-30 {
+        flex: 0 0 auto;
+        width: 93.75%;
+    }
+
+    .col-sm-29 {
+        flex: 0 0 auto;
+        width: 90.625%;
+    }
+
+    .col-sm-28 {
+        flex: 0 0 auto;
+        width: 87.5%;
+    }
+
+    .col-sm-27 {
+        flex: 0 0 auto;
+        width: 84.375%;
+    }
+
+    .col-sm-26 {
+        flex: 0 0 auto;
+        width: 81.25%;
+    }
+
+    .col-sm-25 {
+        flex: 0 0 auto;
+        width: 78.125%;
+    }
+
+    .col-sm-24 {
+        flex: 0 0 auto;
+        width: 75%;
+    }
+
+    .col-sm-23 {
+        flex: 0 0 auto;
+        width: 71.875%;
+    }
+
+    .col-sm-22 {
+        flex: 0 0 auto;
+        width: 68.75%;
+    }
+
+    .col-sm-21 {
+        flex: 0 0 auto;
+        width: 65.625%;
+    }
+
+    .col-sm-20 {
+        flex: 0 0 auto;
+        width: 62.5%;
+    }
+
+    .col-sm-19 {
+        flex: 0 0 auto;
+        width: 59.375%;
+    }
+
+    .col-sm-18 {
+        flex: 0 0 auto;
+        width: 56.25%;
+    }
+
+    .col-sm-17 {
+        flex: 0 0 auto;
+        width: 53.125%;
+    }
+
+    .col-sm-16 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    .col-sm-15 {
+        flex: 0 0 auto;
+        width: 46.875%;
+    }
+
+    .col-sm-14 {
+        flex: 0 0 auto;
+        width: 43.75%;
+    }
+
+    .col-sm-13 {
+        flex: 0 0 auto;
+        width: 40.625%;
+    }
+
+    .col-sm-12 {
+        flex: 0 0 auto;
+        width: 37.5%;
+    }
+
+    .col-sm-11 {
+        flex: 0 0 auto;
+        width: 34.375%;
+    }
+
+    .col-sm-10 {
+        flex: 0 0 auto;
+        width: 31.25%;
+    }
+
+    .col-sm-9 {
+        flex: 0 0 auto;
+        width: 28.125%;
+    }
+
+    .col-sm-8 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+
+    .col-sm-7 {
+        flex: 0 0 auto;
+        width: 21.875%;
+    }
+
+    .col-sm-6 {
+        flex: 0 0 auto;
+        width: 18.75%;
+    }
+
+    .col-sm-5 {
+        flex: 0 0 auto;
+        width: 15.625%;
+    }
+
+    .col-sm-4 {
+        flex: 0 0 auto;
+        width: 12.5%;
+    }
+
+    .col-sm-3 {
+        flex: 0 0 auto;
+        width: 9.375%;
+    }
+
+    .col-sm-2 {
+        flex: 0 0 auto;
+        width: 6.25%;
+    }
+
+    .col-sm-1 {
+        flex: 0 0 auto;
+        width: 3.125%;
+    }
+}
+
+.MenuContainer {
+    width: 20%;
+    background: #f2f8ff;
+    overflow-y: auto;
+}
+
+.StageContainer {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 80%;
+}
+
+.block-div {
+    display: inline-flex;
+}
+
+.t-form {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.t-editor {
+    padding: 0px 5px 0px 5px;
+}
+
+.t-editor-label {
+    height: 10px;
+}
+
+.t-button {
+    width: 125px
+}
+
+.t-line {
+    height: 12px;
+    width: 100%;
+    background: linear-gradient(transparent, transparent), linear-gradient(#407fe53b, #407fe53b), linear-gradient(transparent, transparent);
+    background-size: 0px 0px, 100% 3px, 0px 0px;
+    background-position: bottom left, bottom center, bottom right;
+    background-repeat: no-repeat;
+    margin-bottom: 8px;
+}
+
+@import "~node_modules/bootstrap/dist/css/bootstrap.css";
+@import "~node_modules/bootstrap/dist/css/bootstrap-utilities.css";
+@import "~node_modules/bootstrap/dist/css/bootstrap-grid.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+    --MenuWidth: 80px;
+}

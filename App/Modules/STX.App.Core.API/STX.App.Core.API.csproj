@@ -2,19 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <MyType>DASE</MyType>
     </PropertyGroup>
-
-    <ItemGroup>
-      <None Remove="STX.App.Core.API.dsmdl" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include="STX.App.Core.API.dsmdl">
-        <Generator>XDASEGenerator</Generator>
-        <LastGenOutput>STX.App.Core.API.cs</LastGenOutput>
-      </Content>
-    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />

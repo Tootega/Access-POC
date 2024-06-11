@@ -70,11 +70,13 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Perfil.dssvc</DependentUpon>
+        <Visible>False</Visible>
       </Compile>
       <Compile Update="Perfil\PerfilDireito.Service.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>PerfilDireito.dssvc</DependentUpon>
+        <Visible>False</Visible>
       </Compile>
       <Compile Update="Properties\AssemblyInfo.cs">
         <Visible>True</Visible>

@@ -1,0 +1,25 @@
+<div class="w-100 h-100">
+    <div class="row">
+        <ul class="nav nav-tabs innerTab" role="tablist">
+            <ng-container #TabHeaderContent>
+                <ng-template #TabHeaderTemplate let-data='data'>
+                    <li class='nav-item ttg-ttab-sl' role='presentation'>
+                        <button id="a{{data.ID}}-hd" data-bs-toggle="tab" attr.data-bs-target="#a{{data.ID}}-tb" type="button" role="tab" attr.aria-controls="a{{data.ID}}-tb" class="nav-link">
+                            {{data.Title}}
+                        </button>
+                    </li>
+                </ng-template>
+            </ng-container>
+        </ul>
+    </div>
+    <div class="row h-100">
+        <div class="tab-content">
+            <ng-container #TabContent>
+                <ng-template #TabTemplate let-data='data'>
+                    <div class='tab-pane show h-100' id='a{{data.ID}}-tb' role='tabpanel' attr.aria-labelledby='a{{data.ID}}-hd'>           
+                    </div>
+                </ng-template>
+            </ng-container>
+        </div>
+    </div>
+</div>

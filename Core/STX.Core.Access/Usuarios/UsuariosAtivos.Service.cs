@@ -12,7 +12,7 @@ using STX.Core.Access.Usuarios;
 
 namespace STX.Core.Access.Usuarios
 {
-    public class UsuariosAtivosService : XService
+    public class UsuariosAtivosService : XService     , IUsuariosAtivosService
     {
         public class DBContext : XDBContext
         {
@@ -150,6 +150,16 @@ namespace STX.Core.Access.Usuarios
             var dataset = new UsuariosAtivosDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;
+        }
+
+        public UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, bool pFull = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UsuariosAtivosDataSet Select(UsuariosAtivosFilter pFilter, bool pFull = false)
+        {
+            throw new NotImplementedException();
         }
     }
 }

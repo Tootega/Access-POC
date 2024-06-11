@@ -1,0 +1,30 @@
+{
+  "compileOnSave": true,
+  "noEmitOnError": false,
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [],
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": false,
+        /* Basic Options */
+        "noEmitOnError": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        //"noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": false,
+        "outFile": "../../App/Launchers/WebUI/src/lib/index.js",
+        "target": "ES2018",
+        "module": "system",
+        "strict": false,
+        "lib": [ "DOM", "DOM.Iterable", "ESNext", "ES2018" ],
+        "esModuleInterop": true,
+        "noFallthroughCasesInSwitch": true,
+        "composite": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true
+    }
+}
