@@ -66,41 +66,15 @@
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
-      <Compile Update="Perfil\Perfil.DataSet.cs">
-        <Visible>False</Visible>
-        <DependentUpon>Perfil.dssvc</DependentUpon>
-      </Compile>
-      <Compile Update="Perfil\Perfil.Rule.cs">
-        <Visible>True</Visible>
-        <DependentUpon>Perfil.dssvc</DependentUpon>
-      </Compile>
       <Compile Update="Perfil\Perfil.Service.cs">
-        <Visible>False</Visible>
-        <DependentUpon>Perfil.dssvc</DependentUpon>
-      </Compile>
-      <Compile Update="Perfil\Perfil.Controller.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Perfil.dssvc</DependentUpon>
-        <Visible>False</Visible>
-      </Compile>
-      <Compile Update="Perfil\PerfilDireito.DataSet.cs">
-        <Visible>False</Visible>
-        <DependentUpon>PerfilDireito.dssvc</DependentUpon>
-      </Compile>
-      <Compile Update="Perfil\PerfilDireito.Rule.cs">
-        <Visible>True</Visible>
-        <DependentUpon>PerfilDireito.dssvc</DependentUpon>
       </Compile>
       <Compile Update="Perfil\PerfilDireito.Service.cs">
-        <Visible>False</Visible>
-        <DependentUpon>PerfilDireito.dssvc</DependentUpon>
-      </Compile>
-      <Compile Update="Perfil\PerfilDireito.Controller.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>PerfilDireito.dssvc</DependentUpon>
-        <Visible>False</Visible>
       </Compile>
       <Compile Update="Properties\AssemblyInfo.cs">
         <Visible>True</Visible>
@@ -120,11 +94,11 @@
       </None>
       <None Update="Perfil\Perfil.dssvc">
         <Generator>XDASEGenerator</Generator>
-        <LastGenOutput>Perfil.Controller.cs</LastGenOutput>
+        <LastGenOutput>Perfil.Service.cs</LastGenOutput>
       </None>
       <None Update="Perfil\PerfilDireito.dssvc">
         <Generator>XDASEGenerator</Generator>
-        <LastGenOutput>PerfilDireito.Controller.cs</LastGenOutput>
+        <LastGenOutput>PerfilDireito.Service.cs</LastGenOutput>
       </None>
     </ItemGroup>
 

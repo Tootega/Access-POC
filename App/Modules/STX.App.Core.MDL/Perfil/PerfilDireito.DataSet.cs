@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core.Access.DB;
 using STX.Core.Model;
 using STX.Core.Interfaces;
 using STX.Access.Model;
@@ -32,6 +31,7 @@ namespace STX.App.Core.INF.Perfil
     {
         void Flush(PerfilDireitoDataSet pDataSet);
         PerfilDireitoDataSet GetByPK(PerfilDireitoRequest pRequest, Boolean pFull = true);
+        PerfilDireitoDataSet Select(PerfilDireitoRequest pRequest, Boolean pFull);
     }
 
     public abstract class BasePerfilDireitoRule : XServiceRuleA<List<PerfilDireitoTuple>, PerfilDireitoRequest>

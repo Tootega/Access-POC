@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
+    <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
+    <ProjectReference Include="..\..\Modules\STX.App.Core.API\STX.App.Core.API.csproj" />
+    <ProjectReference Include="..\..\Modules\STX.App.Core.INF\STX.App.Core.INF.csproj" />
+    <ProjectReference Include="..\..\Modules\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
+    <ProjectReference Include="..\..\Modules\STX.App.Core.RLE\STX.App.Core.RLE.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\AssemblyInfo.cs">
+      <Visible>True</Visible>
+    </Compile>
+  </ItemGroup>
+
+</Project>

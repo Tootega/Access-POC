@@ -14,7 +14,7 @@ using STX.App.Core.INF.DB;
 
 namespace STX.App.Core.INF.Perfil
 {
-    public class PerfilService : XService
+    public class PerfilService : XService, IPerfilService
     {
         public class DBContext : XDBContext
         {
@@ -251,6 +251,12 @@ namespace STX.App.Core.INF.Perfil
                     ctx.SaveChanges();
                 }
             }
+        }
+
+        public PerfilDataSet GetByPK(PerfilRequest pRequest, Boolean pFull = true)
+        {
+            var dataset = Select(pRequest, pFull);
+            return dataset;
         }
 
         public PerfilDataSet Select(PerfilRequest pRequest, Boolean pFull)

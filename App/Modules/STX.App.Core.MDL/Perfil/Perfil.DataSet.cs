@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core.Access.DB;
 using STX.Core.Model;
 using STX.Core.Interfaces;
 using STX.Access.Model;
@@ -29,6 +28,7 @@ namespace STX.App.Core.INF.Perfil
     {
         void Flush(PerfilDataSet pDataSet);
         PerfilDataSet GetByPK(PerfilRequest pRequest, Boolean pFull = true);
+        PerfilDataSet Select(PerfilRequest pRequest, Boolean pFull);
     }
 
     public abstract class BasePerfilRule : XServiceRuleA<List<PerfilTuple>, PerfilRequest>

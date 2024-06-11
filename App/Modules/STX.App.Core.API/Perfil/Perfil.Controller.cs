@@ -5,27 +5,27 @@ using STX.Core.Controllers;
 
 namespace STX.App.Core.INF.Perfil
 {
-    [Route("STXAppCoreINF/Perfil/PerfilDireito")]
+    [Route("STXAppCoreINF/Perfil/Perfil")]
     [ApiController]
-    public class PerfilDireitoController : XController
+    public class PerfilController : XController
     {
-        public PerfilDireitoController(PerfilDireitoService pService, ILogger<XController> pLogger)
+        public PerfilController(IPerfilService pService, ILogger<XController> pLogger)
                :base(pLogger)
         {
             _Service = pService;
         }
 
-        private readonly PerfilDireitoService _Service;
+        private readonly IPerfilService _Service;
 
         [HttpPost("GetByPK")]
-        public PerfilDireitoDataSet GetByPK([FromBody] PerfilDireitoRequest pRequest)
+        public PerfilDataSet GetByPK([FromBody] PerfilRequest pRequest)
         {
             var dataset = _Service.Select(pRequest, true);
             return dataset;
         }
 
         [HttpPost("Flush")]
-        public IActionResult Flush([FromBody] PerfilDireitoDataSet pDataSet)
+        public IActionResult Flush([FromBody] PerfilDataSet pDataSet)
         {
             _Service.Flush(pDataSet);
             return new OkResult();
