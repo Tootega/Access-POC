@@ -45,7 +45,7 @@ namespace Launcher
             App.UseAuthorization();
 
             App.MapControllers();
-            App.Run("http://+:5020");
+            App.Run("http://+:5000");
         }
 
         private static void Initialize()
