@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StageComponent } from './stage.component';
 import { FormsModule } from '@angular/forms';
-import { MenuComponent } from '../menu/app.menu';
-import { UserMenuService } from '../menu/user-menu.service';
+import { MenuComponent } from '../app/app.menu';
+import { UserMenuService } from '../app/user-menu.service';
 
 import { GlobalErrorHandler } from './GlobalErrorHandler';
 import { MatDatepickerModule } from '@angular/material/datepicker';

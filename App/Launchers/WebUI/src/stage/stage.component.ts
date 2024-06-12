@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerR
 import { Modal } from 'bootstrap';
 import { XStageComponent } from '../material/Component/XStageComponent';
 import { XFactory } from '../material/Factory/XFactory';
-import { UserMenuTuple } from '../menu/user-menu.service';
+import { UserMenuTuple } from '../app/user-menu.service';
 
 @Component({
     selector: 'div[stage-root]',
