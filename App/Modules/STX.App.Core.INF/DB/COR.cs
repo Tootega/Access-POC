@@ -29,7 +29,7 @@ namespace STX.App.Core.INF.DB
         public DbSet<CORxPerfil> CORxPerfil{get; set;}
         public DbSet<CORxPerfilDireiro> CORxPerfilDireiro{get; set;}
         public DbSet<CORxPessoa> CORxPessoa{get; set;}
-        public DbSet<CORxPessoaFisiac> CORxPessoaFisiac{get; set;}
+        public DbSet<CORxPessoaFisica> CORxPessoaFisica{get; set;}
         public DbSet<CORxRecurso> CORxRecurso{get; set;}
         public DbSet<CORxRecursoDireito> CORxRecursoDireito{get; set;}
         public DbSet<CORxUsuario> CORxUsuario{get; set;}
@@ -41,7 +41,7 @@ namespace STX.App.Core.INF.DB
             ConfigureCORxPerfil(pBuilder);
             ConfigureCORxPerfilDireiro(pBuilder);
             ConfigureCORxPessoa(pBuilder);
-            ConfigureCORxPessoaFisiac(pBuilder);
+            ConfigureCORxPessoaFisica(pBuilder);
             ConfigureCORxRecurso(pBuilder);
             ConfigureCORxRecursoDireito(pBuilder);
             ConfigureCORxUsuario(pBuilder);
@@ -139,27 +139,27 @@ namespace STX.App.Core.INF.DB
             });
         }
 
-        private void ConfigureCORxPessoaFisiac(ModelBuilder pBuilder)
+        private void ConfigureCORxPessoaFisica(ModelBuilder pBuilder)
         {
-            pBuilder.Entity<CORxPessoaFisiac>(ett =>
+            pBuilder.Entity<CORxPessoaFisica>(ett =>
             {
-                ett.HasKey(e => e.CORxPessoaFisiacID).HasName("PK_CORxPessoaFisiac");
+                ett.HasKey(e => e.CORxPessoaFisicaID).HasName("PK_CORxPessoaFisica");
                 
-                ett.Property(d => d.CORxPessoaFisiacID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.CORxPessoaFisicaID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 150, 0));
-                ett.Property(d => d.Endereco).HasColumnType(GetDBType("String", 150, 0));
+                ett.Property(d => d.Enderecos).HasColumnType(GetDBType("String", 150, 0));
                 ett.Property(d => d.CORxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.ToTable("CORxPessoaFisiac");
+                ett.ToTable("CORxPessoaFisica");
 
                 ett.HasOne(d => d.CORxUsuario)
-                  .WithMany(p => p.CORxPessoaFisiac)
+                  .WithMany(p => p.CORxPessoaFisica)
                    .HasForeignKey(d => d.CORxUsuarioID)
                    .OnDelete(DeleteBehavior.Restrict)
                    .HasConstraintName("FK_8F4837CF83834503A361901ABE856933");
 
                 ett.HasIndex(d => d.CORxUsuarioID).HasDatabaseName("IX_8F4837CF83834503A361901ABE856933");
 
-                ett.HasIndex(e => new { e.CORxUsuarioID, e.Endereco })
+                ett.HasIndex(e => new { e.CORxUsuarioID, e.Enderecos })
                     .IsUnique()
                     .HasDatabaseName("IX_04649D25_B2D7_4F39_BB3E_C637F0FE92A2");
             });

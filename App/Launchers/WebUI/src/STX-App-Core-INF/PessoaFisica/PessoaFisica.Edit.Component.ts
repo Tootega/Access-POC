@@ -24,7 +24,7 @@ import { XEditorComponent } from '../../material/Component/XEditorComponent';
         GetByPK(pPKValue: any)
         {
             let request = new STXAppCoreINFPessoaFisicaPessoaFisicaMDL.PessoaFisicaRequest();
-            request.CORxPessoaFisiacID = pPKValue;
+            request.CORxPessoaFisicaID = pPKValue;
             this._PessoaFisicaService.GetByPK(request, (dst) => {this.DataSet = dst});
         }
     }

@@ -27,7 +27,7 @@ import { XSearchComponent } from 'material/Component/XSearchComponent';
         override  DoLoadByPK(pPKValue: any, pCallBack: XMethod<STXAppCoreINFPessoaFisicaPessoaFisicaMDL.PessoaFisicaDataSet>)
         {
             let request = new STXAppCoreINFPessoaFisicaPessoaFisicaMDL.PessoaFisicaRequest();
-            request.CORxPessoaFisiacID = pPKValue;
+            request.CORxPessoaFisicaID = pPKValue;
             this._PessoaFisicaService.GetByPK(request, pCallBack);
         }
 

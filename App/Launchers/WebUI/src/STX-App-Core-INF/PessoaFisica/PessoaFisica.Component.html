@@ -53,14 +53,14 @@
     </div>
     <div id='{{SearchAreaID}}'>
         <form class='row g justify-content' (submit)="Search($event)" action="javascript:void(0);">
-                <div XSearchEditor class='col-sm-32'  Field='Nome|Endereco' Title='Nome|Endereco' [Tuple]='Filter'>
+                <div XSearchEditor class='col-sm-32'  Field='Nome|Enderecos' Title='Nome|Endereco' [Tuple]='Filter'>
                     <label for='76b04411-fee4-48fd-8d53-bf9d415b4e56' class='form-label text-nowrap'>Nome</label>
                     <label class='form-label text-nowrap' style="color:blue;font-size:9px">&nbsp;&nbsp; {{Filter.Column}}</label>
                 </div>
         </form>
         <div class='ttg-line-1'>
         </div>
-        <XSearchGrid id='SearchGridInstance' Titles='Nome|Nome|Endereco|Endereco' >
+        <XSearchGrid id='SearchGridInstance' Titles='Nome|Nome|Enderecos|Endereco' >
             <table #Body class='w-100'>
                 <thead class='ttg-tb-hd t-100'>
                     <tr class='w-100'>

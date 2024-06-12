@@ -14,21 +14,21 @@ namespace STX.App.Core.INF.PessoaFisica
 {
     public class PessoaFisicaTuple : XServiceDataTuple
     {
-        public XGuidDataField CORxPessoaFisiacID {get;set;}
+        public XGuidDataField CORxPessoaFisicaID {get;set;}
         public XStringDataField Nome {get;set;}
-        public XStringDataField Endereco {get;set;}
+        public XStringDataField Enderecos {get;set;}
         public XGuidDataField CORxUsuarioID {get;set;}
     }
 
     public class PessoaFisicaFilter : XFilter
     {
-        public XStringDataField Endereco {get;set;}
+        public XStringDataField Enderecos {get;set;}
         public XStringDataField Nome {get;set;}
     }
 
     public class PessoaFisicaRequest : XRequest
     {
-        public Guid CORxPessoaFisiacID {get;set;}
+        public Guid CORxPessoaFisicaID {get;set;}
     }
 
     public interface IPessoaFisicaService : XIService

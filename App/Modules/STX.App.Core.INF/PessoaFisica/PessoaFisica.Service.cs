@@ -28,29 +28,29 @@ namespace STX.App.Core.INF.PessoaFisica
             {
             }
 
-            internal DbSet<CORxPessoaFisiac> CORxPessoaFisiac{get; set;}
+            internal DbSet<CORxPessoaFisica> CORxPessoaFisica{get; set;}
 
-            private void ConfigureCORxPessoaFisiac(ModelBuilder pBuilder)
+            private void ConfigureCORxPessoaFisica(ModelBuilder pBuilder)
             {
-                pBuilder.Entity<CORxPessoaFisiac>(ett =>
+                pBuilder.Entity<CORxPessoaFisica>(ett =>
                 {
-                    ett.HasKey(e => e.CORxPessoaFisiacID).HasName("PK_CORxPessoaFisiac");
+                    ett.HasKey(e => e.CORxPessoaFisicaID).HasName("PK_CORxPessoaFisica");
                     
-                    ett.Property(d => d.CORxPessoaFisiacID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.CORxPessoaFisicaID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 150, 0));
-                    ett.Property(d => d.Endereco).HasColumnType(GetDBType("String", 150, 0));
+                    ett.Property(d => d.Enderecos).HasColumnType(GetDBType("String", 150, 0));
                     ett.Property(d => d.CORxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.ToTable("CORxPessoaFisiac");
+                    ett.ToTable("CORxPessoaFisica");
 
                     ett.HasOne(d => d.CORxUsuario)
-                      .WithMany(p => p.CORxPessoaFisiac)
+                      .WithMany(p => p.CORxPessoaFisica)
                        .HasForeignKey(d => d.CORxUsuarioID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_8F4837CF83834503A361901ABE856933");
 
                     ett.HasIndex(d => d.CORxUsuarioID).HasDatabaseName("IX_8F4837CF83834503A361901ABE856933");
 
-                    ett.HasIndex(e => new { e.CORxUsuarioID, e.Endereco })
+                    ett.HasIndex(e => new { e.CORxUsuarioID, e.Enderecos })
                         .IsUnique()
                         .HasDatabaseName("IX_04649D25_B2D7_4F39_BB3E_C637F0FE92A2");
                 });
@@ -58,7 +58,7 @@ namespace STX.App.Core.INF.PessoaFisica
 
             protected override void OnModelCreating(ModelBuilder pBuilder)
             {
-                ConfigureCORxPessoaFisiac(pBuilder);
+                ConfigureCORxPessoaFisica(pBuilder);
             }
         }
 
@@ -112,14 +112,14 @@ namespace STX.App.Core.INF.PessoaFisica
                 return;
             foreach (PessoaFisicaTuple stpl in pDataSet.Tuples)
             {
-                if (HasChanges(stpl, stpl.CORxPessoaFisiacID, stpl.Nome, stpl.Endereco, stpl.CORxUsuarioID))
+                if (HasChanges(stpl, stpl.CORxPessoaFisicaID, stpl.Nome, stpl.Enderecos, stpl.CORxUsuarioID))
                 {
-                    var CORxPessoaFisiactpl = new CORxPessoaFisiac();
-                    CORxPessoaFisiactpl.CORxPessoaFisiacID = (Guid)stpl.CORxPessoaFisiacID.Value;
-                    CORxPessoaFisiactpl.Nome = (String?)stpl.Nome?.Value;
-                    CORxPessoaFisiactpl.Endereco = (String)stpl.Endereco.Value;
-                    CORxPessoaFisiactpl.CORxUsuarioID = (Guid)stpl.CORxUsuarioID.Value;
-                    ctx.Add(CORxPessoaFisiactpl).State = GetState(stpl, stpl.CORxPessoaFisiacID, stpl.Nome, stpl.Endereco, stpl.CORxUsuarioID);
+                    var CORxPessoaFisicatpl = new CORxPessoaFisica();
+                    CORxPessoaFisicatpl.CORxPessoaFisicaID = (Guid)stpl.CORxPessoaFisicaID.Value;
+                    CORxPessoaFisicatpl.Nome = (String?)stpl.Nome?.Value;
+                    CORxPessoaFisicatpl.Enderecos = (String)stpl.Enderecos.Value;
+                    CORxPessoaFisicatpl.CORxUsuarioID = (Guid)stpl.CORxUsuarioID.Value;
+                    ctx.Add(CORxPessoaFisicatpl).State = GetState(stpl, stpl.CORxPessoaFisicaID, stpl.Nome, stpl.Enderecos, stpl.CORxUsuarioID);
                     ctx.SaveChanges();
                 }
             }
@@ -140,20 +140,20 @@ namespace STX.App.Core.INF.PessoaFisica
         public PessoaFisicaDataSet Select(PessoaFisicaRequest pRequest, PessoaFisicaFilter pFilter, Boolean pFull)
         {
             var ctx = Context;
-            var query = from CORxPessoaFisiac in ctx.CORxPessoaFisiac
-                        select new {CORxPessoaFisiac};
+            var query = from CORxPessoaFisica in ctx.CORxPessoaFisica
+                        select new {CORxPessoaFisica};
 
             query = _Rule?.InternalGetWhere(query,  pRequest, pFilter, pFull);
 
             if (pRequest != null)
-                query = query.Where(q => q.CORxPessoaFisiac.CORxPessoaFisiacID == pRequest.CORxPessoaFisiacID);
+                query = query.Where(q => q.CORxPessoaFisica.CORxPessoaFisicaID == pRequest.CORxPessoaFisicaID);
 
             if (pFilter != null)
             {
-                if (pFilter.Endereco != null && pFilter.Endereco.State != XFieldState.Empty)
-                    query = query.Where(q => EF.Functions.Like(q.CORxPessoaFisiac.Endereco, pFilter.Endereco.Value + "%"));
+                if (pFilter.Enderecos != null && pFilter.Enderecos.State != XFieldState.Empty)
+                    query = query.Where(q => EF.Functions.Like(q.CORxPessoaFisica.Enderecos, pFilter.Enderecos.Value + "%"));
                 if (pFilter.Nome != null && pFilter.Nome.State != XFieldState.Empty)
-                    query = query.Where(q => EF.Functions.Like(q.CORxPessoaFisiac.Nome, pFilter.Nome.Value + "%"));
+                    query = query.Where(q => EF.Functions.Like(q.CORxPessoaFisica.Nome, pFilter.Nome.Value + "%"));
             }
 
             if (pFilter?.SkipRows > 0)
@@ -162,10 +162,10 @@ namespace STX.App.Core.INF.PessoaFisica
             if (pFilter?.TakeRows > 0)
                 query = query.Take(pFilter.TakeRows);
 
-            var dst = query.Select(q => new PessoaFisicaTuple(){CORxPessoaFisiacID = new XGuidDataField(XFieldState.Empty, q.CORxPessoaFisiac.CORxPessoaFisiacID),
-                                    Nome = new XStringDataField(XFieldState.Empty, q.CORxPessoaFisiac.Nome),
-                                    Endereco = new XStringDataField(XFieldState.Empty, q.CORxPessoaFisiac.Endereco),
-                                    CORxUsuarioID = new XGuidDataField(XFieldState.Empty, q.CORxPessoaFisiac.CORxUsuarioID)});
+            var dst = query.Select(q => new PessoaFisicaTuple(){CORxPessoaFisicaID = new XGuidDataField(XFieldState.Empty, q.CORxPessoaFisica.CORxPessoaFisicaID),
+                                    Nome = new XStringDataField(XFieldState.Empty, q.CORxPessoaFisica.Nome),
+                                    Enderecos = new XStringDataField(XFieldState.Empty, q.CORxPessoaFisica.Enderecos),
+                                    CORxUsuarioID = new XGuidDataField(XFieldState.Empty, q.CORxPessoaFisica.CORxUsuarioID)});
             var dataset = new PessoaFisicaDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

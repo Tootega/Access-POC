@@ -7,19 +7,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxPessoaFisiac
+    public  partial class CORxPessoaFisica
     {
         [Display(Name = "Pessoa Física")]
         [Required()]
-        public Guid? CORxPessoaFisiacID {get; set;} = Guid.Empty;
+        public Guid? CORxPessoaFisicaID {get; set;} = Guid.Empty;
 
         [Display(Name = "Usuário")]
         [Required()]
         public Guid CORxUsuarioID {get; set;}
 
+        [Display(Name = "Endereco")]
         [MaxLength(150)]
         [Required()]
-        public String Endereco {get; set;}
+        public String Enderecos {get; set;}
 
         [MaxLength(150)]
         public String Nome {get; set;}

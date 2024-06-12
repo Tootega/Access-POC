@@ -15,11 +15,11 @@ export namespace STXAppCoreINFPessoaFisicaPessoaFisicaMDL
             this.Assign(pSource);
         }
 
-            override GetPKValue(): any { return this.CORxPessoaFisiacID.Value; }
+            override GetPKValue(): any { return this.CORxPessoaFisicaID.Value; }
 
-        CORxPessoaFisiacID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        CORxPessoaFisicaID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Endereco = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Enderecos = new XDataField(XFieldState.Empty, () => 'XString', () => '');
         CORxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
 
     }
@@ -41,12 +41,12 @@ export namespace STXAppCoreINFPessoaFisicaPessoaFisicaMDL
 
     export class PessoaFisicaRequest extends XRequest
     {
-        CORxPessoaFisiacID?: string;
+        CORxPessoaFisicaID?: string;
     }
 
     export class PessoaFisicaFilter extends XFilter
     {
-        Endereco = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Enderecos = new XDataField(XFieldState.Empty, () => 'XString', () => '');
         Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
     }
 }

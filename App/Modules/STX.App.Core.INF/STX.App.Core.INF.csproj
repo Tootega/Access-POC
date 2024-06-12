@@ -50,7 +50,7 @@
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
-      <Compile Update="DB\COR.PessoaFisiac.cs">
+      <Compile Update="DB\COR.PessoaFisica.cs">
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
@@ -98,6 +98,7 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>PessoaFisica.dssam</DependentUpon>
+        <Visible>False</Visible>
       </Compile>
       <Compile Update="PessoaFisica\PessoaFisica.Service.cs">
         <DesignTime>True</DesignTime>
