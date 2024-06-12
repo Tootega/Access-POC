@@ -25,8 +25,12 @@ namespace Launcher
         public static void Main(string[] args)
         {
             Initialize();
-            var builder = WebApplication.CreateBuilder(args);
-
+            var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+            {
+                Args = args,
+                // Look for static files in "wwwroot-custom"
+                WebRootPath = "/Tootega/Source/Access-POC/App/Launchers/WebUI/dist/ef6-angular-poc"
+            });
             builder.Services.AddCors(options =>
             {
                 options.AddDefaultPolicy(b =>
@@ -58,6 +62,7 @@ namespace Launcher
             App.UseCors();
             App.UseAuthorization();
             App.MapControllers();
+            App.UseStaticFiles();
 
             //using var scop = App.Services.CreateScope();
             //using var ctl1 = scop.ServiceProvider.GetRequiredService<STXAppCoreINFContext>();

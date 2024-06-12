@@ -37,8 +37,7 @@
           "configurations": {
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./node_modules",
-                "./tootega"
+                "./node_modules"
               ]
             },
             "production": {

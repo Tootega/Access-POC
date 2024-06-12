@@ -24,11 +24,6 @@ namespace STX.Access.Model
     public class XDataField<T> : XDataField, XIDataField
     {
 
-        public static implicit operator T(XDataField<T> pField)
-        {                                                                 
-            return pField.Value;
-        }
-
         public XDataField()
         {
         }

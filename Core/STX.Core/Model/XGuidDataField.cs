@@ -19,6 +19,34 @@ namespace STX.Core.Model
             return fld;
         }
 
+        public static implicit operator XGuidDataField(Guid pValue)
+        {
+            var fld = new XGuidDataField();
+            fld.Value = pValue;
+            return fld;
+        }
+
+        public static implicit operator Guid(XGuidDataField pField)
+        {
+            if (pField.Value.HasValue)
+                return pField.Value.Value;
+            return Guid.Empty;
+        }
+
+
+        public static implicit operator XGuidDataField(Guid? pValue)
+        {
+            var fld = new XGuidDataField();
+            fld.Value = pValue;
+            return fld;
+        }
+
+
+        public static implicit operator Guid?(XGuidDataField pField)
+        {
+            return pField.Value;
+        }
+
 
         public XGuidDataField()
         {
