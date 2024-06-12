@@ -99,6 +99,18 @@
         <DependentUpon>STX.App.Core.INF.dsmdl</DependentUpon>
         <Visible>False</Visible>
       </Compile>
+      <Compile Update="Usuario\Usuario.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Usuario.dssam</DependentUpon>
+        <Visible>False</Visible>
+      </Compile>
+      <Compile Update="Usuario\Usuario.Service.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Usuario.dssvc</DependentUpon>
+        <Visible>False</Visible>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>
@@ -121,6 +133,14 @@
       <None Update="Perfil\PerfilDireito.dssvc">
         <Generator>XDASEGenerator</Generator>
         <LastGenOutput>PerfilDireito.Service.cs</LastGenOutput>
+      </None>
+      <None Update="Usuario\Usuario.dssam">
+        <Generator>XDASEGenerator</Generator>
+        <LastGenOutput>Usuario.cs</LastGenOutput>
+      </None>
+      <None Update="Usuario\Usuario.dssvc">
+        <Generator>XDASEGenerator</Generator>
+        <LastGenOutput>Usuario.Service.cs</LastGenOutput>
       </None>
     </ItemGroup>
 

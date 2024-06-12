@@ -1,0 +1,109 @@
+<div>
+    <div class='col-8-auto py-2 ttg-navbar .bg-primary.bg-gradient'>
+        <nav class='navbar navbar-expand navbar-light'>
+            <div class='navbar-nav'>
+                <div class='nav-item px-1 ms-sm-1' id='{{CloseBtnID}}'>
+                    <button type='button' class='btn btn-danger btn-sm p-2 border-right-5' (click)='Close($event)'>
+                        <i class='bi bi-x-circle '></i>
+                        <span> Fechar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{PreviewBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Preview($event)'>
+                        <i class='bi bi-eyeglasses'></i>
+                        <span> Vizualizar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{EditBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Edit($event)'>
+                        <i class='bi bi-pencil'></i>
+                        <span> Editar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{SaveBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Save($event)'>
+                        <i class='bi bi-check-square'></i>
+                        <span> Salvar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{DeleteBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Save($event)'>
+                        <i class='bi bi-trash'></i>
+                        <span> Deletar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1 navbar-toggler' id='{{RecycleBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Save($event)'>
+                        <i class='bi bi-arrow-counterclockwise'></i>
+                        <span> Recuperar </span>
+                    </button>
+                </div>
+                <div class='nav-item px-1' id='{{SearchBtnID}}'>
+                    <button type='button' class='btn btn-primary btn-sm p-2 border-right-5' (click)='Search($event)'>
+                        <i class='bi bi-search'></i>
+                        <span> Pesquisar </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id='{{FormAreaID}}'>
+    </div>
+    <div class='ttg-line-1'>
+    </div>
+    <div id='{{SearchAreaID}}'>
+        <form class='row g justify-content' (submit)="Search($event)" action="javascript:void(0);">
+                <div XStringEditor class='col-sm-15'  Field='Nome' Title='Nome' [Tuple]='Filter'>
+                    <label for='a2173584-a43b-4995-a282-f37c4f245a6f' class='form-label text-nowrap'>Nome</label>
+                </div>
+                <div XStringEditor class='col-sm-17'  Field='Login' Title='Login' [Tuple]='Filter'>
+                    <label for='bbf80516-de9c-483f-a408-3bf6a29e5654' class='form-label text-nowrap'>Login</label>
+                </div>
+        </form>
+        <div class='ttg-line-1'>
+        </div>
+        <XSearchGrid id='SearchGridInstance' Titles='Login|Login|Ativo|Ativo|Nome|Nome' >
+            <table #Body class='w-100'>
+                <thead class='ttg-tb-hd t-100'>
+                    <tr class='w-100'>
+                        <ng-container #Container name='HeadContainer'>
+                            <ng-template #Template name='CheckTemplate' let-data='data'>
+                                <th class='text-nowrap' scope='col'>
+                                    <input type='checkbox' (click)='data.CheckedAll($event, {Body})'>
+                                </th>
+                            </ng-template>
+                        <ng-template #Template name='TitleTemplate' let-data='data'>
+                            <th class='text-nowrap' (click)='data.SortGrid($event, (data.Field))' scope='col'>
+                                    <i class='bi  pe-none'>
+                                    </i>
+                                    <span class='pe-none'>
+                                        {{data.Title}}
+                                    </span>
+                                </th>
+                            </ng-template>
+                        </ng-container>
+                    </tr>
+                </thead>
+                <tbody class='w-100'>
+                    <ng-container #Container name='RowContainer'>
+                        <ng-template #Template name='RowTemplate' let-data='data'>
+                            <tr class='ttg-row t-100' scope='row' [(attr.IsSelected)]='data.IsSelected'>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+                    <ng-template #Template name='ColumnTemplate' let-field='field'>
+                        <td>
+                            {{field.DisplayText}}
+                        </td>
+                    </ng-template>
+                    <ng-template #Template name='RowCheckTemplate' let-data='data'>
+                        <td>
+                            <input onclick='event.stopPropagation()' type='checkbox' [(checked)]='data.IsChecked'>
+                        </td>
+                    </ng-template>
+                </tbody>
+            </table>
+        </XSearchGrid>
+    </div>
+</div>
+
