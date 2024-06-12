@@ -26,10 +26,10 @@ namespace STX.App.Core.INF.DB
 
         public DbSet<CORxDireiro> CORxDireiro{get; set;}
         public DbSet<CORxEstado> CORxEstado{get; set;}
+        public DbSet<CORxMenuItem> CORxMenuItem{get; set;}
         public DbSet<CORxPerfil> CORxPerfil{get; set;}
         public DbSet<CORxPerfilDireiro> CORxPerfilDireiro{get; set;}
         public DbSet<CORxPessoa> CORxPessoa{get; set;}
-        public DbSet<CORxPessoaFisica> CORxPessoaFisica{get; set;}
         public DbSet<CORxRecurso> CORxRecurso{get; set;}
         public DbSet<CORxRecursoDireito> CORxRecursoDireito{get; set;}
         public DbSet<CORxUsuario> CORxUsuario{get; set;}
@@ -38,10 +38,10 @@ namespace STX.App.Core.INF.DB
         {
             ConfigureCORxDireiro(pBuilder);
             ConfigureCORxEstado(pBuilder);
+            ConfigureCORxMenuItem(pBuilder);
             ConfigureCORxPerfil(pBuilder);
             ConfigureCORxPerfilDireiro(pBuilder);
             ConfigureCORxPessoa(pBuilder);
-            ConfigureCORxPessoaFisica(pBuilder);
             ConfigureCORxRecurso(pBuilder);
             ConfigureCORxRecursoDireito(pBuilder);
             ConfigureCORxUsuario(pBuilder);
@@ -83,6 +83,28 @@ namespace STX.App.Core.INF.DB
             });
         }
 
+        private void ConfigureCORxMenuItem(ModelBuilder pBuilder)
+        {
+            pBuilder.Entity<CORxMenuItem>(ett =>
+            {
+                ett.HasKey(e => e.CORxMenuItemID).HasName("PK_CORxMenuItem");
+                
+                ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 50, 0));
+                ett.Property(d => d.CORxMenuItemPaiID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.ToTable("CORxMenuItem");
+
+                ett.HasOne(d => d.CORxMenuItem)
+                  .WithMany(p => p.CORxMenuItem)
+                   .HasForeignKey(d => d.CORxMenuItemPaiID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_089E501462F24B4CB82B6401E77C1CD9");
+
+                ett.HasIndex(d => d.CORxMenuItemPaiID).HasDatabaseName("IX_089E501462F24B4CB82B6401E77C1CD9");
+                ett.HasData(STX.App.Core.INF.DB.CORxMenuItem.XDefault.SeedData);
+            });
+        }
+
         private void ConfigureCORxPerfil(ModelBuilder pBuilder)
         {
             pBuilder.Entity<CORxPerfil>(ett =>
@@ -104,6 +126,7 @@ namespace STX.App.Core.INF.DB
                 ett.Property(d => d.CORxPerfilDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
                 ett.ToTable("CORxPerfilDireiro");
 
                 ett.HasOne(d => d.CORxPerfil)
@@ -118,8 +141,15 @@ namespace STX.App.Core.INF.DB
                    .OnDelete(DeleteBehavior.Restrict)
                    .HasConstraintName("FK_C6414CDFD26A410BA65457F3CD38FE4A");
 
+                ett.HasOne(d => d.CORxEstado)
+                  .WithMany(p => p.CORxPerfilDireiro)
+                   .HasForeignKey(d => d.SYSxEstadoID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_C81CBAAB358F4F87B64A7EFD7808B76B");
+
                 ett.HasIndex(d => d.CORxDireiroID).HasDatabaseName("IX_C6414CDFD26A410BA65457F3CD38FE4A");
                 ett.HasIndex(d => d.CORxPerfilID).HasDatabaseName("IX_DB2EF4796E004A85B4BBEC4BAFB60B61");
+                ett.HasIndex(d => d.SYSxEstadoID).HasDatabaseName("IX_C81CBAAB358F4F87B64A7EFD7808B76B");
 
                 ett.HasIndex(e => new { e.CORxPerfilID, e.CORxDireiroID })
                     .IsUnique()
@@ -139,32 +169,6 @@ namespace STX.App.Core.INF.DB
             });
         }
 
-        private void ConfigureCORxPessoaFisica(ModelBuilder pBuilder)
-        {
-            pBuilder.Entity<CORxPessoaFisica>(ett =>
-            {
-                ett.HasKey(e => e.CORxPessoaFisicaID).HasName("PK_CORxPessoaFisica");
-                
-                ett.Property(d => d.CORxPessoaFisicaID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 150, 0));
-                ett.Property(d => d.Enderecos).HasColumnType(GetDBType("String", 150, 0));
-                ett.Property(d => d.CORxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.ToTable("CORxPessoaFisica");
-
-                ett.HasOne(d => d.CORxUsuario)
-                  .WithMany(p => p.CORxPessoaFisica)
-                   .HasForeignKey(d => d.CORxUsuarioID)
-                   .OnDelete(DeleteBehavior.Restrict)
-                   .HasConstraintName("FK_8F4837CF83834503A361901ABE856933");
-
-                ett.HasIndex(d => d.CORxUsuarioID).HasDatabaseName("IX_8F4837CF83834503A361901ABE856933");
-
-                ett.HasIndex(e => new { e.CORxUsuarioID, e.Enderecos })
-                    .IsUnique()
-                    .HasDatabaseName("IX_04649D25_B2D7_4F39_BB3E_C637F0FE92A2");
-            });
-        }
-
         private void ConfigureCORxRecurso(ModelBuilder pBuilder)
         {
             pBuilder.Entity<CORxRecurso>(ett =>
@@ -173,7 +177,16 @@ namespace STX.App.Core.INF.DB
                 
                 ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 128, 0));
+                ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.ToTable("CORxRecurso");
+
+                ett.HasOne(d => d.CORxMenuItem)
+                  .WithMany(p => p.CORxRecurso)
+                   .HasForeignKey(d => d.CORxMenuItemID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_DD2B2F889A7341ACB8763984D8EB927F");
+
+                ett.HasIndex(d => d.CORxMenuItemID).HasDatabaseName("IX_DD2B2F889A7341ACB8763984D8EB927F");
             });
         }
 

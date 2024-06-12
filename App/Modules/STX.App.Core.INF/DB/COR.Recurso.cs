@@ -9,6 +9,10 @@ namespace STX.App.Core.INF.DB
 {
     public  partial class CORxRecurso
     {
+        [Display(Name = "Item de Menu")]
+        [Required()]
+        public Guid CORxMenuItemID {get; set;}
+
         [Display(Name = "Recurso")]
         [Required()]
         public Guid? CORxRecursoID {get; set;} = Guid.Empty;
@@ -18,6 +22,7 @@ namespace STX.App.Core.INF.DB
         [Required()]
         public String Nome {get; set;}
 
+        public CORxMenuItem CORxMenuItem {get; set;}
         public List<CORxRecursoDireito> CORxRecursoDireito {get; set;} = new List<CORxRecursoDireito>();
     }
 }

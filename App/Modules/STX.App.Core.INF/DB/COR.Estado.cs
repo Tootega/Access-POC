@@ -39,5 +39,6 @@ namespace STX.App.Core.INF.DB
         public List<CORxUsuarioPerfil> CORxUsuarioPerfil {get; set;} = new List<CORxUsuarioPerfil>();
         public List<CORxDireiro> CORxDireiro {get; set;} = new List<CORxDireiro>();
         public List<CORxRecursoDireito> CORxRecursoDireito {get; set;} = new List<CORxRecursoDireito>();
+        public List<CORxPerfilDireiro> CORxPerfilDireiro {get; set;} = new List<CORxPerfilDireiro>();
     }
 }

@@ -38,6 +38,10 @@
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
+      <Compile Update="DB\COR.MenuItem.cs">
+        <Visible>False</Visible>
+        <DependentUpon>COR.dsorm</DependentUpon>
+      </Compile>
       <Compile Update="DB\COR.Perfil.cs">
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
@@ -47,10 +51,6 @@
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
       <Compile Update="DB\COR.Pessoa.cs">
-        <Visible>False</Visible>
-        <DependentUpon>COR.dsorm</DependentUpon>
-      </Compile>
-      <Compile Update="DB\COR.PessoaFisica.cs">
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
@@ -92,18 +92,6 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>PerfilDireito.dssvc</DependentUpon>
-        <Visible>False</Visible>
-      </Compile>
-      <Compile Update="PessoaFisica\PessoaFisica.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>PessoaFisica.dssam</DependentUpon>
-        <Visible>False</Visible>
-      </Compile>
-      <Compile Update="PessoaFisica\PessoaFisica.Service.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>PessoaFisica.dssvc</DependentUpon>
         <Visible>False</Visible>
       </Compile>
       <Compile Update="Properties\AssemblyInfo.cs">
@@ -149,14 +137,6 @@
       <None Update="Perfil\PerfilDireito.dssvc">
         <Generator>XDASEGenerator</Generator>
         <LastGenOutput>PerfilDireito.Service.cs</LastGenOutput>
-      </None>
-      <None Update="PessoaFisica\PessoaFisica.dssam">
-        <Generator>XDASEGenerator</Generator>
-        <LastGenOutput>PessoaFisica.cs</LastGenOutput>
-      </None>
-      <None Update="PessoaFisica\PessoaFisica.dssvc">
-        <Generator>XDASEGenerator</Generator>
-        <LastGenOutput>PessoaFisica.Service.cs</LastGenOutput>
       </None>
       <None Update="Usuario\Usuario.dssam">
         <Generator>XDASEGenerator</Generator>

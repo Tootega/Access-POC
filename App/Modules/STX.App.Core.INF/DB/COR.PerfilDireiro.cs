@@ -21,7 +21,12 @@ namespace STX.App.Core.INF.DB
         [Required()]
         public Guid CORxPerfilID {get; set;}
 
+        [Display(Name = "Estado")]
+        [Required()]
+        public Int16 SYSxEstadoID {get; set;}
+
         public CORxDireiro CORxDireiro {get; set;}
         public CORxPerfil CORxPerfil {get; set;}
+        public CORxEstado CORxEstado {get; set;}
     }
 }
