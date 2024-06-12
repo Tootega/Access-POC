@@ -392,13 +392,12 @@ declare class XData {
     SetFieldValue(pEvent: any, pField: string, pValue: any): void;
 }
 declare class XDataField extends XData {
-    Name?: string;
     State?: XFieldState;
     Type?: any;
     private _Mask?;
     Value?: any;
     OldValue?: any;
-    constructor(Name?: string, State?: XFieldState, Type?: any, _Mask?: any, Value?: any, OldValue?: any);
+    constructor(State?: XFieldState, Type?: any, _Mask?: any, Value?: any, OldValue?: any);
     RawValue: any;
     GetDisplayText(): string;
     FormatText(pValue: any): string;

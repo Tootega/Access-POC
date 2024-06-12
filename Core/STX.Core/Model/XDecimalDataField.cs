@@ -19,7 +19,6 @@ namespace STX.Access.Model
             fld.Value = pValue;
             if (pField != null)
             {
-                fld.Name = pField.Name;
                 fld.State = pField.State;
                 fld.OldValue = pField.OldValue;
             }
@@ -58,16 +57,14 @@ namespace STX.Access.Model
         {
         }
 
-        public XDecimalDataField(String pName, XFieldState pState, Decimal? pValue)
+        public XDecimalDataField(XFieldState pState, Decimal? pValue)
         {
-            Name = pName;
             Value = pValue;
             State = pState;
         }
 
-        public XDecimalDataField(String pName, XFieldState pState = XFieldState.Empty, Decimal? pValue = null, Object pOldValue = null)
+        public XDecimalDataField(XFieldState pState = XFieldState.Empty, Decimal? pValue = null, Object pOldValue = null)
         {
-            Name = pName;
             Value = pValue;
             OldValue = pOldValue;
             State = pState;

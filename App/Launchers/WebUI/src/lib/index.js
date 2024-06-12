@@ -1600,9 +1600,8 @@ class XData {
     }
 }
 class XDataField extends XData {
-    constructor(Name, State, Type, _Mask, Value, OldValue) {
+    constructor(State, Type, _Mask, Value, OldValue) {
         super();
-        this.Name = Name;
         this.State = State;
         this.Type = Type;
         this._Mask = _Mask;

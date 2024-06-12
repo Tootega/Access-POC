@@ -12,7 +12,6 @@ namespace STX.Core.Model
             fld.Value = pValue;
             if (pField != null)
             {
-                fld.Name = pField.Name;
                 fld.State = pField.State;
                 fld.OldValue = pField.OldValue;
             }
@@ -51,16 +50,14 @@ namespace STX.Core.Model
         {
         }
 
-        public XDateTimeDataField(String pName, XFieldState pState, DateTime? pValue)
+        public XDateTimeDataField(XFieldState pState, DateTime? pValue)
         {
-            Name = pName;
             Value = pValue;
             State = pState;
         }
 
-        public XDateTimeDataField(String pName, XFieldState pState = XFieldState.Empty, DateTime? pValue = null, Object pOldValue = null)
+        public XDateTimeDataField(XFieldState pState = XFieldState.Empty, DateTime? pValue = null, Object pOldValue = null)
         {
-            Name = pName;
             Value = pValue;
             OldValue = pOldValue;
             State = pState;

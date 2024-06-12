@@ -12,7 +12,6 @@ namespace STX.Core.Model
             fld.Value = pValue;
             if (pField != null)
             {
-                fld.Name = pField.Name;
                 fld.State = pField.State;
                 fld.OldValue = pField.OldValue;
             }
@@ -52,16 +51,14 @@ namespace STX.Core.Model
         {
         }
 
-        public XGuidDataField(String pName, XFieldState pState, Guid? pValue)
+        public XGuidDataField(XFieldState pState, Guid? pValue)
         {
-            Name = pName;
             Value = pValue;
             State = pState;
         }
 
-        public XGuidDataField(String pName, XFieldState pState = XFieldState.Empty, Guid? pValue = null, Object pOldValue = null)
+        public XGuidDataField(XFieldState pState = XFieldState.Empty, Guid? pValue = null, Object pOldValue = null)
         {
-            Name = pName;
             if (pValue.HasValue)
                 Value = pValue.Value;
             OldValue = pOldValue;

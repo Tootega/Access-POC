@@ -12,7 +12,6 @@ namespace STX.Core.Model
             fld.Value = pValue;
             if (pField != null)
             {
-                fld.Name = pField.Name;
                 fld.State = pField.State;
                 fld.OldValue = pField.OldValue;
             }
@@ -51,16 +50,14 @@ namespace STX.Core.Model
         {
         }
 
-        public XInt32DataField(String pName, XFieldState pState, Int32? pValue)
+        public XInt32DataField(XFieldState pState, Int32? pValue)
         {
-            Name = pName;
             Value = pValue;
             State = pState;
         }
 
-        public XInt32DataField(String pName, XFieldState pState = XFieldState.Empty, Int32? pValue = null, Object pOldValue = null)
+        public XInt32DataField(XFieldState pState = XFieldState.Empty, Int32? pValue = null, Object pOldValue = null)
         {
-            Name = pName;
             Value = pValue;
             OldValue = pOldValue;
             State = pState;

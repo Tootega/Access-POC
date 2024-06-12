@@ -28,20 +28,14 @@ namespace STX.Access.Model
         {
         }
 
-        public XDataField(String pName, XFieldState pState, T pValue, Object pOldValue = null)
+        public XDataField(XFieldState pState, T pValue, Object pOldValue = null)
         {
-            Name = pName;
             Value = pValue;
             OldValue = pOldValue;
             State = pState;
         }
 
         public T Value
-        {
-            get; set;
-        }
-
-        public String Name
         {
             get; set;
         }

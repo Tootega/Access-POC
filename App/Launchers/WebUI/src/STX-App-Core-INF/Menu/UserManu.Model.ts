@@ -17,11 +17,11 @@ export namespace STXAppCoreINFMenuUserManuMDL
 
             override GetPKValue(): any { return this.CORxRecursoID.Value; }
 
-        CORxRecursoID = new XDataField('CORxRecursoID', XFieldState.Empty, () => 'XGuid', () => '');
-        Titulo = new XDataField('Titulo', XFieldState.Empty, () => 'XString', () => '');
-        Modulo = new XDataField('Modulo', XFieldState.Empty, () => 'XString', () => '');
-        Icone = new XDataField('Icone', XFieldState.Empty, () => 'XString', () => '');
-        Ordem = new XDataField('Ordem', XFieldState.Empty, () => 'XInt32', () => '');
+        CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        Titulo = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Modulo = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Icone = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Ordem = new XDataField(XFieldState.Empty, () => 'XInt32', () => '');
 
     }
 
@@ -47,6 +47,6 @@ export namespace STXAppCoreINFMenuUserManuMDL
 
     export class UserManuFilter extends XFilter
     {
-        CORxRecursoID = new XDataField('CORxRecursoID', XFieldState.Empty, () => 'XGuid', () => '');
+        CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
     }
 }

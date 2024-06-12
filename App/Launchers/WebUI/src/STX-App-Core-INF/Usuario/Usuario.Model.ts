@@ -17,11 +17,11 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
 
             override GetPKValue(): any { return this.CORxUsuarioID.Value; }
 
-        Login = new XDataField('Login', XFieldState.Empty, () => 'XString', () => '');
-        Ativo = new XDataField('Ativo', XFieldState.Empty, () => 'XInt16', () => '');
-        CORxUsuarioID = new XDataField('CORxUsuarioID', XFieldState.Empty, () => 'XGuid', () => '');
-        CORxPessoaID = new XDataField('CORxPessoaID', XFieldState.Empty, () => 'XGuid', () => '');
-        Nome = new XDataField('Nome', XFieldState.Empty, () => 'XString', () => '');
+        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Ativo = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
+        CORxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        CORxPessoaID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
 
     }
 
@@ -47,7 +47,7 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
 
     export class UsuarioFilter extends XFilter
     {
-        Nome = new XDataField('Nome', XFieldState.Empty, () => 'XString', () => '');
-        Login = new XDataField('Login', XFieldState.Empty, () => 'XString', () => '');
+        Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
     }
 }

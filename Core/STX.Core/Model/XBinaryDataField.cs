@@ -12,7 +12,6 @@ namespace STX.Core.Model
             fld.Value = pValue;
             if (pField != null)
             {
-                fld.Name = pField.Name;
                 fld.State = pField.State;
                 fld.OldValue = pField.OldValue;
             }
@@ -35,16 +34,14 @@ namespace STX.Core.Model
         {
         }
 
-        public XBinaryDataField(String pName, XFieldState pState, Byte[] pValue)
+        public XBinaryDataField(XFieldState pState, Byte[] pValue)
         {
-            Name = pName;
             Value = pValue;
             State = pState;
         }
 
-        public XBinaryDataField(String pName, XFieldState pState = XFieldState.Empty, Byte[] pValue = null, Object pOldValue = null)
+        public XBinaryDataField(XFieldState pState = XFieldState.Empty, Byte[] pValue = null, Object pOldValue = null)
         {
-            Name = pName;
             Value = pValue;
             OldValue = pOldValue;
             State = pState;

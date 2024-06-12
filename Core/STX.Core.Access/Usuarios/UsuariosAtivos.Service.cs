@@ -143,9 +143,9 @@ namespace STX.Core.Access.Usuarios
 
             var dst = query.Select(q => new UsuariosAtivosTuple()
             {
-                TAFxUsuarioID = new XGuidDataField("TAFxUsuarioID", XFieldState.Empty, q.TAFxUsuario.TAFxUsuarioID),
-                Login = new XStringDataField("Login", XFieldState.Empty, q.TAFxUsuario.Login),
-                Ativo = new XInt16DataField("Ativo", XFieldState.Empty, q.TAFxUsuario.Ativo)
+                TAFxUsuarioID = new XGuidDataField(XFieldState.Empty, q.TAFxUsuario.TAFxUsuarioID),
+                Login = new XStringDataField(XFieldState.Empty, q.TAFxUsuario.Login),
+                Ativo = new XInt16DataField(XFieldState.Empty, q.TAFxUsuario.Ativo)
             });
             var dataset = new UsuariosAtivosDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);

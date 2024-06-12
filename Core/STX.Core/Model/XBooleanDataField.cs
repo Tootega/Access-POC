@@ -12,7 +12,6 @@ namespace STX.Core.Model
             fld.Value = pValue;
             if (pField != null)
             {
-                fld.Name = pField.Name;
                 fld.State = pField.State;
                 fld.OldValue = pField.OldValue;
             }
@@ -51,16 +50,14 @@ namespace STX.Core.Model
         {
         }
 
-        public XBooleanDataField(String pName, XFieldState pState, Boolean? pValue)
+        public XBooleanDataField(XFieldState pState, Boolean? pValue)
         {
-            Name = pName;
             Value = pValue;
             State = pState;
         }
 
-        public XBooleanDataField(String pName, XFieldState pState = XFieldState.Empty, Boolean? pValue = null, Object pOldValue = null)
+        public XBooleanDataField(XFieldState pState = XFieldState.Empty, Boolean? pValue = null, Object pOldValue = null)
         {
-            Name = pName;
             Value = pValue;
             OldValue = pOldValue;
             State = pState;

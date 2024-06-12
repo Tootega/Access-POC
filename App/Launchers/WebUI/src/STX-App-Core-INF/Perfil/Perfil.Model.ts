@@ -18,8 +18,8 @@ export namespace STXAppCoreINFPerfilPerfilMDL
 
             override GetPKValue(): any { return this.CORxPerfilID.Value; }
 
-        CORxPerfilID = new XDataField('CORxPerfilID', XFieldState.Empty, () => 'XGuid', () => '');
-        Nome = new XDataField('Nome', XFieldState.Empty, () => 'XString', () => '');
+        CORxPerfilID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
         PerfilDireito: STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoTuple[];
 
     }
@@ -48,6 +48,6 @@ export namespace STXAppCoreINFPerfilPerfilMDL
 
     export class PerfilFilter extends XFilter
     {
-        Nome = new XDataField('Nome', XFieldState.Empty, () => 'XString', () => '');
+        Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
     }
 }

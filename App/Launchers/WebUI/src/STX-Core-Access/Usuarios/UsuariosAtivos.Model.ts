@@ -17,9 +17,9 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
 
             override GetPKValue(): any { return this.TAFxUsuarioID.Value; }
 
-        TAFxUsuarioID = new XDataField('TAFxUsuarioID', XFieldState.Empty, () => 'XGuid', () => '');
-        Login = new XDataField('Login', XFieldState.Empty, () => 'XString', () => '');
-        Ativo = new XDataField('Ativo', XFieldState.Empty, () => 'XInt16', () => '');
+        TAFxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Ativo = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
 
     }
 
@@ -45,7 +45,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
 
     export class UsuariosAtivosFilter extends XFilter
     {
-        Ativo = new XDataField('Ativo', XFieldState.Empty, () => 'XInt16', () => '');
-        Login = new XDataField('Login', XFieldState.Empty, () => 'XString', () => '');
+        Ativo = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
+        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
     }
 }

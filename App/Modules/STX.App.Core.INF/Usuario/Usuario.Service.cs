@@ -208,11 +208,11 @@ namespace STX.App.Core.INF.Usuario
             if (pFilter?.TakeRows > 0)
                 query = query.Take(pFilter.TakeRows);
 
-            var dst = query.Select(q => new UsuarioTuple(){Login = new XStringDataField("Login", XFieldState.Empty, q.TAFxUsuario.Login),
-                               Ativo = new XInt16DataField("Ativo", XFieldState.Empty, q.TAFxUsuario.Ativo),
-                               CORxUsuarioID = new XGuidDataField("CORxUsuarioID", XFieldState.Empty, q.CORxUsuario.CORxUsuarioID),
-                               CORxPessoaID = new XGuidDataField("CORxPessoaID", XFieldState.Empty, q.CORxPessoa.CORxPessoaID),
-                               Nome = new XStringDataField("Nome", XFieldState.Empty, q.CORxPessoa.Nome)});
+            var dst = query.Select(q => new UsuarioTuple(){Login = new XStringDataField(XFieldState.Empty, q.TAFxUsuario.Login),
+                               Ativo = new XInt16DataField(XFieldState.Empty, q.TAFxUsuario.Ativo),
+                               CORxUsuarioID = new XGuidDataField(XFieldState.Empty, q.CORxUsuario.CORxUsuarioID),
+                               CORxPessoaID = new XGuidDataField(XFieldState.Empty, q.CORxPessoa.CORxPessoaID),
+                               Nome = new XStringDataField(XFieldState.Empty, q.CORxPessoa.Nome)});
             var dataset = new UsuarioDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

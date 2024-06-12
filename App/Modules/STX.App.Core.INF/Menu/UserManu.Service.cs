@@ -110,11 +110,11 @@ namespace STX.App.Core.INF.Menu
             if (pFilter?.TakeRows > 0)
                 query = query.Take(pFilter.TakeRows);
 
-            var dst = query.Select(q => new UserManuTuple(){CORxRecursoID = new XGuidDataField("CORxRecursoID", XFieldState.Empty, q.CORxRecurso.CORxRecursoID),
-                                Titulo = new XStringDataField("Titulo", XFieldState.Empty, q.CORxRecurso.Nome),
-                                Modulo = new XStringDataField("Modulo", XFieldState.Empty, null),
-                                Icone = new XStringDataField("Icone", XFieldState.Empty, null),
-                                Ordem = new XInt32DataField("Ordem", XFieldState.Empty, 0)});
+            var dst = query.Select(q => new UserManuTuple(){CORxRecursoID = new XGuidDataField(XFieldState.Empty, q.CORxRecurso.CORxRecursoID),
+                                Titulo = new XStringDataField(XFieldState.Empty, q.CORxRecurso.Nome),
+                                Modulo = new XStringDataField(XFieldState.Empty, null),
+                                Icone = new XStringDataField(XFieldState.Empty, null),
+                                Ordem = new XInt32DataField(XFieldState.Empty, 0)});
             var dataset = new UserManuDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

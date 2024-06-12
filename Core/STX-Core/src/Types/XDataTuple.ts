@@ -1,4 +1,4 @@
-﻿enum XTupleState
+enum XTupleState
 {
     Detached = 0,
     Unchanged = 1,
@@ -116,7 +116,7 @@ class XData
 
 class XDataField extends XData
 {
-    constructor(public Name?: string, public State?: XFieldState, public Type?: any, private _Mask?: any, public Value?: any, public OldValue?: any)
+    constructor(public State?: XFieldState, public Type?: any, private _Mask?: any, public Value?: any, public OldValue?: any)
     {
         super();
         let os = this.State;
