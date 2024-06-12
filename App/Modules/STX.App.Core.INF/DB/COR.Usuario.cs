@@ -21,5 +21,6 @@ namespace STX.App.Core.INF.DB
         public TAFxUsuario TAFxUsuario {get; set;}
         public CORxPessoa CORxPessoa {get; set;}
         public List<CORxUsuarioPerfil> CORxUsuarioPerfil {get; set;} = new List<CORxUsuarioPerfil>();
+        public List<CORxPessoaFisiac> CORxPessoaFisiac {get; set;} = new List<CORxPessoaFisiac>();
     }
 }

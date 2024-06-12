@@ -15,10 +15,12 @@ namespace STX.App.Core.INF.DB
         {
             public const Int16 _0 = (Int16)0;
             public const Int16 _1 = (Int16)1;
+            public const Int16 _2 = (Int16)2;
             private static Dictionary<Int16, CORxEstado> _SeedData = new Dictionary<Int16, CORxEstado>()
             {
                 [(Int16)0] = new CORxEstado { CORxEstadoID = (Int16)0, Estado = @"Inativo" },
-                [(Int16)1] = new CORxEstado { CORxEstadoID = (Int16)1, Estado = @"Ativo" }
+                [(Int16)1] = new CORxEstado { CORxEstadoID = (Int16)1, Estado = @"Ativo" },
+                [(Int16)2] = new CORxEstado { CORxEstadoID = (Int16)2, Estado = @"f dfd fdfd " }
             };
 
             public static CORxEstado[] SeedData => _SeedData.Values.ToArray();
