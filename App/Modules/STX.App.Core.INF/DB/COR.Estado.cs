@@ -7,15 +7,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxEstado
+    public class CORxEstado
     {
-        #region XDefault
-
         public class XDefault
         {
-            public const Int16 _0 = (Int16)0;
-            public const Int16 _1 = (Int16)1;
-            public const Int16 _2 = (Int16)2;
             private static Dictionary<Int16, CORxEstado> _SeedData = new Dictionary<Int16, CORxEstado>()
             {
                 [(Int16)0] = new CORxEstado { CORxEstadoID = (Int16)0, Estado = @"Inativo" },
@@ -26,7 +21,6 @@ namespace STX.App.Core.INF.DB
             public static CORxEstado[] SeedData => _SeedData.Values.ToArray();
 
         }
-        #endregion XDefault
         [Display(Name = "Estado")]
         [Required()]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -37,7 +31,6 @@ namespace STX.App.Core.INF.DB
         public String Estado {get; set;}
 
         public List<CORxUsuarioPerfil> CORxUsuarioPerfil {get; set;} = new List<CORxUsuarioPerfil>();
-        public List<CORxDireiro> CORxDireiro {get; set;} = new List<CORxDireiro>();
         public List<CORxRecursoDireito> CORxRecursoDireito {get; set;} = new List<CORxRecursoDireito>();
         public List<CORxPerfilDireiro> CORxPerfilDireiro {get; set;} = new List<CORxPerfilDireiro>();
     }

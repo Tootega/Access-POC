@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace STX.Core.Access.DB
 {
-    public  partial class TAFxUsuario
+    public class TAFxUsuario
     {
         [Required()]
         public Int16 Ativo {get; set;}

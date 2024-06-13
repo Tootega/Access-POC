@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using STX.App.Core.INF.Menu;
 using STX.App.Core.INF.Perfil;
 using STX.App.Core.INF.Usuario;
-using STX.App.Core.INF.PessoaFisica;
 
 namespace STX.App.Core.INF
 {
@@ -18,7 +17,6 @@ namespace STX.App.Core.INF
             pServices.AddScoped<IPerfilService, PerfilService>();
             pServices.AddScoped<IPerfilDireitoService, PerfilDireitoService>();
             pServices.AddScoped<IUsuarioService, UsuarioService>();
-            pServices.AddScoped<IPessoaFisicaService, PessoaFisicaService>();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxRecurso
+    public class CORxRecurso
     {
         [Display(Name = "Item de Menu")]
         [Required()]

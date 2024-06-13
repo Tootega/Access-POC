@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxUsuarioPerfil
+    public class CORxUsuarioPerfil
     {
         [Display(Name = "Perfil")]
         [Required()]

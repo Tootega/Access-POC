@@ -8,7 +8,7 @@ using STX.Core.Access.DB;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxUsuario
+    public class CORxUsuario
     {
         [Display(Name = "Pessoa")]
         [Required()]

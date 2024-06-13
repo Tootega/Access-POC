@@ -38,7 +38,16 @@ namespace STX.App.Core.INF.Menu
                     
                     ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 128, 0));
+                    ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.ToTable("CORxRecurso");
+
+                    ett.HasOne(d => d.CORxMenuItem)
+                      .WithMany(p => p.CORxRecurso)
+                       .HasForeignKey(d => d.CORxMenuItemID)
+                       .OnDelete(DeleteBehavior.Restrict)
+                       .HasConstraintName("FK_DD2B2F889A7341ACB8763984D8EB927F");
+
+                    ett.HasIndex(d => d.CORxMenuItemID).HasDatabaseName("IX_DD2B2F889A7341ACB8763984D8EB927F");
                 });
             }
 

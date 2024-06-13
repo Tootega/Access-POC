@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxPerfilDireiro
+    public class CORxPerfilDireiro
     {
         [Display(Name = "Direito")]
         [Required()]

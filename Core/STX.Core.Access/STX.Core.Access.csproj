@@ -41,6 +41,10 @@
       <Visible>False</Visible>
       <DependentUpon>TAF.dsorm</DependentUpon>
     </Compile>
+    <Compile Update="DB\TAFModel.cs">
+      <Visible>False</Visible>
+      <DependentUpon>TAF.dsorm</DependentUpon>
+    </Compile>
     <Compile Update="Properties\AssemblyInfo.cs">
       <Visible>True</Visible>
     </Compile>

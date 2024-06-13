@@ -56,16 +56,7 @@ namespace STX.App.Core.INF.DB
                 
                 ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Direito).HasColumnType(GetDBType("String", 45, 0));
-                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
                 ett.ToTable("CORxDireiro");
-
-                ett.HasOne(d => d.CORxEstado)
-                  .WithMany(p => p.CORxDireiro)
-                   .HasForeignKey(d => d.SYSxEstadoID)
-                   .OnDelete(DeleteBehavior.Restrict)
-                   .HasConstraintName("FK_2C9B6EBB73B54370A430415BCD452E6E");
-
-                ett.HasIndex(d => d.SYSxEstadoID).HasDatabaseName("IX_2C9B6EBB73B54370A430415BCD452E6E");
                 ett.HasData(STX.App.Core.INF.DB.CORxDireiro.XDefault.SeedData);
             });
         }
@@ -94,8 +85,8 @@ namespace STX.App.Core.INF.DB
                 ett.Property(d => d.CORxMenuItemPaiID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.ToTable("CORxMenuItem");
 
-                ett.HasOne(d => d.CORxMenuItem)
-                  .WithMany(p => p.CORxMenuItem)
+                ett.HasOne(d => d.ItemPai)
+                  .WithMany(p => p.ItensFilhos)
                    .HasForeignKey(d => d.CORxMenuItemPaiID)
                    .OnDelete(DeleteBehavior.Restrict)
                    .HasConstraintName("FK_089E501462F24B4CB82B6401E77C1CD9");

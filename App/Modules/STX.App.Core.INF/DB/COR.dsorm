@@ -221,7 +221,6 @@
       <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
         <XLanguage IETFCode="pt-br" IsDefault="true">Direito</XLanguage>
       </XData>
-      <XData Name="UseState" ID="04C4A96C-B8C1-4EB3-8F56-72766FCE1823" Type="Boolean">true</XData>
       <XData Name="Background" ID="7152B5B8-EE22-4D84-9EA1-50AA254DA63D" Type="Color">{A=255;R=0;G=255;B=255}</XData>
       <XData Name="IsCached" ID="A2A30CA8-F97A-4B64-9518-9D2F9300AB3F" Type="Boolean">true</XData>
     </XValues>
@@ -232,7 +231,7 @@
           <XLanguage IETFCode="pt-br" IsDefault="true">Direito</XLanguage>
         </XData>
         <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8C5DEBC0-4165-4429-B106-1554552F802E</XData>
-        <XData Name="IsFace" ID="D02DF54D-34C0-4AB5-A0E8-17BD1E09E921" Type="Boolean">true</XData>
+        <XData Name="IsFace" ID="D02DF54D-34C0-4AB5-A0E8-17BD1E09E921" Type="Boolean">false</XData>
       </XValues>
     </XORMPKField>
     <XORMField Name="Direito" ID="BF84F669-3642-44CF-A4E0-3F03D84DC591">
@@ -269,15 +268,6 @@
         <XFieldValue ID="DCA341C3-8FF7-48D3-B31A-7213B62720DA" FieldID="BF84F669-3642-44CF-A4E0-3F03D84DC591">Inativar</XFieldValue>
       </XORMDataTuple>
     </XORMDataSet>
-    <XORMStateField ID="D1751989-1728-4F89-882A-EA2D64ECA7DD" Name="SYSxEstadoID">
-      <XValues>
-        <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">6</XData>
-        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">5BD72111-603B-42E5-9488-53A4299E45EB</XData>
-        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
-          <XLanguage IETFCode="pt-br" IsDefault="true">Estado</XLanguage>
-        </XData>
-      </XValues>
-    </XORMStateField>
   </XORMTable>
   <XORMTable Name="CORxPerfilDireiro" ID="535D5668-B157-480C-988A-DD01382ED80B">
     <XValues>
@@ -392,7 +382,7 @@
           <XLanguage IETFCode="pt-br" IsDefault="true">Estado</XLanguage>
         </XData>
         <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">5BD72111-603B-42E5-9488-53A4299E45EB</XData>
-        <XData Name="IsFace" ID="D02DF54D-34C0-4AB5-A0E8-17BD1E09E921" Type="Boolean">true</XData>
+        <XData Name="IsFace" ID="D02DF54D-34C0-4AB5-A0E8-17BD1E09E921" Type="Boolean">false</XData>
       </XValues>
     </XORMPKField>
     <XORMField Name="Estado" ID="0DBBF9F4-713B-4D30-8BB8-B3E77B7CED9D">
@@ -610,13 +600,6 @@
       <XData Name="IndexID" ID="12E927CE-24EF-4DC0-93CF-E702064EB5A1" Type="Guid">6BA4D35A-F1C9-40F0-AEAC-814D158725F2</XData>
     </XValues>
   </XORMStateReference>
-  <XORMStateReference ID="2C9B6EBB-73B5-4370-A430-415BCD452E6E">
-    <XValues>
-      <XLinkedShape Name="LeftShape" ID="8A8851EB-B6CA-414F-B55A-C22A6A0F3753" Side="0" X="0" Y="0" DesiredDegree="" ElementID="D1751989-1728-4F89-882A-EA2D64ECA7DD" Text="SYSxEstadoID" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">D1751989-1728-4F89-882A-EA2D64ECA7DD</XLinkedShape>
-      <XLinkedShape Name="RightShape" ID="6461BED3-F1A0-4910-985D-9F0B0058D8BF" Side="0" X="0" Y="0" DesiredDegree="" ElementID="E09EBDA5-2172-4230-BA2B-4FF6A75C2389" Text="CORxEstado" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">E09EBDA5-2172-4230-BA2B-4FF6A75C2389</XLinkedShape>
-      <XData Name="IndexID" ID="12E927CE-24EF-4DC0-93CF-E702064EB5A1" Type="Guid">F0ECCB9E-BB95-4F1E-88F9-1825E4FC586C</XData>
-    </XValues>
-  </XORMStateReference>
   <XORMStateReference ID="662808A1-5CC5-4186-9E04-1EB76DBF81F2">
     <XValues>
       <XLinkedShape Name="LeftShape" ID="8A8851EB-B6CA-414F-B55A-C22A6A0F3753" Side="0" X="0" Y="0" DesiredDegree="" ElementID="36F83F64-637F-4D72-B6EB-17B88BDB51B4" Text="SYSxEstadoID" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">36F83F64-637F-4D72-B6EB-17B88BDB51B4</XLinkedShape>
@@ -704,6 +687,8 @@
       <XData Name="Points" ID="E2378CBF-8185-465D-8215-142922E96006" Type="Point[]">{X=907;Y=560.5}|{X=884;Y=560.5}|{X=884;Y=539.5}|{X=904;Y=539.5}</XData>
       <XData Name="IndexID" ID="12E927CE-24EF-4DC0-93CF-E702064EB5A1" Type="Guid">F6242814-4747-4A6E-8166-2E532B5BD1B6</XData>
       <XData Name="Background" ID="7152B5B8-EE22-4D84-9EA1-50AA254DA63D" Type="Color">{A=255;R=240;G=255;B=255}</XData>
+      <XData Name="NavigateManyName" ID="DEC89778-D6DA-459B-8516-5DD71888EF4F" Type="String">ItensFilhos</XData>
+      <XData Name="NavigateOneName" ID="0ACB5FD7-7EC3-4BD6-82C9-F8ED1C756160" Type="String">ItemPai</XData>
     </XValues>
   </XORMReference>
   <XORMStateReference ID="C81CBAAB-358F-4F87-B64A-7EFD7808B76B">

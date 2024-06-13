@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace STX.App.Core.INF.DB
 {
-    public  partial class CORxRecursoDireito
+    public class CORxRecursoDireito
     {
         [Display(Name = "Direito")]
         [Required()]
