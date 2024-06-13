@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
+      <ProjectReference Include="..\STX.App.Journal.MDL\STX.App.Journal.MDL.csproj" />
+    </ItemGroup>
+
+</Project>

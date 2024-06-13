@@ -19,7 +19,7 @@ namespace STX.App.Core.INF.DB
             public const string sDeletar = @"Deletar";
             public static Guid Deletar = new Guid("79457E9E-9948-4C3C-8605-D810AF504E4C");
             public const string sVisualizar = @"Visualizar";
-            public static Guid Visualizar = new Guid("00000000-0000-0000-0000-000000000000");
+            public static Guid Visualizar = new Guid("04B3A66C-C0F0-4F99-9864-08403BAA71BE");
             public const string sAlterar = @"Alterar";
             public static Guid Alterar = new Guid("4B7D2E6B-5500-4156-B6F8-3A42C3A9B398");
         }

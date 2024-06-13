@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <MyType>DASE</MyType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
+      <ProjectReference Include="..\STX.App.Journal.MDL\STX.App.Journal.MDL.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Properties\AssemblyInfo.cs">
+        <Visible>True</Visible>
+      </Compile>
+      <Compile Update="STX.App.Core.INF.Module.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>STX.App.Core.INF.dsmdl</DependentUpon>
+        <Visible>False</Visible>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="DB\JNL.dsorm">
+        <LastGenOutput>JNL.cs</LastGenOutput>
+        <Generator>XDASEGenerator</Generator>
+      </None>
+    </ItemGroup>
+
+</Project>
