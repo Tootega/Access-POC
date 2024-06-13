@@ -37,8 +37,9 @@ namespace STX.Core.Access.DB
                 
                 ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Login).HasColumnType(GetDBType("String", 0, 0));
-                ett.Property(d => d.Ativo).HasColumnType(GetDBType("Int16", 0, 0));
+                ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
                 ett.ToTable("TAFxUsuario");
+                ett.HasData(STX.Core.Access.DB.TAFxUsuario.XDefault.SeedData);
             });
         }
     }

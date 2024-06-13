@@ -23,8 +23,158 @@ namespace STX.App.Journal.INF.DB
         
         }
 
+        public DbSet<JNLxAcao> JNLxAcao{get; set;}
+        public DbSet<JNLxCampo> JNLxCampo{get; set;}
+        public DbSet<JNLxPesquisa> JNLxPesquisa{get; set;}
+        public DbSet<JNLxRevisao> JNLxRevisao{get; set;}
+        public DbSet<JNLxTabela> JNLxTabela{get; set;}
         protected override void OnModelCreating(ModelBuilder pBuilder)
         {
+            ConfigureJNLxAcao(pBuilder);
+            ConfigureJNLxCampo(pBuilder);
+            ConfigureJNLxPesquisa(pBuilder);
+            ConfigureJNLxRevisao(pBuilder);
+            ConfigureJNLxTabela(pBuilder);
+        }
+
+        private void ConfigureJNLxAcao(ModelBuilder pBuilder)
+        {
+            pBuilder.Entity<JNLxAcao>(ett =>
+            {
+                ett.HasKey(e => e.JNLxAcaoID).HasName("PK_JNLxAcao");
+                
+                ett.Property(d => d.JNLxAcaoID).HasColumnType(GetDBType("Int16", 0, 0));
+                ett.Property(d => d.Acao).HasColumnType(GetDBType("String", 15, 0));
+                ett.ToTable("JNLxAcao");
+                ett.HasData(STX.App.Journal.INF.DB.JNLxAcao.XDefault.SeedData);
+            });
+        }
+
+        private void ConfigureJNLxCampo(ModelBuilder pBuilder)
+        {
+            pBuilder.Entity<JNLxCampo>(ett =>
+            {
+                ett.HasKey(e => e.JNLxCampoID).HasName("PK_JNLxCampo");
+                
+                ett.Property(d => d.JNLxCampoID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
+                ett.Property(d => d.Campo).HasColumnType(GetDBType("String", 128, 0));
+                ett.Property(d => d.Tipo).HasColumnType(GetDBType("String", 128, 0));
+                ett.Property(d => d.Tamanho).HasColumnType(GetDBType("Int32", 0, 0));
+                ett.Property(d => d.Escala).HasColumnType(GetDBType("Int32", 0, 0));
+                ett.Property(d => d.PK).HasColumnType(GetDBType("Boolean", 0, 0));
+                ett.ToTable("JNLxCampo");
+
+                ett.HasOne(d => d.JNLxTabela)
+                   .WithMany(p => p.JNLxCampo)
+                   .HasForeignKey(d => d.JNLxTabelaID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_4E04AB85889B472F8C94702FAB292D2D");
+
+                ett.HasOne(d => d.CORxEstado)
+                   .WithMany()
+                   .HasForeignKey(d => d.SYSxEstadoID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_B585B8BCCA554A37B1CADD1D0838B5B9");
+
+                ett.HasIndex(d => d.JNLxTabelaID).HasDatabaseName("IX_4E04AB85889B472F8C94702FAB292D2D");
+                ett.HasIndex(d => d.SYSxEstadoID).HasDatabaseName("IX_B585B8BCCA554A37B1CADD1D0838B5B9");
+            });
+        }
+
+        private void ConfigureJNLxPesquisa(ModelBuilder pBuilder)
+        {
+            pBuilder.Entity<JNLxPesquisa>(ett =>
+            {
+                ett.HasKey(e => e.JNLxPesquisaID).HasName("PK_JNLxPesquisa");
+                
+                ett.Property(d => d.JNLxPesquisaID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.Consulta).HasColumnType(GetDBType("Byte[]", 0, 0));
+                ett.Property(d => d.ConsultaDado).HasColumnType(GetDBType("Byte[]", 0, 0));
+                ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 80, 0));
+                ett.ToTable("JNLxPesquisa");
+
+                ett.HasOne(d => d.JNLxTabela)
+                   .WithMany(p => p.JNLxPesquisa)
+                   .HasForeignKey(d => d.JNLxTabelaID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_6D093F888F8449E7B71231C58015D406");
+
+                ett.HasIndex(d => d.JNLxTabelaID).HasDatabaseName("IX_6D093F888F8449E7B71231C58015D406");
+            });
+        }
+
+        private void ConfigureJNLxRevisao(ModelBuilder pBuilder)
+        {
+            pBuilder.Entity<JNLxRevisao>(ett =>
+            {
+                ett.HasKey(e => e.JNLxRevisaoID).HasName("PK_JNLxRevisao");
+                
+                ett.Property(d => d.JNLxRevisaoID).HasColumnType(GetDBType("Int64", 0, 0));
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.Data).HasColumnType(GetDBType("DateTime", 0, 0));
+                ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.CORxTenatID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.JNLxAcaoID).HasColumnType(GetDBType("Int16", 0, 0));
+                ett.Property(d => d.Transacao).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.Host).HasColumnType(GetDBType("String", 50, 0));
+                ett.Property(d => d.App).HasColumnType(GetDBType("String", 100, 0));
+                ett.ToTable("JNLxRevisao");
+
+                ett.HasOne(d => d.JNLxAcao)
+                   .WithMany(p => p.JNLxRevisao)
+                   .HasForeignKey(d => d.JNLxAcaoID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_9C8C163514E04057A04465ACEA439A8D");
+
+                ett.HasOne(d => d.CORxTenat)
+                   .WithMany()
+                   .HasForeignKey(d => d.CORxTenatID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_F9CE558667BD47838DA0B35EF245EAE6");
+
+                ett.HasOne(d => d.JNLxTabela)
+                   .WithMany(p => p.JNLxRevisao)
+                   .HasForeignKey(d => d.JNLxTabelaID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_6AF88589258B434BBEA7EE61C5EF77DB");
+
+                ett.HasOne(d => d.TAFxUsuario)
+                   .WithMany()
+                   .HasForeignKey(d => d.TAFxUsuarioID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_0056CAE152B348029E7D0F451051BA5B");
+
+                ett.HasIndex(d => d.JNLxTabelaID).HasDatabaseName("IX_6AF88589258B434BBEA7EE61C5EF77DB");
+                ett.HasIndex(d => d.TAFxUsuarioID).HasDatabaseName("IX_0056CAE152B348029E7D0F451051BA5B");
+                ett.HasIndex(d => d.CORxTenatID).HasDatabaseName("IX_F9CE558667BD47838DA0B35EF245EAE6");
+                ett.HasIndex(d => d.JNLxAcaoID).HasDatabaseName("IX_9C8C163514E04057A04465ACEA439A8D");
+            });
+        }
+
+        private void ConfigureJNLxTabela(ModelBuilder pBuilder)
+        {
+            pBuilder.Entity<JNLxTabela>(ett =>
+            {
+                ett.HasKey(e => e.JNLxTabelaID).HasName("PK_JNLxTabela");
+                
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.Tabela).HasColumnType(GetDBType("String", 128, 0));
+                ett.Property(d => d.CampoPK).HasColumnType(GetDBType("String", 128, 0));
+                ett.Property(d => d.TipoPK).HasColumnType(GetDBType("String", 128, 0));
+                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
+                ett.ToTable("JNLxTabela");
+
+                ett.HasOne(d => d.CORxEstado)
+                   .WithMany()
+                   .HasForeignKey(d => d.SYSxEstadoID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_0242A18199F541B284B78A1A5D60D2E7");
+
+                ett.HasIndex(d => d.SYSxEstadoID).HasDatabaseName("IX_0242A18199F541B284B78A1A5D60D2E7");
+            });
         }
     }
 }

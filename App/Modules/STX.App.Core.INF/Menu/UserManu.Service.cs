@@ -42,7 +42,7 @@ namespace STX.App.Core.INF.Menu
                     ett.ToTable("CORxRecurso");
 
                     ett.HasOne(d => d.CORxMenuItem)
-                      .WithMany(p => p.CORxRecurso)
+                       .WithMany(p => p.CORxRecurso)
                        .HasForeignKey(d => d.CORxMenuItemID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_DD2B2F889A7341ACB8763984D8EB927F");

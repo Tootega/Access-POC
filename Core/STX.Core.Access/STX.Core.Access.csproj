@@ -55,6 +55,10 @@
       <Visible>False</Visible>
     </Compile>
     <Compile Update="Usuarios\UsuariosAtivos.Controller.cs">
+      <Visible>False</Visible>
+      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
+    </Compile>
+    <Compile Update="Usuarios\UsuariosAtivos.Service.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
@@ -68,10 +72,6 @@
       <Visible>True</Visible>
       <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
     </Compile>
-    <Compile Update="Usuarios\UsuariosAtivos.Service.cs">
-      <Visible>False</Visible>
-      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -81,7 +81,7 @@
     </None>
     <None Update="Usuarios\UsuariosAtivos.dssvc">
       <Generator>XDASEGenerator</Generator>
-      <LastGenOutput>UsuariosAtivos.Controller.cs</LastGenOutput>
+      <LastGenOutput>UsuariosAtivos.Service.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

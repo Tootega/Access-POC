@@ -47,19 +47,19 @@ namespace STX.App.Core.INF.Perfil
                     ett.ToTable("CORxPerfilDireiro");
 
                     ett.HasOne(d => d.CORxPerfil)
-                      .WithMany(p => p.CORxPerfilDireiro)
+                       .WithMany(p => p.CORxPerfilDireiro)
                        .HasForeignKey(d => d.CORxPerfilID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_DB2EF4796E004A85B4BBEC4BAFB60B61");
 
                     ett.HasOne(d => d.CORxDireiro)
-                      .WithMany(p => p.CORxPerfilDireiro)
+                       .WithMany(p => p.CORxPerfilDireiro)
                        .HasForeignKey(d => d.CORxDireiroID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_C6414CDFD26A410BA65457F3CD38FE4A");
 
                     ett.HasOne(d => d.CORxEstado)
-                      .WithMany(p => p.CORxPerfilDireiro)
+                       .WithMany(p => p.CORxPerfilDireiro)
                        .HasForeignKey(d => d.SYSxEstadoID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_C81CBAAB358F4F87B64A7EFD7808B76B");
@@ -97,19 +97,19 @@ namespace STX.App.Core.INF.Perfil
                     ett.ToTable("CORxRecursoDireito");
 
                     ett.HasOne(d => d.CORxDireiro)
-                      .WithMany(p => p.CORxRecursoDireito)
+                       .WithMany(p => p.CORxRecursoDireito)
                        .HasForeignKey(d => d.CORxDireiroID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_FEBE37E773C04510917C09AA991BA695");
 
                     ett.HasOne(d => d.CORxEstado)
-                      .WithMany(p => p.CORxRecursoDireito)
+                       .WithMany(p => p.CORxRecursoDireito)
                        .HasForeignKey(d => d.SYSxEstadoID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_662808A15CC541869E041EB76DBF81F2");
 
                     ett.HasOne(d => d.CORxRecurso)
-                      .WithMany(p => p.CORxRecursoDireito)
+                       .WithMany(p => p.CORxRecursoDireito)
                        .HasForeignKey(d => d.CORxRecursoID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_63A2BC55DE5B48F9B50DB67210086133");
@@ -135,7 +135,7 @@ namespace STX.App.Core.INF.Perfil
                     ett.ToTable("CORxRecurso");
 
                     ett.HasOne(d => d.CORxMenuItem)
-                      .WithMany(p => p.CORxRecurso)
+                       .WithMany(p => p.CORxRecurso)
                        .HasForeignKey(d => d.CORxMenuItemID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_DD2B2F889A7341ACB8763984D8EB927F");

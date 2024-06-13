@@ -40,7 +40,7 @@ namespace STX.App.Core.INF.Usuario
                     
                     ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.Property(d => d.Login).HasColumnType(GetDBType("String", 0, 0));
-                    ett.Property(d => d.Ativo).HasColumnType(GetDBType("Int16", 0, 0));
+                    ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
                     ett.ToTable("TAFxUsuario");
                 });
             }
@@ -54,14 +54,14 @@ namespace STX.App.Core.INF.Usuario
                     ett.Property(d => d.CORxPessoaID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.ToTable("CORxUsuario");
 
-                    ett.HasOne<TAFxUsuario>()
+                    ett.HasOne(d => d.TAFxUsuario)
                        .WithMany()
                        .HasForeignKey(d => d.CORxUsuarioID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_74C786F513D84B83B262F901573BCE27");
 
                     ett.HasOne(d => d.CORxPessoa)
-                      .WithMany(p => p.CORxUsuario)
+                       .WithMany(p => p.CORxUsuario)
                        .HasForeignKey(d => d.CORxPessoaID)
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_C9471B8665C04206AC2FBA967434C37A");
@@ -149,12 +149,12 @@ namespace STX.App.Core.INF.Usuario
                     ctx.SaveChanges();
                 }
 
-                if (HasChanges(stpl, stpl.Login, stpl.Ativo))
+                if (HasChanges(stpl, stpl.Login, stpl.CORxEstadoID))
                 {
                     var TAFxUsuariotpl = new TAFxUsuario();
                     TAFxUsuariotpl.Login = (String)stpl.Login.Value;
-                    TAFxUsuariotpl.Ativo = (Int16)stpl.Ativo.Value;
-                    ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.Login, stpl.Ativo);
+                    TAFxUsuariotpl.CORxEstadoID = (Int16)stpl.CORxEstadoID.Value;
+                    ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.Login, stpl.CORxEstadoID);
                     ctx.SaveChanges();
                 }
 
@@ -209,7 +209,7 @@ namespace STX.App.Core.INF.Usuario
                 query = query.Take(pFilter.TakeRows);
 
             var dst = query.Select(q => new UsuarioTuple(){Login = new XStringDataField(XFieldState.Empty, q.TAFxUsuario.Login),
-                               Ativo = new XInt16DataField(XFieldState.Empty, q.TAFxUsuario.Ativo),
+                               CORxEstadoID = new XInt16DataField(XFieldState.Empty, q.TAFxUsuario.CORxEstadoID),
                                CORxUsuarioID = new XGuidDataField(XFieldState.Empty, q.CORxUsuario.CORxUsuarioID),
                                CORxPessoaID = new XGuidDataField(XFieldState.Empty, q.CORxPessoa.CORxPessoaID),
                                Nome = new XStringDataField(XFieldState.Empty, q.CORxPessoa.Nome)});

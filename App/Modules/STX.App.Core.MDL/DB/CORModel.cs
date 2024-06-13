@@ -10,6 +10,10 @@ namespace STX.App.Core.INF.DB
     public  static class CORModel
     {
 
+        public static class TAFxUsuario
+        {
+        }
+
         public static class CORxDireiro
         {
             public const string sInserir = @"Inserir";

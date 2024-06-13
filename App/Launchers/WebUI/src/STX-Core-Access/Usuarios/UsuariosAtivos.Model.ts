@@ -19,7 +19,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
 
         TAFxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Ativo = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
+        CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
 
     }
 
@@ -45,7 +45,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
 
     export class UsuariosAtivosFilter extends XFilter
     {
-        Ativo = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
+        CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
         Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
     }
 }

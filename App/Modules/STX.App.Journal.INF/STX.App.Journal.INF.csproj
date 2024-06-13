@@ -6,11 +6,50 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="STX.App.Journal.INF.dsmdl" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="STX.App.Journal.INF.dsmdl">
+        <Generator>XDASEGenerator</Generator>
+        <LastGenOutput>STX.App.Journal.INF.Module.cs</LastGenOutput>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
       <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
+      <ProjectReference Include="..\STX.App.Core.INF\STX.App.Core.INF.csproj" />
       <ProjectReference Include="..\STX.App.Journal.MDL\STX.App.Journal.MDL.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="DB\JNL.Acao.cs">
+        <Visible>False</Visible>
+        <DependentUpon>JNL.dsorm</DependentUpon>
+      </Compile>
+      <Compile Update="DB\JNL.Campo.cs">
+        <Visible>False</Visible>
+        <DependentUpon>JNL.dsorm</DependentUpon>
+      </Compile>
+      <Compile Update="DB\JNL.cs">
+        <Visible>False</Visible>
+        <DependentUpon>JNL.dsorm</DependentUpon>
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="DB\JNL.Pesquisa.cs">
+        <Visible>False</Visible>
+        <DependentUpon>JNL.dsorm</DependentUpon>
+      </Compile>
+      <Compile Update="DB\JNL.Revisao.cs">
+        <Visible>False</Visible>
+        <DependentUpon>JNL.dsorm</DependentUpon>
+      </Compile>
+      <Compile Update="DB\JNL.Tabela.cs">
+        <Visible>False</Visible>
+        <DependentUpon>JNL.dsorm</DependentUpon>
+      </Compile>
       <Compile Update="Properties\AssemblyInfo.cs">
         <Visible>True</Visible>
       </Compile>
@@ -19,6 +58,12 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>STX.App.Core.INF.dsmdl</DependentUpon>
         <Visible>False</Visible>
+      </Compile>
+      <Compile Update="STX.App.Journal.INF.Module.cs">
+        <Visible>False</Visible>
+        <DependentUpon>STX.App.Journal.INF.dsmdl</DependentUpon>
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
       </Compile>
     </ItemGroup>
 

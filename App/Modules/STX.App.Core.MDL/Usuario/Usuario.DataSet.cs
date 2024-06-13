@@ -15,7 +15,7 @@ namespace STX.App.Core.INF.Usuario
     public class UsuarioTuple : XServiceDataTuple
     {
         public XStringDataField Login {get;set;}
-        public XInt16DataField Ativo {get;set;}
+        public XInt16DataField CORxEstadoID {get;set;}
         public XGuidDataField CORxUsuarioID {get;set;}
         public XGuidDataField CORxPessoaID {get;set;}
         public XStringDataField Nome {get;set;}

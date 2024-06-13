@@ -18,7 +18,7 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
             override GetPKValue(): any { return this.CORxUsuarioID.Value; }
 
         Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Ativo = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
+        CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
         CORxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         CORxPessoaID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');

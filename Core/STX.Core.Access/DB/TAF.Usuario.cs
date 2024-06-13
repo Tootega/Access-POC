@@ -9,8 +9,19 @@ namespace STX.Core.Access.DB
 {
     public class TAFxUsuario
     {
+        public class XDefault
+        {
+            private static Dictionary<Guid, TAFxUsuario> _SeedData = new Dictionary<Guid, TAFxUsuario>()
+            {
+                [new Guid("00000000-0000-0000-0000-000000000000")] = new TAFxUsuario { TAFxUsuarioID = new Guid("00000000-0000-0000-0000-000000000000"), Login = @"NA", CORxEstadoID = (Int16)0 }
+            };
+
+            public static TAFxUsuario[] SeedData => _SeedData.Values.ToArray();
+
+        }
+        [Display(Name = "Ativo")]
         [Required()]
-        public Int16 Ativo {get; set;}
+        public Int16 CORxEstadoID {get; set;}
 
         [Required()]
         public String Login {get; set;}

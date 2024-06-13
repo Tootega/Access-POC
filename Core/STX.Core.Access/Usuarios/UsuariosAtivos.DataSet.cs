@@ -16,12 +16,12 @@ namespace STX.Core.Access.Usuarios
     {
         public XGuidDataField TAFxUsuarioID {get;set;}
         public XStringDataField Login {get;set;}
-        public XInt16DataField Ativo {get;set;}
+        public XInt16DataField CORxEstadoID {get;set;}
     }
 
     public class UsuariosAtivosFilter : XFilter
     {
-        public XInt16DataField Ativo {get;set;}
+        public XInt16DataField CORxEstadoID {get;set;}
         public XStringDataField Login {get;set;}
     }
 

@@ -62,6 +62,10 @@
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>
       </Compile>
+      <Compile Update="DB\COR.Tenat.cs">
+        <Visible>False</Visible>
+        <DependentUpon>COR.dsorm</DependentUpon>
+      </Compile>
       <Compile Update="DB\COR.Usuario.cs">
         <Visible>False</Visible>
         <DependentUpon>COR.dsorm</DependentUpon>

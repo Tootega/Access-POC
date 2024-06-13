@@ -9,5 +9,23 @@ namespace STX.App.Journal.INF.DB
 {
     public  static class JNLModel
     {
+
+        public static class TAFxUsuario
+        {
+        }
+
+        public static class JNLxAcao
+        {
+            public const string sAlteracao = @"Alteração";
+            public const Int16 Alteracao = (Int16)2;
+            public const string sDelecao = @"Deleção";
+            public const Int16 Delecao = (Int16)3;
+            public const string sInsercao = @"Inserção";
+            public const Int16 Insercao = (Int16)1;
+        }
+
+        public static class CORxEstado
+        {
+        }
     }
 }

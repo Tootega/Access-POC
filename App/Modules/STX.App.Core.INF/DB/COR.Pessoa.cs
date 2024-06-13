@@ -18,5 +18,6 @@ namespace STX.App.Core.INF.DB
         public String Nome {get; set;}
 
         public List<CORxUsuario> CORxUsuario {get; set;} = new List<CORxUsuario>();
+        public List<CORxTenat> CORxTenat {get; set;} = new List<CORxTenat>();
     }
 }
