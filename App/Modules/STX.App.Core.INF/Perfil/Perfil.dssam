@@ -40,6 +40,19 @@
             <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">2</XData>
           </XValues>
         </XFRMField>
+        <XFRMField ID="6519FC74-9210-4C30-B4C5-7CBBBE7009D7" ParentID="447AB1F5-DEC1-4F96-A901-82BB8CB307A9">
+          <XValues>
+            <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="447AB1F5-DEC1-4F96-A901-82BB8CB307A9" Text="CORxPerfil.CORxPerfilID" DocumentID="89FA5B9A-14F4-4989-BE06-DCD2A3E4428F" DocumentName="Perfil" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">447AB1F5-DEC1-4F96-A901-82BB8CB307A9</XParentData>
+            <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">2</XData>
+            <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">083C4AC6-6C57-4BE4-8EFB-11B6B442FA4C</XData>
+            <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">32</XData>
+            <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
+            <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
+            <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=0;Y=80;Width=999;Height=520}</XData>
+            <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">13</XData>
+            <XLinkData Name="ServiceID" ID="B3DE3666-CBF5-4613-AEAF-A220696CC838" Type="Guid" ElementID="D653C667-14D8-4FEC-8B91-931A9F9AF041" Text="PerfilDireito - (STX.App.Core.INF.Perfil)" DocumentID="D4DEF071-9945-4D8E-936E-7A39E557CAD3" DocumentName="PerfilDireito" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">D653C667-14D8-4FEC-8B91-931A9F9AF041</XLinkData>
+          </XValues>
+        </XFRMField>
       </XFRMForm>
     </XFRMDesigner>
   </XSAMActivity>

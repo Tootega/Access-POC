@@ -15,6 +15,8 @@ import { XSearchComponent } from "./Component/XSearchComponent";
 import { XStageComponent } from "./Component/XStageComponent";
 import { XDropDownEditor } from "./Editor/XDropDownEditor";
 import { XDropDownGrid } from "./Table/XDropDownGrid";
+import { XDataGridEditor } from "./Editor/XDataGridEditor";
+import { XDataGrid } from "./Table/XDataGrid";
 
 @NgModule({
     declarations: [
@@ -33,6 +35,8 @@ import { XDropDownGrid } from "./Table/XDropDownGrid";
         XSearchComponent,
         XDropDownEditor,
         XDropDownGrid,
+        XDataGridEditor,
+        XDataGrid,
     ],
     imports: [NgbDatepicker, NgbTimepicker, NgbInputDatepicker],
 
@@ -51,7 +55,9 @@ import { XDropDownGrid } from "./Table/XDropDownGrid";
         XStageComponent,
         XSearchComponent,
         XDropDownEditor,
-        XDropDownGrid
+        XDropDownGrid,
+        XDataGridEditor,
+        XDataGrid,
     ]
 }) export class XTabControlModule
 {

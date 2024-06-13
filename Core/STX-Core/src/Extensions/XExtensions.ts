@@ -1,9 +1,8 @@
-﻿class XKeyValue<K, V>
+class XKeyValue<K, V>
 {
     Key: K;
     Value: V;
 }
-
 class Guid
 {
     static Empty = "00000000-0000-0000-0000-000000000000";
@@ -52,13 +51,6 @@ interface Document
 
 document.Styles = document.styleSheets;
 
-interface DOMTokenList
-{
-    Any<T>(pPredicate: XFunc<T>): boolean;
-    Add(pStyle: string);
-    Remove(pStyle: string);
-}
-
 DOMTokenList.prototype.Any = function <T>(pPredicade: XFunc<T>): boolean
 {
     for (var i = 0; i < this.length; i++)
@@ -66,6 +58,13 @@ DOMTokenList.prototype.Any = function <T>(pPredicade: XFunc<T>): boolean
             return true;
     return false;
 };
+
+interface DOMTokenList
+{
+    Any<T>(pPredicate: XFunc<T>): boolean;
+    Add(pStyle: string);
+    Remove(pStyle: string);
+}
 
 DOMTokenList.prototype.Add = function (pStyle: string)
 {

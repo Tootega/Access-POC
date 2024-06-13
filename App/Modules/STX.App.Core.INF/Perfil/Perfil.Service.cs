@@ -287,7 +287,7 @@ namespace STX.App.Core.INF.Perfil
             if (pFilter != null)
             {
                 if (pFilter.Nome != null && pFilter.Nome.State != XFieldState.Empty)
-                    query = query.Where(q => q.CORxPerfil.Nome == pFilter.Nome.Value);
+                    query = query.Where(q => EF.Functions.Like(q.CORxPerfil.Nome, pFilter.Nome.Value + "%"));
             }
 
             if (pFilter?.SkipRows > 0)

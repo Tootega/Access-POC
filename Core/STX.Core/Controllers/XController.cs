@@ -10,23 +10,18 @@ namespace STX.Core.Controllers
 {
     public class StopwatchAttribute : ActionFilterAttribute
     {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        public override void OnActionExecuting(ActionExecutingContext pContext)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            filterContext.HttpContext.Items["Stopwatch"] = stopwatch;
-
-            stopwatch.Start();
+            Stopwatch stp = new Stopwatch();
+            pContext.HttpContext.Items["Stopwatch"] = stp;
+            stp.Start();
         }
 
-        public override void OnResultExecuted(ResultExecutedContext filterContext)
+        public override void OnResultExecuted(ResultExecutedContext pContext)
         {
-            Stopwatch? stopwatch = (Stopwatch)filterContext.HttpContext.Items["Stopwatch"];
-            stopwatch.Stop();
-
-            HttpContext httpContext = filterContext.HttpContext;
-            HttpResponse response = httpContext.Response;
-
-           Console.WriteLine($"Ellapsed {stopwatch.Elapsed.TotalMilliseconds} {httpContext.Request.Path}");
+            Stopwatch stp = pContext.HttpContext.Items["Stopwatch"] as Stopwatch;
+            stp?.Stop();
+            Console.WriteLine($"Ellapsed {stp?.Elapsed.TotalMilliseconds}ms {pContext.HttpContext.Request.Path}");
         }
     }
 
@@ -36,6 +31,7 @@ namespace STX.Core.Controllers
 
         public XController(ILogger<XController> pLogger)
         {
+            Log = pLogger;
         }
 
         protected readonly ILogger<XController> Log;

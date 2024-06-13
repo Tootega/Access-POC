@@ -50,7 +50,7 @@ namespace Launcher
 
             ConfigureServices(builder.Services);
 
-            builder.Services.AddDbContext<STXAppCoreINFContext>();
+            //builder.Services.AddDbContext<STXAppCoreINFContext>();
             App = builder.Build();
             if (App.Environment.IsDevelopment())
             {
@@ -64,9 +64,9 @@ namespace Launcher
             App.MapControllers();
             App.UseStaticFiles();
 
-            using var scop = App.Services.CreateScope();
-            using var ctl1 = scop.ServiceProvider.GetRequiredService<STXAppCoreINFContext>();
-            ctl1.Database.Migrate();
+            //using var scop = App.Services.CreateScope();
+            //using var ctl1 = scop.ServiceProvider.GetRequiredService<STXAppCoreINFContext>();
+            //ctl1.Database.Migrate();
 
             App.Run("https://+:5000");
         }

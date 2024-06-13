@@ -41,7 +41,7 @@ export abstract class XEditor<T extends HTMLElement> extends XGuest implements X
         XEventManager.SetTimeOut(this, () => this.InternalPrepare(), 50);
     }
 
-    private InternalPrepare()
+    protected InternalPrepare()
     {
         this.Input = this.Element.querySelector(this.Tag ?? "input") as T;
 

@@ -117,6 +117,8 @@ export class XHost extends XGuest
 
     override GetChildDeep<T extends XGuest>(pID: string): T
     {
+        if (!this.Children)
+            return null;
         var t = this.Children.Get(pID);
         if (t != null)
             return t as T;
@@ -132,6 +134,8 @@ export class XHost extends XGuest
 
     GetTemplate(pName: string): TemplateRef<any>
     {
+        if (!this.Template)
+            return null;
         for (var i = 0; i < this.Template.length; i++)
         {
             let t = this.Template.get(i);
@@ -153,6 +157,8 @@ export class XHost extends XGuest
 
     GetContainer(pName: string): ViewContainerRef
     {
+        if (!this.Container)
+            return null;
         for (var i = 0; i < this.Container.length; i++)
         {
             let t = this.Container.get(i);
@@ -164,6 +170,8 @@ export class XHost extends XGuest
 
     GetInput(pName: string): ViewContainerRef
     {
+        if (!this.Container)
+            return null;
         for (var i = 0; i < this.Container.length; i++)
         {
             let t = this.Container.get(i);
