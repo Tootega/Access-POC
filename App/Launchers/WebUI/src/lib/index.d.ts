@@ -399,6 +399,7 @@ declare class XDataField extends XData {
     OldValue?: any;
     constructor(State?: XFieldState, Type?: any, _Mask?: any, Value?: any, OldValue?: any);
     RawValue: any;
+    Name: string;
     GetDisplayText(): string;
     FormatText(pValue: any): string;
     get DisplayText(): string;

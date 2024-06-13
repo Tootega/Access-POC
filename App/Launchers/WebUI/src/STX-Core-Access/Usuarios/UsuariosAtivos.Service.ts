@@ -28,7 +28,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosSVC
 
         Search(pFilter: STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosFilter, pCallback: XMethod<STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosDataSet>)
         {
-            let ret = this.http.post(`${environment.apiBaseURI}/STXCoreAccess/Usuarios/UsuariosAtivos/search`, pFilter);
+            let ret = this.http.post(`${environment.apiBaseURI}/STXCoreAccess/Usuarios/UsuariosAtivos/Search`, pFilter);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -40,7 +40,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosSVC
 
         GetByPK(pRequest: STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosRequest, pCallback: XMethod<STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosDataSet>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXCoreAccess/Usuarios/UsuariosAtivos/getbypk`, pRequest);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXCoreAccess/Usuarios/UsuariosAtivos/GetByPK`, pRequest);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -52,7 +52,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosSVC
 
         Save(pDataSet: STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosDataSet, pCallback: XMethod<boolean>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXCoreAccess/Usuarios/UsuariosAtivos`, pDataSet);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXCoreAccess/Usuarios/UsuariosAtivos/Flush`, pDataSet);
             ret.subscribe({
                 next: (isok) =>
                 {

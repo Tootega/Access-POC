@@ -23,7 +23,7 @@ export namespace STXAppCoreINFPerfilPerfilDireitoSVC
 
         GetByPK(pRequest: STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoRequest, pCallback: XMethod<STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoDataSet>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/PerfilDireito/getbypk`, pRequest);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/PerfilDireito/GetByPK`, pRequest);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -35,7 +35,7 @@ export namespace STXAppCoreINFPerfilPerfilDireitoSVC
 
         Save(pDataSet: STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoDataSet, pCallback: XMethod<boolean>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/PerfilDireito`, pDataSet);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/PerfilDireito/Flush`, pDataSet);
             ret.subscribe({
                 next: (isok) =>
                 {

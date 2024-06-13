@@ -125,6 +125,7 @@ class XDataField extends XData
     }
 
     RawValue: any;
+    Name: string;
 
     GetDisplayText(): string
     {
@@ -249,7 +250,7 @@ class XDataTuple extends XData
         {
             let fname = fields[i];
             let fld = this[fname];
-            if (fld.Name)
+            if (fld instanceof XDataField)
                 this[fname].SetValue(pSource[fname].Value);
             else
                 this[fname] = pSource[fname];

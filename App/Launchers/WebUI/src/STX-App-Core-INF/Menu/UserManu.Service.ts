@@ -28,7 +28,7 @@ export namespace STXAppCoreINFMenuUserManuSVC
 
         Search(pFilter: STXAppCoreINFMenuUserManuMDL.UserManuFilter, pCallback: XMethod<STXAppCoreINFMenuUserManuMDL.UserManuDataSet>)
         {
-            let ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/search`, pFilter);
+            let ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/Search`, pFilter);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -40,7 +40,7 @@ export namespace STXAppCoreINFMenuUserManuSVC
 
         GetByPK(pRequest: STXAppCoreINFMenuUserManuMDL.UserManuRequest, pCallback: XMethod<STXAppCoreINFMenuUserManuMDL.UserManuDataSet>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/getbypk`, pRequest);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/GetByPK`, pRequest);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -52,7 +52,7 @@ export namespace STXAppCoreINFMenuUserManuSVC
 
         Save(pDataSet: STXAppCoreINFMenuUserManuMDL.UserManuDataSet, pCallback: XMethod<boolean>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu`, pDataSet);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/Flush`, pDataSet);
             ret.subscribe({
                 next: (isok) =>
                 {

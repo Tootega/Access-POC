@@ -1703,7 +1703,7 @@ class XDataTuple extends XData {
         for (var i = 0; i < fields.length; i++) {
             let fname = fields[i];
             let fld = this[fname];
-            if (fld.Name)
+            if (fld instanceof XDataField)
                 this[fname].SetValue(pSource[fname].Value);
             else
                 this[fname] = pSource[fname];

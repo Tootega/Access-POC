@@ -11,12 +11,6 @@ namespace STX.Core.Access.DB
     public class STXCoreAccessContext : XDBContext
     {
 
-        public STXCoreAccessContext(DbContextOptions pOptions)
-          : base(pOptions)
-        {
-        
-        }
-
         public STXCoreAccessContext(DbContextOptions<STXCoreAccessContext> pOptions)
           : base(pOptions)
         {

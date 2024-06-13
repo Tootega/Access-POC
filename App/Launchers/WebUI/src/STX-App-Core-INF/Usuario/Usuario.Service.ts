@@ -28,7 +28,7 @@ export namespace STXAppCoreINFUsuarioUsuarioSVC
 
         Search(pFilter: STXAppCoreINFUsuarioUsuarioMDL.UsuarioFilter, pCallback: XMethod<STXAppCoreINFUsuarioUsuarioMDL.UsuarioDataSet>)
         {
-            let ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Usuario/Usuario/search`, pFilter);
+            let ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Usuario/Usuario/Search`, pFilter);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -40,7 +40,7 @@ export namespace STXAppCoreINFUsuarioUsuarioSVC
 
         GetByPK(pRequest: STXAppCoreINFUsuarioUsuarioMDL.UsuarioRequest, pCallback: XMethod<STXAppCoreINFUsuarioUsuarioMDL.UsuarioDataSet>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Usuario/Usuario/getbypk`, pRequest);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Usuario/Usuario/GetByPK`, pRequest);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -52,7 +52,7 @@ export namespace STXAppCoreINFUsuarioUsuarioSVC
 
         Save(pDataSet: STXAppCoreINFUsuarioUsuarioMDL.UsuarioDataSet, pCallback: XMethod<boolean>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Usuario/Usuario`, pDataSet);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Usuario/Usuario/Flush`, pDataSet);
             ret.subscribe({
                 next: (isok) =>
                 {

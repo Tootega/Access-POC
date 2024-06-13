@@ -28,7 +28,7 @@ export namespace STXAppCoreINFPerfilPerfilSVC
 
         Search(pFilter: STXAppCoreINFPerfilPerfilMDL.PerfilFilter, pCallback: XMethod<STXAppCoreINFPerfilPerfilMDL.PerfilDataSet>)
         {
-            let ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil/search`, pFilter);
+            let ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil/Search`, pFilter);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -40,7 +40,7 @@ export namespace STXAppCoreINFPerfilPerfilSVC
 
         GetByPK(pRequest: STXAppCoreINFPerfilPerfilMDL.PerfilRequest, pCallback: XMethod<STXAppCoreINFPerfilPerfilMDL.PerfilDataSet>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil/getbypk`, pRequest);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil/GetByPK`, pRequest);
             ret.subscribe({
                 next: (dst) =>
                 {
@@ -52,7 +52,7 @@ export namespace STXAppCoreINFPerfilPerfilSVC
 
         Save(pDataSet: STXAppCoreINFPerfilPerfilMDL.PerfilDataSet, pCallback: XMethod<boolean>)
         {
-            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil`, pDataSet);
+            var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil/Flush`, pDataSet);
             ret.subscribe({
                 next: (isok) =>
                 {
