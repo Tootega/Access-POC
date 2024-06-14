@@ -108,6 +108,11 @@ namespace STX.App.Core.INF.DB.Migrations
                     b.Property<Guid>("CORxMenuItemPaiID")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Icone")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -126,18 +131,21 @@ namespace STX.App.Core.INF.DB.Migrations
                         {
                             CORxMenuItemID = new Guid("620df346-cc9d-4333-b57e-8b5454e5617c"),
                             CORxMenuItemPaiID = new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"),
+                            Icone = "bi bi-alipay",
                             Nome = "Item da POC"
                         },
                         new
                         {
                             CORxMenuItemID = new Guid("00000000-0000-0000-0000-000000000000"),
                             CORxMenuItemPaiID = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Icone = "NI",
                             Nome = "NI"
                         },
                         new
                         {
                             CORxMenuItemID = new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"),
                             CORxMenuItemPaiID = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Icone = "bi bi-alipay",
                             Nome = "POC"
                         });
                 });
@@ -157,6 +165,18 @@ namespace STX.App.Core.INF.DB.Migrations
                         .HasName("PK_CORxPerfil");
 
                     b.ToTable("CORxPerfil", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CORxPerfilID = new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"),
+                            Nome = "Administrador"
+                        },
+                        new
+                        {
+                            CORxPerfilID = new Guid("9a0b3913-4ca5-46d6-8161-3cfd80ca7ad2"),
+                            Nome = "Vendedor"
+                        });
                 });
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxPerfilDireiro", b =>
@@ -165,10 +185,10 @@ namespace STX.App.Core.INF.DB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CORxDireiroID")
+                    b.Property<Guid>("CORxPerfilID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CORxPerfilID")
+                    b.Property<Guid>("CORxRecursoDireitoID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<short>("SYSxEstadoID")
@@ -177,20 +197,43 @@ namespace STX.App.Core.INF.DB.Migrations
                     b.HasKey("CORxPerfilDireiroID")
                         .HasName("PK_CORxPerfilDireiro");
 
-                    b.HasIndex("CORxDireiroID")
-                        .HasDatabaseName("IX_C6414CDFD26A410BA65457F3CD38FE4A");
-
                     b.HasIndex("CORxPerfilID")
                         .HasDatabaseName("IX_DB2EF4796E004A85B4BBEC4BAFB60B61");
+
+                    b.HasIndex("CORxRecursoDireitoID")
+                        .HasDatabaseName("IX_43FA8B4D965A44388AB05C4C95CD4120");
 
                     b.HasIndex("SYSxEstadoID")
                         .HasDatabaseName("IX_C81CBAAB358F4F87B64A7EFD7808B76B");
 
-                    b.HasIndex("CORxPerfilID", "CORxDireiroID")
+                    b.HasIndex("CORxPerfilID", "CORxPerfilDireiroID")
                         .IsUnique()
                         .HasDatabaseName("IX_8EA98120_28B4_458C_946B_E9B0000C518D");
 
                     b.ToTable("CORxPerfilDireiro", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CORxPerfilDireiroID = new Guid("3c1fc583-ae51-471d-b9e6-f32e1e4fed46"),
+                            CORxPerfilID = new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"),
+                            CORxRecursoDireitoID = new Guid("bffdec08-20e6-473e-8e78-767fbc07498c"),
+                            SYSxEstadoID = (short)1
+                        },
+                        new
+                        {
+                            CORxPerfilDireiroID = new Guid("10853d40-58f1-4b93-874d-b49a61f8e486"),
+                            CORxPerfilID = new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"),
+                            CORxRecursoDireitoID = new Guid("6187f500-b6ad-46e8-94e6-f2751c9358b1"),
+                            SYSxEstadoID = (short)1
+                        },
+                        new
+                        {
+                            CORxPerfilDireiroID = new Guid("726ff2aa-9caa-46b9-9c1c-4422f23203b6"),
+                            CORxPerfilID = new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"),
+                            CORxRecursoDireitoID = new Guid("789c7f93-9343-42fd-9970-e99bd4d03de3"),
+                            SYSxEstadoID = (short)1
+                        });
                 });
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxPessoa", b =>
@@ -231,6 +274,20 @@ namespace STX.App.Core.INF.DB.Migrations
                         .HasDatabaseName("IX_DD2B2F889A7341ACB8763984D8EB927F");
 
                     b.ToTable("CORxRecurso", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CORxRecursoID = new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"),
+                            CORxMenuItemID = new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"),
+                            Nome = "Perfil de Acesso"
+                        },
+                        new
+                        {
+                            CORxRecursoID = new Guid("e678fe01-3fe3-45e6-a3ff-1aad064d3745"),
+                            CORxMenuItemID = new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"),
+                            Nome = "Usuário"
+                        });
                 });
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxRecursoDireito", b =>
@@ -265,6 +322,29 @@ namespace STX.App.Core.INF.DB.Migrations
                         .HasDatabaseName("IX_29FB7252_4D26_4B87_85F7_DED1FB18AC29");
 
                     b.ToTable("CORxRecursoDireito", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CORxRecursoDireitoID = new Guid("6187f500-b6ad-46e8-94e6-f2751c9358b1"),
+                            CORxDireiroID = new Guid("ec1effea-1ccf-45fe-be30-b91ce86673a8"),
+                            CORxRecursoID = new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"),
+                            SYSxEstadoID = (short)1
+                        },
+                        new
+                        {
+                            CORxRecursoDireitoID = new Guid("bffdec08-20e6-473e-8e78-767fbc07498c"),
+                            CORxDireiroID = new Guid("79457e9e-9948-4c3c-8605-d810af504e4c"),
+                            CORxRecursoID = new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"),
+                            SYSxEstadoID = (short)1
+                        },
+                        new
+                        {
+                            CORxRecursoDireitoID = new Guid("789c7f93-9343-42fd-9970-e99bd4d03de3"),
+                            CORxDireiroID = new Guid("04b3a66c-c0f0-4f99-9864-08403baa71be"),
+                            CORxRecursoID = new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"),
+                            SYSxEstadoID = (short)1
+                        });
                 });
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxTenat", b =>
@@ -372,19 +452,19 @@ namespace STX.App.Core.INF.DB.Migrations
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxPerfilDireiro", b =>
                 {
-                    b.HasOne("STX.App.Core.INF.DB.CORxDireiro", "CORxDireiro")
-                        .WithMany("CORxPerfilDireiro")
-                        .HasForeignKey("CORxDireiroID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("FK_C6414CDFD26A410BA65457F3CD38FE4A");
-
                     b.HasOne("STX.App.Core.INF.DB.CORxPerfil", "CORxPerfil")
                         .WithMany("CORxPerfilDireiro")
                         .HasForeignKey("CORxPerfilID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK_DB2EF4796E004A85B4BBEC4BAFB60B61");
+
+                    b.HasOne("STX.App.Core.INF.DB.CORxRecursoDireito", "CORxRecursoDireito")
+                        .WithMany("CORxPerfilDireiro")
+                        .HasForeignKey("CORxRecursoDireitoID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_43FA8B4D965A44388AB05C4C95CD4120");
 
                     b.HasOne("STX.App.Core.INF.DB.CORxEstado", "CORxEstado")
                         .WithMany("CORxPerfilDireiro")
@@ -393,11 +473,11 @@ namespace STX.App.Core.INF.DB.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_C81CBAAB358F4F87B64A7EFD7808B76B");
 
-                    b.Navigation("CORxDireiro");
-
                     b.Navigation("CORxEstado");
 
                     b.Navigation("CORxPerfil");
+
+                    b.Navigation("CORxRecursoDireito");
                 });
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxRecurso", b =>
@@ -511,8 +591,6 @@ namespace STX.App.Core.INF.DB.Migrations
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxDireiro", b =>
                 {
-                    b.Navigation("CORxPerfilDireiro");
-
                     b.Navigation("CORxRecursoDireito");
                 });
 
@@ -549,6 +627,11 @@ namespace STX.App.Core.INF.DB.Migrations
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxRecurso", b =>
                 {
                     b.Navigation("CORxRecursoDireito");
+                });
+
+            modelBuilder.Entity("STX.App.Core.INF.DB.CORxRecursoDireito", b =>
+                {
+                    b.Navigation("CORxPerfilDireiro");
                 });
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxUsuario", b =>

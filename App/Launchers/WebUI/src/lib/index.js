@@ -354,6 +354,18 @@ Array.prototype.OrderBy = function (pValue) {
     let ret = this.slice().sort((l, r) => XComparer.Compare(pValue(l), pValue(r)));
     return ret;
 };
+HTMLElement.prototype.GetChildAs = function (pClass, pCanSelf) {
+    let x = pClass;
+    let elm = this;
+    if (pCanSelf)
+        elm = this;
+    for (var i = 0; i < elm.childNodes.length; i++) {
+        var cld = elm.childNodes[i];
+        if ((cld === null || cld === void 0 ? void 0 : cld.Instance) instanceof x)
+            return cld.Instance;
+    }
+    return null;
+};
 HTMLElement.prototype.GetIntance = function (pClass, pCanSelf) {
     let x = pClass;
     let elm = this.parentElement;
@@ -1729,17 +1741,6 @@ class XDataTuple extends XData {
         return null;
     }
 }
-class XDataSet {
-    Assign(pClass, pDataSet) {
-        this.Tuples = new XArray(pDataSet.Tuples.Select(t => new pClass(t)));
-    }
-    get CurrentTuple() {
-        var _a;
-        if (((_a = this.Tuples) === null || _a === void 0 ? void 0 : _a.length) == 0)
-            return null;
-        return this.Tuples[0];
-    }
-}
 var XErrorType;
 (function (XErrorType) {
     XErrorType[XErrorType["None"] = 0] = "None";
@@ -3099,4 +3100,19 @@ class XUtils {
 }
 XUtils._Str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 XUtils._Month = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+class XDataSet {
+    SetTuples(pTuples) {
+        this.Tuples = pTuples;
+        return this;
+    }
+    Assign(pClass, pDataSet) {
+        this.Tuples = new XArray(pDataSet.Tuples.Select(t => new pClass(t)));
+    }
+    get CurrentTuple() {
+        var _a;
+        if (((_a = this.Tuples) === null || _a === void 0 ? void 0 : _a.length) == 0)
+            return null;
+        return this.Tuples[0];
+    }
+}
 //# sourceMappingURL=index.js.map

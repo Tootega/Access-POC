@@ -53,8 +53,9 @@
     </div>
     <div id='{{SearchAreaID}}'>
         <form class='row g justify-content' (submit)="Search($event)" action="javascript:void(0);">
-                <div XStringEditor class='col-sm-16'  Field='Nome' Title='Nome do Perfil' [Tuple]='Filter'>
+                <div XSearchEditor class='col-sm-32'  Field='Nome' Title='Nome do Perfil' [Tuple]='Filter'>
                     <label for='ccd8bd5c-0252-45a3-8bee-e21343d3171b' class='form-label text-nowrap'>Nome do Perfil</label>
+                    <label class='form-label text-nowrap' style="color:blue;font-size:9px">&nbsp;&nbsp; {{Filter.Column}}</label>
                 </div>
         </form>
         <div class='ttg-line-1'>

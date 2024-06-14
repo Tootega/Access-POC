@@ -41,9 +41,9 @@ namespace STX.App.Core.INF.Perfil
                     ett.HasKey(e => e.CORxPerfilDireiroID).HasName("PK_CORxPerfilDireiro");
                     
                     ett.Property(d => d.CORxPerfilDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
+                    ett.Property(d => d.CORxRecursoDireitoID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.ToTable("CORxPerfilDireiro");
 
                     ett.HasOne(d => d.CORxPerfil)
@@ -52,11 +52,11 @@ namespace STX.App.Core.INF.Perfil
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_DB2EF4796E004A85B4BBEC4BAFB60B61");
 
-                    ett.HasOne(d => d.CORxDireiro)
+                    ett.HasOne(d => d.CORxRecursoDireito)
                        .WithMany(p => p.CORxPerfilDireiro)
-                       .HasForeignKey(d => d.CORxDireiroID)
+                       .HasForeignKey(d => d.CORxRecursoDireitoID)
                        .OnDelete(DeleteBehavior.Restrict)
-                       .HasConstraintName("FK_C6414CDFD26A410BA65457F3CD38FE4A");
+                       .HasConstraintName("FK_43FA8B4D965A44388AB05C4C95CD4120");
 
                     ett.HasOne(d => d.CORxEstado)
                        .WithMany(p => p.CORxPerfilDireiro)
@@ -64,11 +64,11 @@ namespace STX.App.Core.INF.Perfil
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_C81CBAAB358F4F87B64A7EFD7808B76B");
 
-                    ett.HasIndex(d => d.CORxDireiroID).HasDatabaseName("IX_C6414CDFD26A410BA65457F3CD38FE4A");
                     ett.HasIndex(d => d.CORxPerfilID).HasDatabaseName("IX_DB2EF4796E004A85B4BBEC4BAFB60B61");
                     ett.HasIndex(d => d.SYSxEstadoID).HasDatabaseName("IX_C81CBAAB358F4F87B64A7EFD7808B76B");
+                    ett.HasIndex(d => d.CORxRecursoDireitoID).HasDatabaseName("IX_43FA8B4D965A44388AB05C4C95CD4120");
 
-                    ett.HasIndex(e => new { e.CORxPerfilID, e.CORxDireiroID })
+                    ett.HasIndex(e => new { e.CORxPerfilID, e.CORxPerfilDireiroID })
                         .IsUnique()
                         .HasDatabaseName("IX_8EA98120_28B4_458C_946B_E9B0000C518D");
                 });
@@ -215,13 +215,14 @@ namespace STX.App.Core.INF.Perfil
                 return;
             foreach (PerfilDireitoTuple stpl in pDataSet.Tuples)
             {
-                if (HasChanges(stpl, stpl.CORxPerfilDireiroID, stpl.CORxDireiroID, stpl.CORxPerfilID))
+                if (HasChanges(stpl, stpl.CORxPerfilDireiroID, stpl.CORxPerfilID, stpl.SYSxEstadoID, stpl.CORxRecursoDireitoID))
                 {
                     var CORxPerfilDireirotpl = new CORxPerfilDireiro();
                     CORxPerfilDireirotpl.CORxPerfilDireiroID = (Guid)stpl.CORxPerfilDireiroID.Value;
-                    CORxPerfilDireirotpl.CORxDireiroID = (Guid)stpl.CORxDireiroID.Value;
                     CORxPerfilDireirotpl.CORxPerfilID = (Guid)stpl.CORxPerfilID.Value;
-                    ctx.Add(CORxPerfilDireirotpl).State = GetState(stpl, stpl.CORxPerfilDireiroID, stpl.CORxDireiroID, stpl.CORxPerfilID);
+                    CORxPerfilDireirotpl.SYSxEstadoID = (Int16)stpl.SYSxEstadoID.Value;
+                    CORxPerfilDireirotpl.CORxRecursoDireitoID = (Guid)stpl.CORxRecursoDireitoID.Value;
+                    ctx.Add(CORxPerfilDireirotpl).State = GetState(stpl, stpl.CORxPerfilDireiroID, stpl.CORxPerfilID, stpl.SYSxEstadoID, stpl.CORxRecursoDireitoID);
                     ctx.SaveChanges();
                 }
             }
@@ -237,9 +238,9 @@ namespace STX.App.Core.INF.Perfil
         {
             var ctx = Context;
             var query = from CORxPerfilDireiro in ctx.CORxPerfilDireiro
-                        join CORxDireiro in ctx.CORxDireiro on CORxPerfilDireiro.CORxDireiroID equals CORxDireiro.CORxDireiroID
-                        join CORxRecursoDireito in ctx.CORxRecursoDireito on CORxDireiro.CORxDireiroID equals CORxRecursoDireito.CORxDireiroID
+                        join CORxRecursoDireito in ctx.CORxRecursoDireito on CORxPerfilDireiro.CORxRecursoDireitoID equals CORxRecursoDireito.CORxRecursoDireitoID
                         join CORxRecurso in ctx.CORxRecurso on CORxRecursoDireito.CORxRecursoID equals CORxRecurso.CORxRecursoID
+                        join CORxDireiro in ctx.CORxDireiro on CORxRecursoDireito.CORxDireiroID equals CORxDireiro.CORxDireiroID
                         join CORxEstado in ctx.CORxEstado on CORxRecursoDireito.SYSxEstadoID equals CORxEstado.CORxEstadoID
                         select new {CORxPerfilDireiro, CORxDireiro, CORxRecursoDireito, CORxRecurso, CORxEstado};
 
@@ -248,12 +249,13 @@ namespace STX.App.Core.INF.Perfil
             if (pRequest != null)
                 query = query.Where(q => q.CORxPerfilDireiro.CORxPerfilDireiroID == pRequest.CORxPerfilDireiroID);
 
-            var dst = query.Select(q => new PerfilDireitoTuple(){CORxPerfilDireiroID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxPerfilDireiroID),
-                                     CORxDireiroID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxDireiroID),
-                                     CORxPerfilID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxPerfilID),
+            var dst = query.Select(q => new PerfilDireitoTuple(){CORxPerfilID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxPerfilID),
                                      Direito = new XStringDataField(XFieldState.Empty, q.CORxDireiro.Direito),
                                      Estado = new XStringDataField(XFieldState.Empty, q.CORxEstado.Estado),
-                                     Nome = new XStringDataField(XFieldState.Empty, q.CORxRecurso.Nome)});
+                                     Nome = new XStringDataField(XFieldState.Empty, q.CORxRecurso.Nome),
+                                     SYSxEstadoID = new XInt16DataField(XFieldState.Empty, q.CORxPerfilDireiro.SYSxEstadoID),
+                                     CORxPerfilDireiroID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxPerfilDireiroID),
+                                     CORxRecursoDireitoID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxRecursoDireitoID)});
             var dataset = new PerfilDireitoDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

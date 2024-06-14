@@ -102,6 +102,7 @@ interface HTMLElement {
     Show(): void;
     Instance: any;
     GetIntance<T>(pClass: any, pCanSelf?: boolean): T;
+    GetChildAs<T>(pClass: any, pCanSelf?: boolean): T;
 }
 interface Node {
     IsChildOf(pElement: Node, pOrIsSelf?: boolean): boolean;
@@ -418,11 +419,6 @@ declare class XDataTuple extends XData {
     set IsChecked(pValue: boolean);
     _CheckedChanged(pArg: Event, pRow: any, pRowArg: any, pBodyArg: any): void;
     GetPKValue(): any;
-}
-declare class XDataSet<T extends XDataTuple> {
-    Tuples: XArray<T>;
-    Assign(pClass: any, pDataSet: XDataSet<T>): void;
-    get CurrentTuple(): T;
 }
 declare enum XErrorType {
     None = 0,
@@ -800,4 +796,10 @@ declare class XUtils {
     static Location(pElement: HTMLElement): XPoint;
     static IsOut(pRect: ClientRect, pLocation: XPoint, pWidth: number, pHeight: number): Boolean;
     static Replace(pText: string, pChar: string, pPosition: number): string;
+}
+declare class XDataSet<T extends XDataTuple> {
+    Tuples: XArray<T>;
+    SetTuples(pTuples: XArray<T>): XDataSet<T>;
+    Assign(pClass: any, pDataSet: XDataSet<T>): void;
+    get CurrentTuple(): T;
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace STX.App.Core.INF.DB.Migrations
 {
     /// <inheritdoc />
-    public partial class SQLServerIni : Migration
+    public partial class SQLServer001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,6 +43,7 @@ namespace STX.App.Core.INF.DB.Migrations
                 {
                     CORxMenuItemID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CORxMenuItemPaiID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Icone = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -109,38 +110,6 @@ namespace STX.App.Core.INF.DB.Migrations
                         column: x => x.CORxMenuItemID,
                         principalTable: "CORxMenuItem",
                         principalColumn: "CORxMenuItemID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CORxPerfilDireiro",
-                columns: table => new
-                {
-                    CORxPerfilDireiroID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CORxDireiroID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CORxPerfilID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SYSxEstadoID = table.Column<short>(type: "smallint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CORxPerfilDireiro", x => x.CORxPerfilDireiroID);
-                    table.ForeignKey(
-                        name: "FK_C6414CDFD26A410BA65457F3CD38FE4A",
-                        column: x => x.CORxDireiroID,
-                        principalTable: "CORxDireiro",
-                        principalColumn: "CORxDireiroID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_C81CBAAB358F4F87B64A7EFD7808B76B",
-                        column: x => x.SYSxEstadoID,
-                        principalTable: "CORxEstado",
-                        principalColumn: "CORxEstadoID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_DB2EF4796E004A85B4BBEC4BAFB60B61",
-                        column: x => x.CORxPerfilID,
-                        principalTable: "CORxPerfil",
-                        principalColumn: "CORxPerfilID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -255,6 +224,38 @@ namespace STX.App.Core.INF.DB.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "CORxPerfilDireiro",
+                columns: table => new
+                {
+                    CORxPerfilDireiroID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CORxPerfilID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CORxRecursoDireitoID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SYSxEstadoID = table.Column<short>(type: "smallint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CORxPerfilDireiro", x => x.CORxPerfilDireiroID);
+                    table.ForeignKey(
+                        name: "FK_43FA8B4D965A44388AB05C4C95CD4120",
+                        column: x => x.CORxRecursoDireitoID,
+                        principalTable: "CORxRecursoDireito",
+                        principalColumn: "CORxRecursoDireitoID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_C81CBAAB358F4F87B64A7EFD7808B76B",
+                        column: x => x.SYSxEstadoID,
+                        principalTable: "CORxEstado",
+                        principalColumn: "CORxEstadoID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_DB2EF4796E004A85B4BBEC4BAFB60B61",
+                        column: x => x.CORxPerfilID,
+                        principalTable: "CORxPerfil",
+                        principalColumn: "CORxPerfilID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "CORxDireiro",
                 columns: new[] { "CORxDireiroID", "Direito" },
@@ -279,12 +280,54 @@ namespace STX.App.Core.INF.DB.Migrations
 
             migrationBuilder.InsertData(
                 table: "CORxMenuItem",
-                columns: new[] { "CORxMenuItemID", "CORxMenuItemPaiID", "Nome" },
+                columns: new[] { "CORxMenuItemID", "CORxMenuItemPaiID", "Icone", "Nome" },
+                values: new object[] { new Guid("00000000-0000-0000-0000-000000000000"), new Guid("00000000-0000-0000-0000-000000000000"), "NI", "NI" });
+
+            migrationBuilder.InsertData(
+                table: "CORxPerfil",
+                columns: new[] { "CORxPerfilID", "Nome" },
                 values: new object[,]
                 {
-                    { new Guid("00000000-0000-0000-0000-000000000000"), new Guid("00000000-0000-0000-0000-000000000000"), "NI" },
-                    { new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"), new Guid("00000000-0000-0000-0000-000000000000"), "POC" },
-                    { new Guid("620df346-cc9d-4333-b57e-8b5454e5617c"), new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"), "Item da POC" }
+                    { new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"), "Administrador" },
+                    { new Guid("9a0b3913-4ca5-46d6-8161-3cfd80ca7ad2"), "Vendedor" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CORxMenuItem",
+                columns: new[] { "CORxMenuItemID", "CORxMenuItemPaiID", "Icone", "Nome" },
+                values: new object[,]
+                {
+                    { new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"), new Guid("00000000-0000-0000-0000-000000000000"), "bi bi-alipay", "POC" },
+                    { new Guid("620df346-cc9d-4333-b57e-8b5454e5617c"), new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"), "bi bi-alipay", "Item da POC" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CORxRecurso",
+                columns: new[] { "CORxRecursoID", "CORxMenuItemID", "Nome" },
+                values: new object[,]
+                {
+                    { new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"), new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"), "Perfil de Acesso" },
+                    { new Guid("e678fe01-3fe3-45e6-a3ff-1aad064d3745"), new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05"), "Usuário" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CORxRecursoDireito",
+                columns: new[] { "CORxRecursoDireitoID", "CORxDireiroID", "CORxRecursoID", "SYSxEstadoID" },
+                values: new object[,]
+                {
+                    { new Guid("6187f500-b6ad-46e8-94e6-f2751c9358b1"), new Guid("ec1effea-1ccf-45fe-be30-b91ce86673a8"), new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"), (short)1 },
+                    { new Guid("789c7f93-9343-42fd-9970-e99bd4d03de3"), new Guid("04b3a66c-c0f0-4f99-9864-08403baa71be"), new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"), (short)1 },
+                    { new Guid("bffdec08-20e6-473e-8e78-767fbc07498c"), new Guid("79457e9e-9948-4c3c-8605-d810af504e4c"), new Guid("99df499e-844f-47ee-aee6-c6462b18a3e0"), (short)1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CORxPerfilDireiro",
+                columns: new[] { "CORxPerfilDireiroID", "CORxPerfilID", "CORxRecursoDireitoID", "SYSxEstadoID" },
+                values: new object[,]
+                {
+                    { new Guid("10853d40-58f1-4b93-874d-b49a61f8e486"), new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"), new Guid("6187f500-b6ad-46e8-94e6-f2751c9358b1"), (short)1 },
+                    { new Guid("3c1fc583-ae51-471d-b9e6-f32e1e4fed46"), new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"), new Guid("bffdec08-20e6-473e-8e78-767fbc07498c"), (short)1 },
+                    { new Guid("726ff2aa-9caa-46b9-9c1c-4422f23203b6"), new Guid("67bd4f5d-4fb2-40a0-84c1-bd75ae669dd1"), new Guid("789c7f93-9343-42fd-9970-e99bd4d03de3"), (short)1 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -293,15 +336,15 @@ namespace STX.App.Core.INF.DB.Migrations
                 column: "CORxMenuItemPaiID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_8EA98120_28B4_458C_946B_E9B0000C518D",
+                name: "IX_43FA8B4D965A44388AB05C4C95CD4120",
                 table: "CORxPerfilDireiro",
-                columns: new[] { "CORxPerfilID", "CORxDireiroID" },
-                unique: true);
+                column: "CORxRecursoDireitoID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_C6414CDFD26A410BA65457F3CD38FE4A",
+                name: "IX_8EA98120_28B4_458C_946B_E9B0000C518D",
                 table: "CORxPerfilDireiro",
-                column: "CORxDireiroID");
+                columns: new[] { "CORxPerfilID", "CORxPerfilDireiroID" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_C81CBAAB358F4F87B64A7EFD7808B76B",
@@ -388,19 +431,13 @@ namespace STX.App.Core.INF.DB.Migrations
                 name: "CORxPerfilDireiro");
 
             migrationBuilder.DropTable(
-                name: "CORxRecursoDireito");
-
-            migrationBuilder.DropTable(
                 name: "CORxTenat");
 
             migrationBuilder.DropTable(
                 name: "CORxUsuarioPerfil");
 
             migrationBuilder.DropTable(
-                name: "CORxRecurso");
-
-            migrationBuilder.DropTable(
-                name: "CORxDireiro");
+                name: "CORxRecursoDireito");
 
             migrationBuilder.DropTable(
                 name: "CORxUsuario");
@@ -409,16 +446,22 @@ namespace STX.App.Core.INF.DB.Migrations
                 name: "CORxPerfil");
 
             migrationBuilder.DropTable(
+                name: "CORxRecurso");
+
+            migrationBuilder.DropTable(
                 name: "CORxEstado");
 
             migrationBuilder.DropTable(
-                name: "CORxMenuItem");
+                name: "CORxDireiro");
 
             migrationBuilder.DropTable(
                 name: "TAFxUsuario");
 
             migrationBuilder.DropTable(
                 name: "CORxPessoa");
+
+            migrationBuilder.DropTable(
+                name: "CORxMenuItem");
         }
     }
 }

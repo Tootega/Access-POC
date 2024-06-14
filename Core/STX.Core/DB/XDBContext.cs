@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 using STX.Core.Exceptions;
 using STX.Core.Interfaces;
@@ -79,6 +80,12 @@ namespace STX.Core
 
         protected override void OnConfiguring(DbContextOptionsBuilder pBuilder)
         {
+#if DEBUG
+            pBuilder.EnableSensitiveDataLogging(true);
+            pBuilder.LogTo(s => Debug.WriteLine(s));
+            pBuilder.EnableDetailedErrors(true);
+            pBuilder.EnableSensitiveDataLogging(true);
+#endif
             SelectProvider(pBuilder);
             base.OnConfiguring(pBuilder);
         }

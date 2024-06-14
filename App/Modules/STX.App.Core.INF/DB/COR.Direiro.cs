@@ -31,7 +31,6 @@ namespace STX.App.Core.INF.DB
         [Required()]
         public String Direito {get; set;}
 
-        public List<CORxPerfilDireiro> CORxPerfilDireiro {get; set;} = new List<CORxPerfilDireiro>();
         public List<CORxRecursoDireito> CORxRecursoDireito {get; set;} = new List<CORxRecursoDireito>();
     }
 }

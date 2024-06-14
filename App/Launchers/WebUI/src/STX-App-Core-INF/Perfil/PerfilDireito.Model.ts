@@ -17,12 +17,13 @@ export namespace STXAppCoreINFPerfilPerfilDireitoMDL
 
             override GetPKValue(): any { return this.CORxPerfilDireiroID.Value; }
 
-        CORxPerfilDireiroID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
-        CORxDireiroID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         CORxPerfilID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Direito = new XDataField(XFieldState.Empty, () => 'XString', () => '');
         Estado = new XDataField(XFieldState.Empty, () => 'XString', () => '');
         Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        SYSxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
+        CORxPerfilDireiroID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        CORxRecursoDireitoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
 
     }
 

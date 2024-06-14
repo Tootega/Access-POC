@@ -12,6 +12,12 @@ namespace STX.App.Core.INF.DB
     public class STXAppCoreINFContext : STXCoreAccessContext
     {
 
+        protected STXAppCoreINFContext(DbContextOptions pOptions)
+          : base(pOptions)
+        {
+        
+        }
+
         public STXAppCoreINFContext(DbContextOptions<STXAppCoreINFContext> pOptions)
           : base(pOptions)
         {
@@ -79,6 +85,7 @@ namespace STX.App.Core.INF.DB
                 ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 50, 0));
                 ett.Property(d => d.CORxMenuItemPaiID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.Icone).HasColumnType(GetDBType("String", 128, 0));
                 ett.ToTable("CORxMenuItem");
 
                 ett.HasOne(d => d.ItemPai)
@@ -101,6 +108,7 @@ namespace STX.App.Core.INF.DB
                 ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 45, 0));
                 ett.ToTable("CORxPerfil");
+                ett.HasData(STX.App.Core.INF.DB.CORxPerfil.XDefault.SeedData);
             });
         }
 
@@ -111,9 +119,9 @@ namespace STX.App.Core.INF.DB
                 ett.HasKey(e => e.CORxPerfilDireiroID).HasName("PK_CORxPerfilDireiro");
                 
                 ett.Property(d => d.CORxPerfilDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
+                ett.Property(d => d.CORxRecursoDireitoID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.ToTable("CORxPerfilDireiro");
 
                 ett.HasOne(d => d.CORxPerfil)
@@ -122,11 +130,11 @@ namespace STX.App.Core.INF.DB
                    .OnDelete(DeleteBehavior.Restrict)
                    .HasConstraintName("FK_DB2EF4796E004A85B4BBEC4BAFB60B61");
 
-                ett.HasOne(d => d.CORxDireiro)
+                ett.HasOne(d => d.CORxRecursoDireito)
                    .WithMany(p => p.CORxPerfilDireiro)
-                   .HasForeignKey(d => d.CORxDireiroID)
+                   .HasForeignKey(d => d.CORxRecursoDireitoID)
                    .OnDelete(DeleteBehavior.Restrict)
-                   .HasConstraintName("FK_C6414CDFD26A410BA65457F3CD38FE4A");
+                   .HasConstraintName("FK_43FA8B4D965A44388AB05C4C95CD4120");
 
                 ett.HasOne(d => d.CORxEstado)
                    .WithMany(p => p.CORxPerfilDireiro)
@@ -134,13 +142,14 @@ namespace STX.App.Core.INF.DB
                    .OnDelete(DeleteBehavior.Restrict)
                    .HasConstraintName("FK_C81CBAAB358F4F87B64A7EFD7808B76B");
 
-                ett.HasIndex(d => d.CORxDireiroID).HasDatabaseName("IX_C6414CDFD26A410BA65457F3CD38FE4A");
                 ett.HasIndex(d => d.CORxPerfilID).HasDatabaseName("IX_DB2EF4796E004A85B4BBEC4BAFB60B61");
                 ett.HasIndex(d => d.SYSxEstadoID).HasDatabaseName("IX_C81CBAAB358F4F87B64A7EFD7808B76B");
+                ett.HasIndex(d => d.CORxRecursoDireitoID).HasDatabaseName("IX_43FA8B4D965A44388AB05C4C95CD4120");
 
-                ett.HasIndex(e => new { e.CORxPerfilID, e.CORxDireiroID })
+                ett.HasIndex(e => new { e.CORxPerfilID, e.CORxPerfilDireiroID })
                     .IsUnique()
                     .HasDatabaseName("IX_8EA98120_28B4_458C_946B_E9B0000C518D");
+                ett.HasData(STX.App.Core.INF.DB.CORxPerfilDireiro.XDefault.SeedData);
             });
         }
 
@@ -174,6 +183,7 @@ namespace STX.App.Core.INF.DB
                    .HasConstraintName("FK_DD2B2F889A7341ACB8763984D8EB927F");
 
                 ett.HasIndex(d => d.CORxMenuItemID).HasDatabaseName("IX_DD2B2F889A7341ACB8763984D8EB927F");
+                ett.HasData(STX.App.Core.INF.DB.CORxRecurso.XDefault.SeedData);
             });
         }
 
@@ -214,6 +224,7 @@ namespace STX.App.Core.INF.DB
                 ett.HasIndex(e => new { e.CORxDireiroID, e.CORxRecursoID })
                     .IsUnique()
                     .HasDatabaseName("IX_29FB7252_4D26_4B87_85F7_DED1FB18AC29");
+                ett.HasData(STX.App.Core.INF.DB.CORxRecursoDireito.XDefault.SeedData);
             });
         }
 

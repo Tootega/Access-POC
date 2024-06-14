@@ -14,12 +14,13 @@ namespace STX.App.Core.INF.Perfil
 {
     public class PerfilDireitoTuple : XServiceDataTuple
     {
-        public XGuidDataField CORxPerfilDireiroID {get;set;}
-        public XGuidDataField CORxDireiroID {get;set;}
         public XGuidDataField CORxPerfilID {get;set;}
         public XStringDataField Direito {get;set;}
         public XStringDataField Estado {get;set;}
         public XStringDataField Nome {get;set;}
+        public XInt16DataField SYSxEstadoID {get;set;}
+        public XGuidDataField CORxPerfilDireiroID {get;set;}
+        public XGuidDataField CORxRecursoDireitoID {get;set;}
     }
 
     public class PerfilDireitoRequest : XRequest

@@ -17,6 +17,7 @@ import { XDropDownEditor } from "./Editor/XDropDownEditor";
 import { XDropDownGrid } from "./Table/XDropDownGrid";
 import { XDataGridEditor } from "./Editor/XDataGridEditor";
 import { XDataGrid } from "./Table/XDataGrid";
+import { XTable } from "./Table/XTable";
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import { XDataGrid } from "./Table/XDataGrid";
         XDropDownGrid,
         XDataGridEditor,
         XDataGrid,
+        XTable,
     ],
     imports: [NgbDatepicker, NgbTimepicker, NgbInputDatepicker],
 
@@ -58,6 +60,7 @@ import { XDataGrid } from "./Table/XDataGrid";
         XDropDownGrid,
         XDataGridEditor,
         XDataGrid,
+        XTable,
     ]
 }) export class XTabControlModule
 {

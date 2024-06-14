@@ -19,9 +19,9 @@ export namespace STXAppCoreINFMenuUserManuMDL
 
         CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Titulo = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        Ordem = new XDataField(XFieldState.Empty, () => 'XInt32', () => '');
         Modulo = new XDataField(XFieldState.Empty, () => 'XString', () => '');
         Icone = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Ordem = new XDataField(XFieldState.Empty, () => 'XInt32', () => '');
 
     }
 

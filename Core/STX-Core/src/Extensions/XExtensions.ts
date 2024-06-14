@@ -503,6 +503,22 @@ interface HTMLElement
     Show(): void;
     Instance: any;
     GetIntance<T>(pClass: any, pCanSelf?: boolean): T;
+    GetChildAs<T>(pClass: any, pCanSelf?: boolean): T;
+}
+
+HTMLElement.prototype.GetChildAs = function <T>(pClass: any, pCanSelf?: boolean): T
+{
+    let x = <any>pClass;
+    let elm = this;
+    if (pCanSelf)
+        elm = this;
+    for (var i = 0; i < elm.childNodes.length; i++)
+    {
+        var cld = <any>elm.childNodes[i];
+        if (cld?.Instance instanceof x)
+            return cld.Instance;
+    }
+    return null;
 }
 
 HTMLElement.prototype.GetIntance = function <T>(pClass: any, pCanSelf?: boolean): T

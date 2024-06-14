@@ -72,9 +72,15 @@ export class XGuest implements OnDestroy, AfterViewInit
     {
         return this.Element?.GetIntance<XHost>(XHost, false);
     }
+
     OwnerAs<T>(pClass: any): T
     {
         return this.Element?.GetIntance<T>(pClass, false);
+    }
+
+    GetChildAs<T>(pClass: any): T
+    {
+        return this.Element?.GetChildAs<T>(pClass, false);
     }
 
     ngAfterViewInit(): void

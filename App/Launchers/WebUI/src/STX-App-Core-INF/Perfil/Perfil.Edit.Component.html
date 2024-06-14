@@ -3,8 +3,50 @@
         <div XStringEditor class='col-sm-32'  Field='Nome' Title='Nome do Perfil' [Tuple]='DataSet?.CurrentTuple'>
             <label for='4dd2a909-c89a-4342-a2d8-ad335048cfdb' class='form-label text-nowrap'>Nome do Perfil</label>
         </div>
-        <div XDataGridEditor class='col-sm-32'  Field='CORxPerfilID' Title='Perfil'  [Tuple]='DataSet?.CurrentTuple' [DataSet]='DataSet'>
+        <div XDataGridEditor [Tuples]='DataSet?.CurrentTuple?.PerfilDireito' class='col-sm-32'  Field='CORxPerfilID' Title='Perfil' [Tuple]='DataSet?.CurrentTuple'>
             <label for='6519fc74-9210-4c30-b4c5-7cbbbe7009d7' class='form-label text-nowrap'>Perfil</label>
+            <XTable class='col-sm-32'  Titles='Direito|Direito|Estado|Estado'>
+            <table #Body class='w-100'>
+                <thead class='ttg-tb-hd t-100'>
+                    <tr class='w-100'>
+                        <ng-container #Container name='HeadContainer'>
+                            <ng-template #Template name='CheckTemplate' let-data='data'>
+                                <th class='text-nowrap' scope='col'>
+                                    <input type='checkbox' (click)='data.CheckedAll($event, {Body})'>
+                                </th>
+                            </ng-template>
+                        <ng-template #Template name='TitleTemplate' let-data='data'>
+                            <th class='text-nowrap' (click)='data.SortGrid($event, (data.Field))' scope='col'>
+                                    <i class='bi  pe-none'>
+                                    </i>
+                                    <span class='pe-none'>
+                                        {{data.Title}}
+                                    </span>
+                                </th>
+                            </ng-template>
+                        </ng-container>
+                    </tr>
+                </thead>
+                <tbody class='w-100'>
+                    <ng-container #Container name='RowContainer'>
+                        <ng-template #Template name='RowTemplate' let-data='data'>
+                            <tr class='ttg-row t-100' scope='row' [(attr.IsSelected)]='data.IsSelected'>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+                    <ng-template #Template name='ColumnTemplate' let-field='field'>
+                        <td>
+                            {{field.DisplayText}}
+                        </td>
+                    </ng-template>
+                    <ng-template #Template name='RowCheckTemplate' let-data='data'>
+                        <td>
+                            <input onclick='event.stopPropagation()' type='checkbox' [(checked)]='data.IsChecked'>
+                        </td>
+                    </ng-template>
+                </tbody>
+            </table>
+            </XTable>
         </div>
     </div>
 </div>

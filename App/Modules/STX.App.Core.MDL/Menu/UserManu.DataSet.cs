@@ -16,9 +16,9 @@ namespace STX.App.Core.INF.Menu
     {
         public XGuidDataField CORxRecursoID {get;set;}
         public XStringDataField Titulo {get;set;}
+        public XInt32DataField Ordem {get;set;}
         public XStringDataField Modulo {get;set;}
         public XStringDataField Icone {get;set;}
-        public XInt32DataField Ordem {get;set;}
     }
 
     public class UserManuFilter : XFilter

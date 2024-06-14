@@ -11,6 +11,12 @@ namespace STX.App.Journal.INF.DB
     public class STXAppJournalINFContext : XDBContext
     {
 
+        protected STXAppJournalINFContext(DbContextOptions pOptions)
+          : base(pOptions)
+        {
+        
+        }
+
         public STXAppJournalINFContext(DbContextOptions<STXAppJournalINFContext> pOptions)
           : base(pOptions)
         {

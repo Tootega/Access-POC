@@ -9,10 +9,18 @@ namespace STX.App.Core.INF.DB
 {
     public class CORxPerfilDireiro
     {
-        [Display(Name = "Direito")]
-        [Required()]
-        public Guid CORxDireiroID {get; set;}
+        public class XDefault
+        {
+            private static Dictionary<Guid, CORxPerfilDireiro> _SeedData = new Dictionary<Guid, CORxPerfilDireiro>()
+            {
+                [new Guid("3C1FC583-AE51-471D-B9E6-F32E1E4FED46")] = new CORxPerfilDireiro { CORxPerfilDireiroID = new Guid("3C1FC583-AE51-471D-B9E6-F32E1E4FED46"), CORxPerfilID = new Guid("67BD4F5D-4FB2-40A0-84C1-BD75AE669DD1"), SYSxEstadoID = (Int16)1, CORxRecursoDireitoID = new Guid("BFFDEC08-20E6-473E-8E78-767FBC07498C") },
+                [new Guid("10853D40-58F1-4B93-874D-B49A61F8E486")] = new CORxPerfilDireiro { CORxPerfilDireiroID = new Guid("10853D40-58F1-4B93-874D-B49A61F8E486"), CORxPerfilID = new Guid("67BD4F5D-4FB2-40A0-84C1-BD75AE669DD1"), SYSxEstadoID = (Int16)1, CORxRecursoDireitoID = new Guid("6187F500-B6AD-46E8-94E6-F2751C9358B1") },
+                [new Guid("726FF2AA-9CAA-46B9-9C1C-4422F23203B6")] = new CORxPerfilDireiro { CORxPerfilDireiroID = new Guid("726FF2AA-9CAA-46B9-9C1C-4422F23203B6"), CORxPerfilID = new Guid("67BD4F5D-4FB2-40A0-84C1-BD75AE669DD1"), SYSxEstadoID = (Int16)1, CORxRecursoDireitoID = new Guid("789C7F93-9343-42FD-9970-E99BD4D03DE3") }
+            };
 
+            public static CORxPerfilDireiro[] SeedData => _SeedData.Values.ToArray();
+
+        }
         [Display(Name = "Direitos por Perfil")]
         [Required()]
         public Guid? CORxPerfilDireiroID {get; set;} = Guid.Empty;
@@ -21,12 +29,16 @@ namespace STX.App.Core.INF.DB
         [Required()]
         public Guid CORxPerfilID {get; set;}
 
+        [Display(Name = "Diureitos por Recurso")]
+        [Required()]
+        public Guid CORxRecursoDireitoID {get; set;}
+
         [Display(Name = "Estado")]
         [Required()]
         public Int16 SYSxEstadoID {get; set;}
 
-        public CORxDireiro CORxDireiro {get; set;}
         public CORxPerfil CORxPerfil {get; set;}
         public CORxEstado CORxEstado {get; set;}
+        public CORxRecursoDireito CORxRecursoDireito {get; set;}
     }
 }

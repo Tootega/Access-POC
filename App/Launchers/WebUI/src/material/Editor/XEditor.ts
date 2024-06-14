@@ -83,6 +83,8 @@ export abstract class XEditor<T extends HTMLElement> extends XGuest implements X
 
     protected GetDisplayText(): string
     {
+        if (!this.DataField || !this.DataField.Value)
+            return "";
         return this.DataField?.FormatText(this.DataField?.Value);
     }
 

@@ -9,6 +9,17 @@ namespace STX.App.Core.INF.DB
 {
     public class CORxRecurso
     {
+        public class XDefault
+        {
+            private static Dictionary<Guid, CORxRecurso> _SeedData = new Dictionary<Guid, CORxRecurso>()
+            {
+                [new Guid("99DF499E-844F-47EE-AEE6-C6462B18A3E0")] = new CORxRecurso { CORxRecursoID = new Guid("99DF499E-844F-47EE-AEE6-C6462B18A3E0"), Nome = @"Perfil de Acesso", CORxMenuItemID = new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05") },
+                [new Guid("E678FE01-3FE3-45E6-A3FF-1AAD064D3745")] = new CORxRecurso { CORxRecursoID = new Guid("E678FE01-3FE3-45E6-A3FF-1AAD064D3745"), Nome = @"Usuário", CORxMenuItemID = new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05") }
+            };
+
+            public static CORxRecurso[] SeedData => _SeedData.Values.ToArray();
+
+        }
         [Display(Name = "Item de Menu")]
         [Required()]
         public Guid CORxMenuItemID {get; set;}

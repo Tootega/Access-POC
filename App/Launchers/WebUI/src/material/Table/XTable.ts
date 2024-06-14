@@ -46,7 +46,7 @@ export class XTable extends XHost
     OnSelectionChange: XGridEvent<XTable>;
     OnRowDBLClick: XGridEvent<XTable>;
     Intems: any;
-
+    
     override ngAfterViewInit()
     {
         this._TitleTemplate = this._TitleTemplate ?? this.GetOwner().GetTemplate("TitleTemplate");

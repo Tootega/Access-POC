@@ -29,6 +29,7 @@ namespace STX.App.Core.INF.Menu
             }
 
             internal DbSet<CORxRecurso> CORxRecurso{get; set;}
+            internal DbSet<CORxMenuItem> CORxMenuItem{get; set;}
 
             private void ConfigureCORxRecurso(ModelBuilder pBuilder)
             {
@@ -50,10 +51,32 @@ namespace STX.App.Core.INF.Menu
                     ett.HasIndex(d => d.CORxMenuItemID).HasDatabaseName("IX_DD2B2F889A7341ACB8763984D8EB927F");
                 });
             }
+            private void ConfigureCORxMenuItem(ModelBuilder pBuilder)
+            {
+                pBuilder.Entity<CORxMenuItem>(ett =>
+                {
+                    ett.HasKey(e => e.CORxMenuItemID).HasName("PK_CORxMenuItem");
+                    
+                    ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 50, 0));
+                    ett.Property(d => d.CORxMenuItemPaiID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.Icone).HasColumnType(GetDBType("String", 128, 0));
+                    ett.ToTable("CORxMenuItem");
+
+                    ett.HasOne(d => d.ItemPai)
+                       .WithMany(p => p.ItensFilhos)
+                       .HasForeignKey(d => d.CORxMenuItemPaiID)
+                       .OnDelete(DeleteBehavior.Restrict)
+                       .HasConstraintName("FK_089E501462F24B4CB82B6401E77C1CD9");
+
+                    ett.HasIndex(d => d.CORxMenuItemPaiID).HasDatabaseName("IX_089E501462F24B4CB82B6401E77C1CD9");
+                });
+            }
 
             protected override void OnModelCreating(ModelBuilder pBuilder)
             {
                 ConfigureCORxRecurso(pBuilder);
+                ConfigureCORxMenuItem(pBuilder);
             }
         }
 
@@ -100,7 +123,8 @@ namespace STX.App.Core.INF.Menu
         {
             var ctx = Context;
             var query = from CORxRecurso in ctx.CORxRecurso
-                        select new {CORxRecurso};
+                        join CORxMenuItem in ctx.CORxMenuItem on CORxRecurso.CORxMenuItemID equals CORxMenuItem.CORxMenuItemID
+                        select new {CORxRecurso, CORxMenuItem};
 
             query = _Rule?.InternalGetWhere(query,  pRequest, pFilter, pFull);
 
@@ -121,9 +145,9 @@ namespace STX.App.Core.INF.Menu
 
             var dst = query.Select(q => new UserManuTuple(){CORxRecursoID = new XGuidDataField(XFieldState.Empty, q.CORxRecurso.CORxRecursoID),
                                 Titulo = new XStringDataField(XFieldState.Empty, q.CORxRecurso.Nome),
-                                Modulo = new XStringDataField(XFieldState.Empty, null),
-                                Icone = new XStringDataField(XFieldState.Empty, null),
-                                Ordem = new XInt32DataField(XFieldState.Empty, 0)});
+                                Ordem = new XInt32DataField(XFieldState.Empty, 0),
+                                Modulo = new XStringDataField(XFieldState.Empty, q.CORxMenuItem.Nome),
+                                Icone = new XStringDataField(XFieldState.Empty, q.CORxMenuItem.Icone)});
             var dataset = new UserManuDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

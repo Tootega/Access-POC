@@ -13,9 +13,9 @@ namespace STX.App.Core.INF.DB
         {
             private static Dictionary<Guid, CORxMenuItem> _SeedData = new Dictionary<Guid, CORxMenuItem>()
             {
-                [new Guid("620DF346-CC9D-4333-B57E-8B5454E5617C")] = new CORxMenuItem { CORxMenuItemID = new Guid("620DF346-CC9D-4333-B57E-8B5454E5617C"), Nome = @"Item da POC", CORxMenuItemPaiID = new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05") },
-                [new Guid("00000000-0000-0000-0000-000000000000")] = new CORxMenuItem { CORxMenuItemID = new Guid("00000000-0000-0000-0000-000000000000"), Nome = @"NI", CORxMenuItemPaiID = new Guid("00000000-0000-0000-0000-000000000000") },
-                [new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05")] = new CORxMenuItem { CORxMenuItemID = new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05"), Nome = @"POC", CORxMenuItemPaiID = new Guid("00000000-0000-0000-0000-000000000000") }
+                [new Guid("620DF346-CC9D-4333-B57E-8B5454E5617C")] = new CORxMenuItem { CORxMenuItemID = new Guid("620DF346-CC9D-4333-B57E-8B5454E5617C"), Nome = @"Item da POC", CORxMenuItemPaiID = new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05"), Icone = @"bi bi-alipay" },
+                [new Guid("00000000-0000-0000-0000-000000000000")] = new CORxMenuItem { CORxMenuItemID = new Guid("00000000-0000-0000-0000-000000000000"), Nome = @"NI", CORxMenuItemPaiID = new Guid("00000000-0000-0000-0000-000000000000"), Icone = @"NI" },
+                [new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05")] = new CORxMenuItem { CORxMenuItemID = new Guid("2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05"), Nome = @"POC", CORxMenuItemPaiID = new Guid("00000000-0000-0000-0000-000000000000"), Icone = @"bi bi-alipay" }
             };
 
             public static CORxMenuItem[] SeedData => _SeedData.Values.ToArray();
@@ -28,6 +28,11 @@ namespace STX.App.Core.INF.DB
         [Display(Name = "Item de Menu")]
         [Required()]
         public Guid CORxMenuItemPaiID {get; set;}
+
+        [Display(Name = "Ícone")]
+        [MaxLength(128)]
+        [Required()]
+        public String Icone {get; set;}
 
         [MaxLength(50)]
         [Required()]
