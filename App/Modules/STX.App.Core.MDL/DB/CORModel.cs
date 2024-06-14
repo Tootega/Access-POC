@@ -10,6 +10,12 @@ namespace STX.App.Core.INF.DB
     public  static class CORModel
     {
 
+        public static class CORxUsuario
+        {
+            public static Guid _00000000000000000000000000000000 = new Guid("00000000-0000-0000-0000-000000000000");
+            public static Guid EBA53C9EC1104CA396FD420DC75207B1 = new Guid("EBA53C9E-C110-4CA3-96FD-420DC75207B1");
+        }
+
         public static class TAFxUsuario
         {
         }
@@ -49,8 +55,6 @@ namespace STX.App.Core.INF.DB
             public const Int16 Inativo = (Int16)0;
             public const string sAtivo = @"Ativo";
             public const Int16 Ativo = (Int16)1;
-            public const string sf_dfd_fdfd_ = @"f dfd fdfd ";
-            public const Int16 f_dfd_fdfd_ = (Int16)2;
         }
 
         public static class CORxRecurso
@@ -66,6 +70,14 @@ namespace STX.App.Core.INF.DB
             public static Guid _6187F500B6AD46E894E6F2751C9358B1 = new Guid("6187F500-B6AD-46E8-94E6-F2751C9358B1");
             public static Guid BFFDEC0820E6473E8E78767FBC07498C = new Guid("BFFDEC08-20E6-473E-8E78-767FBC07498C");
             public static Guid _789C7F93934342FD9970E99BD4D03DE3 = new Guid("789C7F93-9343-42FD-9970-E99BD4D03DE3");
+        }
+
+        public static class CORxPessoa
+        {
+            public const string sAdministrador = @"Administrador";
+            public static Guid Administrador = new Guid("8E330979-C053-45E6-A1ED-5FA20D03E18F");
+            public const string sNA = @"NA";
+            public static Guid NA = new Guid("00000000-0000-0000-0000-000000000000");
         }
 
         public static class CORxMenuItem

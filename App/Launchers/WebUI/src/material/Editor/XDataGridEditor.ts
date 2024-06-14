@@ -36,6 +36,7 @@ export class XDataGridEditor extends XEditor<HTMLInputElement>
     override InternalPrepare()
     {
     }
+
     set Tuples(pValue: any)
     {
         this.PTuples = pValue;

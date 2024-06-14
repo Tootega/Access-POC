@@ -37,6 +37,7 @@ namespace STX.App.Core.INF.DB
         public DbSet<CORxUsuarioPerfil> CORxUsuarioPerfil{get; set;}
         protected override void OnModelCreating(ModelBuilder pBuilder)
         {
+            base.OnModelCreating(pBuilder);
             ConfigureCORxDireiro(pBuilder);
             ConfigureCORxEstado(pBuilder);
             ConfigureCORxMenuItem(pBuilder);
@@ -162,6 +163,7 @@ namespace STX.App.Core.INF.DB
                 ett.Property(d => d.CORxPessoaID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 256, 0));
                 ett.ToTable("CORxPessoa");
+                ett.HasData(STX.App.Core.INF.DB.CORxPessoa.XDefault.SeedData);
             });
         }
 
@@ -271,6 +273,7 @@ namespace STX.App.Core.INF.DB
 
                 ett.HasIndex(d => d.CORxUsuarioID).HasDatabaseName("IX_74C786F513D84B83B262F901573BCE27");
                 ett.HasIndex(d => d.CORxPessoaID).HasDatabaseName("IX_C9471B8665C04206AC2FBA967434C37A");
+                ett.HasData(STX.App.Core.INF.DB.CORxUsuario.XDefault.SeedData);
             });
         }
 

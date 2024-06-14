@@ -14,8 +14,7 @@ namespace STX.App.Core.INF.DB
             private static Dictionary<Int16, CORxEstado> _SeedData = new Dictionary<Int16, CORxEstado>()
             {
                 [(Int16)0] = new CORxEstado { CORxEstadoID = (Int16)0, Estado = @"Inativo" },
-                [(Int16)1] = new CORxEstado { CORxEstadoID = (Int16)1, Estado = @"Ativo" },
-                [(Int16)2] = new CORxEstado { CORxEstadoID = (Int16)2, Estado = @"f dfd fdfd " }
+                [(Int16)1] = new CORxEstado { CORxEstadoID = (Int16)1, Estado = @"Ativo" }
             };
 
             public static CORxEstado[] SeedData => _SeedData.Values.ToArray();

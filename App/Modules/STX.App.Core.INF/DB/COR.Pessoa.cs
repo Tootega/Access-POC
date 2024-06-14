@@ -9,6 +9,17 @@ namespace STX.App.Core.INF.DB
 {
     public class CORxPessoa
     {
+        public class XDefault
+        {
+            private static Dictionary<Guid, CORxPessoa> _SeedData = new Dictionary<Guid, CORxPessoa>()
+            {
+                [new Guid("8E330979-C053-45E6-A1ED-5FA20D03E18F")] = new CORxPessoa { CORxPessoaID = new Guid("8E330979-C053-45E6-A1ED-5FA20D03E18F"), Nome = @"Administrador" },
+                [new Guid("00000000-0000-0000-0000-000000000000")] = new CORxPessoa { CORxPessoaID = new Guid("00000000-0000-0000-0000-000000000000"), Nome = @"NA" }
+            };
+
+            public static CORxPessoa[] SeedData => _SeedData.Values.ToArray();
+
+        }
         [Display(Name = "Pessoa")]
         [Required()]
         public Guid? CORxPessoaID {get; set;} = Guid.Empty;

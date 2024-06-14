@@ -13,6 +13,7 @@ namespace STX.Core.Access.DB
         {
             private static Dictionary<Guid, TAFxUsuario> _SeedData = new Dictionary<Guid, TAFxUsuario>()
             {
+                [new Guid("EBA53C9E-C110-4CA3-96FD-420DC75207B1")] = new TAFxUsuario { TAFxUsuarioID = new Guid("EBA53C9E-C110-4CA3-96FD-420DC75207B1"), Login = @"Administrador", CORxEstadoID = (Int16)1 },
                 [new Guid("00000000-0000-0000-0000-000000000000")] = new TAFxUsuario { TAFxUsuarioID = new Guid("00000000-0000-0000-0000-000000000000"), Login = @"NA", CORxEstadoID = (Int16)0 }
             };
 
