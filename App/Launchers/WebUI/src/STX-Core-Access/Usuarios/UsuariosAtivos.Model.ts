@@ -15,7 +15,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
             this.Assign(pSource);
         }
 
-            override GetPKValue(): any { return this.TAFxUsuarioID.Value; }
+        override GetPKValue(): any { return this.TAFxUsuarioID.Value; }
 
         TAFxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
@@ -30,7 +30,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
             super();
             if (pDataSet != null)
                 this.Assign(UsuariosAtivosTuple, pDataSet);
-            if (this.Tuples)
+            if (!this.Tuples)
                 this.Tuples = new XArray<UsuariosAtivosTuple>();
             for (var i = 0; i < this.Tuples.length; i++)
             {
@@ -43,6 +43,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
         {
             var tpl = new UsuariosAtivosTuple();
             tpl.TAFxUsuarioID.Value = Guid.NewGuid();
+            tpl.State = XTupleState.Added;
             this.Tuples.Add(tpl);
         }
     }

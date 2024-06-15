@@ -15,7 +15,7 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
             this.Assign(pSource);
         }
 
-            override GetPKValue(): any { return this.CORxUsuarioID.Value; }
+        override GetPKValue(): any { return this.CORxUsuarioID.Value; }
 
         Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
         CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
@@ -32,7 +32,7 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
             super();
             if (pDataSet != null)
                 this.Assign(UsuarioTuple, pDataSet);
-            if (this.Tuples)
+            if (!this.Tuples)
                 this.Tuples = new XArray<UsuarioTuple>();
             for (var i = 0; i < this.Tuples.length; i++)
             {
@@ -44,7 +44,9 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
         override New()
         {
             var tpl = new UsuarioTuple();
+            tpl.CORxPessoaID.Value = Guid.NewGuid();
             tpl.CORxUsuarioID.Value = Guid.NewGuid();
+            tpl.State = XTupleState.Added;
             this.Tuples.Add(tpl);
         }
     }

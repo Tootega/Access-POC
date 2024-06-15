@@ -15,7 +15,7 @@ export namespace STXAppCoreINFMenuUserManuMDL
             this.Assign(pSource);
         }
 
-            override GetPKValue(): any { return this.CORxRecursoID.Value; }
+        override GetPKValue(): any { return this.CORxRecursoID.Value; }
 
         CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Titulo = new XDataField(XFieldState.Empty, () => 'XString', () => '');
@@ -32,7 +32,7 @@ export namespace STXAppCoreINFMenuUserManuMDL
             super();
             if (pDataSet != null)
                 this.Assign(UserManuTuple, pDataSet);
-            if (this.Tuples)
+            if (!this.Tuples)
                 this.Tuples = new XArray<UserManuTuple>();
             for (var i = 0; i < this.Tuples.length; i++)
             {
@@ -45,6 +45,7 @@ export namespace STXAppCoreINFMenuUserManuMDL
         {
             var tpl = new UserManuTuple();
             tpl.CORxRecursoID.Value = Guid.NewGuid();
+            tpl.State = XTupleState.Added;
             this.Tuples.Add(tpl);
         }
     }
