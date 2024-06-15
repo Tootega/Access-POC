@@ -1518,6 +1518,23 @@ var Maps = [
     },
     { 'base': 'z', 'letters': /[\u007A\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763]/g }
 ];
+class XDataSet {
+    SetTuples(pTuples) {
+        this.Tuples = pTuples;
+        return this;
+    }
+    Assign(pClass, pDataSet) {
+        this.Tuples = new XArray(pDataSet.Tuples.Select(t => new pClass(t)));
+    }
+    get CurrentTuple() {
+        var _a;
+        if (((_a = this.Tuples) === null || _a === void 0 ? void 0 : _a.length) == 0)
+            return null;
+        return this.Tuples[0];
+    }
+    New() {
+    }
+}
 var XTupleState;
 (function (XTupleState) {
     XTupleState[XTupleState["Detached"] = 0] = "Detached";
@@ -1711,6 +1728,8 @@ class XDataTuple extends XData {
         this.State = XTupleState.Unchanged;
     }
     Assign(pSource) {
+        if (!pSource)
+            return;
         let fields = Object.getOwnPropertyNames(this);
         for (var i = 0; i < fields.length; i++) {
             let fname = fields[i];
@@ -3100,19 +3119,4 @@ class XUtils {
 }
 XUtils._Str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 XUtils._Month = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-class XDataSet {
-    SetTuples(pTuples) {
-        this.Tuples = pTuples;
-        return this;
-    }
-    Assign(pClass, pDataSet) {
-        this.Tuples = new XArray(pDataSet.Tuples.Select(t => new pClass(t)));
-    }
-    get CurrentTuple() {
-        var _a;
-        if (((_a = this.Tuples) === null || _a === void 0 ? void 0 : _a.length) == 0)
-            return null;
-        return this.Tuples[0];
-    }
-}
 //# sourceMappingURL=index.js.map

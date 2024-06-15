@@ -33,6 +33,13 @@ export namespace STXAppCoreINFPerfilPerfilDireitoSVC
             });
         }
 
+        New(pCallback: XMethod<STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoDataSet>)
+        {
+            let ndst = new STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoDataSet();
+            ndst.New();
+            pCallback.apply(ndst, [ndst]);
+        }
+
         Save(pDataSet: STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoDataSet, pCallback: XMethod<boolean>)
         {
             var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/PerfilDireito/Flush`, pDataSet);

@@ -41,20 +41,17 @@ namespace STX.Core.Services
 
         public EntityState GetState(XServiceDataTuple pTuple, params XIDataField[] pFields)
         {
-            using (FileStream fs = new FileStream("kjshdkj", FileMode.Create, FileAccess.Write))
-            {
-                if (pTuple.State.In(XTupleState.Deleted, XTupleState.Added))
-                    return (EntityState)pTuple.State;
+            if (pTuple.State.In(XTupleState.Deleted, XTupleState.Added))
+                return (EntityState)pTuple.State;
 
-                if (pFields.IsEmpty())
-                    return EntityState.Detached;
+            if (pFields.IsEmpty())
+                return EntityState.Detached;
 
-                foreach (XIDataField field in pFields)
-                    if (field.State == XFieldState.Modified)
-                        return EntityState.Modified;
+            foreach (XIDataField field in pFields)
+                if (field.State == XFieldState.Modified)
+                    return EntityState.Modified;
 
-                return EntityState.Unchanged;
-            }
+            return EntityState.Unchanged;
         }
 
         public bool HasChanges(XServiceDataTuple pTuple, params XIDataField[] pFields)

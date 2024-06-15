@@ -149,12 +149,13 @@ namespace STX.App.Core.INF.Usuario
                     ctx.SaveChanges();
                 }
 
-                if (HasChanges(stpl, stpl.Login, stpl.CORxEstadoID))
+                if (HasChanges(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID))
                 {
                     var TAFxUsuariotpl = new TAFxUsuario();
+                    TAFxUsuariotpl.TAFxUsuarioID = (Guid)stpl.CORxUsuarioID.Value;
                     TAFxUsuariotpl.Login = (String)stpl.Login.Value;
                     TAFxUsuariotpl.CORxEstadoID = (Int16)stpl.CORxEstadoID.Value;
-                    ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.Login, stpl.CORxEstadoID);
+                    ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID);
                     ctx.SaveChanges();
                 }
 

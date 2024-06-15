@@ -4,7 +4,7 @@ using STX.Access.Model;
 
 namespace STX.Core.Model
 {
-    public class XDateTimeDataField : XDataField<DateTime?>
+    public class XDateTimeDataField : XDataField<DateTime>
     {
         public static XDateTimeDataField operator +(XDateTimeDataField pField, DateTime pValue)
         {
@@ -27,22 +27,6 @@ namespace STX.Core.Model
 
         public static implicit operator DateTime(XDateTimeDataField pField)
         {
-            if (pField.Value.HasValue)
-                return pField.Value.Value;
-            return XDefault.NullDateTime;
-        }
-
-
-        public static implicit operator XDateTimeDataField(DateTime? pValue)
-        {
-            var fld = new XDateTimeDataField();
-            fld.Value = pValue;
-            return fld;
-        }
-
-
-        public static implicit operator DateTime?(XDateTimeDataField pField)
-        {
             return pField.Value;
         }
 
@@ -50,7 +34,7 @@ namespace STX.Core.Model
         {
         }
 
-        public XDateTimeDataField(XFieldState pState, DateTime? pValue)
+        public XDateTimeDataField(XFieldState pState, DateTime pValue)
         {
             Value = pValue;
             State = pState;
@@ -58,7 +42,9 @@ namespace STX.Core.Model
 
         public XDateTimeDataField(XFieldState pState = XFieldState.Empty, DateTime? pValue = null, Object pOldValue = null)
         {
-            Value = pValue;
+            if (!pValue.HasValue)
+                pValue = XDefault.NullDateTime;
+            Value = pValue.Value;
             OldValue = pOldValue;
             State = pState;
         }

@@ -50,6 +50,13 @@ export namespace STXAppCoreINFMenuUserManuSVC
             });
         }
 
+        New(pCallback: XMethod<STXAppCoreINFMenuUserManuMDL.UserManuDataSet>)
+        {
+            let ndst = new STXAppCoreINFMenuUserManuMDL.UserManuDataSet();
+            ndst.New();
+            pCallback.apply(ndst, [ndst]);
+        }
+
         Save(pDataSet: STXAppCoreINFMenuUserManuMDL.UserManuDataSet, pCallback: XMethod<boolean>)
         {
             var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/Flush`, pDataSet);

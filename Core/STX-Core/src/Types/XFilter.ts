@@ -1,4 +1,4 @@
-﻿class XRequest extends XData
+class XRequest extends XData
 {
 }
 

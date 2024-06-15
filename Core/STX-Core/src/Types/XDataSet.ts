@@ -20,4 +20,8 @@ class XDataSet<T extends XDataTuple>
             return null;
         return this.Tuples[0];
     }
+
+    New()
+    {
+    }
 }

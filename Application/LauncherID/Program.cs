@@ -57,7 +57,7 @@ namespace Launcher
             var dst = srv.Select(null, null, true);
             foreach (var item in dst.Tuples)
             {
-                usr.Add(item.Login.Value, new XUser { ID =item.TAFxUsuarioID.Value.Value, Login = item.Login.Value });
+                usr.Add(item.Login.Value, new XUser { ID =item.TAFxUsuarioID.Value, Login = item.Login.Value });
             }
 
             return usr;

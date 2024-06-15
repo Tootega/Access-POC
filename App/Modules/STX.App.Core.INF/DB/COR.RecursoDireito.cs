@@ -27,7 +27,7 @@ namespace STX.App.Core.INF.DB
 
         [Display(Name = "Diureitos por Recurso")]
         [Required()]
-        public Guid? CORxRecursoDireitoID {get; set;} = Guid.Empty;
+        public Guid CORxRecursoDireitoID {get; set;}
 
         [Display(Name = "Recurso")]
         [Required()]

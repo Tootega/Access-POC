@@ -4,7 +4,7 @@ using STX.Access.Model;
 
 namespace STX.Core.Model
 {
-    public class XBooleanDataField : XDataField<Boolean?>
+    public class XBooleanDataField : XDataField<Boolean>
     {
         public static XBooleanDataField operator +(XBooleanDataField pField, Boolean pValue)
         {
@@ -27,22 +27,6 @@ namespace STX.Core.Model
 
         public static implicit operator Boolean(XBooleanDataField pField)
         {
-            if (pField.Value.HasValue)
-                return pField.Value.Value;
-            return false;
-        }
-
-
-        public static implicit operator XBooleanDataField(Boolean? pValue)
-        {
-            var fld = new XBooleanDataField();
-            fld.Value = pValue;
-            return fld;
-        }
-
-
-        public static implicit operator Boolean?(XBooleanDataField pField)
-        {
             return pField.Value;
         }
 
@@ -50,13 +34,13 @@ namespace STX.Core.Model
         {
         }
 
-        public XBooleanDataField(XFieldState pState, Boolean? pValue)
+        public XBooleanDataField(XFieldState pState, Boolean pValue)
         {
             Value = pValue;
             State = pState;
         }
 
-        public XBooleanDataField(XFieldState pState = XFieldState.Empty, Boolean? pValue = null, Object pOldValue = null)
+        public XBooleanDataField(XFieldState pState = XFieldState.Empty, Boolean pValue = false, Object pOldValue = null)
         {
             Value = pValue;
             OldValue = pOldValue;

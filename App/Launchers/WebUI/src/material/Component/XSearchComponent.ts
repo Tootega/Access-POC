@@ -20,6 +20,7 @@ export class XSearchComponent<T extends XDataTuple, D extends XDataSet<T>> exten
     SelectedTuple: T;
     EditorID: string;
     CloseBtn: HTMLElement;
+    NewBtn: HTMLElement;
     SearchBtn: HTMLElement;
     PreviewBtn: HTMLElement;
     EditBtn: HTMLElement;
@@ -41,6 +42,15 @@ export class XSearchComponent<T extends XDataTuple, D extends XDataSet<T>> exten
 
     Preview(pArg: Event)
     {
+    }
+
+    New(pArg: any)
+    {
+    }
+
+    DoNew(pDataSet: D)
+    {
+        this.DoEdit(pDataSet);
     }
 
     Close(pArg: any)
@@ -94,6 +104,7 @@ export class XSearchComponent<T extends XDataTuple, D extends XDataSet<T>> exten
         this.PreviewBtn.ToggleStyle("navbar-toggler", true);
         this.EditBtn.ToggleStyle("navbar-toggler", true);
         this.SaveBtn.ToggleStyle("navbar-toggler", true);
+        this.NewBtn.ToggleStyle("navbar-toggler", false);
 
         if (this.SelectedTuple?.IsReadOnly && this.Rights.Contains(XDefaultRights.Visualizar))
             this.PreviewBtn.ToggleStyle("navbar-toggler", this.SelectedTuple == null || X.In(this.State, XStageState.Editing, XStageState.Viewing));
@@ -106,6 +117,7 @@ export class XSearchComponent<T extends XDataTuple, D extends XDataSet<T>> exten
 
         this.SearchBtn.ToggleStyle("navbar-toggler", X.In(this.State, XStageState.Editing, XStageState.Viewing));
         this.SaveBtn.ToggleStyle("navbar-toggler", !X.In(this.State, XStageState.Editing));
+        this.NewBtn.ToggleStyle("navbar-toggler", X.In(this.State, XStageState.Editing, XStageState.Viewing));
     }
 
     SelectionChanged(pTuple: T)
@@ -133,6 +145,7 @@ export class XSearchComponent<T extends XDataTuple, D extends XDataSet<T>> exten
         this.SearchGrid.OnSelectionChange = () => this.SelectionChanged(<T>this.SearchGrid?.SelectedTuple);
         this.SearchGrid.OnRowDBLClick = () => this.Edit(null);
 
+        this.NewBtn = this.GetHTMLElement(this.NewBtnID);
         this.CloseBtn = this.GetHTMLElement(this.CloseBtnID);
         this.PreviewBtn = this.GetHTMLElement(this.PreviewBtnID);
         this.SearchBtn = this.GetHTMLElement(this.SearchBtnID);

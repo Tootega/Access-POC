@@ -50,6 +50,13 @@ export namespace STXAppCoreINFPerfilPerfilSVC
             });
         }
 
+        New(pCallback: XMethod<STXAppCoreINFPerfilPerfilMDL.PerfilDataSet>)
+        {
+            let ndst = new STXAppCoreINFPerfilPerfilMDL.PerfilDataSet();
+            ndst.New();
+            pCallback.apply(ndst, [ndst]);
+        }
+
         Save(pDataSet: STXAppCoreINFPerfilPerfilMDL.PerfilDataSet, pCallback: XMethod<boolean>)
         {
             var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Perfil/Perfil/Flush`, pDataSet);

@@ -245,6 +245,8 @@ class XDataTuple extends XData
 
     Assign(pSource: any)
     {
+        if (!pSource)
+            return;
         let fields = Object.getOwnPropertyNames(this);
         for (var i = 0; i < fields.length; i++)
         {
@@ -252,6 +254,7 @@ class XDataTuple extends XData
             let fld = this[fname];
             if (fld instanceof XDataField)
                 this[fname].SetValue(pSource[fname].Value);
+
             else
                 this[fname] = pSource[fname];
         }
@@ -288,4 +291,3 @@ class XDataTuple extends XData
         return null;
     }
 }
-

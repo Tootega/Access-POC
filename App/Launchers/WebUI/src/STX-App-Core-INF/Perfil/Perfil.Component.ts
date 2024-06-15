@@ -38,7 +38,11 @@ import { XSearchComponent } from 'material/Component/XSearchComponent';
 
         Search(pEvent: any)
         {
-            this._PerfilService.Search(this.Filter, (dst) => {this.SetDataSet(dst)});
+            this._PerfilService.Search(this.Filter, (dst) => { this.SetDataSet(dst) });
+        }
+        override New(pEvent: any)
+        {
+            this._PerfilService.New((dst) => { this.DoNew(dst) });
         }
     }
 

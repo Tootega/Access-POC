@@ -351,6 +351,13 @@ declare var Maps: {
     base: string;
     letters: RegExp;
 }[];
+declare class XDataSet<T extends XDataTuple> {
+    Tuples: XArray<T>;
+    SetTuples(pTuples: XArray<T>): XDataSet<T>;
+    Assign(pClass: any, pDataSet: XDataSet<T>): void;
+    get CurrentTuple(): T;
+    New(): void;
+}
 declare enum XTupleState {
     Detached = 0,
     Unchanged = 1,
@@ -796,10 +803,4 @@ declare class XUtils {
     static Location(pElement: HTMLElement): XPoint;
     static IsOut(pRect: ClientRect, pLocation: XPoint, pWidth: number, pHeight: number): Boolean;
     static Replace(pText: string, pChar: string, pPosition: number): string;
-}
-declare class XDataSet<T extends XDataTuple> {
-    Tuples: XArray<T>;
-    SetTuples(pTuples: XArray<T>): XDataSet<T>;
-    Assign(pClass: any, pDataSet: XDataSet<T>): void;
-    get CurrentTuple(): T;
 }

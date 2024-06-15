@@ -50,6 +50,13 @@ export namespace STXAppCoreINFUsuarioUsuarioSVC
             });
         }
 
+        New(pCallback: XMethod<STXAppCoreINFUsuarioUsuarioMDL.UsuarioDataSet>)
+        {
+            let ndst = new STXAppCoreINFUsuarioUsuarioMDL.UsuarioDataSet();
+            ndst.New();
+            pCallback.apply(ndst, [ndst]);
+        }
+
         Save(pDataSet: STXAppCoreINFUsuarioUsuarioMDL.UsuarioDataSet, pCallback: XMethod<boolean>)
         {
             var ret = this.http.post(`${environment.apiBaseURI}/STXAppCoreINF/Usuario/Usuario/Flush`, pDataSet);

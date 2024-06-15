@@ -23,7 +23,7 @@ namespace STX.App.Core.INF.DB
         }
         [Display(Name = "Item de Menu")]
         [Required()]
-        public Guid? CORxMenuItemID {get; set;} = Guid.Empty;
+        public Guid CORxMenuItemID {get; set;}
 
         [Display(Name = "Item de Menu")]
         [Required()]

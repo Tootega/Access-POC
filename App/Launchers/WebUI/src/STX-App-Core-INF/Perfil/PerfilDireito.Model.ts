@@ -34,11 +34,20 @@ export namespace STXAppCoreINFPerfilPerfilDireitoMDL
             super();
             if (pDataSet != null)
                 this.Assign(PerfilDireitoTuple, pDataSet);
+            if (this.Tuples)
+                this.Tuples = new XArray<PerfilDireitoTuple>();
             for (var i = 0; i < this.Tuples.length; i++)
             {
                 let ttpl = this.Tuples[i];
                 let stpl = pDataSet.Tuples[i];
             }
+        }
+
+        override New()
+        {
+            var tpl = new PerfilDireitoTuple();
+            tpl.CORxPerfilDireiroID.Value = Guid.NewGuid();
+            this.Tuples.Add(tpl);
         }
     }
 

@@ -4,6 +4,7 @@ import { XStageComponent } from "./XStageComponent";
 
 export enum XNavBarButton
 {
+    New = "NW-BTN",
     Close = "CL-BTN",
     Search = "SR-BTN",
     Preview = "PR-BTN",
@@ -201,7 +202,7 @@ export class XComponent extends XHost
     App: HTMLElement;
     @ViewChild('SearchGrid', { read: ViewContainerRef })
     ElementContainer!: ViewContainerRef;
-
+    get NewBtnID(): string { return XNavBarButton.New + this.ID; }
     get CloseBtnID(): string { return XNavBarButton.Close + this.ID; }
     get SearchBtnID(): string { return XNavBarButton.Search + this.ID; }
     get PreviewBtnID(): string { return XNavBarButton.Preview + this.ID; }

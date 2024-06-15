@@ -11,7 +11,7 @@ namespace STX.App.Core.INF.DB
     {
         [Display(Name = "Tenat")]
         [Required()]
-        public Guid? CORxTenatID {get; set;} = Guid.Empty;
+        public Guid CORxTenatID {get; set;}
 
         public CORxPessoa CORxPessoa {get; set;}
     }

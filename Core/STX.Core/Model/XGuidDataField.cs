@@ -4,7 +4,7 @@ using STX.Access.Model;
 
 namespace STX.Core.Model
 {
-    public class XGuidDataField : XDataField<Guid?>
+    public class XGuidDataField : XDataField<Guid>
     {
         public static XGuidDataField operator +(XGuidDataField pField, Guid pValue)
         {
@@ -27,22 +27,6 @@ namespace STX.Core.Model
 
         public static implicit operator Guid(XGuidDataField pField)
         {
-            if (pField.Value.HasValue)
-                return pField.Value.Value;
-            return Guid.Empty;
-        }
-
-
-        public static implicit operator XGuidDataField(Guid? pValue)
-        {
-            var fld = new XGuidDataField();
-            fld.Value = pValue;
-            return fld;
-        }
-
-
-        public static implicit operator Guid?(XGuidDataField pField)
-        {
             return pField.Value;
         }
 
@@ -51,7 +35,7 @@ namespace STX.Core.Model
         {
         }
 
-        public XGuidDataField(XFieldState pState, Guid? pValue)
+        public XGuidDataField(XFieldState pState, Guid pValue)
         {
             Value = pValue;
             State = pState;
@@ -59,8 +43,9 @@ namespace STX.Core.Model
 
         public XGuidDataField(XFieldState pState = XFieldState.Empty, Guid? pValue = null, Object pOldValue = null)
         {
-            if (pValue.HasValue)
-                Value = pValue.Value;
+            if (!pValue.HasValue)
+                pValue = Guid.Empty;
+            Value = pValue.Value;
             OldValue = pOldValue;
             State = pState;
         }

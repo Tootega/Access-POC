@@ -27,7 +27,7 @@ namespace STX.App.Core.INF.DB
 
         [Display(Name = "Usuário")]
         [Required()]
-        public Guid? CORxUsuarioID {get; set;} = Guid.Empty;
+        public Guid CORxUsuarioID {get; set;}
 
         public TAFxUsuario TAFxUsuario {get; set;}
         public CORxPessoa CORxPessoa {get; set;}

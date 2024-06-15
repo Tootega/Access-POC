@@ -50,6 +50,13 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosSVC
             });
         }
 
+        New(pCallback: XMethod<STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosDataSet>)
+        {
+            let ndst = new STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosDataSet();
+            ndst.New();
+            pCallback.apply(ndst, [ndst]);
+        }
+
         Save(pDataSet: STXCoreAccessUsuariosUsuariosAtivosMDL.UsuariosAtivosDataSet, pCallback: XMethod<boolean>)
         {
             var ret = this.http.post(`${environment.apiBaseURI}/STXCoreAccess/Usuarios/UsuariosAtivos/Flush`, pDataSet);

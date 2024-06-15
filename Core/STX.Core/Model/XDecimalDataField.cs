@@ -11,7 +11,7 @@ using STX.Core.Model;
 namespace STX.Access.Model
 {
 
-    public class XDecimalDataField : XDataField<Decimal?>
+    public class XDecimalDataField : XDataField<Decimal>
     {
         public static XDecimalDataField operator +(XDecimalDataField pField, Decimal pValue)
         {
@@ -34,22 +34,6 @@ namespace STX.Access.Model
 
         public static implicit operator Decimal(XDecimalDataField pField)
         {
-            if (pField.Value.HasValue)
-                return pField.Value.Value;
-            return 0M;
-        }
-
-
-        public static implicit operator XDecimalDataField(Decimal? pValue)
-        {
-            var fld = new XDecimalDataField();
-            fld.Value = pValue;
-            return fld;
-        }
-
-
-        public static implicit operator Decimal?(XDecimalDataField pField)
-        {
             return pField.Value;
         }
 
@@ -57,13 +41,13 @@ namespace STX.Access.Model
         {
         }
 
-        public XDecimalDataField(XFieldState pState, Decimal? pValue)
+        public XDecimalDataField(XFieldState pState, Decimal pValue)
         {
             Value = pValue;
             State = pState;
         }
 
-        public XDecimalDataField(XFieldState pState = XFieldState.Empty, Decimal? pValue = null, Object pOldValue = null)
+        public XDecimalDataField(XFieldState pState = XFieldState.Empty, Decimal pValue = 0, Object pOldValue = null)
         {
             Value = pValue;
             OldValue = pOldValue;

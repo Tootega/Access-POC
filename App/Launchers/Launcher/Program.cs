@@ -66,7 +66,7 @@ namespace Launcher
 
             using var scop = App.Services.CreateScope();
             using var ctl1 = scop.ServiceProvider.GetRequiredService<STXAppCoreINFContext>();
-            ctl1.Database.Migrate();
+            //ctl1.Database.Migrate();
 
             App.Run("https://+:5000");
         }

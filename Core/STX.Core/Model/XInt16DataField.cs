@@ -4,7 +4,7 @@ using STX.Access.Model;
 
 namespace STX.Core.Model
 {
-    public class XInt16DataField : XDataField<Int16?>
+    public class XInt16DataField : XDataField<Int16>
     {
         public static XInt16DataField operator +(XInt16DataField pField, Int16 pValue)
         {
@@ -27,22 +27,6 @@ namespace STX.Core.Model
 
         public static implicit operator Int16(XInt16DataField pField)
         {
-            if (pField.Value.HasValue)
-                return pField.Value.Value;
-            return (Int16)0;
-        }
-
-
-        public static implicit operator XInt16DataField(Int16? pValue)
-        {
-            var fld = new XInt16DataField();
-            fld.Value = pValue;
-            return fld;
-        }
-
-
-        public static implicit operator Int16?(XInt16DataField pField)
-        {
             return pField.Value;
         }
 
@@ -50,13 +34,13 @@ namespace STX.Core.Model
         {
         }
 
-        public XInt16DataField(XFieldState pState, Int16? pValue)
+        public XInt16DataField(XFieldState pState, Int16 pValue)
         {
             Value = pValue;
             State = pState;
         }
 
-        public XInt16DataField(XFieldState pState = XFieldState.Empty, Int16? pValue = null, Object pOldValue = null)
+        public XInt16DataField(XFieldState pState = XFieldState.Empty, Int16 pValue = 0, Object pOldValue = null)
         {
             Value = pValue;
             OldValue = pOldValue;

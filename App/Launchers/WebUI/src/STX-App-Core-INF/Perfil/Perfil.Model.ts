@@ -16,7 +16,7 @@ export namespace STXAppCoreINFPerfilPerfilMDL
             this.Assign(pSource);
         }
 
-            override GetPKValue(): any { return this.CORxPerfilID.Value; }
+        override GetPKValue(): any { return this.CORxPerfilID.Value; }
 
         CORxPerfilID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
         Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
@@ -31,6 +31,8 @@ export namespace STXAppCoreINFPerfilPerfilMDL
             super();
             if (pDataSet != null)
                 this.Assign(PerfilTuple, pDataSet);
+            if (!this.Tuples)
+                this.Tuples = new XArray<PerfilTuple>();
             for (var i = 0; i < this.Tuples.length; i++)
             {
                 let ttpl = this.Tuples[i];
@@ -38,6 +40,14 @@ export namespace STXAppCoreINFPerfilPerfilMDL
                 if (!X.IsEmpty(stpl.PerfilDireito))
                     ttpl.PerfilDireito = stpl.PerfilDireito.Select(t => new STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoTuple(t));
             }
+        }
+
+        override New()
+        {
+            var tpl = new PerfilTuple();
+            tpl.CORxPerfilID.Value = Guid.NewGuid();
+            tpl.State = XTupleState.Added;
+            this.Tuples.Add(tpl);
         }
     }
 
