@@ -14,12 +14,13 @@ using Xunit.Sdk;
 
 namespace STX.App.Core.TST.Usuario
 {
-
-
-    public class UsuarioTestRule : XTestRule<UsuarioTuple>
+    public class UsuarioTestRule : UsuarioTestModel.XRule
     {
         public override void AfterExecute(Int32 pIndex, UsuarioTuple pTuple)
         {
+            if (pTuple.Login == "ksjhdjksk")
+            {
+            }
         }
 
         public override void BeforeExecute(Int32 pIndex, UsuarioTuple pTuple)

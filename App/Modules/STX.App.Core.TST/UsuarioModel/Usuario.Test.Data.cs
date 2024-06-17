@@ -14,7 +14,7 @@ using Xunit.Sdk;
 
 namespace STX.App.Core.TST.Usuario
 {
-    public class UsuarioTestData : IEnumerable<Object[]>
+    public class UsuarioTestModelData : IEnumerable<Object[]>
     {
         private readonly List<Object[]> _data = new List<Object[]>
         {

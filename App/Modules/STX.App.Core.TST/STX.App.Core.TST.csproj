@@ -7,7 +7,28 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+      <MyType>DASETest</MyType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="STX.App.Core.TST.dsmdl" />
+    <None Remove="Usuario\Usuario.SAM.sdsdsd.Test.dscit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="STX.App.Core.TST.dsmdl">
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>STX.App.Core.TST.Module.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Usuario\Usuario.SAM.sdsdsd.Test.dscit">
+      <Visible>True</Visible>
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>Usuario.SAM.sdsdsd.Test.CIT.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.2">
@@ -30,6 +51,23 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="STX.App.Core.TST.Module.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>STX.App.Core.TST.dsmdl</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.sdsdsd.Test.CIT.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Usuario.SAM.sdsdsd.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.sdsdsd.Test.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Usuario.SAM.sdsdsd.Test.dscit</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>
