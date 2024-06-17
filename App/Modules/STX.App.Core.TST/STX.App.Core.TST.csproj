@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\STX.Core.Test\STX.Core.Test.csproj" />
     <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
   </ItemGroup>
 

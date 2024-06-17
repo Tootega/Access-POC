@@ -29,5 +29,5 @@ namespace STX.Core.Model
         {
             get; set;
         }
-    }    
+    }
 }

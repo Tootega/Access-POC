@@ -35,7 +35,7 @@ namespace STX.App.Core.INF.Usuario
         public UsuarioDataSet Search([FromBody] UsuarioFilter pFilter)
         {
             var dataset = _Service.Select(null, pFilter, false);
-            return dataset;
+            return dataset;            
         }
     }
 }

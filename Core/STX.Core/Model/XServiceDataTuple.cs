@@ -12,13 +12,8 @@ using STX.Core.Model;
 namespace STX.Core.Model
 {
 
-    public class XServiceDataTuple
+    public class XServiceDataTuple : XDataTuple
     {
-        
-        public XTupleState State
-        {
-            get; set;
-        }
 
         public Boolean IsReadOnly
         {

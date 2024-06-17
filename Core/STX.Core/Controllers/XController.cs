@@ -21,7 +21,7 @@ namespace STX.Core.Controllers
         {
             Stopwatch stp = pContext.HttpContext.Items["Stopwatch"] as Stopwatch;
             stp?.Stop();
-            Console.WriteLine($"Ellapsed {stp?.Elapsed.TotalMilliseconds}ms {pContext.HttpContext.Request.Path}");
+            Console.WriteLine($"Ellapsed {stp?.Elapsed.TotalMilliseconds.ToString("#,##0.0")}ms {pContext.HttpContext.Request.Path}");
         }
     }
 
