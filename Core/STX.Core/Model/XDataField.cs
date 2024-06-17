@@ -23,6 +23,15 @@ namespace STX.Access.Model
 
     public class XDataField<T> : XDataField, XIDataField
     {
+        public static Boolean operator !=(XDataField<T> pLeft, XDataField<T> pRight)
+        {
+            return !Object.Equals(pLeft.Value, pRight.Value);
+        }
+
+        public static Boolean operator ==(XDataField<T> pLeft, XDataField<T> pRight)
+        {
+            return Object.Equals(pLeft.Value, pRight.Value);
+        }
 
         public XDataField()
         {
@@ -35,9 +44,22 @@ namespace STX.Access.Model
             State = pState;
         }
 
+        private T _Value;
         public T Value
         {
-            get; set;
+            get
+            {
+                return _Value;
+            }
+            set
+            {
+                if (!Object.Equals(_Value, value))
+                {
+                    _Value = value;
+                    if (State != XFieldState.Modified)
+                        State = XFieldState.Modified;
+                }
+            }
         }
 
         [JsonIgnore]
@@ -49,6 +71,21 @@ namespace STX.Access.Model
         public XFieldState State
         {
             get; set;
+        }
+
+        public override Boolean Equals(Object pObject)
+        {
+            if (GetHashCode() == pObject?.GetHashCode())
+                return true;
+            var other = pObject as XDataField<T>;
+            if (other != null && Object.Equals(other.Value, Value))
+                return true;
+            return false;
+        }
+
+        public override Int32 GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

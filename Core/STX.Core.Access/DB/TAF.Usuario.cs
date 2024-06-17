@@ -29,7 +29,7 @@ namespace STX.Core.Access.DB
 
         [Display(Name = "Usuários")]
         [Required()]
-        public Guid TAFxUsuarioID {get; set;}
+        public Guid? TAFxUsuarioID {get; set;}
 
     }
 }

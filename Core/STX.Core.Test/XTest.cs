@@ -10,8 +10,13 @@ namespace STX.Access
 {
     public abstract class XTest<Rule, Tuple>
         where Tuple : XServiceDataTuple
-        where Rule : XTestRule<Tuple>
+        where Rule : XTestRule<Tuple>, new()
     {
         public abstract void Run();
+
+        protected Rule CreateRule()
+        {
+            return new Rule();
+        }
     }
 }

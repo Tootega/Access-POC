@@ -26,7 +26,7 @@ namespace STX.App.Core.INF.DB
 
         [Display(Name = "Recurso")]
         [Required()]
-        public Guid CORxRecursoID {get; set;}
+        public Guid? CORxRecursoID {get; set;}
 
         [Display(Name = "Nome do Recuso")]
         [MaxLength(128)]

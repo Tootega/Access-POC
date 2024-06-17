@@ -146,7 +146,6 @@ namespace STX.App.Core.INF.Usuario
                     CORxUsuariotpl.CORxUsuarioID = (Guid)stpl.CORxUsuarioID.Value;
                     CORxUsuariotpl.CORxPessoaID = (Guid)stpl.CORxPessoaID.Value;
                     ctx.Add(CORxUsuariotpl).State = GetState(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID);
-                    //ctx.SaveChanges();
                 }
 
                 if (HasChanges(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID))
@@ -156,7 +155,6 @@ namespace STX.App.Core.INF.Usuario
                     TAFxUsuariotpl.Login = (String)stpl.Login.Value;
                     TAFxUsuariotpl.CORxEstadoID = (Int16)stpl.CORxEstadoID.Value;
                     ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID);
-                    //ctx.SaveChanges();
                 }
 
                 if (HasChanges(stpl, stpl.CORxPessoaID, stpl.Nome))
@@ -165,7 +163,6 @@ namespace STX.App.Core.INF.Usuario
                     CORxPessoatpl.CORxPessoaID = (Guid)stpl.CORxPessoaID.Value;
                     CORxPessoatpl.Nome = (String)stpl.Nome.Value;
                     ctx.Add(CORxPessoatpl).State = GetState(stpl, stpl.CORxPessoaID, stpl.Nome);
-                    //ctx.SaveChanges();
                 }
             }
         }

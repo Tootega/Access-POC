@@ -11,11 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Perfil\Perfil.SAM.Insercoes.Test.dscit" />
     <None Remove="STX.App.Core.TST.dsmdl" />
-    <None Remove="Usuario\Usuario.SAM.sdsdsd.Test.dscit" />
+    <None Remove="Usuario\Usuario.SAM.Insercoes.Test.dscit" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Perfil\Perfil.SAM.Insercoes.Test.dscit">
+      <Visible>True</Visible>
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>Perfil.SAM.Insercoes.Test.CIT.cs</LastGenOutput>
+    </Content>
     <Content Include="STX.App.Core.TST.dsmdl">
       <Generator>XDASEGenerator</Generator>
       <LastGenOutput>STX.App.Core.TST.Module.cs</LastGenOutput>
@@ -23,10 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Usuario\Usuario.SAM.sdsdsd.Test.dscit">
+    <Content Include="Usuario\Usuario.SAM.Insercoes.Test.dscit">
       <Visible>True</Visible>
       <Generator>XDASEGenerator</Generator>
-      <LastGenOutput>Usuario.SAM.sdsdsd.Test.CIT.cs</LastGenOutput>
+      <LastGenOutput>Usuario.SAM.Insercoes.Test.CIT.cs</LastGenOutput>
     </Content>
   </ItemGroup>
 
@@ -46,6 +52,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\STX.Core.Test\STX.Core.Test.csproj" />
+    <ProjectReference Include="..\STX.App.Core.INF\STX.App.Core.INF.csproj" />
     <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
   </ItemGroup>
 
@@ -54,19 +61,29 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.CIT.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
     <Compile Update="STX.App.Core.TST.Module.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>STX.App.Core.TST.dsmdl</DependentUpon>
+      <Visible>False</Visible>
     </Compile>
-    <Compile Update="Usuario\Usuario.SAM.sdsdsd.Test.CIT.cs">
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.CIT.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Usuario.SAM.sdsdsd.Test.dscit</DependentUpon>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
     </Compile>
-    <Compile Update="Usuario\Usuario.SAM.sdsdsd.Test.Rule.cs">
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.Rule.cs">
       <Visible>True</Visible>
-      <DependentUpon>Usuario.SAM.sdsdsd.Test.dscit</DependentUpon>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
     </Compile>
   </ItemGroup>
 

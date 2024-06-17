@@ -22,7 +22,7 @@ namespace STX.App.Core.INF.DB
         }
         [Display(Name = "Pessoa")]
         [Required()]
-        public Guid CORxPessoaID {get; set;}
+        public Guid? CORxPessoaID {get; set;}
 
         [MaxLength(256)]
         [Required()]

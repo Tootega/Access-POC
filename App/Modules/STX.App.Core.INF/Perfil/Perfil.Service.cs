@@ -237,7 +237,6 @@ namespace STX.App.Core.INF.Perfil
                     CORxPerfiltpl.CORxPerfilID = (Guid)stpl.CORxPerfilID.Value;
                     CORxPerfiltpl.Nome = (String)stpl.Nome.Value;
                     ctx.Add(CORxPerfiltpl).State = GetState(stpl, stpl.CORxPerfilID, stpl.Nome);
-                    ctx.SaveChanges();
                 }
                 SetPerfilDireitoValues(ctx, stpl.PerfilDireito);
             }
@@ -257,7 +256,6 @@ namespace STX.App.Core.INF.Perfil
                     CORxPerfilDireirotpl.SYSxEstadoID = (Int16)stpl.SYSxEstadoID.Value;
                     CORxPerfilDireirotpl.CORxRecursoDireitoID = (Guid)stpl.CORxRecursoDireitoID.Value;
                     ctx.Add(CORxPerfilDireirotpl).State = GetState(stpl, stpl.CORxPerfilDireiroID, stpl.CORxPerfilID, stpl.SYSxEstadoID, stpl.CORxRecursoDireitoID);
-                    ctx.SaveChanges();
                 }
             }
         }
@@ -283,7 +281,7 @@ namespace STX.App.Core.INF.Perfil
             query = _Rule?.InternalGetWhere(query,  pRequest, pFilter, pFull);
 
             if (pRequest != null)
-                query = query.Where(q => q.CORxPerfil.CORxPerfilID == pRequest.CORxPerfilID);
+                query = query.Where(q => q.CORxPerfil.CORxPerfilID.Value == pRequest.CORxPerfilID);
 
             if (pFilter != null)
             {

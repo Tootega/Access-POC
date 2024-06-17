@@ -19,7 +19,7 @@ namespace STX.App.Journal.INF.DB
 
         [Display(Name = "Pesquisa")]
         [Required()]
-        public Guid JNLxPesquisaID {get; set;}
+        public Guid? JNLxPesquisaID {get; set;}
 
         [Display(Name = "Tabela")]
         [Required()]

@@ -25,7 +25,7 @@ namespace STX.App.Core.INF.DB
         }
         [Display(Name = "Direito")]
         [Required()]
-        public Guid CORxDireiroID {get; set;}
+        public Guid? CORxDireiroID {get; set;}
 
         [MaxLength(45)]
         [Required()]

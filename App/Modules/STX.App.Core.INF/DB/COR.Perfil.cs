@@ -22,7 +22,7 @@ namespace STX.App.Core.INF.DB
         }
         [Display(Name = "Perfil")]
         [Required()]
-        public Guid CORxPerfilID {get; set;}
+        public Guid? CORxPerfilID {get; set;}
 
         [Display(Name = "Nome do Perfil")]
         [MaxLength(45)]

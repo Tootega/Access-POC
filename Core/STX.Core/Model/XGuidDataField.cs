@@ -41,6 +41,14 @@ namespace STX.Core.Model
             State = pState;
         }
 
+        public XGuidDataField(XFieldState pState, Guid? pValue)
+        {
+            if (!pValue.HasValue)
+                pValue = Guid.Empty;
+            Value = pValue.Value;
+            State = pState;
+        }
+
         public XGuidDataField(XFieldState pState = XFieldState.Empty, Guid? pValue = null, Object pOldValue = null)
         {
             if (!pValue.HasValue)

@@ -17,7 +17,7 @@ namespace STX.App.Journal.INF.DB
 
         [Display(Name = "Tabela")]
         [Required()]
-        public Guid JNLxTabelaID {get; set;}
+        public Guid? JNLxTabelaID {get; set;}
 
         [Display(Name = "Estado")]
         [Required()]

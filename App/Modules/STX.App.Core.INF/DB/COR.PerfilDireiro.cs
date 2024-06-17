@@ -23,7 +23,7 @@ namespace STX.App.Core.INF.DB
         }
         [Display(Name = "Direitos por Perfil")]
         [Required()]
-        public Guid CORxPerfilDireiroID {get; set;}
+        public Guid? CORxPerfilDireiroID {get; set;}
 
         [Display(Name = "Perfil")]
         [Required()]

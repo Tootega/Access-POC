@@ -19,7 +19,7 @@ namespace STX.App.Core.INF.DB
 
         [Display(Name = "Perfis por Uusário ")]
         [Required()]
-        public Guid CORxUsuarioPerfilID {get; set;}
+        public Guid? CORxUsuarioPerfilID {get; set;}
 
         [Display(Name = "Estado")]
         [Required()]

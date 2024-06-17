@@ -105,7 +105,6 @@ namespace STX.Core.Access.Usuarios
                     TAFxUsuariotpl.Login = (String)stpl.Login.Value;
                     TAFxUsuariotpl.CORxEstadoID = (Int16)stpl.CORxEstadoID.Value;
                     ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.TAFxUsuarioID, stpl.Login, stpl.CORxEstadoID);
-                    ctx.SaveChanges();
                 }
             }
         }

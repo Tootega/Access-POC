@@ -223,7 +223,6 @@ namespace STX.App.Core.INF.Perfil
                     CORxPerfilDireirotpl.SYSxEstadoID = (Int16)stpl.SYSxEstadoID.Value;
                     CORxPerfilDireirotpl.CORxRecursoDireitoID = (Guid)stpl.CORxRecursoDireitoID.Value;
                     ctx.Add(CORxPerfilDireirotpl).State = GetState(stpl, stpl.CORxPerfilDireiroID, stpl.CORxPerfilID, stpl.SYSxEstadoID, stpl.CORxRecursoDireitoID);
-                    ctx.SaveChanges();
                 }
             }
         }

@@ -18,6 +18,9 @@ namespace STX.Access
             return Data.GetEnumerator();
         }
 
+        public T this[int pIndex] => (T)Data[pIndex][1];
+
+
         public IEnumerable<XServiceDataTuple> Tuples()
         {
             if (Data.Count == 0)

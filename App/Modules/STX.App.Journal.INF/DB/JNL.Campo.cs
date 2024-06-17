@@ -19,7 +19,7 @@ namespace STX.App.Journal.INF.DB
 
         [Display(Name = "Campo")]
         [Required()]
-        public Guid JNLxCampoID {get; set;}
+        public Guid? JNLxCampoID {get; set;}
 
         [Display(Name = "Tabela")]
         [Required()]
