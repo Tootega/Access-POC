@@ -6,4 +6,1284 @@
     <XData Name="NameSpace" ID="AA8B388C-17CD-48A6-8162-24E891354696" Type="String">STX.App.Core.TST</XData>
     <XData Name="RelativeFolder" ID="DCAA1E55-B8D5-436C-8543-DBB4C68F6B89" Type="String"></XData>
   </XValues>
+  <XCSSSheet Name="codeMirrorModule-ez37Vkbh.css" ID="EB6BE86D-68B6-4067-8971-8E690A209CCA">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\recorder\assets\codeMirrorModule-ez37Vkbh.css</XData>
+    </XValues>
+  </XCSSSheet>
+  <XCSSSheet Name="index-B5iDPo7P.css" ID="D307A2EF-E0B5-4BBE-AD3B-6230E84645CF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\recorder\assets\index-B5iDPo7P.css</XData>
+    </XValues>
+  </XCSSSheet>
+  <XCSSSheet Name="codeMirrorModule.ez37Vkbh.css" ID="3B2620BD-194F-4A40-BB47-7D3E681F7FDE">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\codeMirrorModule.ez37Vkbh.css</XData>
+    </XValues>
+  </XCSSSheet>
+  <XCSSSheet Name="index.CrbWWHbf.css" ID="4302637B-6352-41AF-A094-BD76065C8E32">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\index.CrbWWHbf.css</XData>
+    </XValues>
+  </XCSSSheet>
+  <XCSSSheet Name="testServerConnection.0WapKERv.css" ID="4FADD9F5-FCCC-49CE-B2A0-488DDB69DA64">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\testServerConnection.0WapKERv.css</XData>
+    </XValues>
+  </XCSSSheet>
+  <XCSSSheet Name="uiMode.Btn2TM9w.css" ID="8FB7B215-35FA-49CD-9108-D4F059BBBEB0">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\uiMode.Btn2TM9w.css</XData>
+    </XValues>
+  </XCSSSheet>
+  <XCSSSheet Name="xtermModule.DSXBckUd.css" ID="16F78F7A-EE9D-4D0D-9938-CF5A93C93752">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\xtermModule.DSXBckUd.css</XData>
+    </XValues>
+  </XCSSSheet>
+  <XJScript Name="cli.js" ID="369DADF9-404C-4339-A227-F572DB8EBC5A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\cli.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="index.js" ID="F5195975-1C59-477A-8980-C5802A82EF38">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\index.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="androidServerImpl.js" ID="3D609DE1-0F1A-412B-9BD8-978A9322214D">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\androidServerImpl.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserServerImpl.js" ID="8D2E04CF-2BAB-4DF5-B182-963035FB8B25">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\browserServerImpl.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="inprocess.js" ID="F9C17FA2-6A52-4C9C-B91D-50A016E8E444">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\inprocess.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="inProcessFactory.js" ID="C0860A90-4F24-4B97-A9E6-3886E0CA39B4">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\inProcessFactory.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="outofprocess.js" ID="C6E17B82-445C-4163-A7FF-81B0CA247FF9">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\outofprocess.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="utilsBundle.js" ID="2DF87C2D-AFA0-4744-AB88-6224B4021AD2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utilsBundle.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="zipBundle.js" ID="DCA9A290-7066-47A9-BC2F-053E83C555C4">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\zipBundle.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="zipBundleImpl.js" ID="71D74A72-F629-48C8-89BF-7AA4A177AC58">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\zipBundleImpl.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="driver.js" ID="EE8316AA-AFDA-46E5-B50C-C870DD6C3371">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\cli\driver.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="program.js" ID="68C8F4CB-5445-4343-9F64-42F61422A75E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\cli\program.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="programWithTestStub.js" ID="F7CC56EB-32DC-4F1F-8D00-71EDAAB9373B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\cli\programWithTestStub.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="accessibility.js" ID="2FF40725-9122-47EE-8471-3D9B4BC74AB3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\accessibility.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="android.js" ID="48FBE217-E923-4B16-91E8-E71EC1985A99">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\android.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="api.js" ID="69FCD7C0-67E8-4DE6-8AB9-4A6FE36D6F29">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\api.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="artifact.js" ID="15F54124-6BBF-463D-B4E5-9B2A56149940">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\artifact.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browser.js" ID="54FF484C-45D2-4E56-9723-661532FF0273">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\browser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserContext.js" ID="FB0F8C1A-4539-47E9-9858-1047A3F32F71">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\browserContext.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserType.js" ID="4D51776E-431C-4B42-A8DA-C6765E5552DF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\browserType.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="cdpSession.js" ID="BC59F426-EA23-4D74-8176-E28D9FA7EA71">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\cdpSession.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="channelOwner.js" ID="1240E827-4186-44F7-ABAA-AA87F99D562E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\channelOwner.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="clientHelper.js" ID="737D317C-9579-4881-A080-557280793B1E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\clientHelper.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="clientInstrumentation.js" ID="2FC4055B-B98A-4F9E-B18C-56DD6D9AB1F6">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\clientInstrumentation.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="connection.js" ID="B4E3A60A-BF96-4F8F-B00B-3DE3520B7D10">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\connection.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="consoleMessage.js" ID="F6C8D61C-01BB-4D9E-9294-50ACC6AF9464">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\consoleMessage.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="coverage.js" ID="6D622C9E-2A5D-4514-9178-4775D72ABE0B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\coverage.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="dialog.js" ID="828249A4-DF43-4A90-BB5A-987D67165A64">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\dialog.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="download.js" ID="919DE579-A3B8-4529-BE7D-F1B2D1CB1E3F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\download.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="electron.js" ID="B3C4DAAE-C1C3-4562-94B3-494902A27567">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\electron.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="elementHandle.js" ID="7E48AC3D-DD72-4BEC-A9F5-8EF0D4CD1B74">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\elementHandle.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="errors.js" ID="87433785-B8A9-4C14-AD59-395516C56100">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\errors.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="events.js" ID="631A59E5-7C74-49D9-91E5-EFF71E5B65C1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\events.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="fetch.js" ID="2614D9EF-41DF-45D1-9C8C-42B0CAFA3922">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\fetch.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="fileChooser.js" ID="B0BAAC53-EAC8-478A-A39F-63172571A153">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\fileChooser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="frame.js" ID="B08B8E81-2F8D-47D1-809B-1956AA7C6F47">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\frame.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="harRouter.js" ID="046A7149-E000-4800-8C30-41A8E858CEB3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\harRouter.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="input.js" ID="519C7D7F-3D57-49A7-8D3E-19D564C691D1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\input.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="jsHandle.js" ID="3D49A4D3-A8B5-41DA-8280-642B8F9F593E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\jsHandle.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="jsonPipe.js" ID="EB799BFF-0066-4157-ADAC-D720887DA6B0">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\jsonPipe.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="localUtils.js" ID="7DB92203-1463-4950-BB57-5C481A223152">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\localUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="locator.js" ID="727DEB4C-BD51-4F2D-A29F-D7999EDB5D77">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\locator.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="network.js" ID="E5246098-5DB3-408C-B9AD-CE994E25E672">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\network.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="page.js" ID="2EE4E39F-C633-486E-ACF5-9F7BDEE100D1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\page.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="playwright.js" ID="EFE7EEEE-EEAA-46C5-9139-FF3FCC59E81E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\playwright.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="selectors.js" ID="3570F6E7-64C8-4C3F-B41C-8A04625F097E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\selectors.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="stream.js" ID="46B32BB7-C8E4-4998-B0D0-20378B0ECCF0">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\stream.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="tracing.js" ID="1F4A152B-00FC-47FB-AC7D-6867B39DC588">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\tracing.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="types.js" ID="00D92024-4183-4387-B5A4-FAD88B340FE1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\types.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="video.js" ID="973F8E72-CBB9-4CE3-8C22-ABF827F672F3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\video.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="waiter.js" ID="66563A29-D1B6-4CCA-BDBE-87646B9328A2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\waiter.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="webError.js" ID="718E9135-03DC-4483-8716-A571F9FCDA35">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\webError.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="worker.js" ID="76878EA4-C869-483E-A347-E1D3CAC1CF11">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\worker.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="writableStream.js" ID="7DA7D508-2B38-4215-BAF6-6018E0DFB102">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\client\writableStream.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="socksProxy.js" ID="55FF8BF5-173B-4C36-9441-15998A0EA06A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\common\socksProxy.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="timeoutSettings.js" ID="B31F2781-20F1-4B71-BE65-35DAC284313F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\common\timeoutSettings.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="types.js" ID="FD3E7C73-BCA3-450A-A4B1-8D8C171E93B4">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\common\types.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="consoleApiSource.js" ID="AE2E2C95-C7DD-4B78-9E52-D361D9128177">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\generated\consoleApiSource.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="injectedScriptSource.js" ID="954D0999-F4EC-416B-8BAF-A5BA4170120B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\generated\injectedScriptSource.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="recorderSource.js" ID="D86304A1-AEEE-4F7F-8433-5E237218BC26">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\generated\recorderSource.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="utilityScriptSource.js" ID="D86592CD-2F72-439F-9F1C-E78C9E68D06A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\generated\utilityScriptSource.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="colorUtils.js" ID="69AFE8DB-F0C5-4047-823A-1A68B32EEA1E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\image_tools\colorUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="compare.js" ID="C0A67523-2D52-46FD-8EAD-B26B40C7DD4E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\image_tools\compare.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="imageChannel.js" ID="BCD01402-FEE2-4F7B-95C5-CF0757BC6D5F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\image_tools\imageChannel.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="stats.js" ID="1E0537CD-DBB9-443D-AE16-AD826A3BA4B1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\image_tools\stats.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="debug.js" ID="36052636-C75B-41BF-A733-1FB817044129">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\protocol\debug.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="serializers.js" ID="37636FB6-5074-4B3B-AE3F-9F0A38AC7670">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\protocol\serializers.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="transport.js" ID="F123CA92-E30D-4870-BA4D-6BFA30B17BA4">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\protocol\transport.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="validator.js" ID="1801806D-C2AB-4778-A60E-CD6ACB1F3B98">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\protocol\validator.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="validatorPrimitives.js" ID="6B839BC7-D16A-4828-BBB6-A8950042955D">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\protocol\validatorPrimitives.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="playwrightConnection.js" ID="58FB1B98-6328-4BCE-AC09-7018B8C85C16">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\remote\playwrightConnection.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="playwrightServer.js" ID="A3E04182-F3B2-4FBE-BC7B-42F7ABFEE4E4">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\remote\playwrightServer.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="accessibility.js" ID="7A6A2D75-F6BD-4E88-A4A8-E42FC315751A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\accessibility.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="artifact.js" ID="62936384-D126-403D-A733-E449C0671943">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\artifact.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browser.js" ID="4942D635-6F51-4D31-B3B9-23A37957698A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\browser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserContext.js" ID="94FEDE8D-67E0-4B0F-B78B-B87009E0FB0B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\browserContext.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserType.js" ID="B8054A87-378C-41F2-9AF4-54DD891A8F66">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\browserType.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="console.js" ID="514B51EA-8FF6-4334-8906-973EA5E8F747">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\console.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="cookieStore.js" ID="1383E25B-8E35-47DB-9A8F-1137FCF456AF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\cookieStore.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="debugController.js" ID="EC8F8FB7-F94D-4CD8-BCB3-9982D5812B3C">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\debugController.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="debugger.js" ID="8D33C616-5F9A-4169-BE58-A285E0FEAFBB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\debugger.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="deviceDescriptors.js" ID="02A7E8E9-0347-4003-A910-1C3204E842BA">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\deviceDescriptors.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="dialog.js" ID="0B39AEF3-4698-4DCC-9288-BF212B563C99">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dialog.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="dom.js" ID="D2262062-BB3C-4976-A3C2-87F7811A48E2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dom.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="download.js" ID="2FC48B0B-9EB8-4446-8545-310C7AFCAF02">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\download.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="errors.js" ID="6CCBE6DA-52BE-4FB3-812E-D8E0408BAFE2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\errors.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="fetch.js" ID="0C42FD56-92A9-423A-A111-912B4B046812">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\fetch.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="fileChooser.js" ID="2BE672B6-052B-47E4-BD06-DCC7CC733A5D">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\fileChooser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="fileUploadUtils.js" ID="78EB8A33-60BF-4D82-B9E0-96ADCD8E3827">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\fileUploadUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="formData.js" ID="9C7BB89E-31E6-4F43-8E4B-03EDE7705000">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\formData.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="frames.js" ID="4EAA71A9-9DC6-4963-8F39-7700C6A19AC0">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\frames.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="frameSelectors.js" ID="29884F68-0158-4DB5-8C16-2131759D2224">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\frameSelectors.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="helper.js" ID="A3F1255F-03AA-4B0D-B710-429469F14071">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\helper.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="index.js" ID="8F5EE677-4E9E-4BA8-96D6-4FFE2DA6BC76">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\index.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="input.js" ID="B1AC761F-BF2F-4A83-A08F-55F92FE26F03">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\input.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="instrumentation.js" ID="7F601B32-F71C-46A4-988C-971BAEC8D0BD">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\instrumentation.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="javascript.js" ID="7EBD6298-F29B-4787-8D55-522DAF892336">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\javascript.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="launchApp.js" ID="46E59756-F892-4704-AFA1-CDECBAAC79D6">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\launchApp.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="macEditingCommands.js" ID="96E550E7-056C-449C-A781-C2FE7B17F743">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\macEditingCommands.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="network.js" ID="71FD429C-0C66-4CCB-AA6D-F532825B2204">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\network.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="page.js" ID="E7C96C92-DA15-4B9E-8A9A-6A4D32682DAD">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\page.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="pipeTransport.js" ID="1F0DCF98-7999-490D-B8EB-1445033E30C2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\pipeTransport.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="playwright.js" ID="3F950DE6-514C-4429-8D50-A709A42A7E26">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\playwright.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="progress.js" ID="8E9562C5-3A62-47DB-BC5E-11A1233BCE46">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\progress.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="protocolError.js" ID="F2923843-6219-42FA-84BE-2F806C3F994A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\protocolError.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="recorder.js" ID="7542B34E-1285-4F07-803A-2FB27B16FCE1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="screenshotter.js" ID="F0AC74E2-C7D4-4ABD-9A52-DB3FDCCA89C9">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\screenshotter.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="selectors.js" ID="A3004C5F-E5AB-458E-A7EC-C199AA25AE62">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\selectors.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="socksInterceptor.js" ID="6910B743-00D5-44B8-AEDC-D29056FAC11A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\socksInterceptor.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="transport.js" ID="3F781EF5-511B-489F-9654-AF893506D826">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\transport.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="types.js" ID="A0EF76CA-C593-4F3B-99BB-1E4C9FE7E271">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\types.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="usKeyboardLayout.js" ID="3E804B1D-09D4-4DF0-8F24-D46357BD2AF3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\usKeyboardLayout.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="android.js" ID="1464DBCE-586E-4A97-9A21-8095605630C9">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\android\android.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="backendAdb.js" ID="C07232D0-1912-4E5A-B1C9-1083757C845A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\android\backendAdb.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="chromium.js" ID="A96B0D6D-0153-4524-B768-63C711405780">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\chromium.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="chromiumSwitches.js" ID="41A07A80-F52D-4159-B77D-9E25A70A2F11">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\chromiumSwitches.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crAccessibility.js" ID="2B29A467-D3A3-4B77-A80C-9088D5BA128D">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crAccessibility.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crBrowser.js" ID="E1499B89-2DD4-483E-94D0-497BC458DB27">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crBrowser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crConnection.js" ID="907C6572-34B5-4D97-8F8D-D0E6702A3950">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crConnection.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crCoverage.js" ID="41ED54E3-93A2-463F-B960-FB59261B025B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crCoverage.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crDevTools.js" ID="80AE8BD0-8C76-4D6E-AF24-C6CF40E37010">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crDevTools.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crDragDrop.js" ID="393BC6DB-800C-426C-B7C7-1B4AC70225CA">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crDragDrop.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crExecutionContext.js" ID="624388F2-262B-4E6D-9E80-C0ADA3D3EE82">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crExecutionContext.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crInput.js" ID="ADE4D34B-498F-41CD-A61E-2EF1BBE1B0EB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crInput.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crNetworkManager.js" ID="77B8D7D0-FCB5-48F2-9B8A-A3D4AF4FBD41">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crNetworkManager.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crPage.js" ID="855DE42F-B9CD-4031-A9E1-2464B037E420">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crPage.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crPdf.js" ID="183BDAFF-A013-4457-84AB-BD1A37767659">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crPdf.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crProtocolHelper.js" ID="39A8A136-CC38-47C0-A569-F1791B7D14D1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crProtocolHelper.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crServiceWorker.js" ID="C19D4B23-FF4B-43E0-89B5-4B8CC9FCC0B4">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\crServiceWorker.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="defaultFontFamilies.js" ID="F3E37253-ADFF-41C9-933C-C1A886753431">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\defaultFontFamilies.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="videoRecorder.js" ID="D425EB65-4877-49B7-A67E-80992699EA31">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\chromium\videoRecorder.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="androidDispatcher.js" ID="D1309F3E-DBAF-4717-8B49-DFACCA683716">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\androidDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="artifactDispatcher.js" ID="02875CB4-D388-4CD0-B271-AB2B9EEA5608">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\artifactDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserContextDispatcher.js" ID="6989E7B7-5E67-436E-A292-374B9DA70441">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\browserContextDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserDispatcher.js" ID="2C9AAD08-6B98-4C33-800D-680590800E6F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\browserDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserTypeDispatcher.js" ID="B7B9863B-F63E-4742-A63C-7A8DF9BFE09B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\browserTypeDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="cdpSessionDispatcher.js" ID="A8ED7BAD-82AD-4A4C-ADBC-C3D9B7605200">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\cdpSessionDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="debugControllerDispatcher.js" ID="24D7392D-B16C-43DE-B18E-2CE9CC8D4D32">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\debugControllerDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="dialogDispatcher.js" ID="311696D0-98B4-4132-AB92-BEE39E0B33CC">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\dialogDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="dispatcher.js" ID="3A50E9F9-0E3B-445D-BDAA-DE25AB6D156D">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\dispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="electronDispatcher.js" ID="0CFDE663-ED50-479A-85A1-80B963DAEB3C">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\electronDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="elementHandlerDispatcher.js" ID="EAD35A73-4FDF-4164-8867-E56B1C9219F7">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\elementHandlerDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="frameDispatcher.js" ID="FF8AA768-2AA5-4D9C-BB31-D8F63BCF11E4">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\frameDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="jsHandleDispatcher.js" ID="8B34B352-47C0-44EE-AC84-05C70DE75C24">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\jsHandleDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="jsonPipeDispatcher.js" ID="99EA0600-3072-4056-A907-67E92D6212D2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\jsonPipeDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="localUtilsDispatcher.js" ID="287E1BA2-30DE-4DC6-8B60-F106DED59B68">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\localUtilsDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="networkDispatchers.js" ID="F139F606-A9C5-4793-9D7E-180615602081">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\networkDispatchers.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="pageDispatcher.js" ID="2BDD8001-F711-4290-8328-BB8616F5F550">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\pageDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="playwrightDispatcher.js" ID="DD5F7B1B-DA21-4AFA-8DE6-9D18241A10DA">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\playwrightDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="selectorsDispatcher.js" ID="D26170F6-BB68-4758-9C89-77FBB7AB5E28">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\selectorsDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="streamDispatcher.js" ID="0D8513F3-9687-44E2-9E72-319A11BBA615">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\streamDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="tracingDispatcher.js" ID="ED5DC329-5C1E-4493-ACEC-F826A2993E6F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\tracingDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="writableStreamDispatcher.js" ID="D442B064-6B00-4F19-B6FC-643E644843C3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\dispatchers\writableStreamDispatcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="electron.js" ID="9C6278C3-39C1-4D33-9975-C0E407915FBF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\electron\electron.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="loader.js" ID="AA93BE93-0AB9-4FDC-9322-9AA351E56178">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\electron\loader.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ffAccessibility.js" ID="29ECCA3B-7772-40AE-94CF-9FD402B637FD">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\ffAccessibility.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ffBrowser.js" ID="3F576882-B15B-4E29-8A2E-B21B0F9149DB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\ffBrowser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ffConnection.js" ID="09FB1790-A857-4F82-B7BD-629A5DD176FE">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\ffConnection.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ffExecutionContext.js" ID="3DEEE23C-35FC-4993-BF74-61B41EC4D65F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\ffExecutionContext.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ffInput.js" ID="16AA34B7-9E0D-4BDB-B0F7-27FA2441AFC7">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\ffInput.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ffNetworkManager.js" ID="0C7D3A63-2106-47A9-8FCF-CC2E995EB7AD">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\ffNetworkManager.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ffPage.js" ID="F8EF2766-C182-420F-B3D8-332C8914D02B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\ffPage.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="firefox.js" ID="30C6131B-2CB3-4992-91AD-D2B1CA19C8F3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\firefox\firefox.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="harRecorder.js" ID="74934730-EB62-4478-97BF-0682705C4E6B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\har\harRecorder.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="harTracer.js" ID="0D24FD06-0BCD-4E17-B71E-FE45AE3EFC80">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\har\harTracer.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="utilityScriptSerializers.js" ID="42F07AF6-E7E8-46DE-967C-13F8CFD10B87">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\isomorphic\utilityScriptSerializers.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="codeGenerator.js" ID="F11E2A97-4488-49B7-AF2C-C333ED59847C">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\codeGenerator.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="csharp.js" ID="D55F4E4E-FA4F-4D23-9C49-1EB34AF55C20">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\csharp.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="java.js" ID="71B6CD2E-CAC0-4D7C-8BB3-5B10F52D6F83">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\java.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="javascript.js" ID="8E248B63-9521-4878-8557-DDB3E1C27E71">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\javascript.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="jsonl.js" ID="A78DDCE3-A494-4E1A-AA26-9C2744795ACB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\jsonl.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="language.js" ID="973B2F35-89C9-4DBF-9D82-6B6BAE54AE38">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\language.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="python.js" ID="8AD797F9-08F5-4652-9DFD-A6D7EC0094B0">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\python.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="recorderActions.js" ID="2BAB27CF-CE26-4CF9-AE7A-4FB340AA0391">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\recorderActions.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="recorderApp.js" ID="5D2EF807-4FB0-4EF7-9029-054D23062E05">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\recorderApp.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="recorderUtils.js" ID="E8916EDD-63F3-46CA-85A4-6CAF284A9FDC">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\recorderUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="utils.js" ID="FBD8A0A5-13C8-4897-9C21-3DB60397CFDC">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\recorder\utils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="browserFetcher.js" ID="32284492-3C0B-4E68-BC83-4DA8236A018C">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\registry\browserFetcher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="dependencies.js" ID="2F5D1BE4-9E7A-42AD-AE08-ADE8B5CD8D45">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\registry\dependencies.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="index.js" ID="A56019A5-6791-4AB2-86B9-60394BD37BA1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\registry\index.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="nativeDeps.js" ID="26445B72-131B-4E48-865B-220920ACA190">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\registry\nativeDeps.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="oopDownloadBrowserMain.js" ID="DFB64C75-559E-4B96-9D42-C04E88D02A97">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\registry\oopDownloadBrowserMain.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="snapshotter.js" ID="9892CEC3-39FA-442B-B576-4526F828C79A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\trace\recorder\snapshotter.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="snapshotterInjected.js" ID="9A99D4AD-5FF3-4CA7-8879-33138D518113">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\trace\recorder\snapshotterInjected.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="tracing.js" ID="DDE33777-B0F3-4030-A169-01684848A8A5">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\trace\recorder\tracing.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="inMemorySnapshotter.js" ID="14546F7C-277D-4903-A128-066405A14E96">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\trace\test\inMemorySnapshotter.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="traceViewer.js" ID="D9696901-5377-44C2-8FCF-D69414FC8541">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\trace\viewer\traceViewer.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="webkit.js" ID="C1E402F3-EC0D-431B-B914-1AB52C98F17B">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\webkit.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkAccessibility.js" ID="01FB210A-6F3D-4D89-BFD0-2919D277D78E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkAccessibility.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkBrowser.js" ID="9875605B-6E48-4CDB-82AA-465C677EE2BF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkBrowser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkConnection.js" ID="D6729F2F-58B6-4CBC-BCB4-D19B1917C298">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkConnection.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkExecutionContext.js" ID="B582719D-78EE-4E29-989B-264F2034D344">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkExecutionContext.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkInput.js" ID="DF2E9D26-5112-4C2C-8F41-83B43D927556">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkInput.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkInterceptableRequest.js" ID="7E1BD0A7-40A9-4592-833F-F037BC8B5556">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkInterceptableRequest.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkPage.js" ID="DAD7415D-C17A-491F-9597-FF30ACA2B4DB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkPage.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkProvisionalPage.js" ID="20FB506F-A612-40F0-B883-81CA361FCD66">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkProvisionalPage.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wkWorkers.js" ID="9A7422BB-ABBC-4E42-BB94-17F4307891FF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\server\webkit\wkWorkers.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="diff_match_patch.js" ID="06279CAD-BA8E-4016-B9A0-7699DC1456B2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\third_party\diff_match_patch.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="pixelmatch.js" ID="D7FF9C22-F0B2-41FB-A85A-35F794B73D40">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\third_party\pixelmatch.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="ascii.js" ID="0CDC5027-CBA0-4B1F-B7D2-E34C9C37B8E1">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\ascii.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="comparators.js" ID="3A0C9EB4-9514-46A1-A3EC-9E6D5D632B52">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\comparators.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="crypto.js" ID="AD12FD0A-8932-4F59-BD17-570AD4573C08">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\crypto.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="debug.js" ID="AA096451-86A3-4CB0-A859-7DF25DB13C78">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\debug.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="debugLogger.js" ID="B6626001-C37D-4936-A621-C06A70509731">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\debugLogger.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="env.js" ID="442B3620-BE96-4268-A6D7-2A9C925A0A97">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\env.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="eventsHelper.js" ID="0C6598C3-4064-400C-A271-90F7AC2214ED">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\eventsHelper.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="fileUtils.js" ID="9A1A2751-4455-42F2-BEFA-199DCDAA3C9A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\fileUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="glob.js" ID="C4FB139C-60E2-4BA0-9611-E2260AB1813C">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\glob.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="happy-eyeballs.js" ID="5BEE003E-4B9E-4AA3-A16F-04738C900DDF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\happy-eyeballs.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="headers.js" ID="29AC5CF0-9CF1-4D4E-B613-8EF01835990A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\headers.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="hostPlatform.js" ID="B1306092-E689-42CA-992C-AA41B67128E9">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\hostPlatform.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="httpServer.js" ID="45626F77-9541-4F53-95C4-8D9834C519FD">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\httpServer.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="index.js" ID="8F25F945-7D83-4A18-8E8D-6AD88005AB83">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\index.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="linuxUtils.js" ID="AB5EBEF2-0B15-4A50-BC3D-D4B0C5D6F6FB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\linuxUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="manualPromise.js" ID="B6696601-8295-4E70-8716-E126078552FF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\manualPromise.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="mimeType.js" ID="0E0D3453-65F5-4E22-9105-8991267E3A19">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\mimeType.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="multimap.js" ID="D8C48F76-C33C-4622-AB82-095E1ED69097">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\multimap.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="network.js" ID="C52FC373-3810-45E8-BB84-9ABD5939B8E3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\network.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="processLauncher.js" ID="9C5E1C73-4EE2-43A7-9D35-C0BFABF87600">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\processLauncher.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="profiler.js" ID="C729763C-3EAC-46D5-B383-44DD4FA9229E">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\profiler.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="rtti.js" ID="14DDE152-A370-4F91-853F-3A98CFCA0589">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\rtti.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="semaphore.js" ID="6F2800B6-BC13-4B79-8110-57B68B8EE74A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\semaphore.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="spawnAsync.js" ID="AAD929E5-F5C1-4B37-8805-2ABD9F3E1190">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\spawnAsync.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="stackTrace.js" ID="4C088814-F394-4041-84B2-B7588A2A46BB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\stackTrace.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="task.js" ID="62AE0493-9553-4703-8252-90D3BB030F6C">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\task.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="time.js" ID="4AE6886B-95D8-4C9E-8BC5-ACDABFE1A171">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\time.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="timeoutRunner.js" ID="E979CB35-8E1D-43F5-9BD8-D0C084249EBA">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\timeoutRunner.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="traceUtils.js" ID="BCD63315-BCEE-42D2-93A5-B62B631599DB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\traceUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="userAgent.js" ID="2A3B27E1-B7D3-4B04-890B-2DD2D25D7B34">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\userAgent.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="wsServer.js" ID="15349A53-396A-482C-B2BB-A6964A1167BE">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\wsServer.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="zipFile.js" ID="CEC3DCB4-F7AD-4B09-BCEE-21831F3BD13F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\zipFile.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="zones.js" ID="E65B0AA2-71DB-48B2-8C41-432016BE907F">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\zones.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="cssParser.js" ID="E9044C75-9BEF-4BD3-92F9-6EF04E0EEC89">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\cssParser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="cssTokenizer.js" ID="0885AD03-8A10-4C27-A902-1F487901F669">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\cssTokenizer.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="locatorGenerators.js" ID="AF98E99F-7E84-46D5-922A-406BAD2C5A34">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\locatorGenerators.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="locatorParser.js" ID="33DF174F-8F8B-43D6-B4CF-F3CB181B8E9A">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\locatorParser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="locatorUtils.js" ID="E53CF0C5-9212-4AA8-AEC9-CB8D0DEF93A3">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\locatorUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="selectorParser.js" ID="CBAD9870-A51F-40D6-959B-3C4BC3AF3DB9">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\selectorParser.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="stringUtils.js" ID="E14992A3-A45B-4EC8-BBFC-64A274DEB727">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\stringUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="traceUtils.js" ID="73084CB2-32A4-4A9C-AD7C-208A089C9DB0">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utils\isomorphic\traceUtils.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="index.js" ID="F4941EDA-69D5-42E8-BF64-4896E1EE7ABF">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\utilsBundleImpl\index.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="codeMirrorModule-COR5vrxk.js" ID="685A4338-03F5-4BA4-B7BD-EE580C22B1F9">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\recorder\assets\codeMirrorModule-COR5vrxk.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="index-ByO2Mfgr.js" ID="F5B8763C-240C-47CB-9BE3-BEA7C00657DB">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\recorder\assets\index-ByO2Mfgr.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="index.9xqViRZD.js" ID="CF049993-1FCD-4AA4-AEAE-5614042F6C47">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\index.9xqViRZD.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="sw.bundle.js" ID="B38B24CE-8917-48F9-AEBD-11F5E24E9078">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\sw.bundle.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="uiMode.CdMTT2Sp.js" ID="20AC3A91-492F-4AA4-ABBF-C0BA77B0A6F2">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\uiMode.CdMTT2Sp.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="codeMirrorModule-D-hINnYb.js" ID="5FC7F4F6-383C-4682-BB25-281F0179263C">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\assets\codeMirrorModule-D-hINnYb.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="testServerConnection-CpiRu-AA.js" ID="F412E85E-5F50-4E55-A2F9-C056236B84C8">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\assets\testServerConnection-CpiRu-AA.js</XData>
+    </XValues>
+  </XJScript>
+  <XJScript Name="xtermModule-BeNbaIVa.js" ID="66274E9B-6682-4DAF-9DF0-10F9826BC117">
+    <XValues>
+      <XData Name="FileName" ID="429B10D4-2141-4526-AA5B-75EE8AD6F673" Type="String">\bin\Debug\net8.0\.playwright\package\lib\vite\traceViewer\assets\xtermModule-BeNbaIVa.js</XData>
+    </XValues>
+  </XJScript>
 </XModule>

@@ -12,17 +12,17 @@ class Guid
         return Guid.NewUUID();
     }
 
-    static IsEmpty(pGuid: String)
+    static IsEmpty(pGuid: string)
     {
         return !this.IsFull(pGuid);
     }
 
-    static IsFull(pValue: String): boolean
+    static IsFull(pValue: string): boolean
     {
         return !X.IsEmpty(pValue) && pValue.length == 36 && pValue != this.Empty;
     }
 
-    static NewUUID(): String
+    static NewUUID(): string
     {
         var d = new Date().getTime();
         var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;
@@ -62,17 +62,17 @@ DOMTokenList.prototype.Any = function <T>(pPredicade: XFunc<T>): boolean
 interface DOMTokenList
 {
     Any<T>(pPredicate: XFunc<T>): boolean;
-    Add(pStyle: String);
-    Remove(pStyle: String);
+    Add(pStyle: string);
+    Remove(pStyle: string);
 }
 
-DOMTokenList.prototype.Add = function (pStyle: String)
+DOMTokenList.prototype.Add = function (pStyle: string)
 {
     if (!this.Any(c => c == "active"))
         this.add("active");
 };
 
-DOMTokenList.prototype.Remove = function (pStyle: String)
+DOMTokenList.prototype.Remove = function (pStyle: string)
 {
     this.remove("active");
 };
@@ -82,7 +82,7 @@ interface Array<T>
     Oder: any;
     ToArray(): Array<T>;
 
-    Get(pID: String): T;
+    Get(pID: string): T;
 
     GetAs<Tx>(pIndex: number): Tx;
 
@@ -446,7 +446,7 @@ Array.prototype.Remove = function (pItem: any): void
         this.length -= 1;
     }
 };
-Array.prototype.Get = function <T>(pID: String): T
+Array.prototype.Get = function <T>(pID: string): T
 {
     var r: T;
     for (var i = 0; i < this.length; i++)
@@ -489,8 +489,8 @@ Array.prototype.OrderBy = function <T>(pValue: XValue<T>): any
 interface HTMLElement
 {
     Location(pReference: HTMLElement): XPoint;
-    Name: String;
-    GetTextWidth(pText: String, pFont: String): number;
+    Name: string;
+    GetTextWidth(pText: string, pFont: string): number;
     Swap(pLeft: number, pRight: number): any;
     GetRectRelative(pRelative: HTMLElement): XRect;
     GetRect(pInternal?: boolean): XRect;
@@ -498,7 +498,7 @@ interface HTMLElement
     GetIcon(): HTMLElement;
     GetChildren(pPredicate?: XFunc<HTMLElement>): Array<HTMLElement>;
     SetVisibility(pVisible: boolean): void;
-    ToggleStyle(pClass: String, pAdd: boolean): void;
+    ToggleStyle(pClass: string, pAdd: boolean): void;
     Hide(): void;
     Show(): void;
     Instance: any;
@@ -546,7 +546,7 @@ HTMLElement.prototype.Show = function ()
     this.removeAttribute("style");
 }
 
-HTMLElement.prototype.ToggleStyle = function (pClass: String, pAdd: boolean)
+HTMLElement.prototype.ToggleStyle = function (pClass: string, pAdd: boolean)
 {
     if (pAdd)
     {
@@ -632,7 +632,7 @@ HTMLElement.prototype.GetRectRelative = function (pRelative: HTMLElement): XRect
     return new XRect(or.left - rr.left, or.top - rr.top, or.width, or.height);
 }
 
-HTMLElement.prototype.GetTextWidth = function (pText: String, pFont: String): number
+HTMLElement.prototype.GetTextWidth = function (pText: string, pFont: string): number
 {
     var canvas = window.Canvas || (window.Canvas = document.createElement("canvas"));
     var context = canvas.getContext("2d");
@@ -659,11 +659,11 @@ interface Node
 
     Any(pPredicate: XFunc<Node>): boolean;
 
-    Name: String;
+    Name: string;
 
-    StyleValue(pItemName: String): number;
+    StyleValue(pItemName: string): number;
 
-    StyleStrValue(pItemName: String): String;
+    StyleStrValue(pItemName: string): string;
     ForEachChildren<T>(pAction: XMethod<T>, pPredicate?: XFunc<T>)
 }
 
@@ -674,7 +674,7 @@ Node.prototype.ForEachChildren = function <T>(pAction: XMethod<T>, pPredicate?: 
             pAction(this.children[i]);
 };
 
-Node.prototype.StyleStrValue = function (pItemName: String): String
+Node.prototype.StyleStrValue = function (pItemName: string): string
 {
     var styleValue = "";
     if (document.defaultView && document.defaultView.getComputedStyle)
@@ -688,7 +688,7 @@ Node.prototype.StyleStrValue = function (pItemName: String): String
     return styleValue;
 };
 
-Node.prototype.StyleValue = function (pItemName: String): number
+Node.prototype.StyleValue = function (pItemName: string): number
 {
     return parseInt(this.StyleStrValue(pItemName));
 };
@@ -717,7 +717,7 @@ Node.prototype.Any = function (pPredicate: XFunc<Node>): boolean
     }
     return false;
 };
-Node.prototype.StyleValue = function (pItemName: String): number
+Node.prototype.StyleValue = function (pItemName: string): number
 {
     var styleValue = 0;
     if (document.defaultView && document.defaultView.getComputedStyle)
@@ -757,28 +757,28 @@ Node.prototype.Any = function (pPredicate: XFunc<Node>): boolean
 
 interface String
 {
-    IsEqual(pValue: String): boolean;
+    IsEqual(pValue: string): boolean;
 
-    Split(pSeparator: String): XArray<String>;
+    Split(pSeparator: string): XArray<string>;
 
-    Contains(pValue: String[]): boolean;
+    Contains(pValue: string[]): boolean;
 
-    IndexOf(pValue: String): number;
+    IndexOf(pValue: string): number;
 
-    Exist(pValue: String): boolean;
+    Exist(pValue: string): boolean;
 
-    ReplaceAll(pSearch: String, pValue: String): String;
-    Exchange(pPos: number, pChar: String): String;
+    ReplaceAll(pSearch: string, pValue: string): string;
+    Exchange(pPos: number, pChar: string): string;
 
-    Add(pChar: any, pCount: number): String;
+    Add(pChar: any, pCount: number): string;
 
-    RPad(pCount: number, pChar?: any): String;
+    RPad(pCount: number, pChar?: any): string;
 
-    LPad(pCount: number, pChar?: any): String;
-    Count(pChar: String): number;
+    LPad(pCount: number, pChar?: any): string;
+    Count(pChar: string): number;
 }
 
-String.prototype.Count = function (pChar: String): number
+String.prototype.Count = function (pChar: string): number
 {
     var cnt = 0;
     for (var i = 0; i < this.length; i++)
@@ -787,7 +787,7 @@ String.prototype.Count = function (pChar: String): number
     return cnt;
 }
 
-String.prototype.Exchange = function (pPos: number, pChar: String): String
+String.prototype.Exchange = function (pPos: number, pChar: string): string
 {
     var ret = "";
     for (var i = 0; i < this.length; i++)
@@ -800,9 +800,9 @@ String.prototype.Exchange = function (pPos: number, pChar: String): String
     return ret;
 }
 
-String.prototype.Split = function (pSeparator: String): XArray<String>
+String.prototype.Split = function (pSeparator: string): XArray<string>
 {
-    var ret = new XArray<String>();
+    var ret = new XArray<string>();
     let prts = <[]>this.split(pSeparator);
     for (var i = 0; i < prts.length; i++)
     {
@@ -813,7 +813,7 @@ String.prototype.Split = function (pSeparator: String): XArray<String>
     }
     return ret;
 };
-String.prototype.LPad = function (pCount: number, pChar?: any): String
+String.prototype.LPad = function (pCount: number, pChar?: any): string
 {
     var str = this == null ? "" : this;
     if (str.length > pCount)
@@ -822,7 +822,7 @@ String.prototype.LPad = function (pCount: number, pChar?: any): String
         pChar = " ";
     return pChar.repeat(pCount - str.length) + str;
 };
-String.prototype.RPad = function (pCount: number, pChar?: any): String
+String.prototype.RPad = function (pCount: number, pChar?: any): string
 {
     var str = this == null ? "" : this;
     if (str.length > pCount)
@@ -831,34 +831,34 @@ String.prototype.RPad = function (pCount: number, pChar?: any): String
         pChar = " ";
     return str.Add(pChar, pCount - str.length);
 };
-String.prototype.Add = function (pChar: any, pCount: number): String
+String.prototype.Add = function (pChar: any, pCount: number): string
 {
     var str = this == null ? "" : this;
     for (var i = 0; i < pCount; i++)
         str = str + pChar;
     return str;
 };
-String.prototype.ReplaceAll = function (pSearch: String, pValue: String): String
+String.prototype.ReplaceAll = function (pSearch: string, pValue: string): string
 {
     return this.split(pSearch).join(pValue);
 };
-String.prototype.Exist = function (pValue: String): boolean
+String.prototype.Exist = function (pValue: string): boolean
 {
     return this.indexOf(pValue) != -1;
 };
 
-String.prototype.IndexOf = function (pValue: String): number
+String.prototype.IndexOf = function (pValue: string): number
 {
     return this.indexOf(pValue);
 };
-String.prototype.IsEqual = function (pValue: String): boolean
+String.prototype.IsEqual = function (pValue: string): boolean
 {
     var str = this;
     if (X.IsEmpty(str) || X.IsEmpty(pValue))
         return false;
     return str == pValue;
 };
-String.prototype.Contains = function (pValue: String[]): boolean
+String.prototype.Contains = function (pValue: string[]): boolean
 {
     if (X.IsEmpty(pValue))
         return false;
@@ -887,19 +887,19 @@ enum XDatePart
 }
 interface Date
 {
-    FormatDateTime(pTypeID: String, pPattern: String): String
-    ToString(): String;
-    DateTimeString(): String;
-    TimeString(pShort?: boolean): String;
-    DateString(): String;
-    LocalDateTimeString(pShortY?: boolean, pShortH?: boolean, pShowDecimal?: boolean): String;
-    LocalTimeString(pShort?: boolean, pShowDecimal?: boolean): String;
-    LocalDateString(pShort?: boolean): String;
-    ToISO(pShort?: boolean): String;
-    ToLocalISO(pShort?: boolean): String;
-    Full(): String;
-    WeekDay(): String;
-    Month(): String;
+    FormatDateTime(pTypeID: string, pPattern: string): string
+    ToString(): string;
+    DateTimeString(): string;
+    TimeString(pShort?: boolean): string;
+    DateString(): string;
+    LocalDateTimeString(pShortY?: boolean, pShortH?: boolean, pShowDecimal?: boolean): string;
+    LocalTimeString(pShort?: boolean, pShowDecimal?: boolean): string;
+    LocalDateString(pShort?: boolean): string;
+    ToISO(pShort?: boolean): string;
+    ToLocalISO(pShort?: boolean): string;
+    Full(): string;
+    WeekDay(): string;
+    Month(): string;
     IsLeapYear(): boolean;
     GetUTCDaysInMonth(): number;
     AddMonths(pValue: number);
@@ -977,27 +977,27 @@ Date.prototype.AddMonths = function (pValue: number)
     return this;
 };
 
-Date.prototype.WeekDay = function (): String
+Date.prototype.WeekDay = function (): string
 {
     return ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'][this.getDay()];
 }
 
-Date.prototype.Month = function (): String
+Date.prototype.Month = function (): string
 {
     return ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'][this.getMonth()];
 }
 
-Date.prototype.LocalDateTimeString = function (pShortY?: boolean, pShortH?: boolean, pShowDecimal?: boolean): String
+Date.prototype.LocalDateTimeString = function (pShortY?: boolean, pShortH?: boolean, pShowDecimal?: boolean): string
 {
     return this.LocalDateString(pShortY) + ' ' + this.LocalTimeString(pShortH, pShowDecimal);
 }
 
-Date.prototype.DateTimeString = function (): String
+Date.prototype.DateTimeString = function (): string
 {
     return this.DateString() + ' ' + this.TimeString();
 }
 
-Date.prototype.LocalTimeString = function (pShort?: boolean, pShowDecimal?: boolean): String
+Date.prototype.LocalTimeString = function (pShort?: boolean, pShowDecimal?: boolean): string
 {
     if (pShort)
         return X.PadStart(this.getHours(), 2, "0") + ":" + X.PadStart(this.getMinutes(), 2, "0");
@@ -1006,33 +1006,33 @@ Date.prototype.LocalTimeString = function (pShort?: boolean, pShowDecimal?: bool
     return X.PadStart(this.getHours(), 2, "0") + ":" + X.PadStart(this.getMinutes(), 2, "0");
 }
 
-Date.prototype.LocalDateString = function (pShort?: boolean): String
+Date.prototype.LocalDateString = function (pShort?: boolean): string
 {
     if (pShort)
         return X.PadStart(this.getDate().toString(), 2, "0") + "/" + X.PadStart(this.getMonth() + 1, 2, "0") + "/" + this.getFullYear().toString().LPad(2, '0');
     return X.PadStart(this.getDate().toString(), 2, "0") + "/" + X.PadStart(this.getMonth() + 1, 2, "0") + "/" + this.getFullYear().toString();
 }
 
-Date.prototype.DateString = function (): String
+Date.prototype.DateString = function (): string
 {
     var dstr = X.PadStart(this.getUTCDate().toString(), 2, "0") + "/" + X.PadStart(this.getUTCMonth() + 1, 2, "0") + "/" + this.getUTCFullYear().toString();
     return dstr;
 }
 
-Date.prototype.TimeString = function (pShort: boolean = false): String
+Date.prototype.TimeString = function (pShort: boolean = false): string
 {
     if (!pShort)
         return X.PadStart(this.getUTCHours(), 2, "0") + ":" + X.PadStart(this.getUTCMinutes(), 2, "0") + ":" + X.PadStart(this.getUTCSeconds(), 2, "0");
     return X.PadStart(this.getUTCHours(), 2, "0") + ":" + X.PadStart(this.getUTCMinutes(), 2, "0");
 }
-Date.prototype.ToLocalISO = function (pShort?: boolean): String
+Date.prototype.ToLocalISO = function (pShort?: boolean): string
 {
     var dstr = this.getFullYear() + "-" + X.PadStart(this.getMonth() + 1, 2, "0") + "-" + X.PadStart(this.getDate(), 2, "0") + "T" +
         X.PadStart(this.getHours(), 2, "0") + ":" + X.PadStart(this.getMinutes().toString(), 2, "0") + ":" +
         X.PadStart(this.getSeconds(), 2, "0") + (pShort ? "" : "." + X.PadStart(this.getUTCMilliseconds(), 6, "0"));
     return dstr;
 }
-Date.prototype.ToISO = function (pShort?: boolean): String
+Date.prototype.ToISO = function (pShort?: boolean): string
 {
     var dstr = this.getUTCFullYear() + "-" + X.PadStart(this.getUTCMonth() + 1, 2, "0") + "-" + X.PadStart(this.getUTCDate(), 2, "0") + "T" +
         X.PadStart(this.getUTCHours(), 2, "0") + ":" + X.PadStart(this.getUTCMinutes().toString(), 2, "0") + ":" +
@@ -1053,21 +1053,21 @@ Date.prototype.OnlyDate = function (): Date
     return Date.ToDateTime(dstr, true);
 }
 
-Date.prototype.Full = function (): String
+Date.prototype.Full = function (): string
 {
     var dstr = this.getUTCFullYear() + "-" + X.PadStart(this.getUTCMonth() + 1, 2, "0") + "-" + X.PadStart(this.getUTCDate(), 2, "0") + "T" +
         X.PadStart(this.getUTCHours(), 2, "0") + ":" + X.PadStart(this.getUTCMinutes().toString(), 2, "0") + ":" + X.PadStart(this.getUTCSeconds(), 2, "0") + " " + this.getUTCMilliseconds();
     return dstr;
 }
 
-Date.prototype.ToString = function (): String
+Date.prototype.ToString = function (): string
 {
     var dstr = X.PadStart(this.getUTCDate().toString(), 2, "0") + "/" + X.PadStart(this.getUTCMonth() + 1, 2, "0") + "/" + this.getUTCFullYear().toString() + " " +
         X.PadStart(this.getUTCHours(), 2, "0") + ":" + X.PadStart(this.getUTCMinutes(), 2, "0") + ":" + X.PadStart(this.getUTCSeconds(), 2, "0");
     return dstr;
 }
 
-Date.prototype.FormatDateTime = function (pTypeID: String, pPattern: String): String
+Date.prototype.FormatDateTime = function (pTypeID: string, pPattern: string): string
 {
     if (this.getFullYear() <= 1755)
         return "";
@@ -1091,22 +1091,22 @@ Date.prototype.FormatDateTime = function (pTypeID: String, pPattern: String): St
 
 interface DateConstructor
 {
-    IsBRDateTime(pValue: String): boolean;
-    FromBRDateTime(pValue: String): XDateTimeResult;
-    FromBRTime(pValue: String): XDateTimeResult;
+    IsBRDateTime(pValue: string): boolean;
+    FromBRDateTime(pValue: string): XDateTimeResult;
+    FromBRTime(pValue: string): XDateTimeResult;
     IsNullDateOrTime(pValue: any): boolean;
     IsDateOrTime(pValue: any); boolean;
-    ToDateTime(pValue: String, pAsUTC?: boolean): Date;
-    IsDate(pValue: String): boolean;
-    FromDate(pValue: String): XDateTimeResult;
-    IsTime(pValue: String): boolean;
-    FromTime(pValue: String): XDateTimeResult;
-    IsDateTime(pValue: String): boolean;
-    FromDateTime(pValue: String): XDateTimeResult;
-    FromBRDate(pValue: String): XDateTimeResult;
-    IsBRTime(pValue: String): boolean;
-    IsBRDate(pValue: String): boolean;
-    Parse(pValue: String): XDateTimeResult;
+    ToDateTime(pValue: string, pAsUTC?: boolean): Date;
+    IsDate(pValue: string): boolean;
+    FromDate(pValue: string): XDateTimeResult;
+    IsTime(pValue: string): boolean;
+    FromTime(pValue: string): XDateTimeResult;
+    IsDateTime(pValue: string): boolean;
+    FromDateTime(pValue: string): XDateTimeResult;
+    FromBRDate(pValue: string): XDateTimeResult;
+    IsBRTime(pValue: string): boolean;
+    IsBRDate(pValue: string): boolean;
+    Parse(pValue: string): XDateTimeResult;
     IsLeapYear(pYear: number): boolean;
     GetDaysInMonth(pYear: number, pMonth: number): number;
     IsEmpty(pValue: Date): boolean;
@@ -1129,7 +1129,7 @@ Date.GetDaysInMonth = function (pYear: number, pMonth: number): number
     return [31, (Date.IsLeapYear(pYear) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][pMonth];
 }
 
-Date.Parse = function (pValue: String): XDateTimeResult
+Date.Parse = function (pValue: string): XDateTimeResult
 {
     var res = new XDateTimeResult();
 
@@ -1155,12 +1155,12 @@ Date.Parse = function (pValue: String): XDateTimeResult
     return res;
 }
 
-Date.IsBRDate = function (pValue: String): boolean
+Date.IsBRDate = function (pValue: string): boolean
 {
     return Date.FromBRDate(pValue).IsValid;
 }
 
-Date.FromBRDate = function (pValue: String): XDateTimeResult
+Date.FromBRDate = function (pValue: string): XDateTimeResult
 {
     var res = new XDateTimeResult();
     try
@@ -1193,12 +1193,12 @@ Date.FromBRDate = function (pValue: String): XDateTimeResult
     }
 }
 
-Date.IsBRTime = function (pValue: String): boolean
+Date.IsBRTime = function (pValue: string): boolean
 {
     return Date.FromBRTime(pValue).IsValid;
 }
 
-Date.FromBRTime = function (pValue: String): XDateTimeResult
+Date.FromBRTime = function (pValue: string): XDateTimeResult
 {
     var res = new XDateTimeResult();
 
@@ -1262,7 +1262,7 @@ Date.IsDateOrTime = function (pValue: any)
     return Date.IsDate(pValue) || Date.IsTime(pValue) || Date.IsDateTime(pValue) || Date.IsBRDate(pValue) || Date.IsBRTime(pValue) || Date.IsBRDateTime(pValue);
 }
 
-Date.ToDateTime = function (pValue: String, pAsUTC?: boolean): Date
+Date.ToDateTime = function (pValue: string, pAsUTC?: boolean): Date
 {
     var ret: Date = null;
     if (Date.IsDateTime(pValue))
@@ -1287,12 +1287,12 @@ Date.ToDateTime = function (pValue: String, pAsUTC?: boolean): Date
     return XDefault.NullDate;
 }
 
-Date.IsDate = function (pValue: String): boolean
+Date.IsDate = function (pValue: string): boolean
 {
     return this.FromDate(pValue).IsValid;
 }
 
-Date.FromDate = function (pValue: String): XDateTimeResult
+Date.FromDate = function (pValue: string): XDateTimeResult
 {
     var res = new XDateTimeResult();
     try
@@ -1325,12 +1325,12 @@ Date.FromDate = function (pValue: String): XDateTimeResult
     }
 }
 
-Date.IsTime = function (pValue: String): boolean
+Date.IsTime = function (pValue: string): boolean
 {
     return this.FromTime(pValue).IsValid;
 }
 
-Date.FromTime = function (pValue: String): XDateTimeResult
+Date.FromTime = function (pValue: string): XDateTimeResult
 {
     var res = new XDateTimeResult();
     try
@@ -1365,12 +1365,12 @@ Date.FromTime = function (pValue: String): XDateTimeResult
         return res;
     }
 }
-Date.IsDateTime = function (pValue: String): boolean
+Date.IsDateTime = function (pValue: string): boolean
 {
     return this.FromDateTime(pValue).IsValid;
 }
 
-Date.FromDateTime = function (pValue: String): XDateTimeResult
+Date.FromDateTime = function (pValue: string): XDateTimeResult
 {
     var res = new XDateTimeResult();
     try
@@ -1413,12 +1413,12 @@ Date.FromDateTime = function (pValue: String): XDateTimeResult
     }
 }
 
-Date.IsBRDateTime = function (pValue: String): boolean
+Date.IsBRDateTime = function (pValue: string): boolean
 {
     return this.FromBRDateTime(pValue).IsValid;
 }
 
-Date.FromBRDateTime = function (pValue: String): XDateTimeResult
+Date.FromBRDateTime = function (pValue: string): XDateTimeResult
 {
     var res = new XDateTimeResult();
 
@@ -1477,18 +1477,18 @@ class X
         return null;
     };
 
-    static DataIsEmpty(pValue: String): boolean
+    static DataIsEmpty(pValue: string): boolean
     {
         return X.IsEmpty(pValue) || ["NI", "NA"].Contains(pValue);
     }
-    static AddNL(pSource: String, ...pValues: String[])
+    static AddNL(pSource: string, ...pValues: string[])
     {
         if (!X.IsEmpty(pSource))
             return pValues + "\r\n" + pValues.join("\r\n");
         return pValues.join("\r\n");
     }
 
-    static GetLogic(pLeft: any, pLogic: any, pRight: any): String
+    static GetLogic(pLeft: any, pLogic: any, pRight: any): string
     {
         if (X.IsEmpty(this._Logic["IsOk"]))
         {
@@ -1513,14 +1513,14 @@ class X
         return "" + pLeft + this._Logic[pLogic].ReplaceAll("<@V@>", pRight);
     }
 
-    static Lower(pString: String): String
+    static Lower(pString: string): string
     {
         if (X.IsEmpty(pString))
             return pString;
         return pString.toLowerCase();
     }
 
-    static Split(pValue: String, pSeparetor: String): Array<String>
+    static Split(pValue: string, pSeparetor: string): Array<string>
     {
         if (X.IsEmpty(pValue))
             return [];
@@ -1546,7 +1546,7 @@ class X
         return false;
     }
 
-    static Exists(pData: String, ...pValues: String[]): boolean
+    static Exists(pData: string, ...pValues: string[]): boolean
     {
         if (X.IsEmpty(pData) || X.IsEmpty(pValues))
             return false;
@@ -1558,7 +1558,7 @@ class X
         return false;
     }
 
-    static ToDate(pValue: String): Date
+    static ToDate(pValue: string): Date
     {
         return new Date(pValue);
     }
@@ -1575,12 +1575,12 @@ class X
         return ((pArg.which || pArg.keyCode) == XKey.K_F5);
     }
 
-    static IsAlpha(pValue: String): boolean
+    static IsAlpha(pValue: string): boolean
     {
         return pValue >= "A" && pValue <= "Z" || pValue >= "a" && pValue <= "z";
     }
 
-    static IsNum(pValue: String): boolean
+    static IsNum(pValue: string): boolean
     {
         return pValue >= "0" && pValue <= "9";
     }
@@ -1600,7 +1600,7 @@ class X
         return -1;
     }
 
-    static PadStart(pString: any, pSize: number, pAdd: String): String
+    static PadStart(pString: any, pSize: number, pAdd: string): string
     {
         pString = pString.toString();
         if (pString.padStart)
@@ -1616,7 +1616,7 @@ class X
         return pString.subString(pString.length - pSize, pString.length);
     }
 
-    public static IfNull(pString: String, pValue: String): String
+    public static IfNull(pString: string, pValue: string): string
     {
         if (X.IsEmpty(pString))
             return pValue;
@@ -1633,7 +1633,7 @@ class X
         return false;
     }
 
-    public static IsChar(pValue: String): boolean
+    public static IsChar(pValue: string): boolean
     {
         if (X.IsEmpty(pValue) && pValue == " ")
             return false;
@@ -1655,7 +1655,7 @@ class X
 
 class XCall
 {
-    static AddEvent(pContext: any, pElement: any, pEvent: String, pMethod: any)
+    static AddEvent(pContext: any, pElement: any, pEvent: string, pMethod: any)
     {
         if (pElement.Method == null)
             pElement.Method = new Object();
@@ -1663,7 +1663,7 @@ class XCall
         pElement.addEventListener(pEvent, pElement.Method[pContext.UUID + pEvent]);
     }
 
-    static RemoveEvent(pContext: any, pElement: any, pEvent: String)
+    static RemoveEvent(pContext: any, pElement: any, pEvent: string)
     {
         if (pElement.Method != null && pElement.Method[pContext.UUID + pEvent] != null)
             pElement.removeEventListener(pEvent, pElement.Method[pContext.UUID + pEvent]);

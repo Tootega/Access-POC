@@ -114,10 +114,10 @@ interface Node {
 }
 interface String {
     IsEqual(pValue: string): boolean;
-    Split(pSeparator: string): XArray<String>;
+    Split(pSeparator: string): XArray<string>;
     Contains(pValue: string[]): boolean;
     IndexOf(pValue: string): number;
-    Exist(pValue: String): boolean;
+    Exist(pValue: string): boolean;
     ReplaceAll(pSearch: string, pValue: string): string;
     Exchange(pPos: number, pChar: string): string;
     Add(pChar: any, pCount: number): string;
@@ -405,7 +405,8 @@ declare class XDataField extends XData {
     private _Mask?;
     Value?: any;
     OldValue?: any;
-    constructor(State?: XFieldState, Type?: any, _Mask?: any, Value?: any, OldValue?: any);
+    ID?: string;
+    constructor(State?: XFieldState, Type?: any, _Mask?: any, Value?: any, OldValue?: any, ID?: string);
     RawValue: any;
     Name: string;
     GetDisplayText(): string;

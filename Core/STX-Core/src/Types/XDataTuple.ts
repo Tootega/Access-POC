@@ -116,7 +116,7 @@ class XData
 
 class XDataField extends XData
 {
-    constructor(public State?: XFieldState, public Type?: any, private _Mask?: any, public Value?: any, public OldValue?: any)
+    constructor(public State?: XFieldState, public Type?: any, private _Mask?: any, public Value?: any, public OldValue?: any, public ID?: string)
     {
         super();
         let os = this.State;

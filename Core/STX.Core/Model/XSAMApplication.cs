@@ -4,6 +4,15 @@ namespace STX.Core.Model
 {
     public abstract class XSAMApplication
     {
+        public String BtnNewID => $"NW-BTN{MenuID}";
+        public String BtnCloseID => $"CL-BTN{MenuID}";
+        public String BtnSearchID => $"SR-BTN{MenuID}";
+        public String BtnPreviewID => $"PR-BTN{MenuID}";
+        public String BtnEditID => $"ED-BTN{MenuID}";
+        public String BtnSaveID => $"SV-BTN{MenuID}";
+        public String BtnDeleteID => $"DL-BTN{MenuID}";
+        public String BtnRecycleID => $"RC-BTN{MenuID}";
+
         public String Title
         {
             get;

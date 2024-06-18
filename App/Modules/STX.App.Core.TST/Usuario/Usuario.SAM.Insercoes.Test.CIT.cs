@@ -30,10 +30,6 @@ namespace STX.App.Core.TST.Usuario
                 rule.AfterExecute(pIndex, tpl, pTuple);
         }
 
-        public override void Run()
-        {
-        }
-
         public class Data : XTestData<UsuarioTuple>
         {
             public Data()

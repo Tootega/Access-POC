@@ -1161,7 +1161,7 @@ class X {
             pString = pString.toString();
         if (pString.length < pSize)
             pString = pAdd.repeat(pSize + 1) + pString;
-        return pString.substring(pString.length - pSize, pString.length);
+        return pString.subString(pString.length - pSize, pString.length);
     }
     static IfNull(pString, pValue) {
         if (X.IsEmpty(pString))
@@ -1629,13 +1629,14 @@ class XData {
     }
 }
 class XDataField extends XData {
-    constructor(State, Type, _Mask, Value, OldValue) {
+    constructor(State, Type, _Mask, Value, OldValue, ID) {
         super();
         this.State = State;
         this.Type = Type;
         this._Mask = _Mask;
         this.Value = Value;
         this.OldValue = OldValue;
+        this.ID = ID;
         let os = this.State;
         this.SetValue(Value);
         this.State = os;
@@ -1911,7 +1912,7 @@ XType.Guid = "8C5DEBC0-4165-4429-B106-1554552F802E";
 XType.Int16 = "5BD72111-603B-42E5-9488-53A4299E45EB";
 XType.Int32 = "FAADA046-C1B9-4E89-9B64-310E272FC0CC";
 XType.Int64 = "ADD41C4D-6BB4-49A6-856E-4CAA566DEBC2";
-XType.String = "8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62";
+XType.string = "8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62";
 XType.Time = "424A36CB-FD57-4FF6-ABA4-8010970352CE";
 XType.DefaultMasked = [XType.DateTime, XType.Date, XType.Time, XType.Decimal, XType.Int16, XType.Int32, XType.Int64];
 class XHashSet {

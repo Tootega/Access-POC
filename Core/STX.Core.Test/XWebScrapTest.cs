@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+using STX.Core.Model;
+using STX.Core.Test.Interfaces;
+
+using Xunit;
+
+namespace STX.Access
+{
+    public sealed class XWebScrapSetup : IDisposable
+    {
+
+        public Action<XIWSBrowser> OnDispose;
+        public XIWSBrowser Browser;
+        private ManualResetEvent _Event;
+
+        public void Dispose()
+        {
+            OnDispose?.Invoke(Browser);
+        }
+
+        public void Prepare()
+        {
+        }
+
+        internal void Initialize(Action<XIWSBrowser> pDisposeSetup, Func<XIWSBrowser> pInitializeSetup)
+        {
+            if (OnDispose == null)
+            {
+                OnDispose = pDisposeSetup;
+                Browser = pInitializeSetup?.Invoke();
+            }
+            if (_Event == null)
+                _Event = new ManualResetEvent(false);
+            else
+            {
+                _Event.WaitOne();
+                _Event.Reset();
+            }
+        }
+        public void Wait()
+        {
+            _Event?.WaitOne();
+        }
+
+        public void Continue()
+        {
+            _Event.Set();
+        }
+    }
+
+    public abstract class XWebScrapTest<AppModel, Rule, Tuple> : XTest<Rule, Tuple>, IClassFixture<XWebScrapSetup>
+        where AppModel : XSAMApplication, new()
+        where Tuple : XServiceDataTuple
+        where Rule : XTestRule<Tuple>, new()
+    {
+        protected XWebScrapTest(XWebScrapSetup pSetup)
+        {
+            Setup = pSetup;
+            Setup.Initialize(DoDisposeSetup, DoInitializeSetup);
+            App = new AppModel();
+        }
+
+        protected virtual void DoDisposeSetup(XIWSBrowser pBrowser)
+        {
+        }
+
+        protected abstract XIWSBrowser DoInitializeSetup();
+
+        public XWebScrapSetup Setup
+        {
+            get;
+        }
+        public AppModel App
+        {
+            get;
+        }
+    }
+}

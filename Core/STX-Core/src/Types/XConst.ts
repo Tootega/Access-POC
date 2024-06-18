@@ -1,4 +1,4 @@
-﻿enum XKey
+enum XKey
 {
     K_CANCEL = 3,
     K_HELP = 6,

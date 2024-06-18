@@ -17,13 +17,13 @@ export namespace STXAppCoreINFPerfilPerfilDireitoMDL
 
         override GetPKValue(): any { return this.CORxPerfilDireiroID.Value; }
 
-        CORxPerfilID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
-        Direito = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Estado = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        SYSxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
-        CORxPerfilDireiroID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
-        CORxRecursoDireitoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        CORxPerfilID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, 'dba35c1f-7d7b-4911-a573-400506236c93');
+        Direito = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, 'e3b21c66-5762-442c-8505-21b123e54e28');
+        Estado = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '771774f3-0365-4048-80f3-dba3a6921e97');
+        Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, 'fc6e3441-5792-4a2c-be75-cd4d34a953a2');
+        SYSxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '', null, null, 'e779c8c0-a3f3-472f-8d8b-a91567bdef9f');
+        CORxPerfilDireiroID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '31fe17d9-146d-4f3a-94ba-19f795c919ac');
+        CORxRecursoDireitoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '79964a9a-8d83-4e42-8a27-5c5d0616bef0');
 
     }
 

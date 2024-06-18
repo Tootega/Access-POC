@@ -24,6 +24,10 @@ namespace STX.Access.Model
             return pField.Value;
         }
 
+        public XDecimalDataField()
+        {               
+        }
+
         public XDecimalDataField(decimal pValue) : base(pValue)
         {
         }

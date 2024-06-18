@@ -24,6 +24,11 @@ namespace STX.Core.Access.Usuarios
         public XInt16DataField CORxEstadoID {get;set;}
         public XStringDataField Login {get;set;}
     }
+    public static class FRMUsuariosAtivosFilter
+    {
+        public static readonly XFRMField CORxEstadoID = new XFRMField(new Guid("A744F75F-F6BD-4FC1-8FA8-0E67BF4EBA0F"), "CORxEstadoID");
+        public static readonly XFRMField Login = new XFRMField(new Guid("2B842CCA-DB72-459B-A155-A741B8ABED45"), "Login");
+    }
 
     public class UsuariosAtivosRequest : XRequest
     {

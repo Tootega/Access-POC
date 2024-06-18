@@ -10,7 +10,7 @@
     static Int16: string = "5BD72111-603B-42E5-9488-53A4299E45EB";
     static Int32: string = "FAADA046-C1B9-4E89-9B64-310E272FC0CC";
     static Int64: string = "ADD41C4D-6BB4-49A6-856E-4CAA566DEBC2";
-    static String: string = "8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62";
+    static string: string = "8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62";
     static Time: string = "424A36CB-FD57-4FF6-ABA4-8010970352CE";
     static DefaultMasked = [XType.DateTime, XType.Date, XType.Time, XType.Decimal, XType.Int16, XType.Int32, XType.Int64];
 

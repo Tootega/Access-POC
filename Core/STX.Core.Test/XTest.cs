@@ -12,8 +12,6 @@ namespace STX.Access
         where Tuple : XServiceDataTuple
         where Rule : XTestRule<Tuple>, new()
     {
-        public abstract void Run();
-
         protected Rule CreateRule()
         {
             return new Rule();

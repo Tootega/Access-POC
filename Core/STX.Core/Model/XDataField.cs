@@ -12,6 +12,28 @@ using STX.Core.Model;
 
 namespace STX.Access.Model
 {
+    public class XFRMField
+    {
+        public XFRMField()
+        {
+        }
+
+        public XFRMField(Guid pID, String pName)
+        {
+            ID = pID;
+            Name = pName;
+        }
+
+        public Guid ID
+        {
+            get; set;
+        }
+
+        public String Name
+        {
+            get; set;
+        }
+    }
 
     public class XDataField
     {
@@ -37,9 +59,9 @@ namespace STX.Access.Model
         }
 
 
-        //public XDataField()
-        //{
-        //}
+        public XDataField()
+        {
+        }
 
         public XDataField(T pValue)
         {

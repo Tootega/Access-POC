@@ -15,6 +15,10 @@ export abstract class XEditor<T extends HTMLElement> extends XGuest implements X
     }
 
     protected PTuple: any;
+
+    @Input()
+    FieldID: string;
+
     @Input()
     get Tuple(): any
     {
@@ -25,14 +29,19 @@ export abstract class XEditor<T extends HTMLElement> extends XGuest implements X
     {
         this.PTuple = pValue;
     }
-
     Title: string;
     Field: string;
-    DataField: XDataField;
     Mask: XBaseMask;
     Input: T | any;
     Label: HTMLLabelElement;
     Dec: Decimal;
+    private _DataField: XDataField;
+    get DataField(): XDataField { return this._DataField; }
+    set DataField(pValue: XDataField)
+    {
+        this._DataField = pValue;
+    }
+
     protected Tag: string = null;
 
     override ngAfterViewInit()
@@ -44,6 +53,7 @@ export abstract class XEditor<T extends HTMLElement> extends XGuest implements X
     protected InternalPrepare()
     {
         this.Input = this.Element.querySelector(this.Tag ?? "input") as T;
+        this.Input.id = this.FieldID;
 
         if (this.Tuple != null)
         {
@@ -53,8 +63,8 @@ export abstract class XEditor<T extends HTMLElement> extends XGuest implements X
             XEventManager.AddEvent(this, this.Input, XEventType.Input, (a) => this.OnDataChanged(a));
         }
         this.Label = this.Element.querySelector("label");
-        if (this.Input != null)
-            this.Input.id = this.Element.getAttribute("ttg-id");
+        //if (this.Input != null)
+        //    this.Input.id = this.Element.getAttribute("ttg-id");
         if (this.Element.hasAttribute("readonly"))
         {
             this.Input.setAttribute("readonly", "");

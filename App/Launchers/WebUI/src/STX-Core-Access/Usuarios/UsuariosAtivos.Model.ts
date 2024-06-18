@@ -17,9 +17,9 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
 
         override GetPKValue(): any { return this.TAFxUsuarioID.Value; }
 
-        TAFxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
-        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
+        TAFxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, 'f5c254db-4c8a-4cb6-9adb-7bdc7e4ea23c');
+        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '3207cc16-77ae-4895-a55d-10c0320ca4a5');
+        CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '', null, null, '218ccdd0-2373-4a2f-93f7-6f7c56f31a0f');
 
     }
 
@@ -55,7 +55,7 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosMDL
 
     export class UsuariosAtivosFilter extends XFilter
     {
-        CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '');
-        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        CORxEstadoID = new XDataField(XFieldState.Empty, () => 'XInt16', () => '', null, null, 'a744f75f-f6bd-4fc1-8fa8-0e67bf4eba0f');
+        Login = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '2b842cca-db72-459b-a155-a741b8abed45');
     }
 }

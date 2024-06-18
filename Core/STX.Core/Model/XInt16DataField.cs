@@ -17,6 +17,10 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
+        public XInt16DataField()
+        {               
+        }
+
         public XInt16DataField(short pValue) : base(pValue)
         {
         }

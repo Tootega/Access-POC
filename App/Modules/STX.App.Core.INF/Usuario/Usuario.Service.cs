@@ -195,9 +195,9 @@ namespace STX.App.Core.INF.Usuario
             if (pFilter != null)
             {
                 if (pFilter.Nome != null && pFilter.Nome.State != XFieldState.Empty)
-                    query = query.Where(q => q.CORxPessoa.Nome == pFilter.Nome.Value);
+                    query = query.Where(q => EF.Functions.Like(q.CORxPessoa.Nome, "%" + pFilter.Nome.Value + "%"));
                 if (pFilter.Login != null && pFilter.Login.State != XFieldState.Empty)
-                    query = query.Where(q => q.TAFxUsuario.Login == pFilter.Login.Value);
+                    query = query.Where(q => EF.Functions.Like(q.TAFxUsuario.Login, "%" + pFilter.Login.Value + "%"));
             }
 
             if (pFilter?.SkipRows > 0)

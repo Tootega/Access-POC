@@ -17,10 +17,15 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
+        public XGuidDataField()
+        {               
+        }
+
         public XGuidDataField(Guid pValue)
             : base(pValue)
         {
         }
+
         public XGuidDataField(Object pValue)
             : this(XFieldState.Unchanged, pValue)
         {

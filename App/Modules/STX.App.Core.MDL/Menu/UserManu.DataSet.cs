@@ -25,6 +25,10 @@ namespace STX.App.Core.INF.Menu
     {
         public XGuidDataField CORxRecursoID {get;set;}
     }
+    public static class FRMUserManuFilter
+    {
+        public static readonly XFRMField CORxRecursoID = new XFRMField(new Guid("7C88B63C-B848-416E-86EF-1FF03BF45285"), "CORxRecursoID");
+    }
 
     public class UserManuRequest : XRequest
     {

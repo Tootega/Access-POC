@@ -108,7 +108,6 @@ export class XSearchComponent<T extends XDataTuple, D extends XDataSet<T>> exten
 
         if (this.SelectedTuple?.IsReadOnly && this.Rights.Contains(XDefaultRights.Visualizar))
             this.PreviewBtn.ToggleStyle("navbar-toggler", this.SelectedTuple == null || X.In(this.State, XStageState.Editing, XStageState.Viewing));
-
         else
         {
             this.EditBtn.ToggleStyle("navbar-toggler", this.SelectedTuple == null || X.In(this.State, XStageState.Editing, XStageState.Viewing) || !this.Rights.Contains(XDefaultRights.Alterar));

@@ -17,6 +17,10 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
+        public XBooleanDataField()
+        {            
+        }
+
         public XBooleanDataField(bool pValue) : base(pValue)
         {
         }

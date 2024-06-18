@@ -17,6 +17,10 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
+        public XStringDataField()
+        {               
+        }
+
         public XStringDataField(String pValue)
             : base(pValue)
         {

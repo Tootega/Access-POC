@@ -26,6 +26,10 @@ namespace STX.App.Core.INF.Usuario
         public XStringDataField Nome {get;set;}
         public XStringDataField Login {get;set;}
     }
+    public static class FRMUsuarioFilter
+    {
+        public static readonly XFRMField Nome = new XFRMField(new Guid("A2173584-A43B-4995-A282-F37C4F245A6F"), "Nome");
+    }
 
     public class UsuarioRequest : XRequest
     {

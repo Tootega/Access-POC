@@ -17,11 +17,11 @@ export namespace STXAppCoreINFMenuUserManuMDL
 
         override GetPKValue(): any { return this.CORxRecursoID.Value; }
 
-        CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
-        Titulo = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Ordem = new XDataField(XFieldState.Empty, () => 'XInt32', () => '');
-        Modulo = new XDataField(XFieldState.Empty, () => 'XString', () => '');
-        Icone = new XDataField(XFieldState.Empty, () => 'XString', () => '');
+        CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '778f9919-d9ea-4a4c-bdaa-bc0f3e48957c');
+        Titulo = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '6c32f0f2-ca09-4f27-b38f-19fea3a0b808');
+        Ordem = new XDataField(XFieldState.Empty, () => 'XInt32', () => '', null, null, '1c90fd79-1327-4375-9b69-2546ce5c1d88');
+        Modulo = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, 'bacee5f8-af18-4a69-a5aa-d4840049fb8e');
+        Icone = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '2c88aa95-5994-4eba-a49d-3bc00a8bacc6');
 
     }
 
@@ -57,6 +57,6 @@ export namespace STXAppCoreINFMenuUserManuMDL
 
     export class UserManuFilter extends XFilter
     {
-        CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '');
+        CORxRecursoID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '7c88b63c-b848-416e-86ef-1ff03bf45285');
     }
 }

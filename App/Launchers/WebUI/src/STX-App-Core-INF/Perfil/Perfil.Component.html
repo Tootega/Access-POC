@@ -59,8 +59,8 @@
     </div>
     <div id='{{SearchAreaID}}'>
         <form class='row g justify-content' (submit)="Search($event)" action="javascript:void(0);">
-                <div XSearchEditor class='col-sm-32'  Field='Nome' Title='Nome do Perfil' [Tuple]='Filter'>
-                    <label for='ccd8bd5c-0252-45a3-8bee-e21343d3171b' class='form-label text-nowrap'>Nome do Perfil</label>
+                <div XSearchEditor class='col-sm-32'  FieldID='ccd8bd5c-0252-45a3-8bee-e21343d3171b' id='EDT_ccd8bd5c-0252-45a3-8bee-e21343d3171b' Field='Nome' Title='Nome do Perfil' [Tuple]='Filter'>
+                    <label for='EDT_ccd8bd5c-0252-45a3-8bee-e21343d3171b' class='form-label text-nowrap'>Nome do Perfil</label>
                     <label class='form-label text-nowrap' style="color:blue;font-size:9px">&nbsp;&nbsp; {{Filter.Column}}</label>
                 </div>
         </form>
@@ -91,7 +91,7 @@
                 <tbody class='w-100'>
                     <ng-container #Container name='RowContainer'>
                         <ng-template #Template name='RowTemplate' let-data='data'>
-                            <tr class='ttg-row t-100' scope='row' [(attr.IsSelected)]='data.IsSelected'>
+                            <tr class='ttg-row t-100' scope='row' [(attr.IsSelected)]='data.IsSelected' [id]='data.CORxPerfilID.Value'>
                             </tr>
                         </ng-template>
                     </ng-container>

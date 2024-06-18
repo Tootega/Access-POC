@@ -26,7 +26,7 @@
         <ng-template #ColumnTemplate let-field='field'>
             <td>{{field.Value}}</td>
         </ng-template>
-        <ng-template #RowCheckTemplate let-data='data'>
+        <ng-template #RowCheckTemplate let-data='data' >
             <td><input onclick='event.stopPropagation()' type='checkbox' [(checked)]='data.IsChecked'></td>
         </ng-template>
     </tbody>

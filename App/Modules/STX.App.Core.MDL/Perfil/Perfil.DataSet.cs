@@ -23,6 +23,10 @@ namespace STX.App.Core.INF.Perfil
     {
         public XStringDataField Nome {get;set;}
     }
+    public static class FRMPerfilFilter
+    {
+        public static readonly XFRMField Nome = new XFRMField(new Guid("CCD8BD5C-0252-45A3-8BEE-E21343D3171B"), "Nome");
+    }
 
     public class PerfilRequest : XRequest
     {
