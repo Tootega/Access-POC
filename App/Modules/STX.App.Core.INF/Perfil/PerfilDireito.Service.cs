@@ -248,13 +248,13 @@ namespace STX.App.Core.INF.Perfil
             if (pRequest != null)
                 query = query.Where(q => q.CORxPerfilDireiro.CORxPerfilDireiroID == pRequest.CORxPerfilDireiroID);
 
-            var dst = query.Select(q => new PerfilDireitoTuple(){CORxPerfilID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxPerfilID),
-                                     Direito = new XStringDataField(XFieldState.Empty, q.CORxDireiro.Direito),
-                                     Estado = new XStringDataField(XFieldState.Empty, q.CORxEstado.Estado),
-                                     Nome = new XStringDataField(XFieldState.Empty, q.CORxRecurso.Nome),
-                                     SYSxEstadoID = new XInt16DataField(XFieldState.Empty, q.CORxPerfilDireiro.SYSxEstadoID),
-                                     CORxPerfilDireiroID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxPerfilDireiroID),
-                                     CORxRecursoDireitoID = new XGuidDataField(XFieldState.Empty, q.CORxPerfilDireiro.CORxRecursoDireitoID)});
+            var dst = query.Select(q => new PerfilDireitoTuple(){CORxPerfilID = new XGuidDataField(q.CORxPerfilDireiro.CORxPerfilID),
+                                     Direito = new XStringDataField(q.CORxDireiro.Direito),
+                                     Estado = new XStringDataField(q.CORxEstado.Estado),
+                                     Nome = new XStringDataField(q.CORxRecurso.Nome),
+                                     SYSxEstadoID = new XInt16DataField(q.CORxPerfilDireiro.SYSxEstadoID),
+                                     CORxPerfilDireiroID = new XGuidDataField(q.CORxPerfilDireiro.CORxPerfilDireiroID),
+                                     CORxRecursoDireitoID = new XGuidDataField(q.CORxPerfilDireiro.CORxRecursoDireitoID)});
             var dataset = new PerfilDireitoDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

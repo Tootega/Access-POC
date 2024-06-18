@@ -6,22 +6,9 @@ namespace STX.Core.Model
 {
     public class XBooleanDataField : XDataField<Boolean>
     {
-        public static XBooleanDataField operator +(XBooleanDataField pField, Boolean pValue)
-        {
-            var fld = new XBooleanDataField();
-            fld.Value = pValue;
-            if (pField != null)
-            {
-                fld.State = pField.State;
-                fld.OldValue = pField.OldValue;
-            }
-            return fld;
-        }
-
         public static implicit operator XBooleanDataField(Boolean pValue)
         {
-            var fld = new XBooleanDataField();
-            fld.Value = pValue;
+            var fld = new XBooleanDataField(pValue);
             return fld;
         }
 
@@ -30,21 +17,23 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
-        public XBooleanDataField()
+        public XBooleanDataField(bool pValue) : base(pValue)
         {
         }
 
-        public XBooleanDataField(XFieldState pState, Boolean pValue)
+        public XBooleanDataField(XFieldState pState, bool pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            State = pState;
         }
 
-        public XBooleanDataField(XFieldState pState = XFieldState.Empty, Boolean pValue = false, Object pOldValue = null)
+        public XBooleanDataField(XFieldState pState, object pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            OldValue = pOldValue;
-            State = pState;
+        }
+
+        public XBooleanDataField(XFieldState pState, bool pValue, object pOldValue)
+            : base(pState, pValue, pOldValue)
+        {
         }
     }
 }

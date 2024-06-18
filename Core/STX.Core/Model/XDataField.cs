@@ -21,23 +21,48 @@ namespace STX.Access.Model
 
     }
 
-    public class XDataField<T> : XDataField, XIDataField
+    public class XDataField<T> : XDataField, XIDataField //where T : struct 
     {
+
         public static Boolean operator !=(XDataField<T> pLeft, XDataField<T> pRight)
         {
-            return !Object.Equals(pLeft.Value, pRight.Value);
+            return !(pLeft == pRight);
         }
 
         public static Boolean operator ==(XDataField<T> pLeft, XDataField<T> pRight)
         {
+            if (((Object)pLeft == null && (Object)pRight != null) || ((Object)pLeft != null && (Object)pRight == null) || ((Object)pLeft == null && (Object)pRight == null))
+                return false;
             return Object.Equals(pLeft.Value, pRight.Value);
         }
 
-        public XDataField()
+
+        //public XDataField()
+        //{
+        //}
+
+        public XDataField(T pValue)
         {
+            Value = pValue;
+            State = XFieldState.Unchanged;
         }
 
-        public XDataField(XFieldState pState, T pValue, Object pOldValue = null)
+        public XDataField(XFieldState pState, T pValue)
+        {
+            Value = pValue;
+            State = pState;
+        }
+
+        public XDataField(XFieldState pState, Object pValue)
+        {
+            if (pValue is T vlr)
+                Value = (T)vlr;
+            else
+                Value = default(T);
+            State = pState;
+        }
+
+        public XDataField(XFieldState pState, T pValue, Object pOldValue)
         {
             Value = pValue;
             OldValue = pOldValue;

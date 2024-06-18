@@ -6,22 +6,9 @@ namespace STX.Core.Model
 {
     public class XDateTimeDataField : XDataField<DateTime>
     {
-        public static XDateTimeDataField operator +(XDateTimeDataField pField, DateTime pValue)
-        {
-            var fld = new XDateTimeDataField();
-            fld.Value = pValue;
-            if (pField != null)
-            {
-                fld.State = pField.State;
-                fld.OldValue = pField.OldValue;
-            }
-            return fld;
-        }
-
         public static implicit operator XDateTimeDataField(DateTime pValue)
         {
-            var fld = new XDateTimeDataField();
-            fld.Value = pValue;
+            var fld = new XDateTimeDataField(pValue);
             return fld;
         }
 
@@ -29,24 +16,23 @@ namespace STX.Core.Model
         {
             return pField.Value;
         }
-
-        public XDateTimeDataField()
+        public XDateTimeDataField(DateTime pValue) : base(pValue)
         {
         }
 
         public XDateTimeDataField(XFieldState pState, DateTime pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            State = pState;
         }
 
-        public XDateTimeDataField(XFieldState pState = XFieldState.Empty, DateTime? pValue = null, Object pOldValue = null)
+        public XDateTimeDataField(XFieldState pState, Object pValue)
+            : base(pState, pValue)
         {
-            if (!pValue.HasValue)
-                pValue = XDefault.NullDateTime;
-            Value = pValue.Value;
-            OldValue = pOldValue;
-            State = pState;
+        }
+
+        public XDateTimeDataField(XFieldState pState, DateTime pValue, Object pOldValue)
+            : base(pState, pValue, pOldValue)
+        {
         }
     }
 }

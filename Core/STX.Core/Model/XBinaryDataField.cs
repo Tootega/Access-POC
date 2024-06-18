@@ -6,22 +6,9 @@ namespace STX.Core.Model
 {
     public class XBinaryDataField : XDataField<Byte[]>
     {
-        public static XBinaryDataField operator +(XBinaryDataField pField, Byte[] pValue)
-        {
-            var fld = new XBinaryDataField();
-            fld.Value = pValue;
-            if (pField != null)
-            {
-                fld.State = pField.State;
-                fld.OldValue = pField.OldValue;
-            }
-            return fld;
-        }
-
         public static implicit operator XBinaryDataField(Byte[] pValue)
         {
-            var fld = new XBinaryDataField();
-            fld.Value = pValue;
+            var fld = new XBinaryDataField(pValue);
             return fld;
         }
 
@@ -30,21 +17,19 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
-        public XBinaryDataField()
+        public XBinaryDataField(byte[] pValue)
+            : base(pValue)
         {
         }
 
-        public XBinaryDataField(XFieldState pState, Byte[] pValue)
+        public XBinaryDataField(XFieldState pState, byte[] pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            State = pState;
         }
 
-        public XBinaryDataField(XFieldState pState = XFieldState.Empty, Byte[] pValue = null, Object pOldValue = null)
+        public XBinaryDataField(XFieldState pState, byte[] pValue, Object pOldValue)
+            : base(pState, pValue, pOldValue)
         {
-            Value = pValue;
-            OldValue = pOldValue;
-            State = pState;
         }
     }
 }

@@ -206,11 +206,11 @@ namespace STX.App.Core.INF.Usuario
             if (pFilter?.TakeRows > 0)
                 query = query.Take(pFilter.TakeRows);
 
-            var dst = query.Select(q => new UsuarioTuple(){Login = new XStringDataField(XFieldState.Empty, q.TAFxUsuario.Login),
-                               CORxEstadoID = new XInt16DataField(XFieldState.Empty, q.TAFxUsuario.CORxEstadoID),
-                               CORxUsuarioID = new XGuidDataField(XFieldState.Empty, q.CORxUsuario.CORxUsuarioID),
-                               CORxPessoaID = new XGuidDataField(XFieldState.Empty, q.CORxPessoa.CORxPessoaID),
-                               Nome = new XStringDataField(XFieldState.Empty, q.CORxPessoa.Nome)});
+            var dst = query.Select(q => new UsuarioTuple(){Login = new XStringDataField(q.TAFxUsuario.Login),
+                               CORxEstadoID = new XInt16DataField(q.TAFxUsuario.CORxEstadoID),
+                               CORxUsuarioID = new XGuidDataField(q.CORxUsuario.CORxUsuarioID),
+                               CORxPessoaID = new XGuidDataField(q.CORxPessoa.CORxPessoaID),
+                               Nome = new XStringDataField(q.CORxPessoa.Nome)});
             var dataset = new UsuarioDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

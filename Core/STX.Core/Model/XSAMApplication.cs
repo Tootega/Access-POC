@@ -4,17 +4,17 @@ namespace STX.Core.Model
 {
     public abstract class XSAMApplication
     {
-        public string Title
+        public String Title
         {
             get;
             set;
         }
-        public string Module
+        public String Module
         {
             get;
             set;
         }
-        public string Icon
+        public String Icon
         {
             get;
             set;

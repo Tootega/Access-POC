@@ -37,7 +37,7 @@ namespace STX.App.Core.INF.DB
         public DbSet<CORxUsuarioPerfil> CORxUsuarioPerfil{get; set;}
         protected override void OnModelCreating(ModelBuilder pBuilder)
         {
-            base.OnModelCreating(pBuilder);
+        base.OnModelCreating(pBuilder);
             ConfigureCORxDireiro(pBuilder);
             ConfigureCORxEstado(pBuilder);
             ConfigureCORxMenuItem(pBuilder);

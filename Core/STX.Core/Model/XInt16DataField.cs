@@ -6,22 +6,9 @@ namespace STX.Core.Model
 {
     public class XInt16DataField : XDataField<Int16>
     {
-        public static XInt16DataField operator +(XInt16DataField pField, Int16 pValue)
-        {
-            var fld = new XInt16DataField();
-            fld.Value = pValue;
-            if (pField != null)
-            {
-                fld.State = pField.State;
-                fld.OldValue = pField.OldValue;
-            }
-            return fld;
-        }
-
         public static implicit operator XInt16DataField(Int16 pValue)
         {
-            var fld = new XInt16DataField();
-            fld.Value = pValue;
+            var fld = new XInt16DataField(pValue);
             return fld;
         }
 
@@ -30,21 +17,23 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
-        public XInt16DataField()
+        public XInt16DataField(short pValue) : base(pValue)
         {
         }
 
-        public XInt16DataField(XFieldState pState, Int16 pValue)
+        public XInt16DataField(XFieldState pState, short pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            State = pState;
         }
 
-        public XInt16DataField(XFieldState pState = XFieldState.Empty, Int16 pValue = 0, Object pOldValue = null)
+        public XInt16DataField(XFieldState pState, Object pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            OldValue = pOldValue;
-            State = pState;
+        }
+
+        public XInt16DataField(XFieldState pState, short pValue, Object pOldValue)
+            : base(pState, pValue, pOldValue)
+        {
         }
     }
 }

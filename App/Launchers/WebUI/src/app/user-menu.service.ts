@@ -13,7 +13,7 @@ export class UserMenuService
 
     search(): Observable<any>
     {
-        return this.http.post<any>(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/Search`, JSON.parse('{"State": 0,"TakeRows": 0,"SkipRows": 0,"CORxRecursoID": {"Value": "3fa85f64-5717-4562-b3fc-2c963f66afa6","Name": "string","State": 0}}'));
+        return this.http.post<any>(`${environment.apiBaseURI}/STXAppCoreINF/Menu/UserManu/Search`, JSON.parse('{"State": 0,"TakeRows": 0,"SkipRows": 0,"CORxRecursoID": {"Value": "00000000-0000-0000-0000-000000000000","Name": "String","State": 0}}'));
     }
 }
 export { UserMenuTuple };

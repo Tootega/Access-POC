@@ -13,22 +13,9 @@ namespace STX.Access.Model
 
     public class XDecimalDataField : XDataField<Decimal>
     {
-        public static XDecimalDataField operator +(XDecimalDataField pField, Decimal pValue)
-        {
-            var fld = new XDecimalDataField();
-            fld.Value = pValue;
-            if (pField != null)
-            {
-                fld.State = pField.State;
-                fld.OldValue = pField.OldValue;
-            }
-            return fld;
-        }
-
         public static implicit operator XDecimalDataField(Decimal pValue)
         {
-            var fld = new XDecimalDataField();
-            fld.Value = pValue;
+            var fld = new XDecimalDataField(pValue);
             return fld;
         }
 
@@ -37,21 +24,23 @@ namespace STX.Access.Model
             return pField.Value;
         }
 
-        public XDecimalDataField()
+        public XDecimalDataField(decimal pValue) : base(pValue)
         {
         }
 
-        public XDecimalDataField(XFieldState pState, Decimal pValue)
+        public XDecimalDataField(XFieldState pState, decimal pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            State = pState;
         }
 
-        public XDecimalDataField(XFieldState pState = XFieldState.Empty, Decimal pValue = 0, Object pOldValue = null)
+        public XDecimalDataField(XFieldState pState, Object pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            OldValue = pOldValue;
-            State = pState;
+        }
+
+        public XDecimalDataField(XFieldState pState, decimal pValue, Object pOldValue)
+            : base(pState, pValue, pOldValue)
+        {
         }
     }
 }

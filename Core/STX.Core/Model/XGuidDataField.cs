@@ -6,22 +6,9 @@ namespace STX.Core.Model
 {
     public class XGuidDataField : XDataField<Guid>
     {
-        public static XGuidDataField operator +(XGuidDataField pField, Guid pValue)
-        {
-            var fld = new XGuidDataField();
-            fld.Value = pValue;
-            if (pField != null)
-            {
-                fld.State = pField.State;
-                fld.OldValue = pField.OldValue;
-            }
-            return fld;
-        }
-
         public static implicit operator XGuidDataField(Guid pValue)
         {
-            var fld = new XGuidDataField();
-            fld.Value = pValue;
+            var fld = new XGuidDataField(pValue);
             return fld;
         }
 
@@ -30,32 +17,28 @@ namespace STX.Core.Model
             return pField.Value;
         }
 
-
-        public XGuidDataField()
+        public XGuidDataField(Guid pValue)
+            : base(pValue)
+        {
+        }
+        public XGuidDataField(Object pValue)
+            : this(XFieldState.Unchanged, pValue)
         {
         }
 
         public XGuidDataField(XFieldState pState, Guid pValue)
+            : base(pState, pValue)
         {
-            Value = pValue;
-            State = pState;
         }
 
-        public XGuidDataField(XFieldState pState, Guid? pValue)
+        public XGuidDataField(XFieldState pState, object pValue)
+            : base(pState, pValue)
         {
-            if (!pValue.HasValue)
-                pValue = Guid.Empty;
-            Value = pValue.Value;
-            State = pState;
         }
 
-        public XGuidDataField(XFieldState pState = XFieldState.Empty, Guid? pValue = null, Object pOldValue = null)
+        public XGuidDataField(XFieldState pState, Guid pValue, object pOldValue)
+            : base(pState, pValue, pOldValue)
         {
-            if (!pValue.HasValue)
-                pValue = Guid.Empty;
-            Value = pValue.Value;
-            OldValue = pOldValue;
-            State = pState;
         }
     }
 }
