@@ -69,7 +69,7 @@ namespace STX.App.Core.TST.Usuario
                     await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Nome);
                     await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.Login.ID).Focus();
                     await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Login);
-                    await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.CORxEstadoID.ID.AsString()).Focus();
+                    await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.CORxEstadoID.ID).Focus();
                     await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.CORxEstadoID.Value.AsString());
                 }
                 Setup.Continue();
