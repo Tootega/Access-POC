@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using STX.Core.Model;
+using STX.Core.Test.Factories;
 using STX.Core.Test.Interfaces;
 
 using Xunit;
@@ -70,7 +71,11 @@ namespace STX.Access
         {
         }
 
-        protected abstract XIWSBrowser DoInitializeSetup();
+        protected virtual XIWSBrowser DoInitializeSetup()
+        {
+            var browser = XWSFactory.CreateBrowser(XSCDriver.PalyWright, new XSCBrowserConfig { Channel = "chrome", Headless = false });
+            return browser;
+        }
 
         public XWebScrapSetup Setup
         {

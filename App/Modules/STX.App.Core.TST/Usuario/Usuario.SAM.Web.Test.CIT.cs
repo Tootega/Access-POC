@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using STX.Access;
 using STX.Core.Model;
 using STX.Core.Services;
-using STX.App.Core.TST.Perfil;
 using STX.App.Core.INF.Perfil;
 using STX.Core.Test.Factories;
 using STX.Core.Test.Interfaces;
@@ -27,11 +26,7 @@ namespace STX.App.Core.TST.Usuario
         {
         }
 
-        protected override XIWSBrowser DoInitializeSetup()
-        {
-            var browser = XWSFactory.CreateBrowser(XSCDriver.PalyWright, new XSCBrowserConfig { Channel = "chrome", Headless = false });
-            return browser;
-        }
+
         protected override void DoDisposeSetup(XIWSBrowser pBrowser)
         {
         }
