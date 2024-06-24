@@ -2,6 +2,7 @@ export class UserMenuGrouped
 {
     Modulo: any;
     Icone: any;
+    ID: any;
     SubMenus: XArray<UserMenuTuple>;
 }
 
@@ -14,6 +15,7 @@ export class UserMenuTuple
     Ordem: XDataField;
     //Abreviatura: XDataField;
     CORxRecursoID: XDataField;
+    CORxMenuItemPaiID: XDataField;
     //SYSxComponenteTipoID: XDataField;
     //SYSxEstadoID: XDataField;
     //Vezes: XDataField;

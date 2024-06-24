@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using STX.Core.Test.Interfaces;
 using System.Threading;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace STX.Core.Test.PlayWright
 {

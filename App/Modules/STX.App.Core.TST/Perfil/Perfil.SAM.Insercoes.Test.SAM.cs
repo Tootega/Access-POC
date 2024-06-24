@@ -10,6 +10,7 @@ using STX.Core.Interfaces;
 using STX.Access;
 using STX.Access.Model;
 using STX.Core.Services;
+using STX.Core.Test.Interfaces;
 using STX.App.Core.INF.Perfil;
 
 namespace STX.App.Core.TST.Perfil
@@ -38,9 +39,15 @@ namespace STX.App.Core.TST.Perfil
 
         private async void PageLoaded()
         {
-            PerfilSVC.XTuple r = Model.DataSet[CurrentPlay];
-            ExecuteCommand(CurrentPlay, new XSendTextCommand(PerfilSAMInsercoesTestSAM.PerfilFRM.Fields.Nome, r.Nome)); // Nome do Perfil
+            await Setup.Browser.CurrentPage.GetById(App.MenuID).ClickToVisible();
+            await Setup.Browser.CurrentPage.GetById(App.BtnNewID).ClickAsync();
+            if (Setup.Browser.CurrentPage.CheckElement("div", new XAtt("id", PerfilApp.FRMPerfil.ID.AsString())) == true)
+            {
+                await Setup.Browser.CurrentPage.GetById(PerfilApp.FRMPerfil.Nome.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Nome.Value.AsString());
 //        No forms defined for field
+            }
+            Setup.Continue();
         }
     }
 }

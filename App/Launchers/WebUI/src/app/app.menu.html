@@ -4,7 +4,7 @@
     <span class="logo_name">Sittax</span>
   </div>
   <ul class="nav-links">
-    <li *ngFor="let grp of MenuGroups" id="{{grp.Modulo}}">
+    <li *ngFor="let grp of MenuGroups" id="{{grp.ID}}">
       <div class="iocn-link" #refEl (click)="[DoClick(refEl)]" >
         <a href="#" >
           <i class='{{grp.Icone}}'></i>

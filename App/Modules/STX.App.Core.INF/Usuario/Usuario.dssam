@@ -11,6 +11,16 @@
     </XData>
     <XLinkData Name="ServiceID" ID="F51D5E60-F885-43BD-AC7C-76D47AC5AF37" Type="Guid" ElementID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" Text="Usuario - (STX.App.Core.INF.Usuario)" DocumentID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" DocumentName="Usuario" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">6085BE9F-D34A-487E-8A8A-36F711C8F9EF</XLinkData>
     <XData Name="StartAction" ID="333094F6-475C-4C7B-BE3B-D0FE238F85E9" Type="XStartAction">DataGrid</XData>
+    <XLinkArrayData Name="MenuItemID" ID="3B9A2D49-061C-4774-8128-93C6E1503F12" Type="Guid[]">
+      <XLinkData ID="ABEB6220-6E91-42BB-A487-4A4AF6113A31" ElementID="D85E60CC-712C-4597-8C81-057F76E1D3AA" Text="POC" DocumentID="F74DEBCC-8E3B-4AF9-BC2A-007FB2CE545F" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="2DE8C87D-4E4A-4E57-A567-A6F5ACB92E05" Order="1">D85E60CC-712C-4597-8C81-057F76E1D3AA</XLinkData>
+    </XLinkArrayData>
+    <XLinkArrayData Name="Rights" ID="5473546B-6F02-4DEA-9459-1500A452762F" Type="Guid[]">
+      <XLinkData ID="F6C3D3A9-77A3-4ACB-B171-260A8D859BAE" ElementID="7AA38834-2E85-40FF-8737-E2A7EECDCF15" Text="Deletar" DocumentID="F74DEBCC-8E3B-4AF9-BC2A-007FB2CE545F" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="79457E9E-9948-4C3C-8605-D810AF504E4C" Order="2">7AA38834-2E85-40FF-8737-E2A7EECDCF15</XLinkData>
+      <XLinkData ID="803E698C-35D0-44CD-B857-6B960A47DEA3" ElementID="2919F12A-2B8E-457C-9E19-CF60A304FE67" Text="Inativar" DocumentID="F74DEBCC-8E3B-4AF9-BC2A-007FB2CE545F" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="DD926A04-2489-4BEF-BABA-87F63000B330" Order="3">2919F12A-2B8E-457C-9E19-CF60A304FE67</XLinkData>
+      <XLinkData ID="588CA4AB-E71F-4D00-9FB3-EF3B75AD1C34" ElementID="22C10ACB-018A-48DA-AD6F-B3F46B3450E3" Text="Inserir" DocumentID="F74DEBCC-8E3B-4AF9-BC2A-007FB2CE545F" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="EC1EFFEA-1CCF-45FE-BE30-B91CE86673A8" Order="4">22C10ACB-018A-48DA-AD6F-B3F46B3450E3</XLinkData>
+      <XLinkData ID="5221619B-277C-4A81-8510-396C60CFDF23" ElementID="882A64C5-F4B3-406E-9B20-D0056A24D886" Text="Visualizar" DocumentID="F74DEBCC-8E3B-4AF9-BC2A-007FB2CE545F" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="04B3A66C-C0F0-4F99-9864-08403BAA71BE" Order="5">882A64C5-F4B3-406E-9B20-D0056A24D886</XLinkData>
+      <XLinkData ID="962BD1A7-D499-42E7-BF48-0BF290820DCB" ElementID="CE050125-14AB-4623-91C4-71712A238E41" Text="Alterar" DocumentID="F74DEBCC-8E3B-4AF9-BC2A-007FB2CE545F" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="4B7D2E6B-5500-4156-B6F8-3A42C3A9B398" Order="1">CE050125-14AB-4623-91C4-71712A238E41</XLinkData>
+    </XLinkArrayData>
   </XValues>
   <XSAMActivity ID="D1BBCAF8-891C-4A6D-BB5B-2D7818F0A8E4" Name="UsuarioACT">
     <XValues>
@@ -63,6 +73,108 @@
             <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">2</XData>
           </XValues>
         </XFRMField>
+        <XFRMTabControl Name="MainTab" ID="4CFE019A-38D1-4E6F-90B1-290BDA41C3BE">
+          <XValues>
+            <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+              <XLanguage IETFCode="pt-br" IsDefault="true">New Tab Control </XLanguage>
+            </XData>
+            <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">4</XData>
+            <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">59A28B08-01BF-4EAF-81CA-F317B3907B19</XData>
+            <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62</XData>
+            <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">32</XData>
+            <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
+            <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
+            <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=0;Y=80;Width=999;Height=520}</XData>
+            <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">13</XData>
+            <XData Name="JustifyHeight" ID="162C6321-E8F7-4670-ADDD-27C883C9FB6F" Type="Boolean">true</XData>
+          </XValues>
+          <XFRMDesigner Name="Tab01" ID="E05B57FE-54DD-41A7-9E77-44B7846C25C6">
+            <XFRMForm Name="Tab01" ID="5C02AB60-6F6D-4EA1-9C7F-4D6DD8796516">
+              <XValues>
+                <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+                  <XLanguage IETFCode="pt-br" IsDefault="true">Tab 01</XLanguage>
+                </XData>
+                <XData Name="FormType" ID="94D217A8-DAE4-4871-800D-2DA83433DB24" Type="XFRMType">DetailGrid</XData>
+                <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=28;Y=28;Width=401;Height=250}</XData>
+              </XValues>
+              <XFRMField ID="F2EAA18F-E8FF-4835-A339-879420B7468D" ParentID="874FCE52-0BFA-4C76-9AC7-006236A307E9">
+                <XValues>
+                  <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="874FCE52-0BFA-4C76-9AC7-006236A307E9" Text="CORxPessoa.Nome" DocumentID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" DocumentName="Usuario" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">874FCE52-0BFA-4C76-9AC7-006236A307E9</XParentData>
+                  <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">1</XData>
+                  <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">F5982E79-BA45-40FB-85E1-9F2C8B90B6EF</XData>
+                  <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">16</XData>
+                  <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
+                  <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
+                  <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=0;Y=0;Width=499.5;Height=80}</XData>
+                  <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">2</XData>
+                </XValues>
+              </XFRMField>
+              <XFRMField ID="0AF69907-C5D7-4BF2-B0AE-5B028948CAA6" ParentID="D1A31F1C-79A2-4905-B189-DC459A889162">
+                <XValues>
+                  <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="D1A31F1C-79A2-4905-B189-DC459A889162" Text="TAFxUsuario.Login" DocumentID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" DocumentName="Usuario" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">D1A31F1C-79A2-4905-B189-DC459A889162</XParentData>
+                  <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">2</XData>
+                  <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">F5982E79-BA45-40FB-85E1-9F2C8B90B6EF</XData>
+                  <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">16</XData>
+                  <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
+                  <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
+                  <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=499.5;Y=0;Width=499.5;Height=80}</XData>
+                  <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">2</XData>
+                </XValues>
+              </XFRMField>
+            </XFRMForm>
+            <XValues>
+              <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+                <XLanguage IETFCode="pt-br" IsDefault="true">Tab 01</XLanguage>
+              </XData>
+              <XData Name="ConfigID" ID="0CCEBA87-B6AE-4CB5-B3A0-6DAE25340503" Type="Guid">CF21E653-6A55-43BC-BFF0-C9944AB19972</XData>
+              <XData Name="ServerID" ID="5BAA4997-C2C0-4544-956B-76425D607BAB" Type="Guid">342AAC5B-15CE-4256-B239-21B36B647DCB</XData>
+              <XData Name="ComponentsID" ID="B8DF7670-0524-4151-98E9-93545460C5DA" Type="Guid[]">928E4FC4-7EA1-486F-9E10-0920E0243433|7D5F02DC-1716-4121-805C-BA3F665A326D|05B40767-84AE-47B7-88D4-1260F3BD3A78|D1178AC8-FA7E-4AC6-A168-F9631A240F9A|6D2D8B71-53D6-469F-B332-891BFB84701F|D99A9404-F72F-4DFD-B545-55278ADC22DE|0D598918-7A47-463D-80AC-CA548CF4370D|8BBD2923-CBBA-48DA-9F88-AF792192F132|A50C0B55-4A3B-458C-887C-5BA8DFCD945F|6C4EE257-6BC4-448F-ACE1-A2CA08F61F97</XData>
+            </XValues>
+          </XFRMDesigner>
+          <XFRMDesigner Name="Tab02" ID="B408423D-600C-4A22-B0EA-85B8A3AC75A9">
+            <XFRMForm Name="Tab02" ID="9363DCD6-C640-4AF1-9A0F-604A4CA1C189">
+              <XValues>
+                <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+                  <XLanguage IETFCode="pt-br" IsDefault="true">Tab 02</XLanguage>
+                </XData>
+                <XData Name="FormType" ID="94D217A8-DAE4-4871-800D-2DA83433DB24" Type="XFRMType">DetailGrid</XData>
+                <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=28;Y=28;Width=401;Height=250}</XData>
+              </XValues>
+              <XFRMField ID="31210B95-B60B-4BB2-87DF-4E30D0D4B3FD" ParentID="D1A31F1C-79A2-4905-B189-DC459A889162">
+                <XValues>
+                  <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="D1A31F1C-79A2-4905-B189-DC459A889162" Text="TAFxUsuario.Login" DocumentID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" DocumentName="Usuario" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">D1A31F1C-79A2-4905-B189-DC459A889162</XParentData>
+                  <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">1</XData>
+                  <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">F5982E79-BA45-40FB-85E1-9F2C8B90B6EF</XData>
+                  <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">16</XData>
+                  <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
+                  <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
+                  <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=0;Y=0;Width=499.5;Height=80}</XData>
+                  <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">2</XData>
+                </XValues>
+              </XFRMField>
+              <XFRMField ID="477109CB-F63D-48A7-BE93-906A02391857" ParentID="874FCE52-0BFA-4C76-9AC7-006236A307E9">
+                <XValues>
+                  <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="874FCE52-0BFA-4C76-9AC7-006236A307E9" Text="CORxPessoa.Nome" DocumentID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" DocumentName="Usuario" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">874FCE52-0BFA-4C76-9AC7-006236A307E9</XParentData>
+                  <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">2</XData>
+                  <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">F5982E79-BA45-40FB-85E1-9F2C8B90B6EF</XData>
+                  <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">16</XData>
+                  <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
+                  <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
+                  <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=499.5;Y=0;Width=499.5;Height=80}</XData>
+                  <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">2</XData>
+                </XValues>
+              </XFRMField>
+            </XFRMForm>
+            <XValues>
+              <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+                <XLanguage IETFCode="pt-br" IsDefault="true">Tab 02</XLanguage>
+              </XData>
+              <XData Name="ConfigID" ID="0CCEBA87-B6AE-4CB5-B3A0-6DAE25340503" Type="Guid">062C9369-6580-4636-B0FA-A3C414BA294A</XData>
+              <XData Name="ServerID" ID="5BAA4997-C2C0-4544-956B-76425D607BAB" Type="Guid">4F74CF9F-19A1-47EE-9A85-22D52F5B6C70</XData>
+              <XData Name="ComponentsID" ID="B8DF7670-0524-4151-98E9-93545460C5DA" Type="Guid[]">084334BC-CAF7-4D59-9B16-0106B492E9F1|438DCA90-F4B7-4C16-80C6-B3952EAE7A9E|E56D60FB-41B6-445C-83D5-0F8F7722463F|962C603F-56E5-48C6-8F8F-B880D9754DEE|444AA799-010D-416C-95AF-7972306707AD|581F6175-829D-4746-B806-003333C0C177|A0E922A7-1331-4F0B-BEB1-5B4F38DE676A|AEA284BD-2B67-4499-9325-02FCB7EE55A5|76405849-BF27-494C-80FC-A3F1FA7EEF72|1B0822EC-B51A-4297-B522-9C07E231B945</XData>
+            </XValues>
+          </XFRMDesigner>
+        </XFRMTabControl>
       </XFRMForm>
     </XFRMDesigner>
   </XSAMActivity>

@@ -46,13 +46,15 @@ export class MenuComponent implements OnInit
     PrepareData(pData: XArray<UserMenuTuple>)
     {
         this.MenuItems = pData;
-        let group = pData.GroupBy<UserMenuTuple>(t => t.Modulo.Value).OrderBy(m => m.Value.FirstOr<UserMenuTuple>().Ordem.Value);
+        let group = pData.GroupBy<UserMenuTuple>(t => t.CORxMenuItemPaiID.Value).OrderBy(m => m.Value.FirstOr<UserMenuTuple>().Ordem.Value);
         for (var i = 0; i < group.length; i++)
         {
             let grp = group[i];
+            let item = this.MenuItems.FirstOrNull(o => o.CORxMenuItemPaiID.Value == grp.Key)
             let menu: UserMenuGrouped = {
-                Modulo: grp.Key,
-                Icone: this.MenuItems.FirstOrNull(o => o.Modulo.Value == grp.Key)?.Icone.Value,
+                Modulo: item.Modulo,
+                ID: grp.Key,
+                Icone: item.Icone.Value,
                 SubMenus: new XArray<UserMenuTuple>(grp.Value.OrderBy(i => (<any>i).Titulo.Value))
             }
             this.MenuGroups.Add(menu);

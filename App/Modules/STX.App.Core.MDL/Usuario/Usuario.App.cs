@@ -15,12 +15,27 @@ namespace STX.App.Core.INF.Usuario
 
     public class UsuarioApp : XSAMApplication
     {
+        public static class FRMTab01
+        {
+            public static readonly Guid ID = new Guid("E05B57FE-54DD-41A7-9E77-44B7846C25C6");
+            public static readonly Guid TabItemID = new Guid("5C02AB60-6F6D-4EA1-9C7F-4D6DD8796516");
+            public static readonly XFRMField Nome = new XFRMField(new Guid("F2EAA18F-E8FF-4835-A339-879420B7468D"), "Nome");
+            public static readonly XFRMField Login = new XFRMField(new Guid("0AF69907-C5D7-4BF2-B0AE-5B028948CAA6"), "Login");
+        }
+        public static class FRMTab02
+        {
+            public static readonly Guid ID = new Guid("B408423D-600C-4A22-B0EA-85B8A3AC75A9");
+            public static readonly Guid TabItemID = new Guid("9363DCD6-C640-4AF1-9A0F-604A4CA1C189");
+            public static readonly XFRMField Login = new XFRMField(new Guid("31210B95-B60B-4BB2-87DF-4E30D0D4B3FD"), "Login");
+            public static readonly XFRMField Nome = new XFRMField(new Guid("477109CB-F63D-48A7-BE93-906A02391857"), "Nome");
+        }
         public static class FRMUsuario
         {
             public static readonly Guid ID = new Guid("2060E23A-EE1B-43AD-99E3-CAC64DF688C8");
             public static readonly XFRMField Nome = new XFRMField(new Guid("18C0F5BC-F431-4C82-9E00-47AF374A1193"), "Nome");
             public static readonly XFRMField Login = new XFRMField(new Guid("351967F6-F262-42A1-A6DD-98DC0AB3367D"), "Login");
             public static readonly XFRMField CORxEstadoID = new XFRMField(new Guid("D721336F-2A70-41CC-81B9-2400EC529953"), "CORxEstadoID");
+            public static readonly XFRMField MainTab = new XFRMField(new Guid("4CFE019A-38D1-4E6F-90B1-290BDA41C3BE"), "MainTab");
         }
         public UsuarioApp()
         {

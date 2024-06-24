@@ -147,7 +147,9 @@ namespace STX.App.Core.INF.Menu
                                 Titulo = new XStringDataField(q.CORxRecurso.Nome),
                                 Ordem = new XInt32DataField(0),
                                 Modulo = new XStringDataField(q.CORxMenuItem.Nome),
-                                Icone = new XStringDataField(q.CORxMenuItem.Icone)});
+                                Icone = new XStringDataField(q.CORxMenuItem.Icone),
+                                CORxMenuItemID = new XGuidDataField(q.CORxRecurso.CORxMenuItemID),
+                                CORxMenuItemPaiID = new XGuidDataField(q.CORxMenuItem.CORxMenuItemPaiID)});
             var dataset = new UserManuDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

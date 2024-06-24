@@ -10,6 +10,7 @@ using STX.Core.Interfaces;
 using STX.Access;
 using STX.Access.Model;
 using STX.Core.Services;
+using STX.Core.Test.Interfaces;
 using STX.App.Core.INF.Usuario;
 
 namespace STX.App.Core.TST.Usuario
@@ -38,10 +39,32 @@ namespace STX.App.Core.TST.Usuario
 
         private async void PageLoaded()
         {
-            UsuarioSVC.XTuple r = Model.DataSet[CurrentPlay];
-            ExecuteCommand(CurrentPlay, new XSendTextCommand(UsuarioSAMInsercoesTestSAM.UsuarioFRM.Fields.Nome, r.Nome)); // Nome
-            ExecuteCommand(CurrentPlay, new XSendTextCommand(UsuarioSAMInsercoesTestSAM.UsuarioFRM.Fields.Login, r.Login)); // Login
-            ExecuteCommand(CurrentPlay, new XSendDecimalCommand(UsuarioSAMInsercoesTestSAM.UsuarioFRM.Fields.CORxEstadoID, r.CORxEstadoID)); // Ativo
+            await Setup.Browser.CurrentPage.GetById(new Guid("2de8c87d-4e4a-4e57-a567-a6f5acb92e05")).ClickToVisible();
+            await Setup.Browser.CurrentPage.GetById(App.MenuID).ClickToVisible();
+            await Setup.Browser.CurrentPage.GetById(App.BtnNewID).ClickAsync();
+            if (Setup.Browser.CurrentPage.CheckElement("div", new XAtt("id", UsuarioApp.FRMUsuario.ID.AsString())) == true)
+            {
+                await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.Nome.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Nome.Value.AsString());
+                await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.Login.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Login.Value.AsString());
+                await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.CORxEstadoID.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.CORxEstadoID.Value.AsString());
+
+
+                await Setup.Browser.CurrentPage.ShowTabAsync(UsuarioApp.FRMTab01.ID);
+                await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMTab01.Nome.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Nome.Value.AsString());
+                await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMTab01.Login.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Login.Value.AsString());
+
+                await Setup.Browser.CurrentPage.ShowTabAsync(UsuarioApp.FRMTab02.ID);
+                await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMTab02.Login.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Login.Value.AsString());
+                await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMTab02.Nome.ID).Focus();
+                await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Nome.Value.AsString());
+            }
+            Setup.Continue();
         }
     }
 }

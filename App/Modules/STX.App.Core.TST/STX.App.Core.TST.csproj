@@ -61,6 +61,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SAM.cs">
+      <Visible>False</Visible>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SAM.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SVC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SVC.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
     <Compile Update="STX.App.Core.TST.Module.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

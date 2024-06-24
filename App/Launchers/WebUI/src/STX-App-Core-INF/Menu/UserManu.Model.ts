@@ -22,6 +22,8 @@ export namespace STXAppCoreINFMenuUserManuMDL
         Ordem = new XDataField(XFieldState.Empty, () => 'XInt32', () => '', null, null, '1c90fd79-1327-4375-9b69-2546ce5c1d88');
         Modulo = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, 'bacee5f8-af18-4a69-a5aa-d4840049fb8e');
         Icone = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '2c88aa95-5994-4eba-a49d-3bc00a8bacc6');
+        CORxMenuItemID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '43d32384-e8ee-42c4-be7f-7b336e87bfea');
+        CORxMenuItemPaiID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '2d980bce-8353-44d0-a590-ac9b22403736');
 
     }
 

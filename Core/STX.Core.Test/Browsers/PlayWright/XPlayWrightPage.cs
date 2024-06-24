@@ -365,6 +365,12 @@ namespace STX.Core.Test.PlayWright
             return GetById(pID.ToString());
         }
 
+        public async Task ShowTabAsync(Guid pID)
+        {
+            var elm = GetById($"E{pID}-hd");
+            await elm.ClickToVisible();
+        }
+
         public XIWSElement GetById(String pID)
         {
             ILocator element;

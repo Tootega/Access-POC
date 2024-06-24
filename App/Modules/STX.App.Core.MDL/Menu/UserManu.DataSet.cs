@@ -19,6 +19,8 @@ namespace STX.App.Core.INF.Menu
         public XInt32DataField Ordem {get;set;}
         public XStringDataField Modulo {get;set;}
         public XStringDataField Icone {get;set;}
+        public XGuidDataField CORxMenuItemID {get;set;}
+        public XGuidDataField CORxMenuItemPaiID {get;set;}
     }
 
     public class UserManuFilter : XFilter

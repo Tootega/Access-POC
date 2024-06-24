@@ -45,6 +45,7 @@ namespace STX.Core.Test.Interfaces
         XIWSFrame GetFrameByName(String pName, Int32 pTimeout = 30 * 1000);
         XIWSElement GetById(String pID);
         XIWSElement GetById(Guid pID);
+        Task ShowTabAsync(Guid pID);
         XIWSElement GetByClass(String pClass);
         XIWSElement GetByTitle(String pTitle);
         XIWSElement GetByClass(String pClassName, String pText);
