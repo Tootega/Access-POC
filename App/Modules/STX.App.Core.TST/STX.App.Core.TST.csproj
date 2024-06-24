@@ -67,6 +67,23 @@
       <DependentUpon>STX.App.Core.TST.dsmdl</DependentUpon>
       <Visible>False</Visible>
     </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SAM.cs">
+      <Visible>False</Visible>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SAM.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SVC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SVC.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
     <Compile Update="Usuario\Usuario.SAM.Web.Test.CIT.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
