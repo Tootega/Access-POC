@@ -78,13 +78,13 @@
             <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
               <XLanguage IETFCode="pt-br" IsDefault="true">New Tab Control </XLanguage>
             </XData>
-            <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">4</XData>
+            <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">5</XData>
             <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">59A28B08-01BF-4EAF-81CA-F317B3907B19</XData>
             <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62</XData>
             <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">32</XData>
             <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
             <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
-            <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=0;Y=80;Width=999;Height=520}</XData>
+            <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=0;Y=160;Width=999;Height=520}</XData>
             <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">13</XData>
             <XData Name="JustifyHeight" ID="162C6321-E8F7-4670-ADDD-27C883C9FB6F" Type="Boolean">true</XData>
           </XValues>
@@ -175,6 +175,25 @@
             </XValues>
           </XFRMDesigner>
         </XFRMTabControl>
+        <XFRMField ID="FD339E2F-43A4-44D2-AF4F-8EA2327B4793" ParentID="1522B5C3-392A-4D85-8639-8D70DCF2393C">
+          <XValues>
+            <XParentData Name="ParentID" ID="78424203-E6A4-433F-9110-7FEEE1580D68" ElementID="1522B5C3-392A-4D85-8639-8D70DCF2393C" Text="CORxUsuario.CORxPerfilID" DocumentID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" DocumentName="Usuario" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Type="Guid">1522B5C3-392A-4D85-8639-8D70DCF2393C</XParentData>
+            <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">4</XData>
+            <XData Name="EditorID" ID="CB07C69F-17A0-4068-A768-4BF4378B28FC" Type="Guid">66290387-F0AD-4746-A1F7-B0D8D4C5C2EE</XData>
+            <XData Name="ColCount" ID="6F35E6B0-9AD5-4B6B-9F16-943E2CF776D6" Type="Int32">32</XData>
+            <XData Name="VerticalAlignment" ID="C872C9D6-1DB1-4D3F-9ADB-15A74AEF927D" Type="XVerticalAlignment">None</XData>
+            <XData Name="HorizontalAlignment" ID="B1F718C2-0551-4FBD-8816-6D59450AE891" Type="XHorizontalAlignment">None</XData>
+            <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=0;Y=80;Width=999;Height=80}</XData>
+            <XData Name="RowCount" ID="3A1EEBC7-053D-4AA7-B842-F9B6D7BC8889" Type="Int32">2</XData>
+            <XLinkData Name="ServiceID" ID="B3DE3666-CBF5-4613-AEAF-A220696CC838" Type="Guid" ElementID="89FA5B9A-14F4-4989-BE06-DCD2A3E4428F" Text="Perfil - (STX.App.Core.INF.Perfil)" DocumentID="89FA5B9A-14F4-4989-BE06-DCD2A3E4428F" DocumentName="Perfil" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="">89FA5B9A-14F4-4989-BE06-DCD2A3E4428F</XLinkData>
+            <XLinkArrayData Name="LookupDisplayFieldID" ID="17DE8607-B26E-47F9-961F-F5F6F9C497D5" Type="Guid[]">
+              <XLinkData ID="9597652F-B077-4FAA-AD9F-E23ADEC2B9A4" ElementID="6CF8EDB7-C9A9-4F80-AB36-90888EB58823" Text="CORxPerfil.Nome" DocumentID="89FA5B9A-14F4-4989-BE06-DCD2A3E4428F" DocumentName="Perfil" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Order="1">6CF8EDB7-C9A9-4F80-AB36-90888EB58823</XLinkData>
+            </XLinkArrayData>
+            <XLinkArrayData Name="DisplayFieldID" ID="A9A97E77-C6E1-45EF-AF82-5CBEC74CB497" Type="Guid[]">
+              <XLinkData ID="D956FD18-7DA0-4937-BC3E-DA2BDD8655A9" ElementID="39A8109A-8807-4D0F-A674-4590293B252C" Text="CORxPerfil.PerfilNome" DocumentID="6085BE9F-D34A-487E-8A8A-36F711C8F9EF" DocumentName="Usuario" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.App.Core.INF" DataEx="" Order="1">39A8109A-8807-4D0F-A674-4590293B252C</XLinkData>
+            </XLinkArrayData>
+          </XValues>
+        </XFRMField>
       </XFRMForm>
     </XFRMDesigner>
   </XSAMActivity>

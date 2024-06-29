@@ -8,10 +8,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using STX.Access;
-using STX.Access.Cache;
-using STX.Access.Model;
+using STX.Core.Model;
+using STX.Core;
 using STX.Core.Access.Usuarios;
 using STX.Core.Services;
+using STX.Core.Cache;
+using STX.Core.IDs.Model;
+using STX.Core.Interfaces;
+using STX.Core.Access.Service;
+using System.Net.NetworkInformation;
 
 namespace Launcher
 {
@@ -21,8 +26,16 @@ namespace Launcher
 
         public static void Main(string[] args)
         {
-            Initialize();
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(b =>
+                b.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader()
+                 .WithExposedHeaders("*"));
+            });
+
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -30,9 +43,8 @@ namespace Launcher
             {
                 jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
-
             ConfigureServices(builder.Services);
-
+            builder.Services.AddSingleton<XILoginService, XLoginService>();
             App = builder.Build();
             if (App.Environment.IsDevelopment())
             {
@@ -40,54 +52,37 @@ namespace Launcher
                 App.UseSwaggerUI();
             }
             App.UseHttpsRedirection();
-
+            App.UseCors();
             App.UseAuthorization();
-
-
             App.MapControllers();
-            XSessionManager.RefreshCache += GetUsers;
-            XSessionManager.DoRefreshCache();
-            App.Run("http://+:5000");
+            App.UseStaticFiles();
+            Initialize(App.Services);
+
+            XSessionManager.Initialize(App.Services);
+            App.Run("https://+:5000");
         }
 
-        private static Dictionary<string, XUser> GetUsers()
+        private static void Initialize(IServiceProvider pServices)
         {
-            var usr = new Dictionary<string, XUser>();
-            using var srv = new UsuariosAtivosService((XService)null);
-            var dst = srv.Select(null, null, true);
-            foreach (var item in dst.Tuples)
-            {
-                usr.Add(item.Login.Value, new XUser { ID =item.TAFxUsuarioID.Value, Login = item.Login.Value });
-            }
-
-            return usr;
-        }
-
-        private static void Initialize()
-        {
-            XSessionCache.Users = new XCacheUser();
-            //var data = File.ReadAllLines(@"D:\Tootega\Source\Access-POC\Tests\Assets\Users.csv");
-            //var users = new Dictionary<string, XUser>();
-            //for (int i = 0; i < 1_000_000; i++)
-            //    users.Add(data[i], new XUser { ID = Guid.NewGuid(), Login = data[i] });
-            //XSessionCache.Users.Swap(users);
+            var svc = (XLoginService)pServices.GetService<XILoginService>();
+            svc.RefreshCache();
         }
 
         public static void ConfigureServices(IServiceCollection pServices)
         {
             pServices.AddRouting();
-            pServices.AddAuthentication(XTAFDefault.AuthenticationSchemes)
-
-            .AddCookie(XTAFDefault.AuthenticationSchemes, o =>
+            pServices.AddAuthentication(XDefault.AuthenticationSchemes)
+            .AddCookie(XDefault.AuthenticationSchemes, o =>
             {
                 o.LoginPath = "/Access/Login";
-                o.Cookie.Name = XTAFDefault.AuthenticationSchemes;
+                o.Cookie.Name = XDefault.AuthenticationSchemes;
                 o.Cookie.Path = "/";
             });
             pServices.Configure<KestrelServerOptions>(options =>
             {
                 options.AllowSynchronousIO = true;
             });
+           
         }
     }
 }

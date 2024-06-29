@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 
-using STX.Access.Model;
+using STX.Core.IDs.Model;
+using STX.Core.Model;
 
-namespace STX.Access.Cache
+namespace STX.Core.Access.Service
 {
     public class XCacheUser
     {

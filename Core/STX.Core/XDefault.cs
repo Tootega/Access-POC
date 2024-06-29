@@ -14,6 +14,13 @@ namespace STX.Core
             String loc = typeof(XDefault).Assembly.Location;
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(loc);
             InitializePath(Path.GetDirectoryName(loc));
+            AuthenticationSchemes = Guid.NewGuid().ToString();
+        }
+        public static string AuthenticationSchemes;
+
+        public static string Unauthorized()
+        {
+            return "Acesso não autorizado";
         }
 
         public const String FullDateTimeFormat = "yyyy-MM-dd HH:mm:ss.FFFFFFF";

@@ -22,6 +22,8 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
         CORxUsuarioID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '1760f18e-333d-434c-8d5a-50eb576fb661');
         CORxPessoaID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '1f1fb0ca-0938-4f12-b37e-d0742b2d5607');
         Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '874fce52-0bfa-4c76-9ac7-006236a307e9');
+        CORxPerfilID = new XDataField(XFieldState.Empty, () => 'XGuid', () => '', null, null, '1522b5c3-392a-4d85-8639-8d70dcf2393c');
+        PerfilNome = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, '39a8109a-8807-4d0f-a674-4590293b252c');
 
     }
 
@@ -60,5 +62,6 @@ export namespace STXAppCoreINFUsuarioUsuarioMDL
     {
         Nome = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, 'a2173584-a43b-4995-a282-f37c4f245a6f');
         Login = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, 'a2173584-a43b-4995-a282-f37c4f245a6f');
+        PerfilNome = new XDataField(XFieldState.Empty, () => 'XString', () => '', null, null, 'a2173584-a43b-4995-a282-f37c4f245a6f');
     }
 }

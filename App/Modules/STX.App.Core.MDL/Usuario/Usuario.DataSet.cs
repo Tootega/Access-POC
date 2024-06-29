@@ -19,12 +19,15 @@ namespace STX.App.Core.INF.Usuario
         public XGuidDataField CORxUsuarioID {get;set;}
         public XGuidDataField CORxPessoaID {get;set;}
         public XStringDataField Nome {get;set;}
+        public XGuidDataField CORxPerfilID {get;set;}
+        public XStringDataField PerfilNome {get;set;}
     }
 
     public class UsuarioFilter : XFilter
     {
         public XStringDataField Nome {get;set;}
         public XStringDataField Login {get;set;}
+        public XStringDataField PerfilNome {get;set;}
     }
     public static class FRMUsuarioFilter
     {

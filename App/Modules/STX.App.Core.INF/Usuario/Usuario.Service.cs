@@ -31,6 +31,7 @@ namespace STX.App.Core.INF.Usuario
             internal DbSet<TAFxUsuario> TAFxUsuario{get; set;}
             internal DbSet<CORxUsuario> CORxUsuario{get; set;}
             internal DbSet<CORxPessoa> CORxPessoa{get; set;}
+            internal DbSet<CORxPerfil> CORxPerfil{get; set;}
 
             private void ConfigureTAFxUsuario(ModelBuilder pBuilder)
             {
@@ -52,7 +53,14 @@ namespace STX.App.Core.INF.Usuario
                     
                     ett.Property(d => d.CORxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.Property(d => d.CORxPessoaID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                     ett.ToTable("CORxUsuario");
+
+                    ett.HasOne(d => d.CORxPerfil)
+                       .WithMany(p => p.CORxUsuario)
+                       .HasForeignKey(d => d.CORxPerfilID)
+                       .OnDelete(DeleteBehavior.Restrict)
+                       .HasConstraintName("FK_5EADF4BC787543D68D639FEBDDD377A1");
 
                     ett.HasOne(d => d.TAFxUsuario)
                        .WithMany()
@@ -68,6 +76,7 @@ namespace STX.App.Core.INF.Usuario
 
                     ett.HasIndex(d => d.CORxUsuarioID).HasDatabaseName("IX_74C786F513D84B83B262F901573BCE27");
                     ett.HasIndex(d => d.CORxPessoaID).HasDatabaseName("IX_C9471B8665C04206AC2FBA967434C37A");
+                    ett.HasIndex(d => d.CORxPerfilID).HasDatabaseName("IX_5EADF4BC787543D68D639FEBDDD377A1");
                 });
             }
             private void ConfigureCORxPessoa(ModelBuilder pBuilder)
@@ -81,12 +90,24 @@ namespace STX.App.Core.INF.Usuario
                     ett.ToTable("CORxPessoa");
                 });
             }
+            private void ConfigureCORxPerfil(ModelBuilder pBuilder)
+            {
+                pBuilder.Entity<CORxPerfil>(ett =>
+                {
+                    ett.HasKey(e => e.CORxPerfilID).HasName("PK_CORxPerfil");
+                    
+                    ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 45, 0));
+                    ett.ToTable("CORxPerfil");
+                });
+            }
 
             protected override void OnModelCreating(ModelBuilder pBuilder)
             {
                 ConfigureTAFxUsuario(pBuilder);
                 ConfigureCORxUsuario(pBuilder);
                 ConfigureCORxPessoa(pBuilder);
+                ConfigureCORxPerfil(pBuilder);
             }
         }
 
@@ -140,12 +161,13 @@ namespace STX.App.Core.INF.Usuario
                 return;
             foreach (UsuarioTuple stpl in pDataSet.Tuples)
             {
-                if (HasChanges(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID))
+                if (HasChanges(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID, stpl.CORxPerfilID))
                 {
                     var CORxUsuariotpl = new CORxUsuario();
                     CORxUsuariotpl.CORxUsuarioID = (Guid)stpl.CORxUsuarioID.Value;
                     CORxUsuariotpl.CORxPessoaID = (Guid)stpl.CORxPessoaID.Value;
-                    ctx.Add(CORxUsuariotpl).State = GetState(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID);
+                    CORxUsuariotpl.CORxPerfilID = (Guid)stpl.CORxPerfilID.Value;
+                    ctx.Add(CORxUsuariotpl).State = GetState(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID, stpl.CORxPerfilID);
                 }
 
                 if (HasChanges(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID))
@@ -185,7 +207,8 @@ namespace STX.App.Core.INF.Usuario
             var query = from CORxUsuario in ctx.CORxUsuario
                         join TAFxUsuario in ctx.TAFxUsuario on CORxUsuario.CORxUsuarioID equals TAFxUsuario.TAFxUsuarioID
                         join CORxPessoa in ctx.CORxPessoa on CORxUsuario.CORxPessoaID equals CORxPessoa.CORxPessoaID
-                        select new {TAFxUsuario, CORxUsuario, CORxPessoa};
+                        join CORxPerfil in ctx.CORxPerfil on CORxUsuario.CORxPerfilID equals CORxPerfil.CORxPerfilID
+                        select new {TAFxUsuario, CORxUsuario, CORxPessoa, CORxPerfil};
 
             query = _Rule?.InternalGetWhere(query,  pRequest, pFilter, pFull);
 
@@ -198,6 +221,8 @@ namespace STX.App.Core.INF.Usuario
                     query = query.Where(q => EF.Functions.Like(q.CORxPessoa.Nome, "%" + pFilter.Nome.Value + "%"));
                 if (pFilter.Login != null && pFilter.Login.State != XFieldState.Empty)
                     query = query.Where(q => EF.Functions.Like(q.TAFxUsuario.Login, "%" + pFilter.Login.Value + "%"));
+                if (pFilter.PerfilNome != null && pFilter.PerfilNome.State != XFieldState.Empty)
+                    query = query.Where(q => EF.Functions.Like(q.CORxPerfil.Nome, "%" + pFilter.PerfilNome.Value + "%"));
             }
 
             if (pFilter?.SkipRows > 0)
@@ -210,7 +235,9 @@ namespace STX.App.Core.INF.Usuario
                                CORxEstadoID = new XInt16DataField(q.TAFxUsuario.CORxEstadoID),
                                CORxUsuarioID = new XGuidDataField(q.CORxUsuario.CORxUsuarioID),
                                CORxPessoaID = new XGuidDataField(q.CORxPessoa.CORxPessoaID),
-                               Nome = new XStringDataField(q.CORxPessoa.Nome)});
+                               Nome = new XStringDataField(q.CORxPessoa.Nome),
+                               CORxPerfilID = new XGuidDataField(q.CORxUsuario.CORxPerfilID),
+                               PerfilNome = new XStringDataField(q.CORxPerfil.Nome)});
             var dataset = new UsuarioDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

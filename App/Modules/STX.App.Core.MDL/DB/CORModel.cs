@@ -26,6 +26,8 @@ namespace STX.App.Core.INF.DB
             public static Guid Administrador = new Guid("67BD4F5D-4FB2-40A0-84C1-BD75AE669DD1");
             public const string sVendedor = @"Vendedor";
             public static Guid Vendedor = new Guid("9A0B3913-4CA5-46D6-8161-3CFD80CA7AD2");
+            public const string sNA = @"NA";
+            public static Guid NA = new Guid("00000000-0000-0000-0000-000000000000");
         }
 
         public static class CORxDireiro

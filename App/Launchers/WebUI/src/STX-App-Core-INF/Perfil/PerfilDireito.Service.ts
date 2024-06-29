@@ -13,12 +13,18 @@ export namespace STXAppCoreINFPerfilPerfilDireitoSVC
     @Injectable()
     export class PerfilDireitoService extends XService
     {
+
         static CID = 'D653C667-14D8-4FEC-8B91-931A9F9AF041';
+
+        static Create(http: HttpClient): PerfilDireitoService
+        {
+            return new PerfilDireitoService(http, null);
+        }
+
         constructor(private http: HttpClient, public Rule: STXAppCoreINFPerfilPerfilDireitoRLE.PerfilDireitoRule)
         {
             super();
         }
-
 
 
         GetByPK(pRequest: STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoRequest, pCallback: XMethod<STXAppCoreINFPerfilPerfilDireitoMDL.PerfilDireitoDataSet>)

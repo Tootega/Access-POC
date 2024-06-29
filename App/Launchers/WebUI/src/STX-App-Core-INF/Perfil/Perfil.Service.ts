@@ -13,12 +13,18 @@ export namespace STXAppCoreINFPerfilPerfilSVC
     @Injectable()
     export class PerfilService extends XService
     {
+
         static CID = 'C622AE73-BC2E-4E1B-9AFE-CF9579A69E1F';
+
+        static Create(http: HttpClient): PerfilService
+        {
+            return new PerfilService(http, null);
+        }
+
         constructor(private http: HttpClient, public Rule: STXAppCoreINFPerfilPerfilRLE.PerfilRule)
         {
             super();
         }
-
 
         override DoSearch(pCallback: XMethod<XDataSet<XDataTuple>>)
         {

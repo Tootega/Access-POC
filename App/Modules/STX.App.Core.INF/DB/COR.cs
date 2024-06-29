@@ -257,7 +257,14 @@ namespace STX.App.Core.INF.DB
                 
                 ett.Property(d => d.CORxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxPessoaID).HasColumnType(GetDBType("Guid", 0, 0));
+                ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.ToTable("CORxUsuario");
+
+                ett.HasOne(d => d.CORxPerfil)
+                   .WithMany(p => p.CORxUsuario)
+                   .HasForeignKey(d => d.CORxPerfilID)
+                   .OnDelete(DeleteBehavior.Restrict)
+                   .HasConstraintName("FK_5EADF4BC787543D68D639FEBDDD377A1");
 
                 ett.HasOne(d => d.TAFxUsuario)
                    .WithMany()
@@ -273,6 +280,7 @@ namespace STX.App.Core.INF.DB
 
                 ett.HasIndex(d => d.CORxUsuarioID).HasDatabaseName("IX_74C786F513D84B83B262F901573BCE27");
                 ett.HasIndex(d => d.CORxPessoaID).HasDatabaseName("IX_C9471B8665C04206AC2FBA967434C37A");
+                ett.HasIndex(d => d.CORxPerfilID).HasDatabaseName("IX_5EADF4BC787543D68D639FEBDDD377A1");
                 ett.HasData(STX.App.Core.INF.DB.CORxUsuario.XDefault.SeedData);
             });
         }

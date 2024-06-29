@@ -9,13 +9,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using STX.Access;
-using STX.Access.Cache;
 using STX.Access.Model;
 using STX.App.Core.INF;
 using STX.App.Core.INF.DB;
 using STX.Core.Access.Usuarios;
 using STX.Core.Services;
-
+using STX.Core;
+using STX.Core.Interfaces;
+using STX.Core.Cache;
+using STX.Core.IDs;
 namespace Launcher
 {
     public class Program
@@ -24,7 +26,6 @@ namespace Launcher
 
         public static void Main(string[] args)
         {
-            Initialize();
             var builder = WebApplication.CreateBuilder(new WebApplicationOptions
             {
                 Args = args,
@@ -51,6 +52,8 @@ namespace Launcher
             ConfigureServices(builder.Services);
 
             builder.Services.AddDbContext<STXAppCoreINFContext>();
+            builder.Services.AddSingleton<XILoginService, XLoginService>();
+
             App = builder.Build();
             if (App.Environment.IsDevelopment())
             {
@@ -58,7 +61,6 @@ namespace Launcher
                 App.UseSwaggerUI();
             }
             App.UseHttpsRedirection();
-
             App.UseCors();
             App.UseAuthorization();
             App.MapControllers();
@@ -67,23 +69,20 @@ namespace Launcher
             using var scop = App.Services.CreateScope();
             using var ctl1 = scop.ServiceProvider.GetRequiredService<STXAppCoreINFContext>();
             ctl1.Database.Migrate();
-
-            App.Run("https://+:5000");
+            XSessionManager.Initialize(App.Services);
+            App.Run("https://+:7000");
         }
 
-        private static void Initialize()
-        {
-        }
 
         public static void ConfigureServices(IServiceCollection pServices)
         {
             pServices.AddRouting();
-            pServices.AddAuthentication(XTAFDefault.AuthenticationSchemes)
+            pServices.AddAuthentication(XDefault.AuthenticationSchemes)
 
-            .AddCookie(XTAFDefault.AuthenticationSchemes, o =>
+            .AddCookie(XDefault.AuthenticationSchemes, o =>
             {
                 o.LoginPath = "/Access/Login";
-                o.Cookie.Name = XTAFDefault.AuthenticationSchemes;
+                o.Cookie.Name = XDefault.AuthenticationSchemes;
                 o.Cookie.Path = "/";
             });
             pServices.Configure<KestrelServerOptions>(options =>

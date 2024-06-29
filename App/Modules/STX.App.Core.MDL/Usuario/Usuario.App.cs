@@ -35,6 +35,7 @@ namespace STX.App.Core.INF.Usuario
             public static readonly XFRMField Nome = new XFRMField(new Guid("18C0F5BC-F431-4C82-9E00-47AF374A1193"), "Nome");
             public static readonly XFRMField Login = new XFRMField(new Guid("351967F6-F262-42A1-A6DD-98DC0AB3367D"), "Login");
             public static readonly XFRMField CORxEstadoID = new XFRMField(new Guid("D721336F-2A70-41CC-81B9-2400EC529953"), "CORxEstadoID");
+            public static readonly XFRMField CORxPerfilID = new XFRMField(new Guid("FD339E2F-43A4-44D2-AF4F-8EA2327B4793"), "CORxPerfilID");
             public static readonly XFRMField MainTab = new XFRMField(new Guid("4CFE019A-38D1-4E6F-90B1-290BDA41C3BE"), "MainTab");
         }
         public UsuarioApp()

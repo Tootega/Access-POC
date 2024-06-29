@@ -4,6 +4,7 @@ import { XService } from '../Component/XComponent';
 import { XDropDownGrid } from '../Table/XDropDownGrid';
 import { XTable } from '../Table/XTable';
 import { XEditor } from './XEditor';
+import { XFactory } from '../Factory/XFactory';
 
 @Component({ selector: 'div[XDropDownEditor]', templateUrl: "XDropDownEditor.html", styles: [] })
 export class XDropDownEditor extends XEditor<HTMLInputElement> implements XIPopup
@@ -28,7 +29,7 @@ export class XDropDownEditor extends XEditor<HTMLInputElement> implements XIPopu
         this.DropDownGrid.OnSelectionChange = (t) => this.Selected(t);
         XEventManager.AddEvent(this, this.DropDownElement, XEventType.Click, this.DoShow);
         this.DropDownGrid.SetTitles(this.Element.getAttribute("GridColumns"));
-        this.Service = new XDefault.Services[this.Element.getAttribute("ServiceID")](this.http);
+        this.Service = XFactory.CreateService(this.Element.getAttribute("ServiceID"), this.http);
         this.Service.DoSearch((dst) => this.ShowData(dst));
 
         this.TargetFields.AddRange(X.Split(this.Element.getAttribute("TDisplayField"), "|"));
@@ -41,9 +42,11 @@ export class XDropDownEditor extends XEditor<HTMLInputElement> implements XIPopu
 
         if (pGrid.SelectedTuple == null)
             return;
+        this.Tuple[this.Field].SetValue(pGrid.SelectedTuple.GetPKValue());
         for (var i = 0; i < this.SourceFields.length; i++)
             this.Tuple[this.TargetFields[i]].Value = pGrid.SelectedTuple[this.SourceFields[i]].Value;
     }
+
     override SetDisplayText(pValue: string)
     {
         //this.Input.value = pValue;

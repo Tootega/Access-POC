@@ -13,12 +13,18 @@ export namespace STXAppCoreINFUsuarioUsuarioSVC
     @Injectable()
     export class UsuarioService extends XService
     {
+
         static CID = '3D683BF1-A796-451D-A8F1-33805F091BFC';
+
+        static Create(http: HttpClient): UsuarioService
+        {
+            return new UsuarioService(http, null);
+        }
+
         constructor(private http: HttpClient, public Rule: STXAppCoreINFUsuarioUsuarioRLE.UsuarioRule)
         {
             super();
         }
-
 
         override DoSearch(pCallback: XMethod<XDataSet<XDataTuple>>)
         {

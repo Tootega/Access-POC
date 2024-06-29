@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
+    <ProjectReference Include="..\..\Core\STX.Core\STX.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

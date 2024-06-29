@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Authorization;
 
-namespace STX.Access.Authorize
+namespace STX.Core.Authorize
 {
     public class XAuthorizeAttribute : AuthorizeAttribute
     {
         public XAuthorizeAttribute()
         {
-            AuthenticationSchemes = XTAFDefault.AuthenticationSchemes;
+            AuthenticationSchemes = XDefault.AuthenticationSchemes;
         }                      
     }
 }

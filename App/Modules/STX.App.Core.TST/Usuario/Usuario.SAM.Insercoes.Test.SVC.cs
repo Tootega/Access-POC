@@ -59,14 +59,6 @@ namespace STX.App.Core.TST.Usuario
                 datatpl.CORxUsuarioID = new Guid("4F411508-1744-4D9F-8635-015600B4E058");
                 datatpl.CORxPessoaID = new Guid("18C5877D-9F81-4CD2-962C-12BEE7EBC239");
                 datatpl.Nome = @"Ana Carla Alencar";
-                datatpl = new UsuarioTuple();
-                datatpl.State = XTupleState.Added;
-                Data.Add(new object[] {3, datatpl});
-                datatpl.Login = null;
-                datatpl.CORxEstadoID = (Int16)0;
-                datatpl.CORxUsuarioID = new Guid("FDD52F27-EABC-45E0-9771-F8D4009A23A6");
-                datatpl.CORxPessoaID = new Guid("00000000-0000-0000-0000-000000000000");
-                datatpl.Nome = null;
             }
 
         }

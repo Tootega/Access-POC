@@ -13,12 +13,18 @@ export namespace STXAppCoreINFMenuUserManuSVC
     @Injectable()
     export class UserManuService extends XService
     {
+
         static CID = '3E2EAA3D-00B9-42B6-8596-3184EC736459';
+
+        static Create(http: HttpClient): UserManuService
+        {
+            return new UserManuService(http, null);
+        }
+
         constructor(private http: HttpClient, public Rule: STXAppCoreINFMenuUserManuRLE.UserManuRule)
         {
             super();
         }
-
 
         override DoSearch(pCallback: XMethod<XDataSet<XDataTuple>>)
         {

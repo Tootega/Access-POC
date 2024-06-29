@@ -17,7 +17,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
+      <ProjectReference Include="..\..\..\Core\STX.Core.Access\STX.Core.Access.csproj">
+        <ExcludeAssets>Yes</ExcludeAssets>
+        <IncludeAssets>No</IncludeAssets>
+        <PrivateAssets>Yes</PrivateAssets>
+      </ProjectReference>
       <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
       <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
       <ProjectReference Include="..\STX.App.Core.RLE\STX.App.Core.RLE.csproj" />

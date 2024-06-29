@@ -59,14 +59,14 @@
     </div>
     <div id='{{SearchAreaID}}'>
         <form class='row g justify-content' (submit)="Search($event)" action="javascript:void(0);">
-                <div XSearchEditor class='col-sm-32'  FieldID='a2173584-a43b-4995-a282-f37c4f245a6f' id='EDT_a2173584-a43b-4995-a282-f37c4f245a6f' Field='Login|Nome' Title='Login|Nome' [Tuple]='Filter'>
+                <div XSearchEditor class='col-sm-32'  FieldID='a2173584-a43b-4995-a282-f37c4f245a6f' id='EDT_a2173584-a43b-4995-a282-f37c4f245a6f' Field='Login|Nome|PerfilNome' Title='Login|Nome|Nome do Perfil' [Tuple]='Filter'>
                     <label for='EDT_a2173584-a43b-4995-a282-f37c4f245a6f' class='form-label text-nowrap'>Nome</label>
                     <label class='form-label text-nowrap' style="color:blue;font-size:9px">&nbsp;&nbsp; {{Filter.Column}}</label>
                 </div>
         </form>
         <div class='ttg-line-1'>
         </div>
-        <XSearchGrid id='SearchGridInstance' Titles='Login|Login|CORxEstadoID|Ativo|Nome|Nome' >
+        <XSearchGrid id='SearchGridInstance' Titles='Login|Login|CORxEstadoID|Ativo|Nome|Nome|PerfilNome|Nome do Perfil' >
             <table #Body class='w-100'>
                 <thead class='ttg-tb-hd t-100'>
                     <tr class='w-100'>

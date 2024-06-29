@@ -1,5 +1,6 @@
-using STX.Access.Cache;
 using STX.Access.Model;
+using STX.Core.Cache;
+using STX.Core.IDs.Model;
 
 namespace TAF.Access.Test
 {
@@ -17,9 +18,9 @@ namespace TAF.Access.Test
         [InlineData("183A1F40-0289-425E-ABC9-E937771108B3", "92D1D9B2-F6E4-4244-809C-05640FB8ED9A")]
         public void AddUser(string pSessionID, string pUserID)
         {
-            XSessionCache.AddSession(new XLoginOk { ID = new Guid(pSessionID), UserID = new Guid(pUserID) });
+            XSessionCache.AddSession(new XUserSession { SessionID = new Guid(pSessionID), UserID = new Guid(pUserID) });
             Assert.True(XSessionCache.Count == 1);
-            Assert.True(XSessionCache.GetUser(new Guid(pSessionID)) != null);
+            Assert.True(XSessionCache.GetSession(new Guid(pSessionID)) != null);
             XSessionCache.Wash();
             Assert.True(XSessionCache.Count == 0);
         }
@@ -29,7 +30,7 @@ namespace TAF.Access.Test
         public void WrongUser(string pSessionID)
         {
             Assert.True(XSessionCache.Count == 0);
-            Assert.Null(XSessionCache.GetUser(new Guid(pSessionID)));
+            Assert.Null(XSessionCache.GetSession(new Guid(pSessionID)));
         }
     }
 }

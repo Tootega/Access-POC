@@ -1,4 +1,4 @@
-namespace STX.Access.Model
+namespace STX.Core.IDs.Model
 {
     public class XUserLogin
     {

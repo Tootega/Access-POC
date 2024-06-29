@@ -4,12 +4,12 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-using STX.Access;
-using STX.Access.Authorize;
-using STX.Access.Cache;
-using STX.Access.Model;
+using STX.Core;
+using STX.Core.Authorize;
+using STX.Core.Cache;
+using STX.Core.IDs.Model;
 
-namespace Launcher.Controllers
+namespace STX.Core.IDs
 {
     [ApiController]
     [Route("Access")]
@@ -43,9 +43,7 @@ namespace Launcher.Controllers
             {
                 string prcName = Process.GetCurrentProcess().ProcessName;
                 _Start = DateTime.Now.Ticks;
-#pragma warning disable CA2000 // Dispose objects before losing scope
-                var counter = new PerformanceCounter("Process", "Working Set - Private", prcName);
-#pragma warning restore CA2000 // Dispose objects before losing scope
+                using var counter = new PerformanceCounter("Process", "Working Set - Private", prcName);
 
                 if (counter != null)
                 {
@@ -54,7 +52,7 @@ namespace Launcher.Controllers
             }
             var session = XSessionManager.DoLogin(HttpContext, pLogin);
             if (session == null)
-                return Unauthorized(XTAFDefault.Unauthorized());
+                return Unauthorized(XDefault.Unauthorized());
             else
                 session.RAM = _RAM;
             return Ok(session);

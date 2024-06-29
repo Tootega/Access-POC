@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { XComponent } from "../Component/XComponent";
 import { XStageComponent } from "../Component/XStageComponent";
 
@@ -15,8 +16,8 @@ export class XFactory
         return comp;
     }
 
-    static CreateService(pServiceID: string): any
+    static CreateService(pServiceID: string, http: HttpClient): any
     {
-        return new this.ExternalServices[pServiceID]();
+        return this.ExternalServices[pServiceID.toUpperCase()].Create(http);
     }
 }

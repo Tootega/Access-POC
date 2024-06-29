@@ -13,12 +13,18 @@ export namespace STXCoreAccessUsuariosUsuariosAtivosSVC
     @Injectable()
     export class UsuariosAtivosService extends XService
     {
+
         static CID = 'BD4A5722-A0F8-42BB-9BA0-264DFD0F525D';
+
+        static Create(http: HttpClient): UsuariosAtivosService
+        {
+            return new UsuariosAtivosService(http, null);
+        }
+
         constructor(private http: HttpClient, public Rule: STXCoreAccessUsuariosUsuariosAtivosRLE.UsuariosAtivosRule)
         {
             super();
         }
-
 
         override DoSearch(pCallback: XMethod<XDataSet<XDataTuple>>)
         {

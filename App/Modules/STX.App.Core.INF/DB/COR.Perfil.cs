@@ -14,7 +14,8 @@ namespace STX.App.Core.INF.DB
             private static Dictionary<Guid, CORxPerfil> _SeedData = new Dictionary<Guid, CORxPerfil>()
             {
                 [new Guid("67BD4F5D-4FB2-40A0-84C1-BD75AE669DD1")] = new CORxPerfil { CORxPerfilID = new Guid("67BD4F5D-4FB2-40A0-84C1-BD75AE669DD1"), Nome = @"Administrador" },
-                [new Guid("9A0B3913-4CA5-46D6-8161-3CFD80CA7AD2")] = new CORxPerfil { CORxPerfilID = new Guid("9A0B3913-4CA5-46D6-8161-3CFD80CA7AD2"), Nome = @"Vendedor" }
+                [new Guid("9A0B3913-4CA5-46D6-8161-3CFD80CA7AD2")] = new CORxPerfil { CORxPerfilID = new Guid("9A0B3913-4CA5-46D6-8161-3CFD80CA7AD2"), Nome = @"Vendedor" },
+                [new Guid("00000000-0000-0000-0000-000000000000")] = new CORxPerfil { CORxPerfilID = new Guid("00000000-0000-0000-0000-000000000000"), Nome = @"NA" }
             };
 
             public static CORxPerfil[] SeedData => _SeedData.Values.ToArray();
@@ -31,5 +32,6 @@ namespace STX.App.Core.INF.DB
 
         public List<CORxUsuarioPerfil> CORxUsuarioPerfil {get; set;} = new List<CORxUsuarioPerfil>();
         public List<CORxPerfilDireiro> CORxPerfilDireiro {get; set;} = new List<CORxPerfilDireiro>();
+        public List<CORxUsuario> CORxUsuario {get; set;} = new List<CORxUsuario>();
     }
 }

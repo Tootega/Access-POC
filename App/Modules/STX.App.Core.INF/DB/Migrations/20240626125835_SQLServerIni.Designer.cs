@@ -12,7 +12,7 @@ using STX.App.Core.INF.DB;
 namespace STX.App.Core.INF.DB.Migrations
 {
     [DbContext(typeof(STXAppCoreINFContext))]
-    [Migration("20240617200111_SQLServerIni")]
+    [Migration("20240626125835_SQLServerIni")]
     partial class SQLServerIni
     {
         /// <inheritdoc />
@@ -174,6 +174,11 @@ namespace STX.App.Core.INF.DB.Migrations
                         {
                             CORxPerfilID = new Guid("9a0b3913-4ca5-46d6-8161-3cfd80ca7ad2"),
                             Nome = "Vendedor"
+                        },
+                        new
+                        {
+                            CORxPerfilID = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Nome = "NA"
                         });
                 });
 
@@ -381,11 +386,17 @@ namespace STX.App.Core.INF.DB.Migrations
                     b.Property<Guid?>("CORxUsuarioID")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CORxPerfilID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("CORxPessoaID")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CORxUsuarioID")
                         .HasName("PK_CORxUsuario");
+
+                    b.HasIndex("CORxPerfilID")
+                        .HasDatabaseName("IX_5EADF4BC787543D68D639FEBDDD377A1");
 
                     b.HasIndex("CORxPessoaID")
                         .HasDatabaseName("IX_C9471B8665C04206AC2FBA967434C37A");
@@ -399,11 +410,13 @@ namespace STX.App.Core.INF.DB.Migrations
                         new
                         {
                             CORxUsuarioID = new Guid("00000000-0000-0000-0000-000000000000"),
+                            CORxPerfilID = new Guid("00000000-0000-0000-0000-000000000000"),
                             CORxPessoaID = new Guid("00000000-0000-0000-0000-000000000000")
                         },
                         new
                         {
                             CORxUsuarioID = new Guid("eba53c9e-c110-4ca3-96fd-420dc75207b1"),
+                            CORxPerfilID = new Guid("00000000-0000-0000-0000-000000000000"),
                             CORxPessoaID = new Guid("8e330979-c053-45e6-a1ed-5fa20d03e18f")
                         });
                 });
@@ -577,6 +590,13 @@ namespace STX.App.Core.INF.DB.Migrations
 
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxUsuario", b =>
                 {
+                    b.HasOne("STX.App.Core.INF.DB.CORxPerfil", "CORxPerfil")
+                        .WithMany("CORxUsuario")
+                        .HasForeignKey("CORxPerfilID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_5EADF4BC787543D68D639FEBDDD377A1");
+
                     b.HasOne("STX.App.Core.INF.DB.CORxPessoa", "CORxPessoa")
                         .WithMany("CORxUsuario")
                         .HasForeignKey("CORxPessoaID")
@@ -590,6 +610,8 @@ namespace STX.App.Core.INF.DB.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK_74C786F513D84B83B262F901573BCE27");
+
+                    b.Navigation("CORxPerfil");
 
                     b.Navigation("CORxPessoa");
 
@@ -650,6 +672,8 @@ namespace STX.App.Core.INF.DB.Migrations
             modelBuilder.Entity("STX.App.Core.INF.DB.CORxPerfil", b =>
                 {
                     b.Navigation("CORxPerfilDireiro");
+
+                    b.Navigation("CORxUsuario");
 
                     b.Navigation("CORxUsuarioPerfil");
                 });
