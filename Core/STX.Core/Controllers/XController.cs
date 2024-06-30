@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
+using STX.Core.Authorize;
+
 namespace STX.Core.Controllers
 {
     public class StopwatchAttribute : ActionFilterAttribute
@@ -26,6 +28,8 @@ namespace STX.Core.Controllers
     }
 
     [Stopwatch]
+    [XAuthorizeFilter]
+    [XAuthorize()]
     public abstract class XController : ControllerBase
     {
 

@@ -14,7 +14,7 @@ namespace STX.Core
             String loc = typeof(XDefault).Assembly.Location;
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(loc);
             InitializePath(Path.GetDirectoryName(loc));
-            AuthenticationSchemes = Guid.NewGuid().ToString();
+            AuthenticationSchemes = "7DC49BD6-6404-434D-AE31-38D44EFDB639";
         }
         public static string AuthenticationSchemes;
 

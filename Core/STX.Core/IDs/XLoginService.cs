@@ -38,7 +38,7 @@ namespace STX.Core.IDs
             try
             {
 
-                using var st = new StringContent("{ \"Login\": \"" + pUser.Login + "\" }", Encoding.UTF8, "application/json");
+                using var st = new StringContent(JsonSerializer.Serialize(pUser) , Encoding.UTF8, "application/json");
                 using HttpResponseMessage response = client.PostAsync("https://tootegaws:5000/Access/Login", st).Result;
                 response.EnsureSuccessStatusCode();
                 var data = response.Content.ReadAsStringAsync().Result;
@@ -47,7 +47,7 @@ namespace STX.Core.IDs
                 {
 
                     List<Claim> claims = new List<Claim>(2);
-                    claims.Add(new Claim(XDefault.AuthenticationSchemes, res.SessionID.ToString()));
+                    claims.Add(new Claim(XDefault.AuthenticationSchemes, data));
                     ClaimsPrincipal cp = new ClaimsPrincipal(new ClaimsIdentity(claims, XDefault.AuthenticationSchemes));
                     AuthenticationProperties ap = new AuthenticationProperties();
                     ap.ExpiresUtc = DateTime.UtcNow.AddMinutes(20);
