@@ -5,7 +5,7 @@
 export const environment = {
     production: false,
     //apiBaseURI: "https://tootega.com.br:5001"
-    apiBaseURI: "https://localhost:5000"
+    apiBaseURI: "https://localhost:7000"
 };
 
 import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

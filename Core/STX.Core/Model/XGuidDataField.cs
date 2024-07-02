@@ -18,7 +18,7 @@ namespace STX.Core.Model
         }
 
         public XGuidDataField()
-        {               
+        {
         }
 
         public XGuidDataField(Guid pValue)

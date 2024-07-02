@@ -18,7 +18,7 @@ namespace STX.Core.Model
         }
 
         public XBinaryDataField()
-        {            
+        {
         }
 
         public XBinaryDataField(byte[] pValue)

@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
-using STX.Core.Model;
-using STX.Core.Exceptions;
 using STX.Core.IDs.Model;
 using STX.Core.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace STX.Core.Cache
 {

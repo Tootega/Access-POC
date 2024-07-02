@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core;
@@ -75,9 +76,9 @@ namespace STX.Core.Access.Usuarios
             }
         }
 
+        [HttpPost, Route("Flush")]
         public void Flush(UsuariosAtivosDataSet pDataSet)
         {
-
             using (var ctx = GetContext<DBContext>())
             {
                 ctx.BeginTransaction();
@@ -109,6 +110,7 @@ namespace STX.Core.Access.Usuarios
             }
         }
 
+        [HttpPost, Route("Flush")]
         public UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -121,6 +123,7 @@ namespace STX.Core.Access.Usuarios
             return dataset;
         }
 
+        [HttpPost, Route("Flush")]
         public UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull)
         {
             var ctx = Context;

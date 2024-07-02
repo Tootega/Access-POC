@@ -1,21 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 
 using STX.Core.Cache;
-using STX.Core.Exceptions;
 using STX.Core.IDs.Model;
 using STX.Core.Interfaces;
-using STX.Core.Model;
-using STX.Core;
-using STX.Core.Services;
-using System.Net.Http;
-using System.Text.Json;
-using System.Text;
-using static System.Collections.Specialized.BitVector32;
 
 namespace STX.Core.IDs
 {
@@ -38,7 +33,7 @@ namespace STX.Core.IDs
             try
             {
 
-                using var st = new StringContent(JsonSerializer.Serialize(pUser) , Encoding.UTF8, "application/json");
+                using var st = new StringContent(JsonSerializer.Serialize(pUser), Encoding.UTF8, "application/json");
                 using HttpResponseMessage response = client.PostAsync("https://tootegaws:5000/Access/Login", st).Result;
                 response.EnsureSuccessStatusCode();
                 var data = response.Content.ReadAsStringAsync().Result;

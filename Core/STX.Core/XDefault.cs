@@ -16,6 +16,7 @@ namespace STX.Core
             InitializePath(Path.GetDirectoryName(loc));
             AuthenticationSchemes = "7DC49BD6-6404-434D-AE31-38D44EFDB639";
         }
+
         public static string AuthenticationSchemes;
 
         public static string Unauthorized()
@@ -39,6 +40,7 @@ namespace STX.Core
                 return Debugger.IsAttached || ForceDebugTime;
             }
         }
+
         private static void InitializePath(String pAppPath)
         {
             AppPath = pAppPath;

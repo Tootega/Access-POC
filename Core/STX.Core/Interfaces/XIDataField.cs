@@ -1,3 +1,5 @@
+using System;
+
 using STX.Core.Model;
 
 namespace STX.Core.Interfaces

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Linq;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace System
 {
@@ -15,7 +11,10 @@ namespace System
 
         public static Boolean HasError => _HasError;
 
-        public static Exception LastException { get; internal set; }
+        public static Exception LastException
+        {
+            get; internal set;
+        }
 
         public static void ClearError()
         {

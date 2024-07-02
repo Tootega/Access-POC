@@ -1,10 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 using STX.Core.Interfaces;
 
@@ -43,7 +38,7 @@ namespace STX.Access.Model
 
     }
 
-    public class XDataField<T> : XDataField, XIDataField //where T : struct 
+    public class XDataField<T> : XDataField, XIDataField 
     {
 
         public static Boolean operator !=(XDataField<T> pLeft, XDataField<T> pRight)
@@ -92,6 +87,7 @@ namespace STX.Access.Model
         }
 
         private T _Value;
+
         public T Value
         {
             get

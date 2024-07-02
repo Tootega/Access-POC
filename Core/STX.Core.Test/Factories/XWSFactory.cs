@@ -1,12 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using STX.Core.Test.Interfaces;
-
-using Microsoft.Playwright;
 
 using STX.Core.Test.PlayWright;
 

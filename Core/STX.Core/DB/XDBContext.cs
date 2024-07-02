@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
 using STX.Core.Exceptions;
 using STX.Core.Interfaces;

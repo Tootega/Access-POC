@@ -1,5 +1,3 @@
-using System;
-using STX.App.Core.INF.Perfil;
 using STX.App.Core.INF.Usuario;
 
 namespace STX.App.Core.TST.Usuario

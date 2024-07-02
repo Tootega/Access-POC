@@ -7,6 +7,6 @@ namespace STX.Core.Authorize
         public XAuthorizeAttribute()
         {
             AuthenticationSchemes = XDefault.AuthenticationSchemes;
-        }                      
+        }
     }
 }

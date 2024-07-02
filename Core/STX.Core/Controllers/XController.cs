@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics;
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
@@ -10,7 +9,7 @@ using STX.Core.Authorize;
 
 namespace STX.Core.Controllers
 {
-    public class StopwatchAttribute : ActionFilterAttribute
+    public class XStopwatchAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext pContext)
         {
@@ -27,9 +26,9 @@ namespace STX.Core.Controllers
         }
     }
 
-    [Stopwatch]
-    [XAuthorizeFilter]
-    [XAuthorize()]
+    [XStopwatch]
+    //[XAuthorizeFilter]
+    //[XAuthorize()]
     public abstract class XController : ControllerBase
     {
 

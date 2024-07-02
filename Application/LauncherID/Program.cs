@@ -1,22 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using STX.Access;
-using STX.Core.Model;
 using STX.Core;
-using STX.Core.Access.Usuarios;
-using STX.Core.Services;
-using STX.Core.Cache;
-using STX.Core.IDs.Model;
-using STX.Core.Interfaces;
 using STX.Core.Access.Service;
-using System.Net.NetworkInformation;
+using STX.Core.Cache;
+using STX.Core.Interfaces;
 
 namespace Launcher
 {
@@ -82,7 +74,7 @@ namespace Launcher
             {
                 options.AllowSynchronousIO = true;
             });
-           
+
         }
     }
 }

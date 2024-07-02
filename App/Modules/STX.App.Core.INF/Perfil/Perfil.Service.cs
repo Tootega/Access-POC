@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core;
@@ -205,6 +206,7 @@ namespace STX.App.Core.INF.Perfil
             }
         }
 
+        [HttpPost, Route("Flush")]
         public void Flush(PerfilDataSet pDataSet)
         {
             XIServiceRule PerfilDireitoRule = new PerfilDireitoRule(this);
@@ -260,6 +262,7 @@ namespace STX.App.Core.INF.Perfil
             }
         }
 
+        [HttpPost, Route("Flush")]
         public PerfilDataSet GetByPK(PerfilRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -272,6 +275,7 @@ namespace STX.App.Core.INF.Perfil
             return dataset;
         }
 
+        [HttpPost, Route("Flush")]
         public PerfilDataSet Select(PerfilRequest pRequest, PerfilFilter pFilter, Boolean pFull)
         {
             var ctx = Context;

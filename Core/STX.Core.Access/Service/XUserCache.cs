@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 
 using STX.Core.IDs.Model;
-using STX.Core.Model;
 
 namespace STX.Core.Access.Service
 {

@@ -5,13 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
 
-using STX.Core;
-
-using STX.Core.Model;
-using STX.Access.Model;
-using System.IO;
-using STX.Core.Model;
 using STX.Core.Interfaces;
+using STX.Core.Model;
 
 namespace STX.Core.Services
 {

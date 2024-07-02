@@ -1,9 +1,7 @@
 using System.Text;
 using System.Text.Json;
 
-using STX.Access.Model;
 using STX.Core.Access.Service;
-using STX.Core.Cache;
 using STX.Core.IDs.Model;
 
 namespace StressTest
@@ -86,10 +84,7 @@ namespace StressTest
                         if (res == null)
                             _Error++;
                         else
-                        {
-                            _RAM = res.RAM;
                             _Count++;
-                        }
                     }
                     catch
                     {

@@ -18,7 +18,7 @@ namespace STX.Core.Model
         }
 
         public XStringDataField()
-        {               
+        {
         }
 
         public XStringDataField(String pValue)

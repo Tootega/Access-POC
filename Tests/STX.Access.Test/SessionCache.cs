@@ -1,4 +1,3 @@
-using STX.Access.Model;
 using STX.Core.Cache;
 using STX.Core.IDs.Model;
 
@@ -8,7 +7,7 @@ namespace TAF.Access.Test
     {
         public SessionCache()
         {
-            
+
             XSessionCache.Wash();
         }
 

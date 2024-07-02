@@ -18,7 +18,7 @@ namespace STX.Core.Model
         }
 
         public XDateTimeDataField()
-        {               
+        {
         }
 
         public XDateTimeDataField(DateTime pValue) : base(pValue)

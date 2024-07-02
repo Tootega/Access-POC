@@ -1,16 +1,14 @@
 using System;
-using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Microsoft.Playwright;
 
-using STX.Core.Test.Interfaces;
-using System.IO;
 using STX.Core.Test.Browsers;
-using System.Threading;
-using System.Diagnostics;
+using STX.Core.Test.Interfaces;
 
 namespace STX.Core.Test.PlayWright
 {
@@ -129,7 +127,10 @@ namespace STX.Core.Test.PlayWright
                 _Page.Load += LocalLoaded;
                 _Page.PageError += PageError;
             }
-            await _Page.GotoAsync(pURL, new() { Timeout = 2 * 60 * 1000 });
+            await _Page.GotoAsync(pURL, new()
+            {
+                Timeout = 2 * 60 * 1000
+            });
         }
 
         private void PageError(object sender, string pError)

@@ -5,13 +5,11 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 
+using STX.Core.Access.Usuarios;
 using STX.Core.Cache;
 using STX.Core.Exceptions;
 using STX.Core.IDs.Model;
 using STX.Core.Interfaces;
-using STX.Core.Model;
-using STX.Core;
-using STX.Core.Access.Usuarios;
 using STX.Core.Services;
 
 namespace STX.Core.Access.Service

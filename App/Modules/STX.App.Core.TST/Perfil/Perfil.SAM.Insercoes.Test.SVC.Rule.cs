@@ -1,4 +1,3 @@
-using System;
 using STX.App.Core.INF.Perfil;
 
 namespace STX.App.Core.TST.Perfil

@@ -12,6 +12,9 @@ namespace STX.Core.IDs.Model
         {
             get; set;
         }
-        public string Login { get; set; }
+        public string Login
+        {
+            get; set;
+        }
     }
 }

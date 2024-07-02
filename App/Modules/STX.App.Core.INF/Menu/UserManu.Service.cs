@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core;
@@ -107,6 +108,7 @@ namespace STX.App.Core.INF.Menu
             }
         }
 
+        [HttpPost, Route("Flush")]
         public UserManuDataSet GetByPK(UserManuRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -119,6 +121,7 @@ namespace STX.App.Core.INF.Menu
             return dataset;
         }
 
+        [HttpPost, Route("Flush")]
         public UserManuDataSet Select(UserManuRequest pRequest, UserManuFilter pFilter, Boolean pFull)
         {
             var ctx = Context;

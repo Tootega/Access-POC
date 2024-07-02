@@ -18,7 +18,7 @@ namespace STX.Core.Model
         }
 
         public XInt16DataField()
-        {               
+        {
         }
 
         public XInt16DataField(short pValue) : base(pValue)

@@ -1,16 +1,29 @@
 using System;
 using System.Threading.Tasks;
+
 using STX.Core.Test.PlayWright;
 
 namespace STX.Core.Test.Interfaces
 {
-    
+
     public class XSCBrowserConfig
     {
-        public string UserProfile { get; set; }
-        public string GroupProfile { get; set; }
-        public bool? Headless { get; set; }
-        public string Channel { get; set; }
+        public string UserProfile
+        {
+            get; set;
+        }
+        public string GroupProfile
+        {
+            get; set;
+        }
+        public bool? Headless
+        {
+            get; set;
+        }
+        public string Channel
+        {
+            get; set;
+        }
     }
     public interface XIWSBrowser : IDisposable
     {

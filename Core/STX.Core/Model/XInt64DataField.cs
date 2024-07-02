@@ -18,7 +18,7 @@ namespace STX.Core.Model
         }
 
         public XInt64DataField()
-        {               
+        {
         }
 
         public XInt64DataField(long pValue) : base(pValue)
