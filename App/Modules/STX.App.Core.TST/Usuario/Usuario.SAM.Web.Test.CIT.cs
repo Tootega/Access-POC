@@ -61,9 +61,9 @@ namespace STX.App.Core.TST.Usuario
                 if (Setup.Browser.CurrentPage.CheckElement("div", new XAtt("id", UsuarioApp.FRMUsuario.ID.AsString())) == true)
                 {
                     await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.Nome.ID).Focus();
-                    await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Nome);
+                    await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Nome.Value);
                     await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.Login.ID).Focus();
-                    await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Login);
+                    await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.Login.Value);
                     await Setup.Browser.CurrentPage.GetById(UsuarioApp.FRMUsuario.CORxEstadoID.ID).Focus();
                     await Setup.Browser.CurrentPage.HumanTypingAsync(_Tuple.CORxEstadoID.Value.AsString());
                 }
@@ -79,27 +79,27 @@ namespace STX.App.Core.TST.Usuario
                 datatpl = new UsuarioTuple();
                 datatpl.State = XTupleState.Added;
                 Data.Add(new object[] { 0, datatpl });
-                datatpl.Login = @"helena.farias@sittax.com.br";
-                datatpl.CORxEstadoID = (Int16)1;
-                datatpl.CORxUsuarioID = new Guid("FCBF7664-331D-4023-A650-D9CA6E7E0FB0");
-                datatpl.CORxPessoaID = new Guid("500FCF2C-82C0-42ED-A18D-3ECAA7C8C5A6");
-                datatpl.Nome = @"Helena Farias Oliveira";
+                datatpl.Login.Value = @"helena.farias@sittax.com.br";
+                datatpl.CORxEstadoID.Value   = (Int16)1;
+                datatpl.CORxUsuarioID.Value = new Guid("FCBF7664-331D-4023-A650-D9CA6E7E0FB0");
+                datatpl.CORxPessoaID.Value = new Guid("500FCF2C-82C0-42ED-A18D-3ECAA7C8C5A6");
+                datatpl.Nome.Value = @"Helena Farias Oliveira";
                 datatpl = new UsuarioTuple();
                 datatpl.State = XTupleState.Added;
                 Data.Add(new object[] { 1, datatpl });
-                datatpl.Login = @"solange.moraes@sittax.com.br";
-                datatpl.CORxEstadoID = (Int16)1;
-                datatpl.CORxUsuarioID = new Guid("3CA6191A-A7CB-47BF-A560-9EAFC23E2623");
-                datatpl.CORxPessoaID = new Guid("676355C4-1087-4328-91C4-CD696291E539");
-                datatpl.Nome = @"Solange Moraies Alves";
+                datatpl.Login.Value = @"solange.moraes@sittax.com.br";
+                datatpl.CORxEstadoID.Value = (Int16)1;
+                datatpl.CORxUsuarioID.Value = new Guid("3CA6191A-A7CB-47BF-A560-9EAFC23E2623");
+                datatpl.CORxPessoaID.Value = new Guid("676355C4-1087-4328-91C4-CD696291E539");
+                datatpl.Nome.Value = @"Solange Moraies Alves";
                 datatpl = new UsuarioTuple();
                 datatpl.State = XTupleState.Added;
                 Data.Add(new object[] { 2, datatpl });
-                datatpl.Login = @"ana.carla@sittax.com.br";
-                datatpl.CORxEstadoID = (Int16)1;
-                datatpl.CORxUsuarioID = new Guid("4F411508-1744-4D9F-8635-015600B4E058");
-                datatpl.CORxPessoaID = new Guid("18C5877D-9F81-4CD2-962C-12BEE7EBC239");
-                datatpl.Nome = @"Ana Carla Alencar";
+                datatpl.Login.Value = @"ana.carla@sittax.com.br";
+                datatpl.CORxEstadoID.Value = (Int16)1;
+                datatpl.CORxUsuarioID.Value = new Guid("4F411508-1744-4D9F-8635-015600B4E058");
+                datatpl.CORxPessoaID.Value = new Guid("18C5877D-9F81-4CD2-962C-12BEE7EBC239");
+                datatpl.Nome.Value = @"Ana Carla Alencar";
             }
 
         }

@@ -6,17 +6,6 @@ namespace STX.Core.Model
 {
     public class XDateTimeDataField : XDataField<DateTime>
     {
-        public static implicit operator XDateTimeDataField(DateTime pValue)
-        {
-            var fld = new XDateTimeDataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator DateTime(XDateTimeDataField pField)
-        {
-            return pField.Value;
-        }
-
         public XDateTimeDataField()
         {
         }

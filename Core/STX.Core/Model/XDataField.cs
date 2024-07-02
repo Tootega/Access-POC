@@ -38,7 +38,7 @@ namespace STX.Access.Model
 
     }
 
-    public class XDataField<T> : XDataField, XIDataField 
+    public class XDataField<T> : XDataField, XIDataField
     {
 
         public static Boolean operator !=(XDataField<T> pLeft, XDataField<T> pRight)
@@ -84,6 +84,15 @@ namespace STX.Access.Model
             Value = pValue;
             OldValue = pOldValue;
             State = pState;
+        }
+
+        public XDataField<T> Clone(XDataField<T> pSource)
+        {
+            var fld = this.GetType().CreateInstance<XDataField<T>>();
+            fld.Value = Value;
+            fld.OldValue = OldValue;
+            fld.State = State;
+            return fld;
         }
 
         private T _Value;

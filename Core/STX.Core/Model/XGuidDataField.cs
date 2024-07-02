@@ -6,16 +6,6 @@ namespace STX.Core.Model
 {
     public class XGuidDataField : XDataField<Guid>
     {
-        public static implicit operator XGuidDataField(Guid pValue)
-        {
-            var fld = new XGuidDataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator Guid(XGuidDataField pField)
-        {
-            return pField.Value;
-        }
 
         public XGuidDataField()
         {

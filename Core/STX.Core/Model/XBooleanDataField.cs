@@ -6,17 +6,6 @@ namespace STX.Core.Model
 {
     public class XBooleanDataField : XDataField<Boolean>
     {
-        public static implicit operator XBooleanDataField(Boolean pValue)
-        {
-            var fld = new XBooleanDataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator Boolean(XBooleanDataField pField)
-        {
-            return pField.Value;
-        }
-
         public XBooleanDataField()
         {
         }

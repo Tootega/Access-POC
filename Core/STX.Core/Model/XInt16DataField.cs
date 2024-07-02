@@ -6,17 +6,6 @@ namespace STX.Core.Model
 {
     public class XInt16DataField : XDataField<Int16>
     {
-        public static implicit operator XInt16DataField(Int16 pValue)
-        {
-            var fld = new XInt16DataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator Int16(XInt16DataField pField)
-        {
-            return pField.Value;
-        }
-
         public XInt16DataField()
         {
         }

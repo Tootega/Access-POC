@@ -6,17 +6,6 @@ namespace STX.Core.Model
 {
     public class XInt64DataField : XDataField<Int64>
     {
-        public static implicit operator XInt64DataField(Int64 pValue)
-        {
-            var fld = new XInt64DataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator Int64(XInt64DataField pField)
-        {
-            return pField.Value;
-        }
-
         public XInt64DataField()
         {
         }

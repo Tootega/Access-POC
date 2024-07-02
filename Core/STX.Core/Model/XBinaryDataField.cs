@@ -6,17 +6,6 @@ namespace STX.Core.Model
 {
     public class XBinaryDataField : XDataField<Byte[]>
     {
-        public static implicit operator XBinaryDataField(Byte[] pValue)
-        {
-            var fld = new XBinaryDataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator Byte[](XBinaryDataField pField)
-        {
-            return pField.Value;
-        }
-
         public XBinaryDataField()
         {
         }

@@ -6,17 +6,6 @@ namespace STX.Access.Model
 {
     public class XDecimalDataField : XDataField<Decimal>
     {
-        public static implicit operator XDecimalDataField(Decimal pValue)
-        {
-            var fld = new XDecimalDataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator Decimal(XDecimalDataField pField)
-        {
-            return pField.Value;
-        }
-
         public XDecimalDataField()
         {
         }

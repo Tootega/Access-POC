@@ -6,13 +6,12 @@ using STX.Core.Model;
 using STX.Core.Services;
 using STX.App.Core.TST.Perfil;
 using STX.App.Core.INF.Perfil;
-using System.ComponentModel.DataAnnotations;
 
 namespace STX.App.Core.TST.Perfil
 {
     public class PerfilSAMInsercoesTestSVC : XTest<PerfilSAMInsercoesTestSVCRule, PerfilTuple>
     {
-        public abstract class Rule : XTestRule<PerfilTuple>
+        public abstract class Rule :  XTestRule<PerfilTuple>
         {
         }
 
@@ -21,13 +20,12 @@ namespace STX.App.Core.TST.Perfil
         {
             PerfilSAMInsercoesTestSVCRule rule = CreateRule();
             rule.BeforeExecute(pIndex, pTuple);
-            pTuple.CORxPerfilID = Guid.NewGuid();
             IPerfilService persvc = new PerfilService((XService)null);
             PerfilDataSet dst = new PerfilDataSet();
             dst.Tuples.Add(pTuple);
             persvc.Flush(dst);
             persvc = new PerfilService((XService)null);
-            PerfilDataSet dstret = persvc.GetByPK(new PerfilRequest { CORxPerfilID = pTuple.CORxPerfilID }, true);
+            PerfilDataSet dstret = persvc.GetByPK(new PerfilRequest { CORxPerfilID = pTuple.CORxPerfilID.Value }, true);
             foreach (var tpl in dstret.Tuples)
                 rule.AfterExecute(pIndex, tpl, pTuple);
         }
@@ -39,14 +37,14 @@ namespace STX.App.Core.TST.Perfil
                 PerfilTuple datatpl;
                 datatpl = new PerfilTuple();
                 datatpl.State = XTupleState.Added;
-                Data.Add(new object[] { 0, datatpl });
-                datatpl.CORxPerfilID = new Guid("6A6A3E50-D571-479E-BDF3-CFD0C8131CAA");
-                datatpl.Nome = @"Maria da Silvadsfd";
+                Data.Add(new object[] {0, datatpl});
+                datatpl.CORxPerfilID.Value = new Guid("6A6A3E50-D571-479E-BDF3-CFD0C8131C11");
+                datatpl.Nome.Value = @"Maria da Silva";
                 datatpl = new PerfilTuple();
                 datatpl.State = XTupleState.Added;
-                Data.Add(new object[] { 1, datatpl });
-                datatpl.CORxPerfilID = new Guid("28593322-554D-44A1-BAB0-C11E7A7EFBBB");
-                datatpl.Nome = @"Jona de Souza Linhares ss";
+                Data.Add(new object[] {1, datatpl});
+                datatpl.CORxPerfilID.Value = new Guid("28593322-554D-44A1-BAB0-C11E7A7EFB8A");
+                datatpl.Nome.Value = @"Jona de Souza Linhares";
             }
 
         }

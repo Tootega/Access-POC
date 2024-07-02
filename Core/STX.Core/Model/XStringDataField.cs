@@ -6,17 +6,6 @@ namespace STX.Core.Model
 {
     public class XStringDataField : XDataField<String>
     {
-        public static implicit operator XStringDataField(String pValue)
-        {
-            var fld = new XStringDataField(pValue);
-            return fld;
-        }
-
-        public static implicit operator String(XStringDataField pField)
-        {
-            return pField.Value;
-        }
-
         public XStringDataField()
         {
         }
