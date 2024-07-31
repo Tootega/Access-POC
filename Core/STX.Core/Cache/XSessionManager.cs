@@ -35,7 +35,7 @@ namespace STX.Core.Cache
             ClaimsIdentity idt = pHttpContext.User.Identities.FirstOrDefault(i => i.IsAuthenticated);
             if (idt != null)
             {
-                Claim clm = idt.Claims.FirstOrDefault(c => c.Type == XDefault.AuthenticationSchemes);
+                Claim clm = idt.Claims.FirstOrDefault(c => c.Type == XDefault.JWTKey);
                 if (clm != null)
                 {
                     String key = clm.Value;

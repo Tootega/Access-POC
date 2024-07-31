@@ -63,12 +63,12 @@ namespace Launcher
         public static void ConfigureServices(IServiceCollection pServices)
         {
             pServices.AddRouting();
-            pServices.AddAuthentication(XDefault.AuthenticationSchemes)
+            pServices.AddAuthentication(XDefault.JWTKey)
 
-            .AddCookie(XDefault.AuthenticationSchemes, o =>
+            .AddCookie(XDefault.JWTKey, o =>
             {
                 o.LoginPath = "/Access/Login";
-                o.Cookie.Name = XDefault.AuthenticationSchemes;
+                o.Cookie.Name = XDefault.JWTKey;
                 o.Cookie.Path = "/";
             });
             pServices.Configure<KestrelServerOptions>(options =>

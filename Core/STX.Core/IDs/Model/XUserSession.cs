@@ -16,5 +16,10 @@ namespace STX.Core.IDs.Model
         {
             get; set;
         }
+        public string Token
+        {
+            get;
+            set;
+        }
     }
 }

@@ -27,8 +27,7 @@ namespace STX.Core.Controllers
     }
 
     [XStopwatch]
-    //[XAuthorizeFilter]
-    //[XAuthorize()]
+    [XAuthorizeFilter]
     public abstract class XController : ControllerBase
     {
 

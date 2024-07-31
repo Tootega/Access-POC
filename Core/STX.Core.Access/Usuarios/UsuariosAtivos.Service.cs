@@ -110,7 +110,7 @@ namespace STX.Core.Access.Usuarios
             }
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("GetByPK")]
         public UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -123,7 +123,7 @@ namespace STX.Core.Access.Usuarios
             return dataset;
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("Select")]
         public UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull)
         {
             var ctx = Context;

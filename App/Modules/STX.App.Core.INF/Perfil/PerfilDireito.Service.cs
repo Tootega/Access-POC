@@ -228,14 +228,14 @@ namespace STX.App.Core.INF.Perfil
             }
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("GetByPK")]
         public PerfilDireitoDataSet GetByPK(PerfilDireitoRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, pFull);
             return dataset;
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("Select")]
         public PerfilDireitoDataSet Select(PerfilDireitoRequest pRequest, Boolean pFull)
         {
             var ctx = Context;

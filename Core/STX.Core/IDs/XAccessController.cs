@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+using STX.Core.Authorize;
 using STX.Core.Cache;
 using STX.Core.Controllers;
 using STX.Core.IDs.Model;
@@ -40,5 +41,14 @@ namespace STX.Core.IDs
         {
             return Ok($"We alive since {_Alive} ({(DateTime.Now - _Alive)})");
         }
+        [HttpPost, Route("X21")]
+        [XAuthorizeFilter]
+        //[XAuthorize()]
+        public ActionResult X21()
+        {
+            return Ok($"We alive since {_Alive} ({(DateTime.Now - _Alive)})");
+        }
+        
+
     }
 }

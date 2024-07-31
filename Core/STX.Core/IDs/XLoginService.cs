@@ -42,11 +42,11 @@ namespace STX.Core.IDs
                 {
 
                     List<Claim> claims = new List<Claim>(2);
-                    claims.Add(new Claim(XDefault.AuthenticationSchemes, data));
-                    ClaimsPrincipal cp = new ClaimsPrincipal(new ClaimsIdentity(claims, XDefault.AuthenticationSchemes));
+                    claims.Add(new Claim(XDefault.JWTKey, data));
+                    ClaimsPrincipal cp = new ClaimsPrincipal(new ClaimsIdentity(claims, XDefault.JWTKey));
                     AuthenticationProperties ap = new AuthenticationProperties();
                     ap.ExpiresUtc = DateTime.UtcNow.AddMinutes(20);
-                    var task = pHttpContext.SignInAsync(XDefault.AuthenticationSchemes, cp, ap);
+                    var task = pHttpContext.SignInAsync(XDefault.JWTKey, cp, ap);
                     task.Wait();
                     XSessionCache.AddSession(res, true);
                     return res;

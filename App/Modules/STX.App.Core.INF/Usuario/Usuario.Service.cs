@@ -190,7 +190,7 @@ namespace STX.App.Core.INF.Usuario
             }
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("GetByPK")]
         public UsuarioDataSet GetByPK(UsuarioRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -203,7 +203,7 @@ namespace STX.App.Core.INF.Usuario
             return dataset;
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("Select")]
         public UsuarioDataSet Select(UsuarioRequest pRequest, UsuarioFilter pFilter, Boolean pFull)
         {
             var ctx = Context;

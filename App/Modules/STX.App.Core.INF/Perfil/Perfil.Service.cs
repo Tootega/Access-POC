@@ -262,7 +262,7 @@ namespace STX.App.Core.INF.Perfil
             }
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("GetByPK")]
         public PerfilDataSet GetByPK(PerfilRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -275,7 +275,7 @@ namespace STX.App.Core.INF.Perfil
             return dataset;
         }
 
-        [HttpPost, Route("Flush")]
+        [HttpPost, Route("Select")]
         public PerfilDataSet Select(PerfilRequest pRequest, PerfilFilter pFilter, Boolean pFull)
         {
             var ctx = Context;
