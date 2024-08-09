@@ -41,18 +41,19 @@ namespace STX.Core.Model
     public class XDataField<T> : XDataField, XIDataField
     {
 
-        public static Boolean operator !=(XDataField<T> pLeft, XDataField<T> pRight)
-        {
-            return !(pLeft == pRight);
-        }
+        //public static Boolean operator !=(XDataField<T> pLeft, XDataField<T> pRight)
+        //{
+        //    return !(pLeft == pRight);
+        //}
 
-        public static Boolean operator ==(XDataField<T> pLeft, XDataField<T> pRight)
-        {
-            if (((Object)pLeft == null && (Object)pRight != null) || ((Object)pLeft != null && (Object)pRight == null) || ((Object)pLeft == null && (Object)pRight == null))
-                return false;
-            return Object.Equals(pLeft.Value, pRight.Value);
-        }
-
+        //public static Boolean operator ==(XDataField<T> pLeft, XDataField<T> pRight)
+        //{
+        //    if ((Object)pLeft == (Object)pRight && (Object)pRight == null)
+        //        return true;
+        //    if (((Object)pLeft == null && (Object)pRight != null) || ((Object)pLeft != null && (Object)pRight == null) || ((Object)pLeft == null && (Object)pRight == null))
+        //        return false;
+        //    return Object.Equals(pLeft.Value, pRight.Value);
+        //}
 
         public XDataField()
         {
