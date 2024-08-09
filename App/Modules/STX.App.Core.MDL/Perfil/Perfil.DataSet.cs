@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using STX.Core.Reflections;
 using STX.Core.Model;
 using STX.Core.Interfaces;
-using STX.Access.Model;
+using STX.Core;
 using STX.Core.Services;
 
 namespace STX.App.Core.INF.Perfil
@@ -17,6 +18,11 @@ namespace STX.App.Core.INF.Perfil
         public XGuidDataField CORxPerfilID {get;set;}
         public XStringDataField Nome {get;set;}
         public PerfilDireitoTuple[] PerfilDireito {get;set;}
+        public override void Initialize()
+        {
+            CORxPerfilID = new XGuidDataField();
+            Nome = new XStringDataField();
+        }
     }
 
     public class PerfilFilter : XFilter
@@ -38,7 +44,11 @@ namespace STX.App.Core.INF.Perfil
         void Flush(PerfilDataSet pDataSet);
         PerfilDataSet GetByPK(PerfilRequest pRequest, Boolean pFull = true);
         PerfilDataSet Select(PerfilFilter pFilter, Boolean pFull = false);
-        PerfilDataSet Select(PerfilRequest pRequest, PerfilFilter pFilter, Boolean pFull);
+        PerfilDataSet Select(PerfilRequest pRequest, PerfilFilter pFilter, Boolean pFull = false);
+        PerfilDataSet Select(Boolean pFull = false)
+        {
+            return Select(null, pFull);
+        }
     }
 
     public abstract class BasePerfilRule : XServiceRuleC<List<PerfilTuple>, PerfilFilter, PerfilRequest>

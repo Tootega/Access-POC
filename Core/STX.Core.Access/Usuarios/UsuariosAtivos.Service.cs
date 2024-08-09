@@ -7,13 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core;
-using STX.Core.Access.DB;
 using STX.Core.Model;
 using STX.Core.Services;
+using STX.Core.Reflections;
 using STX.Core.Access.Usuarios;
+using STX.Core.Access.DB;
 
 namespace STX.Core.Access.Usuarios
 {
+    [XGuid("961B7E48-A442-4096-80DF-B65F8C459754", typeof(IUsuariosAtivosService))]
     public class UsuariosAtivosService : XService, IUsuariosAtivosService
     {
         public class DBContext : XDBContext
@@ -63,6 +65,8 @@ namespace STX.Core.Access.Usuarios
 
         private XIServiceRuleC _Rule;
 
+        public override Guid ID => new Guid("961B7E48-A442-4096-80DF-B65F8C459754");
+
         protected override XDBContext CreateContext(XDBContext pOwner)
         {
             return DBContext.Create(pOwner);
@@ -79,18 +83,16 @@ namespace STX.Core.Access.Usuarios
         [HttpPost, Route("Flush")]
         public void Flush(UsuariosAtivosDataSet pDataSet)
         {
-            using (var ctx = GetContext<DBContext>())
-            {
-                ctx.BeginTransaction();
-                _Rule?.InternalBeforeFlush(pDataSet.Tuples);
+            var ctx = GetContext<DBContext>();
+            ctx.BeginTransaction();
+            _Rule?.InternalBeforeFlush(pDataSet.Tuples);
 
-                SetUsuariosAtivosValues(ctx, pDataSet);
-                ctx.SaveChanges();
+            SetUsuariosAtivosValues(ctx, pDataSet);
+            ctx.SaveChanges();
 
-                _Rule?.InternalAfterFlush(pDataSet.Tuples);
+            _Rule?.InternalAfterFlush(pDataSet.Tuples);
 
-                ctx.Commit();
-            }
+            ctx.Commit();
         }
 
         private void SetUsuariosAtivosValues(DBContext ctx, UsuariosAtivosDataSet pDataSet)
@@ -102,15 +104,15 @@ namespace STX.Core.Access.Usuarios
                 if (HasChanges(stpl, stpl.TAFxUsuarioID, stpl.Login, stpl.CORxEstadoID))
                 {
                     var TAFxUsuariotpl = new TAFxUsuario();
-                    TAFxUsuariotpl.TAFxUsuarioID = (Guid)stpl.TAFxUsuarioID.Value;
-                    TAFxUsuariotpl.Login = (String)stpl.Login.Value;
-                    TAFxUsuariotpl.CORxEstadoID = (Int16)stpl.CORxEstadoID.Value;
-                    ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.TAFxUsuarioID, stpl.Login, stpl.CORxEstadoID);
+                    TAFxUsuariotpl.TAFxUsuarioID = stpl.TAFxUsuarioID.Value;
+                    TAFxUsuariotpl.Login = stpl.Login.Value;
+                    TAFxUsuariotpl.CORxEstadoID = stpl.CORxEstadoID.Value;
+                    var tbl = ctx.TAFxUsuario.Add(TAFxUsuariotpl);
+                    tbl.State = GetState(stpl, stpl.TAFxUsuarioID, stpl.Login, stpl.CORxEstadoID);
                 }
             }
         }
 
-        [HttpPost, Route("GetByPK")]
         public UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -123,7 +125,6 @@ namespace STX.Core.Access.Usuarios
             return dataset;
         }
 
-        [HttpPost, Route("Select")]
         public UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull)
         {
             var ctx = Context;

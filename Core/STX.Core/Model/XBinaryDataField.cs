@@ -1,6 +1,6 @@
 using System;
 
-using STX.Access.Model;
+using STX.Core.Model;
 
 namespace STX.Core.Model
 {

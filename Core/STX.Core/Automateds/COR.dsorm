@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XORMDesigner ID="1CDFCE66-3FE6-478A-94DE-E65B1D10A48C" Name="COR" ModuleID="1B213A70-9CE2-4648-8771-60D230FAD270">
+  <XValues>
+    <XData Name="RelativeFolder" ID="DCAA1E55-B8D5-436C-8543-DBB4C68F6B89" Type="String">Automateds</XData>
+    <XData Name="ServerID" ID="5BAA4997-C2C0-4544-956B-76425D607BAB" Type="Guid">11727150-A15C-49C8-AA22-6900BA34E808</XData>
+    <XData Name="ComponentsID" ID="B8DF7670-0524-4151-98E9-93545460C5DA" Type="Guid[]">78A1C906-9DC1-4091-A9D2-9561612495C6|4FF580CD-BA38-4277-99C2-CFD2A7132ACA|D70ECFF2-5452-4DB8-AD77-C06939678693|34F6434A-523B-440A-9166-C2911DD88B39|0E8F796D-1DDE-4534-81C5-8239717B2A47|4A02A58A-FB6C-469C-93BA-E14DF64FA5BF|AA4B9CD8-1BCD-4861-B557-13401A006BD6|168701F6-A5EF-492B-B182-B33511F62B95|B28551A1-3AD5-4EB5-B573-BCEE90E5F67B|653C07B6-2EFD-4BF6-9873-3E2F1C3C4120</XData>
+    <XData Name="CanDeploy" ID="FEAD314E-8A62-439A-85EC-563920AF69A0" Type="Boolean">true</XData>
+  </XValues>
+  <XORMTable Name="CORxJob" ID="7A7C356F-A3B3-4CA4-9C24-F271B1F58EA7">
+    <XValues>
+      <XData Name="ViewSize" ID="C61C1C4F-575D-4D38-A0A0-B517D7BFEAC0" Type="Size">{Width=105.203333333333;Height=48}</XData>
+      <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=591;Y=199;Width=105.203333333333;Height=48}</XData>
+      <XData Name="ServerID" ID="BDEEF13F-F93F-46EF-B418-9F43232537AB" Type="Guid">AB6D8F4D-E581-4DB7-991D-FF08C989892D</XData>
+      <XData Name="PKID" ID="4B2D51C5-A2DA-4171-9526-12E08D71C52B" Type="Guid">AF7A1C8E-8A15-49CC-9F40-E647140B4059</XData>
+      <XData Name="TupleID" ID="59D70EF9-7A70-44E1-ADA0-F1A6A658F848" Type="Guid">11211A92-6D98-4C25-B234-7018A131248B</XData>
+      <XData Name="PKTypeID" ID="8F3E9777-A802-4A9F-B5B5-0D5D568E0365" Type="Guid">8C5DEBC0-4165-4429-B106-1554552F802E</XData>
+      <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+        <XLanguage IETFCode="pt-br" IsDefault="true">Job</XLanguage>
+      </XData>
+    </XValues>
+    <XORMPKField ID="3268D8B4-69D2-4127-B944-C9CE39025697" Name="CORxJobID">
+      <XValues>
+        <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">3</XData>
+        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+          <XLanguage IETFCode="pt-br" IsDefault="true">Job</XLanguage>
+        </XData>
+        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8C5DEBC0-4165-4429-B106-1554552F802E</XData>
+      </XValues>
+    </XORMPKField>
+    <XORMField Name="Nome" ID="54D55346-DDD2-4A68-BD6F-A31E39507538">
+      <XValues>
+        <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">4</XData>
+        <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=3;Y=24;Width=97.2033333333333;Height=21}</XData>
+        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+          <XLanguage IETFCode="pt-br" IsDefault="true">Nome</XLanguage>
+        </XData>
+        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8A656713-0DBB-4D25-9CF9-8DA0DBAD4E62</XData>
+        <XData Name="Length" ID="D1AEAA0E-9FC0-478D-9464-DF991F5CE009" Type="Int32">128</XData>
+      </XValues>
+    </XORMField>
+  </XORMTable>
+  <XORMTable Name="CORxJobConfiguracao" ID="93F1D6D7-8C2B-4C66-9FCD-0C0DFBB1FF0A">
+    <XValues>
+      <XData Name="ViewSize" ID="C61C1C4F-575D-4D38-A0A0-B517D7BFEAC0" Type="Size">{Width=175.933333333333;Height=69}</XData>
+      <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=879;Y=283;Width=175.933333333333;Height=69}</XData>
+      <XData Name="ServerID" ID="BDEEF13F-F93F-46EF-B418-9F43232537AB" Type="Guid">6941B6A2-F2B4-4ED7-9BE7-870B37B15D40</XData>
+      <XData Name="PKID" ID="4B2D51C5-A2DA-4171-9526-12E08D71C52B" Type="Guid">A8C6115A-4808-4A68-8909-24C293D5B84F</XData>
+      <XData Name="TupleID" ID="59D70EF9-7A70-44E1-ADA0-F1A6A658F848" Type="Guid">A4BBD626-0596-49CA-892E-B85381E3355E</XData>
+      <XData Name="PKTypeID" ID="8F3E9777-A802-4A9F-B5B5-0D5D568E0365" Type="Guid">8C5DEBC0-4165-4429-B106-1554552F802E</XData>
+      <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+        <XLanguage IETFCode="pt-br" IsDefault="true">Configurações</XLanguage>
+      </XData>
+    </XValues>
+    <XORMPKField ID="1D529768-3BF3-4B68-98D6-37B19C6755FD" Name="CORxJobConfiguracaoID">
+      <XValues>
+        <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">3</XData>
+        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+          <XLanguage IETFCode="pt-br" IsDefault="true">Configurações</XLanguage>
+        </XData>
+        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8C5DEBC0-4165-4429-B106-1554552F802E</XData>
+      </XValues>
+    </XORMPKField>
+    <XORMField Name="Dados" ID="1840E57E-A8E5-4F50-9856-EC69B8BB21D4">
+      <XValues>
+        <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">4</XData>
+        <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=3;Y=24;Width=167.933333333333;Height=21}</XData>
+        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">B678215D-317B-4E8D-861A-B4F6FCA8AF45</XData>
+        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+          <XLanguage IETFCode="pt-br" IsDefault="true">Dados</XLanguage>
+        </XData>
+      </XValues>
+    </XORMField>
+    <XORMFKField ID="34E57781-7F64-44F9-B5C1-2BD30E315A98" Name="CORxJobID">
+      <XValues>
+        <XData Name="OrderIndex" ID="5469955E-340A-40D3-A1AE-9C6122EE0BF9" Type="Int32">5</XData>
+        <XData Name="Title" ID="F9789344-AFE7-41A7-9D16-F4C22EAF190D" Type="String">
+          <XLanguage IETFCode="pt-br" IsDefault="true">Job</XLanguage>
+        </XData>
+        <XData Name="TypeID" ID="244BD6B3-4873-4957-A34D-FD97F7DBD90D" Type="Guid">8C5DEBC0-4165-4429-B106-1554552F802E</XData>
+        <XData Name="Rect" ID="F731FAEC-F42C-499C-AADB-71823B4600F3" Type="Rect">{X=3;Y=45;Width=167.933333333333;Height=21}</XData>
+        <XData Name="IsFK" ID="7CBD471F-E1F2-4A36-B0FC-A962000DF07F" Type="Boolean">true</XData>
+      </XValues>
+    </XORMFKField>
+  </XORMTable>
+  <XORMReference ID="F6BABB8A-554A-4A2C-AA9B-D16B8A9148F5">
+    <XValues>
+      <XLinkedShape Name="RightShape" ID="6461BED3-F1A0-4910-985D-9F0B0058D8BF" Side="0" X="0" Y="0" DesiredDegree="" ElementID="7A7C356F-A3B3-4CA4-9C24-F271B1F58EA7" Text="CORxJob" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.Core" DataEx="" Type="Guid">7A7C356F-A3B3-4CA4-9C24-F271B1F58EA7</XLinkedShape>
+      <XLinkedShape Name="LeftShape" ID="8A8851EB-B6CA-414F-B55A-C22A6A0F3753" Side="0" X="0" Y="0" DesiredDegree="" ElementID="34E57781-7F64-44F9-B5C1-2BD30E315A98" Text="CORxJobID" DocumentID="00000000-0000-0000-0000-000000000000" DocumentName="COR" ModuleID="00000000-0000-0000-0000-000000000000" ModuleName="STX.Core" DataEx="" Type="Guid">34E57781-7F64-44F9-B5C1-2BD30E315A98</XLinkedShape>
+      <XData Name="Points" ID="E2378CBF-8185-465D-8215-142922E96006" Type="Point[]">{X=882;Y=338.5}|{X=789;Y=338.5}|{X=789;Y=223}|{X=696;Y=223}</XData>
+      <XData Name="IndexID" ID="12E927CE-24EF-4DC0-93CF-E702064EB5A1" Type="Guid">FDE2EC9C-4E9E-44AE-B2D4-98384698AA03</XData>
+      <XData Name="Background" ID="7152B5B8-EE22-4D84-9EA1-50AA254DA63D" Type="Color">{A=255;R=240;G=255;B=255}</XData>
+    </XValues>
+  </XORMReference>
+</XORMDesigner>

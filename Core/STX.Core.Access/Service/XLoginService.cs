@@ -23,6 +23,16 @@ namespace STX.Core.Access.Service
     {
         private XCacheUser _Users = new XCacheUser();
 
+        public Guid ID
+        {
+            get; set;
+        }
+
+        public string Name
+        {
+            get; set;
+        }
+
         public XUserSession DoLogin(HttpContext pHttpContext, XUser pUser)
         {
             var session = XSessionCache.GetSession(pUser.SessionID);
@@ -91,6 +101,15 @@ namespace STX.Core.Access.Service
             }
             lock (_Users)
                 _Users.Swap(pUsers);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool pDisposing)
+        {
         }
     }
 }

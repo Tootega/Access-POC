@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using STX.Core.Reflections;
 using STX.Core.Model;
 using STX.Core.Interfaces;
-using STX.Access.Model;
+using STX.Core;
 using STX.Core.Services;
 
 namespace STX.App.Core.INF.Usuario
@@ -21,6 +22,16 @@ namespace STX.App.Core.INF.Usuario
         public XStringDataField Nome {get;set;}
         public XGuidDataField CORxPerfilID {get;set;}
         public XStringDataField PerfilNome {get;set;}
+        public override void Initialize()
+        {
+            Login = new XStringDataField();
+            CORxEstadoID = new XInt16DataField();
+            CORxUsuarioID = new XGuidDataField();
+            CORxPessoaID = new XGuidDataField();
+            Nome = new XStringDataField();
+            CORxPerfilID = new XGuidDataField();
+            PerfilNome = new XStringDataField();
+        }
     }
 
     public class UsuarioFilter : XFilter
@@ -44,7 +55,11 @@ namespace STX.App.Core.INF.Usuario
         void Flush(UsuarioDataSet pDataSet);
         UsuarioDataSet GetByPK(UsuarioRequest pRequest, Boolean pFull = true);
         UsuarioDataSet Select(UsuarioFilter pFilter, Boolean pFull = false);
-        UsuarioDataSet Select(UsuarioRequest pRequest, UsuarioFilter pFilter, Boolean pFull);
+        UsuarioDataSet Select(UsuarioRequest pRequest, UsuarioFilter pFilter, Boolean pFull = false);
+        UsuarioDataSet Select(Boolean pFull = false)
+        {
+            return Select(null, pFull);
+        }
     }
 
     public abstract class BaseUsuarioRule : XServiceRuleC<List<UsuarioTuple>, UsuarioFilter, UsuarioRequest>

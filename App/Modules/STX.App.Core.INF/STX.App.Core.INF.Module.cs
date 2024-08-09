@@ -13,10 +13,10 @@ namespace STX.App.Core.INF
     {
         public override void Initialize(IServiceCollection pServices)
         {
-            pServices.AddScoped<IUserManuService, UserManuService>();
-            pServices.AddScoped<IPerfilService, PerfilService>();
-            pServices.AddScoped<IPerfilDireitoService, PerfilDireitoService>();
-            pServices.AddScoped<IUsuarioService, UsuarioService>();
+            pServices.AddTransient<IUserManuService, UserManuService>();
+            pServices.AddTransient<IPerfilService, PerfilService>();
+            pServices.AddTransient<IPerfilDireitoService, PerfilDireitoService>();
+            pServices.AddTransient<IUsuarioService, UsuarioService>();
         }
     }
 }

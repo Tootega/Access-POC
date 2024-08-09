@@ -1,27 +1,97 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>STX.Access</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>STX.Core</RootNamespace>
+		<MyType>DASE</MyType>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.6" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
-        <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.40" />
-        <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
-    </ItemGroup>
+	<ItemGroup>
+	  <None Remove="STX.Core.dsmdl" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="STX.Core.dsmdl">
+	    <Generator>XDASEGenerator</Generator>
+	    <LastGenOutput>STX.Core.Module.cs</LastGenOutput>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Automateds\Configuracoes\ConfiguracaoJob.Controller.cs">
+	    <Visible>False</Visible>
+	    <DependentUpon>ConfiguracaoJob.dssvc</DependentUpon>
+	  </Compile>
+	  <Compile Update="Automateds\Configuracoes\ConfiguracaoJob.DataSet.cs">
+	    <Visible>False</Visible>
+	    <DependentUpon>ConfiguracaoJob.dssvc</DependentUpon>
+	  </Compile>
+	  <Compile Update="Automateds\Configuracoes\ConfiguracaoJob.Rule.cs">
+	    <Visible>True</Visible>
+	    <DependentUpon>ConfiguracaoJob.dssvc</DependentUpon>
+	  </Compile>
+	  <Compile Update="Automateds\Configuracoes\ConfiguracaoJob.Service.cs">
+	    <Visible>False</Visible>
+	    <DependentUpon>ConfiguracaoJob.dssvc</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="Automateds\Jobs\Job.Controller.cs">
+	    <Visible>False</Visible>
+	    <DependentUpon>Job.dssvc</DependentUpon>
+	  </Compile>
+	  <Compile Update="Automateds\Jobs\Job.DataSet.cs">
+	    <Visible>False</Visible>
+	    <DependentUpon>Job.dssvc</DependentUpon>
+	  </Compile>
+	  <Compile Update="Automateds\Jobs\Job.Rule.cs">
+	    <Visible>True</Visible>
+	    <DependentUpon>Job.dssvc</DependentUpon>
+	  </Compile>
+	  <Compile Update="Automateds\Jobs\Job.Service.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Job.dssvc</DependentUpon>
+	    <Visible>False</Visible>
+	  </Compile>
+	  <Compile Update="STX.Core.Module.cs">
+	    <Visible>False</Visible>
+	    <DependentUpon>STX.Core.dsmdl</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Automateds\Configuracoes\ConfiguracaoJob.dssvc">
+	    <Generator>XDASEGenerator</Generator>
+	    <LastGenOutput>ConfiguracaoJob.Service.cs</LastGenOutput>
+	  </None>
+	  <None Update="Automateds\Jobs\Job.dssvc">
+	    <Generator>XDASEGenerator</Generator>
+	    <LastGenOutput>Job.Service.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+
 </Project>

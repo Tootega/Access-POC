@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using STX.Core.Reflections;
 using STX.Core.Model;
 using STX.Core.Interfaces;
-using STX.Access.Model;
+using STX.Core;
 using STX.Core.Services;
 
 namespace STX.App.Core.INF.Perfil
@@ -21,6 +22,16 @@ namespace STX.App.Core.INF.Perfil
         public XInt16DataField SYSxEstadoID {get;set;}
         public XGuidDataField CORxPerfilDireiroID {get;set;}
         public XGuidDataField CORxRecursoDireitoID {get;set;}
+        public override void Initialize()
+        {
+            CORxPerfilID = new XGuidDataField();
+            Direito = new XStringDataField();
+            Estado = new XStringDataField();
+            Nome = new XStringDataField();
+            SYSxEstadoID = new XInt16DataField();
+            CORxPerfilDireiroID = new XGuidDataField();
+            CORxRecursoDireitoID = new XGuidDataField();
+        }
     }
 
     public class PerfilDireitoRequest : XRequest
@@ -32,7 +43,11 @@ namespace STX.App.Core.INF.Perfil
     {
         void Flush(PerfilDireitoDataSet pDataSet);
         PerfilDireitoDataSet GetByPK(PerfilDireitoRequest pRequest, Boolean pFull = true);
-        PerfilDireitoDataSet Select(PerfilDireitoRequest pRequest, Boolean pFull);
+        PerfilDireitoDataSet Select(PerfilDireitoRequest pRequest, Boolean pFull = false);
+        PerfilDireitoDataSet Select(Boolean pFull = false)
+        {
+            return Select(null, pFull);
+        }
     }
 
     public abstract class BasePerfilDireitoRule : XServiceRuleA<List<PerfilDireitoTuple>, PerfilDireitoRequest>

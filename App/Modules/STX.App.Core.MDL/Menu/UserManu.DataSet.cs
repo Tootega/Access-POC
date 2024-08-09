@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using STX.Core.Reflections;
 using STX.Core.Model;
 using STX.Core.Interfaces;
-using STX.Access.Model;
+using STX.Core;
 using STX.Core.Services;
 
 namespace STX.App.Core.INF.Menu
@@ -21,6 +22,16 @@ namespace STX.App.Core.INF.Menu
         public XStringDataField Icone {get;set;}
         public XGuidDataField CORxMenuItemID {get;set;}
         public XGuidDataField CORxMenuItemPaiID {get;set;}
+        public override void Initialize()
+        {
+            CORxRecursoID = new XGuidDataField();
+            Titulo = new XStringDataField();
+            Ordem = new XInt32DataField();
+            Modulo = new XStringDataField();
+            Icone = new XStringDataField();
+            CORxMenuItemID = new XGuidDataField();
+            CORxMenuItemPaiID = new XGuidDataField();
+        }
     }
 
     public class UserManuFilter : XFilter
@@ -41,7 +52,11 @@ namespace STX.App.Core.INF.Menu
     {
         UserManuDataSet GetByPK(UserManuRequest pRequest, Boolean pFull = true);
         UserManuDataSet Select(UserManuFilter pFilter, Boolean pFull = false);
-        UserManuDataSet Select(UserManuRequest pRequest, UserManuFilter pFilter, Boolean pFull);
+        UserManuDataSet Select(UserManuRequest pRequest, UserManuFilter pFilter, Boolean pFull = false);
+        UserManuDataSet Select(Boolean pFull = false)
+        {
+            return Select(null, pFull);
+        }
     }
 
     public abstract class BaseUserManuRule : XServiceRuleC<List<UserManuTuple>, UserManuFilter, UserManuRequest>
