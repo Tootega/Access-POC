@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core;
-using STX.Core.Access.DB;
 using STX.Core.Model;
 using STX.Core.Services;
+using STX.Core.Reflections;
 using STX.App.Core.INF.Perfil;
 using STX.App.Core.INF.DB;
 
 namespace STX.App.Core.INF.Perfil
 {
+    [XGuid("D4DEF071-9945-4D8E-936E-7A39E557CAD3", typeof(IPerfilDireitoService))]
     public class PerfilDireitoService : XService, IPerfilDireitoService
     {
         public class DBContext : XDBContext
@@ -180,6 +181,8 @@ namespace STX.App.Core.INF.Perfil
 
         private XIServiceRuleA _Rule;
 
+        public override Guid ID => new Guid("D4DEF071-9945-4D8E-936E-7A39E557CAD3");
+
         protected override XDBContext CreateContext(XDBContext pOwner)
         {
             return DBContext.Create(pOwner);
@@ -196,18 +199,16 @@ namespace STX.App.Core.INF.Perfil
         [HttpPost, Route("Flush")]
         public void Flush(PerfilDireitoDataSet pDataSet)
         {
-            using (var ctx = GetContext<DBContext>())
-            {
-                ctx.BeginTransaction();
-                _Rule?.InternalBeforeFlush(pDataSet.Tuples);
+            var ctx = GetContext<DBContext>();
+            ctx.BeginTransaction();
+            _Rule?.InternalBeforeFlush(pDataSet.Tuples);
 
-                SetPerfilDireitoValues(ctx, pDataSet);
-                ctx.SaveChanges();
+            SetPerfilDireitoValues(ctx, pDataSet);
+            ctx.SaveChanges();
 
-                _Rule?.InternalAfterFlush(pDataSet.Tuples);
+            _Rule?.InternalAfterFlush(pDataSet.Tuples);
 
-                ctx.Commit();
-            }
+            ctx.Commit();
         }
 
         private void SetPerfilDireitoValues(DBContext ctx, PerfilDireitoDataSet pDataSet)
@@ -219,23 +220,22 @@ namespace STX.App.Core.INF.Perfil
                 if (HasChanges(stpl, stpl.CORxPerfilDireiroID, stpl.CORxPerfilID, stpl.SYSxEstadoID, stpl.CORxRecursoDireitoID))
                 {
                     var CORxPerfilDireirotpl = new CORxPerfilDireiro();
-                    CORxPerfilDireirotpl.CORxPerfilDireiroID = (Guid)stpl.CORxPerfilDireiroID.Value;
-                    CORxPerfilDireirotpl.CORxPerfilID = (Guid)stpl.CORxPerfilID.Value;
-                    CORxPerfilDireirotpl.SYSxEstadoID = (Int16)stpl.SYSxEstadoID.Value;
-                    CORxPerfilDireirotpl.CORxRecursoDireitoID = (Guid)stpl.CORxRecursoDireitoID.Value;
-                    ctx.Add(CORxPerfilDireirotpl).State = GetState(stpl, stpl.CORxPerfilDireiroID, stpl.CORxPerfilID, stpl.SYSxEstadoID, stpl.CORxRecursoDireitoID);
+                    CORxPerfilDireirotpl.CORxPerfilDireiroID = stpl.CORxPerfilDireiroID.Value;
+                    CORxPerfilDireirotpl.CORxPerfilID = stpl.CORxPerfilID.Value;
+                    CORxPerfilDireirotpl.SYSxEstadoID = stpl.SYSxEstadoID.Value;
+                    CORxPerfilDireirotpl.CORxRecursoDireitoID = stpl.CORxRecursoDireitoID.Value;
+                    var tbl = ctx.CORxPerfilDireiro.Add(CORxPerfilDireirotpl);
+                    tbl.State = GetState(stpl, stpl.CORxPerfilDireiroID, stpl.CORxPerfilID, stpl.SYSxEstadoID, stpl.CORxRecursoDireitoID);
                 }
             }
         }
 
-        [HttpPost, Route("GetByPK")]
         public PerfilDireitoDataSet GetByPK(PerfilDireitoRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, pFull);
             return dataset;
         }
 
-        [HttpPost, Route("Select")]
         public PerfilDireitoDataSet Select(PerfilDireitoRequest pRequest, Boolean pFull)
         {
             var ctx = Context;

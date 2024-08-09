@@ -5,7 +5,7 @@ using STX.Core.Interfaces;
 
 using STX.Core.Model;
 
-namespace STX.Access.Model
+namespace STX.Core.Model
 {
     public class XFRMField
     {

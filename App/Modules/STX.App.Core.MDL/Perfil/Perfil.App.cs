@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core.Model;
 using STX.Core.Interfaces;
-using STX.Access.Model;
+using STX.Core;
 using STX.Core.Services;
 
 namespace STX.App.Core.INF.Perfil

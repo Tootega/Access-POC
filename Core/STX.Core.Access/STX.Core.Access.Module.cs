@@ -11,7 +11,7 @@ namespace STX.Core.Access
     {
         public override void Initialize(IServiceCollection pServices)
         {
-            pServices.AddScoped<IUsuariosAtivosService, UsuariosAtivosService>();
+            pServices.AddTransient<IUsuariosAtivosService, UsuariosAtivosService>();
         }
     }
 }

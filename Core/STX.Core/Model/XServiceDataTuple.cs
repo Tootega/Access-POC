@@ -20,5 +20,8 @@ namespace STX.Core.Model
         {
             get; set;
         }
+		public virtual void Initialize()
+		{
+		}
     }
 }

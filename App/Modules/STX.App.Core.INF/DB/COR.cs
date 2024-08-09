@@ -12,32 +12,68 @@ namespace STX.App.Core.INF.DB
     public class STXAppCoreINFContext : STXCoreAccessContext
     {
 
+        public STXAppCoreINFContext()
+            : this(new DbContextOptions<STXAppCoreINFContext>())
+        {
+        }
+
         protected STXAppCoreINFContext(DbContextOptions pOptions)
           : base(pOptions)
         {
-        
         }
 
         public STXAppCoreINFContext(DbContextOptions<STXAppCoreINFContext> pOptions)
           : base(pOptions)
         {
-        
         }
 
-        public DbSet<CORxDireiro> CORxDireiro{get; set;}
-        public DbSet<CORxEstado> CORxEstado{get; set;}
-        public DbSet<CORxMenuItem> CORxMenuItem{get; set;}
-        public DbSet<CORxPerfil> CORxPerfil{get; set;}
-        public DbSet<CORxPerfilDireiro> CORxPerfilDireiro{get; set;}
-        public DbSet<CORxPessoa> CORxPessoa{get; set;}
-        public DbSet<CORxRecurso> CORxRecurso{get; set;}
-        public DbSet<CORxRecursoDireito> CORxRecursoDireito{get; set;}
-        public DbSet<CORxTenat> CORxTenat{get; set;}
-        public DbSet<CORxUsuario> CORxUsuario{get; set;}
-        public DbSet<CORxUsuarioPerfil> CORxUsuarioPerfil{get; set;}
+        public DbSet<CORxDireiro> CORxDireiro
+        {
+            get; set;
+        }
+        public DbSet<CORxEstado> CORxEstado
+        {
+            get; set;
+        }
+        public DbSet<CORxMenuItem> CORxMenuItem
+        {
+            get; set;
+        }
+        public DbSet<CORxPerfil> CORxPerfil
+        {
+            get; set;
+        }
+        public DbSet<CORxPerfilDireiro> CORxPerfilDireiro
+        {
+            get; set;
+        }
+        public DbSet<CORxPessoa> CORxPessoa
+        {
+            get; set;
+        }
+        public DbSet<CORxRecurso> CORxRecurso
+        {
+            get; set;
+        }
+        public DbSet<CORxRecursoDireito> CORxRecursoDireito
+        {
+            get; set;
+        }
+        public DbSet<CORxTenat> CORxTenat
+        {
+            get; set;
+        }
+        public DbSet<CORxUsuario> CORxUsuario
+        {
+            get; set;
+        }
+        public DbSet<CORxUsuarioPerfil> CORxUsuarioPerfil
+        {
+            get; set;
+        }
         protected override void OnModelCreating(ModelBuilder pBuilder)
         {
-        base.OnModelCreating(pBuilder);
+            base.OnModelCreating(pBuilder);
             ConfigureCORxDireiro(pBuilder);
             ConfigureCORxEstado(pBuilder);
             ConfigureCORxMenuItem(pBuilder);
@@ -56,7 +92,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxDireiro>(ett =>
             {
                 ett.HasKey(e => e.CORxDireiroID).HasName("PK_CORxDireiro");
-                
+
                 ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Direito).HasColumnType(GetDBType("String", 45, 0));
                 ett.ToTable("CORxDireiro");
@@ -69,7 +105,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxEstado>(ett =>
             {
                 ett.HasKey(e => e.CORxEstadoID).HasName("PK_CORxEstado");
-                
+
                 ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
                 ett.Property(d => d.Estado).HasColumnType(GetDBType("String", 20, 0));
                 ett.ToTable("CORxEstado");
@@ -82,7 +118,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxMenuItem>(ett =>
             {
                 ett.HasKey(e => e.CORxMenuItemID).HasName("PK_CORxMenuItem");
-                
+
                 ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 50, 0));
                 ett.Property(d => d.CORxMenuItemPaiID).HasColumnType(GetDBType("Guid", 0, 0));
@@ -105,7 +141,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxPerfil>(ett =>
             {
                 ett.HasKey(e => e.CORxPerfilID).HasName("PK_CORxPerfil");
-                
+
                 ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 45, 0));
                 ett.ToTable("CORxPerfil");
@@ -118,7 +154,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxPerfilDireiro>(ett =>
             {
                 ett.HasKey(e => e.CORxPerfilDireiroID).HasName("PK_CORxPerfilDireiro");
-                
+
                 ett.Property(d => d.CORxPerfilDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
@@ -159,7 +195,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxPessoa>(ett =>
             {
                 ett.HasKey(e => e.CORxPessoaID).HasName("PK_CORxPessoa");
-                
+
                 ett.Property(d => d.CORxPessoaID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 256, 0));
                 ett.ToTable("CORxPessoa");
@@ -172,7 +208,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxRecurso>(ett =>
             {
                 ett.HasKey(e => e.CORxRecursoID).HasName("PK_CORxRecurso");
-                
+
                 ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 128, 0));
                 ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
@@ -194,7 +230,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxRecursoDireito>(ett =>
             {
                 ett.HasKey(e => e.CORxRecursoDireitoID).HasName("PK_CORxRecursoDireito");
-                
+
                 ett.Property(d => d.CORxRecursoDireitoID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid", 0, 0));
@@ -235,7 +271,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxTenat>(ett =>
             {
                 ett.HasKey(e => e.CORxTenatID).HasName("PK_CORxTenat");
-                
+
                 ett.Property(d => d.CORxTenatID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.ToTable("CORxTenat");
 
@@ -254,7 +290,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxUsuario>(ett =>
             {
                 ett.HasKey(e => e.CORxUsuarioID).HasName("PK_CORxUsuario");
-                
+
                 ett.Property(d => d.CORxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxPessoaID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
@@ -290,7 +326,7 @@ namespace STX.App.Core.INF.DB
             pBuilder.Entity<CORxUsuarioPerfil>(ett =>
             {
                 ett.HasKey(e => e.CORxUsuarioPerfilID).HasName("PK_CORxUsuarioPerfil");
-                
+
                 ett.Property(d => d.CORxUsuarioPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
                 ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));

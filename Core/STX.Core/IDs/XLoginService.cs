@@ -14,10 +14,17 @@ using STX.Core.Interfaces;
 
 namespace STX.Core.IDs
 {
-    public class XLoginService : XILoginService
+	public class XLoginService : XILoginService
     {
+		public Guid ID => throw new NotImplementedException();
 
-        public XUserSession DoLogin(HttpContext pHttpContext, XUser pUser)
+		public string Name => throw new NotImplementedException();
+
+		public void Dispose()
+		{
+		}
+
+		public XUserSession DoLogin(HttpContext pHttpContext, XUser pUser)
         {
             var session = XSessionCache.GetSession(pUser.ID);
             if (session != null)

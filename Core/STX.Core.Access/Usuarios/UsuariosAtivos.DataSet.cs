@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using STX.Core.Reflections;
 using STX.Core.Model;
 using STX.Core.Interfaces;
-using STX.Access.Model;
+using STX.Core;
 using STX.Core.Services;
 
 namespace STX.Core.Access.Usuarios
@@ -17,6 +18,12 @@ namespace STX.Core.Access.Usuarios
         public XGuidDataField TAFxUsuarioID {get;set;}
         public XStringDataField Login {get;set;}
         public XInt16DataField CORxEstadoID {get;set;}
+        public override void Initialize()
+        {
+            TAFxUsuarioID = new XGuidDataField();
+            Login = new XStringDataField();
+            CORxEstadoID = new XInt16DataField();
+        }
     }
 
     public class UsuariosAtivosFilter : XFilter
@@ -40,7 +47,11 @@ namespace STX.Core.Access.Usuarios
         void Flush(UsuariosAtivosDataSet pDataSet);
         UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true);
         UsuariosAtivosDataSet Select(UsuariosAtivosFilter pFilter, Boolean pFull = false);
-        UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull);
+        UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull = false);
+        UsuariosAtivosDataSet Select(Boolean pFull = false)
+        {
+            return Select(null, pFull);
+        }
     }
 
     public abstract class BaseUsuariosAtivosRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>

@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core;
-using STX.Core.Access.DB;
 using STX.Core.Model;
 using STX.Core.Services;
+using STX.Core.Reflections;
 using STX.App.Core.INF.Menu;
 using STX.App.Core.INF.DB;
 
 namespace STX.App.Core.INF.Menu
 {
+    [XGuid("5C11C1D6-9D9D-4BD3-8D36-9B5032B7D970", typeof(IUserManuService))]
     public class UserManuService : XService, IUserManuService
     {
         public class DBContext : XDBContext
@@ -95,6 +96,8 @@ namespace STX.App.Core.INF.Menu
 
         private XIServiceRuleC _Rule;
 
+        public override Guid ID => new Guid("5C11C1D6-9D9D-4BD3-8D36-9B5032B7D970");
+
         protected override XDBContext CreateContext(XDBContext pOwner)
         {
             return DBContext.Create(pOwner);
@@ -108,7 +111,6 @@ namespace STX.App.Core.INF.Menu
             }
         }
 
-        [HttpPost, Route("GetByPK")]
         public UserManuDataSet GetByPK(UserManuRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -121,7 +123,6 @@ namespace STX.App.Core.INF.Menu
             return dataset;
         }
 
-        [HttpPost, Route("Select")]
         public UserManuDataSet Select(UserManuRequest pRequest, UserManuFilter pFilter, Boolean pFull)
         {
             var ctx = Context;

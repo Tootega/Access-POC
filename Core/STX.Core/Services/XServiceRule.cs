@@ -5,178 +5,192 @@ using Microsoft.Extensions.Logging;
 
 namespace STX.Core.Services
 {
-    public interface XIServiceRuleA : XIServiceRule
-    {
-        IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Boolean pFull);
-    }
+	public interface XIBaseServiceRule
+	{
+	}
+	public interface XIJobServiceRule : XIBaseServiceRule
+	{
+		void Execute()
+		{
+		}
 
-    public interface XIServiceRuleB : XIServiceRule
-    {
-        IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pFilter, Boolean pFull);
-    }
+		void InternalExecute()
+		{
+		}
+	}
 
-    public interface XIServiceRuleC : XIServiceRule
-    {
-        IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Object pFilter, Boolean pFull);
-    }
 
-    public interface XIServiceRule
-    {
-        void InternalAfterSelect(Object pTuples);
+	public interface XIServiceRule : XIBaseServiceRule
+	{
+		void InternalAfterSelect(Object pTuples);
 
-        void InternalAfterFlush(Object pTuples);
+		void InternalAfterFlush(Object pTuples);
 
-        void InternalBeforeFlush(Object pTuples);
+		void InternalBeforeFlush(Object pTuples);
 
-        IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery);
-    }
+		IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery);
+	}
+	public interface XIServiceRuleA : XIServiceRule
+	{
+		IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Boolean pFull);
+	}
 
-    public abstract class XServiceRuleA<T, TPK> : XServiceRule<T>, XIServiceRuleA
-    {
+	public interface XIServiceRuleB : XIServiceRule
+	{
+		IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pFilter, Boolean pFull);
+	}
 
-        public XServiceRuleA(XService pService)
-            : base(pService)
-        {
-        }
+	public interface XIServiceRuleC : XIServiceRule
+	{
+		IQueryable<TQuery> InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Object pFilter, Boolean pFull);
+	}
+	public abstract class XServiceRuleA<T, TPK> : XServiceRule<T>, XIServiceRuleA
+	{
 
-        void XIServiceRule.InternalAfterFlush(Object pTuples)
-        {
-        }
+		public XServiceRuleA(XService pService)
+			: base(pService)
+		{
+		}
 
-        void XIServiceRule.InternalAfterSelect(Object pTuples)
-        {
-        }
+		void XIServiceRule.InternalAfterFlush(Object pTuples)
+		{
+		}
 
-        IQueryable<TQuery> XIServiceRuleA.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Boolean pFull)
-        {
-            return GetWhere(pQuery, (TPK)pPKValue, pFull);
-        }
+		void XIServiceRule.InternalAfterSelect(Object pTuples)
+		{
+			AfterSelect((T)pTuples);
+		}
 
-        protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery, TPK pPKValue, bool pFull)
-        {
-            return pQuery;
-        }
-        protected override sealed IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
-        {
-            return pQuery;
-        }
-    }
+		IQueryable<TQuery> XIServiceRuleA.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Boolean pFull)
+		{
+			return GetWhere(pQuery, (TPK)pPKValue, pFull);
+		}
 
-    public abstract class XServiceRuleB<T, TF> : XServiceRule<T>, XIServiceRuleB
-    {
-        public XServiceRuleB(XService pService)
-            : base(pService)
-        {
-        }
+		protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery, TPK pPKValue, bool pFull)
+		{
+			return pQuery;
+		}
+		protected override sealed IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
+		{
+			return pQuery;
+		}
+	}
 
-        void XIServiceRule.InternalAfterFlush(object pTuples)
-        {
-        }
+	public abstract class XServiceRuleB<T, TF> : XServiceRule<T>, XIServiceRuleB
+	{
+		public XServiceRuleB(XService pService)
+			: base(pService)
+		{
+		}
 
-        void XIServiceRule.InternalAfterSelect(object pTuples)
-        {
-        }
+		void XIServiceRule.InternalAfterFlush(object pTuples)
+		{
+		}
 
-        IQueryable<TQuery> XIServiceRuleB.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pFilter, Boolean pFull)
-        {
-            return GetWhere(pQuery, (TF)pFilter, pFull);
-        }
+		void XIServiceRule.InternalAfterSelect(object pTuples)
+		{
+		}
 
-        protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery, TF pFilter, Boolean pFull)
-        {
-            return pQuery;
-        }
-        protected override sealed IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
-        {
-            return pQuery;
-        }
-    }
+		IQueryable<TQuery> XIServiceRuleB.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pFilter, Boolean pFull)
+		{
+			return GetWhere(pQuery, (TF)pFilter, pFull);
+		}
 
-    public abstract class XServiceRuleC<T, TF, TPK> : XServiceRule<T>, XIServiceRuleC
-    {
+		protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery, TF pFilter, Boolean pFull)
+		{
+			return pQuery;
+		}
+		protected override sealed IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
+		{
+			return pQuery;
+		}
+	}
 
-        public XServiceRuleC(XService pService)
-            : base(pService)
-        {
-        }
+	public abstract class XServiceRuleC<T, TF, TPK> : XServiceRule<T>, XIServiceRuleC
+	{
 
-        IQueryable<TQuery> XIServiceRuleC.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Object pFilter, Boolean pFull)
-        {
-            return GetWhere(pQuery, (TPK)pPKValue, (TF)pFilter, pFull);
-        }
+		public XServiceRuleC(XService pService)
+			: base(pService)
+		{
+		}
 
-        protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery, TPK pPKValue, TF pFilter, Boolean pFull)
-        {
-            return pQuery;
-        }
+		IQueryable<TQuery> XIServiceRuleC.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery, Object pPKValue, Object pFilter, Boolean pFull)
+		{
+			return GetWhere(pQuery, (TPK)pPKValue, (TF)pFilter, pFull);
+		}
 
-        protected override sealed IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
-        {
-            return pQuery;
-        }
-    }
+		protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery, TPK pPKValue, TF pFilter, Boolean pFull)
+		{
+			return pQuery;
+		}
 
-    public abstract class XServiceRule<T> : XIServiceRule
-    {
+		protected override sealed IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
+		{
+			return pQuery;
+		}
+	}
 
-        public XServiceRule(XService pService)
-        {
-            Service = pService;
-            Log = pService.Logger;
-        }
+	public abstract class XServiceRule<T> : XIServiceRule
+	{
 
-        protected virtual T New()
-        {
-            return default;
-        }
+		public XServiceRule(XService pService)
+		{
+			Service = pService;
+			Log = pService.Logger;
+		}
 
-        protected ILogger Log;
+		protected virtual T New()
+		{
+			return default;
+		}
 
-        void XIServiceRule.InternalAfterFlush(Object pTuples)
-        {
-            AfterFlush((T)pTuples);
-        }
-        void XIServiceRule.InternalBeforeFlush(Object pTuples)
-        {
-            BeforeFlush((T)pTuples);
-        }
+		protected ILogger Log;
 
-        void XIServiceRule.InternalAfterSelect(Object pTuples)
-        {
-            AfterSelect((T)pTuples);
-        }
+		void XIServiceRule.InternalAfterFlush(Object pTuples)
+		{
+			AfterFlush((T)pTuples);
+		}
+		void XIServiceRule.InternalBeforeFlush(Object pTuples)
+		{
+			BeforeFlush((T)pTuples);
+		}
 
-        IQueryable<TQuery> XIServiceRule.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery)
-        {
-            return GetWhere(pQuery);
-        }
+		void XIServiceRule.InternalAfterSelect(Object pTuples)
+		{
+			AfterSelect((T)pTuples);
+		}
 
-        protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
-        {
-            return pQuery;
-        }
+		IQueryable<TQuery> XIServiceRule.InternalGetWhere<TQuery>(IQueryable<TQuery> pQuery)
+		{
+			return GetWhere(pQuery);
+		}
 
-        public XService Service
-        {
-            get;
-        }
+		protected virtual IQueryable<TQuery> GetWhere<TQuery>(IQueryable<TQuery> pQuery)
+		{
+			return pQuery;
+		}
 
-        protected virtual void AfterSelect(T pTuples)
-        {
-        }
+		public XService Service
+		{
+			get;
+		}
 
-        protected virtual void AfterFlush(T pTuples)
-        {
-        }
+		protected virtual void AfterSelect(T pTuples)
+		{
+		}
 
-        protected virtual void BeforeFlush(T pTuples)
-        {
-        }
+		protected virtual void AfterFlush(T pTuples)
+		{
+		}
 
-        protected TService GetConttroler<TService>() where TService : XService
-        {
-            var ctl = typeof(TService).CreateInstance<TService>(this.Service);
-            return ctl;
-        }
-    }
+		protected virtual void BeforeFlush(T pTuples)
+		{
+		}
+
+		protected TService GetConttroler<TService>() where TService : XService
+		{
+			var ctl = typeof(TService).CreateInstance<TService>(this.Service);
+			return ctl;
+		}
+	}
 }

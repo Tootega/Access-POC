@@ -7,14 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using STX.Core;
-using STX.Core.Access.DB;
 using STX.Core.Model;
 using STX.Core.Services;
+using STX.Core.Reflections;
 using STX.App.Core.INF.Usuario;
+using STX.Core.Access.DB;
 using STX.App.Core.INF.DB;
 
 namespace STX.App.Core.INF.Usuario
 {
+    [XGuid("6085BE9F-D34A-487E-8A8A-36F711C8F9EF", typeof(IUsuarioService))]
     public class UsuarioService : XService, IUsuarioService
     {
         public class DBContext : XDBContext
@@ -126,6 +128,8 @@ namespace STX.App.Core.INF.Usuario
 
         private XIServiceRuleC _Rule;
 
+        public override Guid ID => new Guid("6085BE9F-D34A-487E-8A8A-36F711C8F9EF");
+
         protected override XDBContext CreateContext(XDBContext pOwner)
         {
             return DBContext.Create(pOwner);
@@ -142,18 +146,16 @@ namespace STX.App.Core.INF.Usuario
         [HttpPost, Route("Flush")]
         public void Flush(UsuarioDataSet pDataSet)
         {
-            using (var ctx = GetContext<DBContext>())
-            {
-                ctx.BeginTransaction();
-                _Rule?.InternalBeforeFlush(pDataSet.Tuples);
+            var ctx = GetContext<DBContext>();
+            ctx.BeginTransaction();
+            _Rule?.InternalBeforeFlush(pDataSet.Tuples);
 
-                SetUsuarioValues(ctx, pDataSet);
-                ctx.SaveChanges();
+            SetUsuarioValues(ctx, pDataSet);
+            ctx.SaveChanges();
 
-                _Rule?.InternalAfterFlush(pDataSet.Tuples);
+            _Rule?.InternalAfterFlush(pDataSet.Tuples);
 
-                ctx.Commit();
-            }
+            ctx.Commit();
         }
 
         private void SetUsuarioValues(DBContext ctx, UsuarioDataSet pDataSet)
@@ -165,32 +167,34 @@ namespace STX.App.Core.INF.Usuario
                 if (HasChanges(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID, stpl.CORxPerfilID))
                 {
                     var CORxUsuariotpl = new CORxUsuario();
-                    CORxUsuariotpl.CORxUsuarioID = (Guid)stpl.CORxUsuarioID.Value;
-                    CORxUsuariotpl.CORxPessoaID = (Guid)stpl.CORxPessoaID.Value;
-                    CORxUsuariotpl.CORxPerfilID = (Guid)stpl.CORxPerfilID.Value;
-                    ctx.Add(CORxUsuariotpl).State = GetState(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID, stpl.CORxPerfilID);
+                    CORxUsuariotpl.CORxUsuarioID = stpl.CORxUsuarioID.Value;
+                    CORxUsuariotpl.CORxPessoaID = stpl.CORxPessoaID.Value;
+                    CORxUsuariotpl.CORxPerfilID = stpl.CORxPerfilID.Value;
+                    var tbl = ctx.CORxUsuario.Add(CORxUsuariotpl);
+                    tbl.State = GetState(stpl, stpl.CORxUsuarioID, stpl.CORxPessoaID, stpl.CORxPerfilID);
                 }
 
                 if (HasChanges(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID))
                 {
                     var TAFxUsuariotpl = new TAFxUsuario();
-                    TAFxUsuariotpl.TAFxUsuarioID = (Guid)stpl.CORxUsuarioID.Value;
-                    TAFxUsuariotpl.Login = (String)stpl.Login.Value;
-                    TAFxUsuariotpl.CORxEstadoID = (Int16)stpl.CORxEstadoID.Value;
-                    ctx.Add(TAFxUsuariotpl).State = GetState(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID);
+                    TAFxUsuariotpl.TAFxUsuarioID = stpl.CORxUsuarioID.Value;
+                    TAFxUsuariotpl.Login = stpl.Login.Value;
+                    TAFxUsuariotpl.CORxEstadoID = stpl.CORxEstadoID.Value;
+                    var tbl = ctx.TAFxUsuario.Add(TAFxUsuariotpl);
+                    tbl.State = GetState(stpl, stpl.CORxUsuarioID, stpl.Login, stpl.CORxEstadoID);
                 }
 
                 if (HasChanges(stpl, stpl.CORxPessoaID, stpl.Nome))
                 {
                     var CORxPessoatpl = new CORxPessoa();
-                    CORxPessoatpl.CORxPessoaID = (Guid)stpl.CORxPessoaID.Value;
-                    CORxPessoatpl.Nome = (String)stpl.Nome.Value;
-                    ctx.Add(CORxPessoatpl).State = GetState(stpl, stpl.CORxPessoaID, stpl.Nome);
+                    CORxPessoatpl.CORxPessoaID = stpl.CORxPessoaID.Value;
+                    CORxPessoatpl.Nome = stpl.Nome.Value;
+                    var tbl = ctx.CORxPessoa.Add(CORxPessoatpl);
+                    tbl.State = GetState(stpl, stpl.CORxPessoaID, stpl.Nome);
                 }
             }
         }
 
-        [HttpPost, Route("GetByPK")]
         public UsuarioDataSet GetByPK(UsuarioRequest pRequest, Boolean pFull = true)
         {
             var dataset = Select(pRequest, null, pFull);
@@ -203,7 +207,6 @@ namespace STX.App.Core.INF.Usuario
             return dataset;
         }
 
-        [HttpPost, Route("Select")]
         public UsuarioDataSet Select(UsuarioRequest pRequest, UsuarioFilter pFilter, Boolean pFull)
         {
             var ctx = Context;
