@@ -1,11 +1,11 @@
 using System;
 using System.Text.Json.Serialization;
 
-using STX.Core.Interfaces;
+using TFX.Core.Interfaces;
 
-using STX.Core.Model;
+using TFX.Core.Model;
 
-namespace STX.Core.Model
+namespace TFX.Core.Model
 {
     public class XFRMField
     {

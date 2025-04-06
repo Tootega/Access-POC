@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core.Model;
-using STX.Core.Interfaces;
-using STX.Core;
-using STX.Core.Services;
+using TFX.Core.Model;
+using TFX.Core.Interfaces;
+using TFX.Core;
+using TFX.Core.Services;
 
-namespace STX.App.Core.INF.Perfil
+namespace TFX.App.Core.INF.Perfil
 {
 
     public class PerfilApp : XSAMApplication
@@ -24,7 +24,7 @@ namespace STX.App.Core.INF.Perfil
         public PerfilApp()
         {
             Title = "Perfil de Acesso";
-            Module = "STX.App.Core.INF";
+            Module = "TFX.App.Core.INF";
             Icon = "";
             MenuID = new Guid("99DF499E-844F-47EE-AEE6-C6462B18A3E0");
             Ordem = 1;

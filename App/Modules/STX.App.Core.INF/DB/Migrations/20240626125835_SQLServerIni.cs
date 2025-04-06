@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.EntityFrameworkCore.Migrations;
 
@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace STX.App.Core.INF.DB.Migrations
+namespace TFX.App.Core.INF.DB.Migrations
 {
     /// <inheritdoc />
     public partial class SQLServerIni : Migration

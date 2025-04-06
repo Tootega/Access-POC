@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core.Model;
-using STX.Core.Interfaces;
-using STX.Core;
-using STX.Core.Services;
+using TFX.Core.Model;
+using TFX.Core.Interfaces;
+using TFX.Core;
+using TFX.Core.Services;
 
-namespace STX.App.Core.INF.Usuario
+namespace TFX.App.Core.INF.Usuario
 {
 
     public class UsuarioApp : XSAMApplication
@@ -41,7 +41,7 @@ namespace STX.App.Core.INF.Usuario
         public UsuarioApp()
         {
             Title = "Cadastro de Usuários";
-            Module = "STX.App.Core.INF";
+            Module = "TFX.App.Core.INF";
             Icon = "";
             MenuID = new Guid("E678FE01-3FE3-45E6-A3FF-1AAD064D3745");
             Ordem = 1;

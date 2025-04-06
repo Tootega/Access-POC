@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace STX.Core.Model
+namespace TFX.Core.Model
 {
     public abstract class XModule
     {

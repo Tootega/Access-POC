@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using STX.Core.IDs.Model;
+using TFX.Core.IDs.Model;
 
-namespace STX.Core.Access.Service
+namespace TFX.Core.Access.Service
 {
     public class XCacheUser
     {

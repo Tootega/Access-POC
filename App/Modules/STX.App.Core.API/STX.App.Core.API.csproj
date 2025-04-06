@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
+      <ProjectReference Include="..\TFX.App.Core.MDL\TFX.App.Core.MDL.csproj" />
     </ItemGroup>
 
     <ItemGroup>

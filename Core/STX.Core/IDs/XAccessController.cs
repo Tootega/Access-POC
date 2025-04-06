@@ -4,12 +4,12 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-using STX.Core.Authorize;
-using STX.Core.Cache;
-using STX.Core.Controllers;
-using STX.Core.IDs.Model;
+using TFX.Core.Authorize;
+using TFX.Core.Cache;
+using TFX.Core.Controllers;
+using TFX.Core.IDs.Model;
 
-namespace STX.Core.IDs
+namespace TFX.Core.IDs
 {
     [ApiController]
     [XStopwatch]

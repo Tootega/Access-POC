@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-using STX.Core.Services;
+using TFX.Core.Services;
 
-namespace STX.App.Core.INF.Menu
+namespace TFX.App.Core.INF.Menu
 {
     public class UserManuRule : BaseUserManuRule
     {

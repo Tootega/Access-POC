@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace STX.Core.Test.Interfaces
+namespace TFX.Core.Test.Interfaces
 {
     public interface XIWSBaseElement
     {

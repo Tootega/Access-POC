@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading;
 
-namespace STX.Core
+namespace TFX.Core
 {
     public static class XDefault
     {

@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using STX.Core.Exceptions;
-using STX.Core.Interfaces;
+using TFX.Core.Exceptions;
+using TFX.Core.Interfaces;
 
-namespace STX.Core
+namespace TFX.Core
 {
 	public abstract class XEntity : XIReflectable
 	{

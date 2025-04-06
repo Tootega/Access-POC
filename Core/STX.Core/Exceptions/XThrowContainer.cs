@@ -1,6 +1,6 @@
 using System;
 
-namespace STX.Core.Exceptions
+namespace TFX.Core.Exceptions
 {
     [Serializable]
     public class XThrowContainer : Exception

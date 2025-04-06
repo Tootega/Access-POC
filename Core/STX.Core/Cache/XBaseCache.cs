@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using STX.Core.IDs.Model;
+using TFX.Core.IDs.Model;
 
-namespace STX.Core.Cache
+namespace TFX.Core.Cache
 {
 	public class XBaseCache<Key, Data>
 	{

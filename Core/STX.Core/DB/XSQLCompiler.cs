@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using STX.Core.Exceptions;
+using TFX.Core.Exceptions;
 
-namespace STX.Core.DB
+namespace TFX.Core.DB
 {
 	public enum XToRemove
     {

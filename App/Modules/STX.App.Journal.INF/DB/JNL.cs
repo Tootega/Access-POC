@@ -4,30 +4,216 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using STX.Core;
+using TFX.Core;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using TFX.Core.Lzma;
+using TFX.App.Core.INF.DB;
+using TFX.Core.Access.DB;
 
-namespace STX.App.Journal.INF.DB
+namespace TFX.App.Journal.INF.DB
 {
-    public class STXAppJournalINFContext : XDBContext
+    public class TFXAppJournalINFContext : XDBContext
     {
+        #region _JNLxAcao
 
-        protected STXAppJournalINFContext(DbContextOptions pOptions)
+        internal class _JNLxAcao
+        {
+            public class XDefault
+            {
+                private static Dictionary<Int16, _JNLxAcao> _SeedData = new Dictionary<Int16, _JNLxAcao>()
+                {
+                    [(Int16)2] = new _JNLxAcao { JNLxAcaoID = (Int16)2, Acao = @"Alteração" },
+                    [(Int16)3] = new _JNLxAcao { JNLxAcaoID = (Int16)3, Acao = @"Deleção" },
+                    [(Int16)1] = new _JNLxAcao { JNLxAcaoID = (Int16)1, Acao = @"Inserção" }
+                };
+                public static _JNLxAcao[] SeedData => _SeedData.Values.ToArray();
+            }
+            [Display(Name = "Ação")]
+            [MaxLength(15)]
+            [Required()]
+            public String Acao {get; set;}
+            public Boolean IsPKEmpty => Object.Equals(JNLxAcaoID, typeof(Int16).GetDefault());
+            [Display(Name = "Ação")]
+            [Required()]
+            [DatabaseGenerated(DatabaseGeneratedOption.None)]
+            public Int16 JNLxAcaoID {get; set;}
+            public List<_JNLxRevisao> JNLxRevisao {get; set;} = new List<_JNLxRevisao>();
+        }
+
+        #endregion _JNLxAcao
+
+        #region _JNLxCampo
+
+        internal class _JNLxCampo
+        {
+            [MaxLength(128)]
+            [Required()]
+            public String Campo {get; set;}
+            [Required()]
+            public Int32 Escala {get; set;}
+            public Boolean IsPKEmpty => Object.Equals(JNLxCampoID, typeof(Guid).GetDefault());
+            [Display(Name = "Campo")]
+            [Required()]
+            public Guid? JNLxCampoID {get; set;}
+            [Display(Name = "Tabela")]
+            [Required()]
+            public Guid JNLxTabelaID {get; set;}
+            [Display(Name = "É Chave")]
+            [Required()]
+            public Boolean PK {get; set;}
+            [Display(Name = "Estado")]
+            [Required()]
+            public Int16 SYSxEstadoID {get; set;}
+            [Required()]
+            public Int32 Tamanho {get; set;}
+            [MaxLength(128)]
+            [Required()]
+            public String Tipo {get; set;}
+            public _JNLxTabela JNLxTabela {get; set;}
+            public _CORxEstado CORxEstado {get; set;}
+        }
+
+        #endregion _JNLxCampo
+
+        #region _JNLxPesquisa
+
+        internal class _JNLxPesquisa
+        {
+            [Display(Name = "Consulta ao Jornal")]
+            [Required()]
+            public Byte[] Consulta {get; set;}
+            [NotMapped]
+            public Byte[] ConsultaArray
+            {
+                get
+                {
+                    return XLzma.Decode(Consulta);
+                }
+                set
+                {
+                    Consulta = XLzma.Encode(value);
+                }
+            }
+            [Display(Name = "Consulta Tabela de Dados")]
+            [Required()]
+            public Byte[] ConsultaDado {get; set;}
+            [NotMapped]
+            public Byte[] ConsultaDadoArray
+            {
+                get
+                {
+                    return XLzma.Decode(ConsultaDado);
+                }
+                set
+                {
+                    ConsultaDado = XLzma.Encode(value);
+                }
+            }
+            public Boolean IsPKEmpty => Object.Equals(JNLxPesquisaID, typeof(Guid).GetDefault());
+            [Display(Name = "Pesquisa")]
+            [Required()]
+            public Guid? JNLxPesquisaID {get; set;}
+            [Display(Name = "Tabela")]
+            [Required()]
+            public Guid JNLxTabelaID {get; set;}
+            [MaxLength(80)]
+            [Required()]
+            public String Nome {get; set;}
+            public _JNLxTabela JNLxTabela {get; set;}
+        }
+
+        #endregion _JNLxPesquisa
+
+        #region _JNLxRevisao
+
+        internal class _JNLxRevisao
+        {
+            [MaxLength(100)]
+            [Required()]
+            public String App {get; set;}
+            [Display(Name = "Tenat")]
+            [Required()]
+            public Guid CORxTenatID {get; set;}
+            [Required()]
+            public DateTime Data {get; set;}
+            [MaxLength(50)]
+            [Required()]
+            public String Host {get; set;}
+            [Display(Name = "Ação")]
+            [Required()]
+            public Int16 JNLxAcaoID {get; set;}
+            public Boolean IsPKEmpty => Object.Equals(JNLxRevisaoID, typeof(Int64).GetDefault());
+            [Display(Name = "Revisão")]
+            [Required()]
+            [DatabaseGenerated(DatabaseGeneratedOption.None)]
+            public Int64 JNLxRevisaoID {get; set;}
+            [Display(Name = "Tabela")]
+            [Required()]
+            public Guid JNLxTabelaID {get; set;}
+            [Display(Name = "Usuários")]
+            [Required()]
+            public Guid TAFxUsuarioID {get; set;}
+            [Display(Name = "Transação")]
+            [Required()]
+            public Guid Transacao {get; set;}
+            public _JNLxTabela JNLxTabela {get; set;}
+            public _TAFxUsuario TAFxUsuario {get; set;}
+            public _CORxTenat CORxTenat {get; set;}
+            public _JNLxAcao JNLxAcao {get; set;}
+        }
+
+        #endregion _JNLxRevisao
+
+        #region _JNLxTabela
+
+        internal class _JNLxTabela
+        {
+            [Display(Name = "Nome Chave Primária")]
+            [MaxLength(128)]
+            [Required()]
+            public String CampoPK {get; set;}
+            public Boolean IsPKEmpty => Object.Equals(JNLxTabelaID, typeof(Guid).GetDefault());
+            [Display(Name = "Tabela")]
+            [Required()]
+            public Guid? JNLxTabelaID {get; set;}
+            [Display(Name = "Estado")]
+            [Required()]
+            public Int16 SYSxEstadoID {get; set;}
+            [MaxLength(128)]
+            [Required()]
+            public String Tabela {get; set;}
+            [Display(Name = "Tipo Chave")]
+            [MaxLength(128)]
+            [Required()]
+            public String TipoPK {get; set;}
+            public _CORxEstado CORxEstado {get; set;}
+            public List<_JNLxCampo> JNLxCampo {get; set;} = new List<_JNLxCampo>();
+            public List<_JNLxPesquisa> JNLxPesquisa {get; set;} = new List<_JNLxPesquisa>();
+            public List<_JNLxRevisao> JNLxRevisao {get; set;} = new List<_JNLxRevisao>();
+        }
+
+        #endregion _JNLxTabela
+
+
+        protected TFXAppJournalINFContext(DbContextOptions pOptions)
           : base(pOptions)
         {
         
         }
 
-        public STXAppJournalINFContext(DbContextOptions<STXAppJournalINFContext> pOptions)
+        public TFXAppJournalINFContext(DbContextOptions<TFXAppJournalINFContext> pOptions)
           : base(pOptions)
         {
         
         }
 
-        public DbSet<JNLxAcao> JNLxAcao{get; set;}
-        public DbSet<JNLxCampo> JNLxCampo{get; set;}
-        public DbSet<JNLxPesquisa> JNLxPesquisa{get; set;}
-        public DbSet<JNLxRevisao> JNLxRevisao{get; set;}
-        public DbSet<JNLxTabela> JNLxTabela{get; set;}
+        internal DbSet<_JNLxAcao> JNLxAcao{get; set;}
+        internal DbSet<_JNLxCampo> JNLxCampo{get; set;}
+        internal DbSet<_JNLxPesquisa> JNLxPesquisa{get; set;}
+        internal DbSet<_JNLxRevisao> JNLxRevisao{get; set;}
+        internal DbSet<_JNLxTabela> JNLxTabela{get; set;}
         protected override void OnModelCreating(ModelBuilder pBuilder)
         {
             ConfigureJNLxAcao(pBuilder);
@@ -39,31 +225,31 @@ namespace STX.App.Journal.INF.DB
 
         private void ConfigureJNLxAcao(ModelBuilder pBuilder)
         {
-            pBuilder.Entity<JNLxAcao>(ett =>
+            pBuilder.Entity<_JNLxAcao>(ett =>
             {
                 ett.HasKey(e => e.JNLxAcaoID).HasName("PK_JNLxAcao");
                 
-                ett.Property(d => d.JNLxAcaoID).HasColumnType(GetDBType("Int16", 0, 0));
-                ett.Property(d => d.Acao).HasColumnType(GetDBType("String", 15, 0));
+                ett.Property(d => d.JNLxAcaoID).HasColumnType(GetDBType("Int16"));
+                ett.Property(d => d.Acao).HasColumnType(GetDBType("String", 15));
                 ett.ToTable("JNLxAcao");
-                ett.HasData(STX.App.Journal.INF.DB.JNLxAcao.XDefault.SeedData);
+                ett.HasData(_JNLxAcao.XDefault.SeedData);
             });
         }
 
         private void ConfigureJNLxCampo(ModelBuilder pBuilder)
         {
-            pBuilder.Entity<JNLxCampo>(ett =>
+            pBuilder.Entity<_JNLxCampo>(ett =>
             {
                 ett.HasKey(e => e.JNLxCampoID).HasName("PK_JNLxCampo");
                 
-                ett.Property(d => d.JNLxCampoID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
-                ett.Property(d => d.Campo).HasColumnType(GetDBType("String", 128, 0));
-                ett.Property(d => d.Tipo).HasColumnType(GetDBType("String", 128, 0));
-                ett.Property(d => d.Tamanho).HasColumnType(GetDBType("Int32", 0, 0));
-                ett.Property(d => d.Escala).HasColumnType(GetDBType("Int32", 0, 0));
-                ett.Property(d => d.PK).HasColumnType(GetDBType("Boolean", 0, 0));
+                ett.Property(d => d.JNLxCampoID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16"));
+                ett.Property(d => d.Campo).HasColumnType(GetDBType("String", 128));
+                ett.Property(d => d.Tipo).HasColumnType(GetDBType("String", 128));
+                ett.Property(d => d.Tamanho).HasColumnType(GetDBType("Int32"));
+                ett.Property(d => d.Escala).HasColumnType(GetDBType("Int32"));
+                ett.Property(d => d.PK).HasColumnType(GetDBType("Boolean"));
                 ett.ToTable("JNLxCampo");
 
                 ett.HasOne(d => d.JNLxTabela)
@@ -85,15 +271,15 @@ namespace STX.App.Journal.INF.DB
 
         private void ConfigureJNLxPesquisa(ModelBuilder pBuilder)
         {
-            pBuilder.Entity<JNLxPesquisa>(ett =>
+            pBuilder.Entity<_JNLxPesquisa>(ett =>
             {
                 ett.HasKey(e => e.JNLxPesquisaID).HasName("PK_JNLxPesquisa");
                 
-                ett.Property(d => d.JNLxPesquisaID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.Consulta).HasColumnType(GetDBType("Byte[]", 0, 0));
-                ett.Property(d => d.ConsultaDado).HasColumnType(GetDBType("Byte[]", 0, 0));
-                ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 80, 0));
+                ett.Property(d => d.JNLxPesquisaID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.Consulta).HasColumnType(GetDBType("Byte[]"));
+                ett.Property(d => d.ConsultaDado).HasColumnType(GetDBType("Byte[]"));
+                ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 80));
                 ett.ToTable("JNLxPesquisa");
 
                 ett.HasOne(d => d.JNLxTabela)
@@ -108,19 +294,19 @@ namespace STX.App.Journal.INF.DB
 
         private void ConfigureJNLxRevisao(ModelBuilder pBuilder)
         {
-            pBuilder.Entity<JNLxRevisao>(ett =>
+            pBuilder.Entity<_JNLxRevisao>(ett =>
             {
                 ett.HasKey(e => e.JNLxRevisaoID).HasName("PK_JNLxRevisao");
                 
-                ett.Property(d => d.JNLxRevisaoID).HasColumnType(GetDBType("Int64", 0, 0));
-                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.Data).HasColumnType(GetDBType("DateTime", 0, 0));
-                ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.CORxTenatID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.JNLxAcaoID).HasColumnType(GetDBType("Int16", 0, 0));
-                ett.Property(d => d.Transacao).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.Host).HasColumnType(GetDBType("String", 50, 0));
-                ett.Property(d => d.App).HasColumnType(GetDBType("String", 100, 0));
+                ett.Property(d => d.JNLxRevisaoID).HasColumnType(GetDBType("Int64"));
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.Data).HasColumnType(GetDBType("DateTime"));
+                ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.CORxTenatID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.JNLxAcaoID).HasColumnType(GetDBType("Int16"));
+                ett.Property(d => d.Transacao).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.Host).HasColumnType(GetDBType("String", 50));
+                ett.Property(d => d.App).HasColumnType(GetDBType("String", 100));
                 ett.ToTable("JNLxRevisao");
 
                 ett.HasOne(d => d.JNLxAcao)
@@ -156,15 +342,15 @@ namespace STX.App.Journal.INF.DB
 
         private void ConfigureJNLxTabela(ModelBuilder pBuilder)
         {
-            pBuilder.Entity<JNLxTabela>(ett =>
+            pBuilder.Entity<_JNLxTabela>(ett =>
             {
                 ett.HasKey(e => e.JNLxTabelaID).HasName("PK_JNLxTabela");
                 
-                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid", 0, 0));
-                ett.Property(d => d.Tabela).HasColumnType(GetDBType("String", 128, 0));
-                ett.Property(d => d.CampoPK).HasColumnType(GetDBType("String", 128, 0));
-                ett.Property(d => d.TipoPK).HasColumnType(GetDBType("String", 128, 0));
-                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
+                ett.Property(d => d.JNLxTabelaID).HasColumnType(GetDBType("Guid"));
+                ett.Property(d => d.Tabela).HasColumnType(GetDBType("String", 128));
+                ett.Property(d => d.CampoPK).HasColumnType(GetDBType("String", 128));
+                ett.Property(d => d.TipoPK).HasColumnType(GetDBType("String", 128));
+                ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16"));
                 ett.ToTable("JNLxTabela");
 
                 ett.HasOne(d => d.CORxEstado)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace STX.Core.Test.Interfaces
+namespace TFX.Core.Test.Interfaces
 {
     public record XAtt
     {

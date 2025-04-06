@@ -6,14 +6,14 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core;
-using STX.Core.Model;
-using STX.Core.Services;
-using STX.Core.Reflections;
-using STX.App.Core.INF.Perfil;
-using STX.App.Core.INF.DB;
+using TFX.Core;
+using TFX.Core.Model;
+using TFX.Core.Services;
+using TFX.Core.Reflections;
+using TFX.App.Core.INF.Perfil;
+using TFX.App.Core.INF.DB;
 
-namespace STX.App.Core.INF.Perfil
+namespace TFX.App.Core.INF.Perfil
 {
     [XGuid("89FA5B9A-14F4-4989-BE06-DCD2A3E4428F", typeof(IPerfilService))]
     public class PerfilService : XService, IPerfilService
@@ -43,8 +43,8 @@ namespace STX.App.Core.INF.Perfil
                 {
                     ett.HasKey(e => e.CORxPerfilID).HasName("PK_CORxPerfil");
                     
-                    ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 45, 0));
+                    ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 45));
                     ett.ToTable("CORxPerfil");
                 });
             }
@@ -54,27 +54,27 @@ namespace STX.App.Core.INF.Perfil
                 {
                     ett.HasKey(e => e.CORxPerfilDireiroID).HasName("PK_CORxPerfilDireiro");
                     
-                    ett.Property(d => d.CORxPerfilDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
-                    ett.Property(d => d.CORxRecursoDireitoID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.CORxPerfilDireiroID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.CORxPerfilID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16"));
+                    ett.Property(d => d.CORxRecursoDireitoID).HasColumnType(GetDBType("Guid"));
                     ett.ToTable("CORxPerfilDireiro");
 
-                    ett.HasOne(d => d.CORxPerfil)
-                       .WithMany(p => p.CORxPerfilDireiro)
-                       .HasForeignKey(d => d.CORxPerfilID)
+                    ett.HasOne("CORxPerfil")
+                       .WithMany("CORxPerfilDireiro")
+                       .HasForeignKey("CORxPerfilID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_DB2EF4796E004A85B4BBEC4BAFB60B61");
 
-                    ett.HasOne(d => d.CORxRecursoDireito)
-                       .WithMany(p => p.CORxPerfilDireiro)
-                       .HasForeignKey(d => d.CORxRecursoDireitoID)
+                    ett.HasOne("CORxRecursoDireito")
+                       .WithMany("CORxPerfilDireiro")
+                       .HasForeignKey("CORxRecursoDireitoID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_43FA8B4D965A44388AB05C4C95CD4120");
 
-                    ett.HasOne(d => d.CORxEstado)
-                       .WithMany(p => p.CORxPerfilDireiro)
-                       .HasForeignKey(d => d.SYSxEstadoID)
+                    ett.HasOne("CORxEstado")
+                       .WithMany("CORxPerfilDireiro")
+                       .HasForeignKey("SYSxEstadoID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_C81CBAAB358F4F87B64A7EFD7808B76B");
 
@@ -93,8 +93,8 @@ namespace STX.App.Core.INF.Perfil
                 {
                     ett.HasKey(e => e.CORxDireiroID).HasName("PK_CORxDireiro");
                     
-                    ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.Direito).HasColumnType(GetDBType("String", 45, 0));
+                    ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.Direito).HasColumnType(GetDBType("String", 45));
                     ett.ToTable("CORxDireiro");
                 });
             }
@@ -104,27 +104,27 @@ namespace STX.App.Core.INF.Perfil
                 {
                     ett.HasKey(e => e.CORxRecursoDireitoID).HasName("PK_CORxRecursoDireito");
                     
-                    ett.Property(d => d.CORxRecursoDireitoID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
+                    ett.Property(d => d.CORxRecursoDireitoID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.CORxDireiroID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.SYSxEstadoID).HasColumnType(GetDBType("Int16"));
                     ett.ToTable("CORxRecursoDireito");
 
-                    ett.HasOne(d => d.CORxDireiro)
-                       .WithMany(p => p.CORxRecursoDireito)
-                       .HasForeignKey(d => d.CORxDireiroID)
+                    ett.HasOne("CORxDireiro")
+                       .WithMany("CORxRecursoDireito")
+                       .HasForeignKey("CORxDireiroID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_FEBE37E773C04510917C09AA991BA695");
 
-                    ett.HasOne(d => d.CORxEstado)
-                       .WithMany(p => p.CORxRecursoDireito)
-                       .HasForeignKey(d => d.SYSxEstadoID)
+                    ett.HasOne("CORxEstado")
+                       .WithMany("CORxRecursoDireito")
+                       .HasForeignKey("SYSxEstadoID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_662808A15CC541869E041EB76DBF81F2");
 
-                    ett.HasOne(d => d.CORxRecurso)
-                       .WithMany(p => p.CORxRecursoDireito)
-                       .HasForeignKey(d => d.CORxRecursoID)
+                    ett.HasOne("CORxRecurso")
+                       .WithMany("CORxRecursoDireito")
+                       .HasForeignKey("CORxRecursoID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_63A2BC55DE5B48F9B50DB67210086133");
 
@@ -143,14 +143,14 @@ namespace STX.App.Core.INF.Perfil
                 {
                     ett.HasKey(e => e.CORxRecursoID).HasName("PK_CORxRecurso");
                     
-                    ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 128, 0));
-                    ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.CORxRecursoID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 128));
+                    ett.Property(d => d.CORxMenuItemID).HasColumnType(GetDBType("Guid"));
                     ett.ToTable("CORxRecurso");
 
-                    ett.HasOne(d => d.CORxMenuItem)
-                       .WithMany(p => p.CORxRecurso)
-                       .HasForeignKey(d => d.CORxMenuItemID)
+                    ett.HasOne("CORxMenuItem")
+                       .WithMany("CORxRecurso")
+                       .HasForeignKey("CORxMenuItemID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_DD2B2F889A7341ACB8763984D8EB927F");
 
@@ -163,8 +163,8 @@ namespace STX.App.Core.INF.Perfil
                 {
                     ett.HasKey(e => e.CORxEstadoID).HasName("PK_CORxEstado");
                     
-                    ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
-                    ett.Property(d => d.Estado).HasColumnType(GetDBType("String", 20, 0));
+                    ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16"));
+                    ett.Property(d => d.Estado).HasColumnType(GetDBType("String", 20));
                     ett.ToTable("CORxEstado");
                 });
             }
@@ -305,18 +305,19 @@ namespace STX.App.Core.INF.Perfil
                         join CORxRecurso in ctx.CORxRecurso on CORxRecursoDireito.CORxRecursoID equals CORxRecurso.CORxRecursoID
                         join CORxDireiro in ctx.CORxDireiro on CORxRecursoDireito.CORxDireiroID equals CORxDireiro.CORxDireiroID
                         join CORxEstado in ctx.CORxEstado on CORxRecursoDireito.SYSxEstadoID equals CORxEstado.CORxEstadoID
+                        <@WHERE@>
                         select new {CORxPerfilDireiro, CORxDireiro, CORxRecursoDireito, CORxRecurso, CORxEstado} : null; 
 
-            var dst = query.Select(q => new PerfilTuple(){CORxPerfilID = new XGuidDataField(q.CORxPerfil.CORxPerfilID),
-                              Nome = new XStringDataField(q.CORxPerfil.Nome), PerfilDireito = 
+            var dst = query.Select(q => new PerfilTuple(){CORxPerfilID = q.CORxPerfil.CORxPerfilID,
+                              Nome = q.CORxPerfil.Nome, PerfilDireito = 
                               pFull ? PerfilDireito.Where(q1 => q1.CORxPerfilDireiro.CORxPerfilID == q.CORxPerfil.CORxPerfilID )
-                            .Select(q => new PerfilDireitoTuple(){CORxPerfilID = new XGuidDataField(q.CORxPerfilDireiro.CORxPerfilID),
-                                     Direito = new XStringDataField(q.CORxDireiro.Direito),
-                                     Estado = new XStringDataField(q.CORxEstado.Estado),
-                                     Nome = new XStringDataField(q.CORxRecurso.Nome),
-                                     SYSxEstadoID = new XInt16DataField(q.CORxPerfilDireiro.SYSxEstadoID),
-                                     CORxPerfilDireiroID = new XGuidDataField(q.CORxPerfilDireiro.CORxPerfilDireiroID),
-                                     CORxRecursoDireitoID = new XGuidDataField(q.CORxPerfilDireiro.CORxRecursoDireitoID)}).ToArray() : null});
+                            .Select(q => new PerfilDireitoTuple(){CORxPerfilID = q.CORxPerfilDireiro.CORxPerfilID,
+                                     Direito = q.CORxDireiro.Direito,
+                                     Estado = q.CORxEstado.Estado,
+                                     Nome = q.CORxRecurso.Nome,
+                                     SYSxEstadoID = q.CORxPerfilDireiro.SYSxEstadoID,
+                                     CORxPerfilDireiroID = q.CORxPerfilDireiro.CORxPerfilDireiroID,
+                                     CORxRecursoDireitoID = q.CORxPerfilDireiro.CORxRecursoDireitoID}).ToArray() : null});
             var dataset = new PerfilDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

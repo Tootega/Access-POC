@@ -8,10 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 
-using STX.Core;
-using STX.Core.Access.Service;
-using STX.Core.Cache;
-using STX.Core.Interfaces;
+using TFX.Core;
+using TFX.Core.Access.Service;
+using TFX.Core.Cache;
+using TFX.Core.Interfaces;
 
 using static System.Net.WebRequestMethods;
 

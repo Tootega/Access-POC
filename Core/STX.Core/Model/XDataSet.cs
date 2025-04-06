@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using STX.Core.Cache;
+using TFX.Core.Cache;
 
-namespace STX.Core.Model
+namespace TFX.Core.Model
 {
     public class XDataSet<T>where T : XServiceDataTuple,new()
     {

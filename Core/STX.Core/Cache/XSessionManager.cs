@@ -6,10 +6,10 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-using STX.Core.IDs.Model;
-using STX.Core.Interfaces;
+using TFX.Core.IDs.Model;
+using TFX.Core.Interfaces;
 
-namespace STX.Core.Cache
+namespace TFX.Core.Cache
 {
     public delegate Dictionary<string, XUser> XRefreshCache();
     public class XSessionManager

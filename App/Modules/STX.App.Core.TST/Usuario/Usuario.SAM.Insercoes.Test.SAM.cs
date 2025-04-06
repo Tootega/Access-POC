@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core;
-using STX.Core.Model;
-using STX.Core.Interfaces;
-using STX.Core.Services;
-using STX.Core.Test.Interfaces;
-using STX.App.Core.INF.Usuario;
+using TFX.Core;
+using TFX.Core.Model;
+using TFX.Core.Interfaces;
+using TFX.Core.Services;
+using TFX.Core.Test.Interfaces;
+using TFX.App.Core.INF.Usuario;
 
-namespace STX.App.Core.TST.Usuario
+namespace TFX.App.Core.TST.Usuario
 {
 
     public class UsuarioSAMInsercoesTestSAM : XWebScrapTest<UsuarioApp, UsuarioSAMInsercoesTestSVCRule, UsuarioTuple>

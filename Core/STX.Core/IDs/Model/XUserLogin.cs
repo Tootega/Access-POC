@@ -1,4 +1,4 @@
-namespace STX.Core.IDs.Model
+namespace TFX.Core.IDs.Model
 {
     public class XUserLogin
     {

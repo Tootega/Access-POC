@@ -1,6 +1,6 @@
-using STX.App.Core.INF.Usuario;
+using TFX.App.Core.INF.Usuario;
 
-namespace STX.App.Core.TST.Usuario
+namespace TFX.App.Core.TST.Usuario
 {
     public class UsuarioSAMWebTestRule : UsuarioSAMWebTest.Rule
     {

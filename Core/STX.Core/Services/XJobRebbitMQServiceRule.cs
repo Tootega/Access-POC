@@ -3,7 +3,7 @@ using System.Linq;
 
 using Microsoft.Extensions.Logging;
 
-namespace STX.Core.Services
+namespace TFX.Core.Services
 {
 	public abstract class XJobRabbitMQServiceRule<T, TPK>  :XJobServiceRule<T, TPK> 
 	{

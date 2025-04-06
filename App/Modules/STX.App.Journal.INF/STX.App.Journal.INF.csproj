@@ -6,21 +6,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="STX.App.Journal.INF.dsmdl" />
+      <None Remove="TFX.App.Journal.INF.dsmdl" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="STX.App.Journal.INF.dsmdl">
+      <Content Include="TFX.App.Journal.INF.dsmdl">
         <Generator>XDASEGenerator</Generator>
-        <LastGenOutput>STX.App.Journal.INF.Module.cs</LastGenOutput>
+        <LastGenOutput>TFX.App.Journal.INF.Module.cs</LastGenOutput>
       </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
-      <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
-      <ProjectReference Include="..\STX.App.Core.INF\STX.App.Core.INF.csproj" />
-      <ProjectReference Include="..\STX.App.Journal.MDL\STX.App.Journal.MDL.csproj" />
+      <ProjectReference Include="..\..\..\Core\TFX.Core.Access\TFX.Core.Access.csproj" />
+      <ProjectReference Include="..\..\..\Core\TFX.Core\TFX.Core.csproj" />
+      <ProjectReference Include="..\TFX.App.Core.INF\TFX.App.Core.INF.csproj" />
+      <ProjectReference Include="..\TFX.App.Journal.MDL\TFX.App.Journal.MDL.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -53,15 +53,15 @@
       <Compile Update="Properties\AssemblyInfo.cs">
         <Visible>True</Visible>
       </Compile>
-      <Compile Update="STX.App.Core.INF.Module.cs">
+      <Compile Update="TFX.App.Core.INF.Module.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>STX.App.Core.INF.dsmdl</DependentUpon>
+        <DependentUpon>TFX.App.Core.INF.dsmdl</DependentUpon>
         <Visible>False</Visible>
       </Compile>
-      <Compile Update="STX.App.Journal.INF.Module.cs">
+      <Compile Update="TFX.App.Journal.INF.Module.cs">
         <Visible>False</Visible>
-        <DependentUpon>STX.App.Journal.INF.dsmdl</DependentUpon>
+        <DependentUpon>TFX.App.Journal.INF.dsmdl</DependentUpon>
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
       </Compile>

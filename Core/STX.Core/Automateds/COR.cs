@@ -4,20 +4,20 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using STX.Core;
+using TFX.Core;
 
-namespace STX.Core.Automateds
+namespace TFX.Core.Automateds
 {
-    public  partial class STXCoreContext : XDBContext
+    public  partial class TFXCoreContext : XDBContext
     {
 
-        protected STXCoreContext(DbContextOptions pOptions)
+        protected TFXCoreContext(DbContextOptions pOptions)
           : base(pOptions)
         {
         
         }
 
-        public STXCoreContext(DbContextOptions<STXCoreContext> pOptions)
+        public TFXCoreContext(DbContextOptions<TFXCoreContext> pOptions)
           : base(pOptions)
         {
         

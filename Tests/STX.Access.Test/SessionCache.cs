@@ -1,5 +1,5 @@
-using STX.Core.Cache;
-using STX.Core.IDs.Model;
+using TFX.Core.Cache;
+using TFX.Core.IDs.Model;
 
 namespace TAF.Access.Test
 {

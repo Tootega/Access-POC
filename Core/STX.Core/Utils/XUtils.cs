@@ -12,9 +12,9 @@ using Microsoft.Data.SqlClient;
 
 using Newtonsoft.Json;
 
-using STX.Core.Exceptions;
+using TFX.Core.Exceptions;
 
-namespace STX.Core
+namespace TFX.Core
 {
 	public static class XUtils
 	{

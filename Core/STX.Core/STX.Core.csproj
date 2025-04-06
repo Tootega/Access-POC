@@ -2,18 +2,23 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<RootNamespace>STX.Core</RootNamespace>
+		<RootNamespace>TFX.Core</RootNamespace>
 		<MyType>DASE</MyType>
 	</PropertyGroup>
 
 	<ItemGroup>
 	  <None Remove="STX.Core.dsmdl" />
+	  <None Remove="TFX.Core.dsmdl" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Content Include="STX.Core.dsmdl">
 	    <Generator>XDASEGenerator</Generator>
 	    <LastGenOutput>STX.Core.Module.cs</LastGenOutput>
+	  </Content>
+	  <Content Include="TFX.Core.dsmdl">
+	    <Generator>XDASEGenerator</Generator>
+	    <LastGenOutput>TFX.Core.Module.cs</LastGenOutput>
 	  </Content>
 	</ItemGroup>
 
@@ -55,6 +60,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	  </Compile>
+	  <Compile Update="Automateds\Configuracoes\ConfiguracaoJob.Service.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ConfiguracaoJob.dssvc</DependentUpon>
+	  </Compile>
 	  <Compile Update="Automateds\Jobs\Job.Controller.cs">
 	    <Visible>False</Visible>
 	    <DependentUpon>Job.dssvc</DependentUpon>
@@ -76,6 +86,12 @@
 	  <Compile Update="STX.Core.Module.cs">
 	    <Visible>False</Visible>
 	    <DependentUpon>STX.Core.dsmdl</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="TFX.Core.Module.cs">
+	    <Visible>False</Visible>
+	    <DependentUpon>TFX.Core.dsmdl</DependentUpon>
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	  </Compile>

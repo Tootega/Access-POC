@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace STX.Core.Exceptions
+namespace TFX.Core.Exceptions
 {
     [Serializable]
     public class XUnconformity : XException

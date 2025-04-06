@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core.Reflections;
-using STX.Core.Model;
-using STX.Core.Interfaces;
-using STX.Core;
-using STX.Core.Services;
+using TFX.Core.Reflections;
+using TFX.Core.Model;
+using TFX.Core.Interfaces;
+using TFX.Core;
+using TFX.Core.Services;
 
-namespace STX.App.Core.INF.Perfil
+namespace TFX.App.Core.INF.Perfil
 {
     public class PerfilTuple : XServiceDataTuple
     {

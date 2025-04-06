@@ -14,8 +14,8 @@ using Microsoft.AspNetCore.Http;
 
 using Newtonsoft.Json;
 
-using STX.Core;
-using STX.Core.Exceptions;
+using TFX.Core;
+using TFX.Core.Exceptions;
 using System.Security.Claims;
 
 namespace System

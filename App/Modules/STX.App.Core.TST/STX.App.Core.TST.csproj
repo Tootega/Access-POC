@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <None Remove="Perfil\Perfil.SAM.Insercoes.Test.dscit" />
-    <None Remove="STX.App.Core.TST.dsmdl" />
+    <None Remove="TFX.App.Core.TST.dsmdl" />
     <None Remove="Usuario\Usuario.SAM.Insercoes.Test.dscit" />
   </ItemGroup>
 
@@ -22,9 +22,9 @@
       <Generator>XDASEGenerator</Generator>
       <LastGenOutput>Perfil.SAM.Insercoes.Test.SVC.cs</LastGenOutput>
     </Content>
-    <Content Include="STX.App.Core.TST.dsmdl">
+    <Content Include="TFX.App.Core.TST.dsmdl">
       <Generator>XDASEGenerator</Generator>
-      <LastGenOutput>STX.App.Core.TST.Module.cs</LastGenOutput>
+      <LastGenOutput>TFX.App.Core.TST.Module.cs</LastGenOutput>
     </Content>
   </ItemGroup>
 
@@ -64,9 +64,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\STX.Core.Test\STX.Core.Test.csproj" />
-    <ProjectReference Include="..\STX.App.Core.INF\STX.App.Core.INF.csproj" />
-    <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
+    <ProjectReference Include="..\..\..\Core\TFX.Core.Test\TFX.Core.Test.csproj" />
+    <ProjectReference Include="..\TFX.App.Core.INF\TFX.App.Core.INF.csproj" />
+    <ProjectReference Include="..\TFX.App.Core.MDL\TFX.App.Core.MDL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -91,10 +91,10 @@
       <Visible>True</Visible>
       <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
     </Compile>
-    <Compile Update="STX.App.Core.TST.Module.cs">
+    <Compile Update="TFX.App.Core.TST.Module.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>STX.App.Core.TST.dsmdl</DependentUpon>
+      <DependentUpon>TFX.App.Core.TST.dsmdl</DependentUpon>
       <Visible>False</Visible>
     </Compile>
     <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SAM.cs">

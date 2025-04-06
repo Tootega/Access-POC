@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace STX.Core.Model
+namespace TFX.Core.Model
 {
     public enum XTupleState
     {

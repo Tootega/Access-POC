@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace STX.Core
+namespace TFX.Core
 {
 	public class XEnvironment
 	{

@@ -16,12 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
-    <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
-    <ProjectReference Include="..\..\Modules\STX.App.Core.API\STX.App.Core.API.csproj" />
-    <ProjectReference Include="..\..\Modules\STX.App.Core.INF\STX.App.Core.INF.csproj" />
-    <ProjectReference Include="..\..\Modules\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
-    <ProjectReference Include="..\..\Modules\STX.App.Core.RLE\STX.App.Core.RLE.csproj" />
+    <ProjectReference Include="..\..\..\Core\TFX.Core.Access\TFX.Core.Access.csproj" />
+    <ProjectReference Include="..\..\..\Core\TFX.Core\TFX.Core.csproj" />
+    <ProjectReference Include="..\..\Modules\TFX.App.Core.API\TFX.App.Core.API.csproj" />
+    <ProjectReference Include="..\..\Modules\TFX.App.Core.INF\TFX.App.Core.INF.csproj" />
+    <ProjectReference Include="..\..\Modules\TFX.App.Core.MDL\TFX.App.Core.MDL.csproj" />
+    <ProjectReference Include="..\..\Modules\TFX.App.Core.RLE\TFX.App.Core.RLE.csproj" />
   </ItemGroup>
 
   <ItemGroup>

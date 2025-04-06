@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
-      <ProjectReference Include="..\STX.App.Journal.MDL\STX.App.Journal.MDL.csproj" />
+      <ProjectReference Include="..\..\..\Core\TFX.Core\TFX.Core.csproj" />
+      <ProjectReference Include="..\TFX.App.Journal.MDL\TFX.App.Journal.MDL.csproj" />
     </ItemGroup>
 
 </Project>

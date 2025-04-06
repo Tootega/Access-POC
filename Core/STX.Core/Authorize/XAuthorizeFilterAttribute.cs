@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
 
-using STX.Core.Cache;
+using TFX.Core.Cache;
 
-namespace STX.Core.Authorize
+namespace TFX.Core.Authorize
 {
 	public class XAuthorizeFilterAttribute : TypeFilterAttribute
 	{

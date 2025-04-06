@@ -6,10 +6,10 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core;
-using STX.Core.Model;
-using STX.Core.Services;
-using STX.Core.Reflections;
+using TFX.Core;
+using TFX.Core.Model;
+using TFX.Core.Services;
+using TFX.Core.Reflections;
 using STX.Core.Access.Usuarios;
 using STX.Core.Access.DB;
 
@@ -38,9 +38,9 @@ namespace STX.Core.Access.Usuarios
                 {
                     ett.HasKey(e => e.TAFxUsuarioID).HasName("PK_TAFxUsuario");
                     
-                    ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.Login).HasColumnType(GetDBType("String", 0, 0));
-                    ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16", 0, 0));
+                    ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.Login).HasColumnType(GetDBType("String"));
+                    ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16"));
                     ett.ToTable("TAFxUsuario");
                 });
             }
@@ -150,9 +150,9 @@ namespace STX.Core.Access.Usuarios
             if (pFilter?.TakeRows > 0)
                 query = query.Take(pFilter.TakeRows);
 
-            var dst = query.Select(q => new UsuariosAtivosTuple(){TAFxUsuarioID = new XGuidDataField(q.TAFxUsuario.TAFxUsuarioID),
-                                      Login = new XStringDataField(q.TAFxUsuario.Login),
-                                      CORxEstadoID = new XInt16DataField(q.TAFxUsuario.CORxEstadoID)});
+            var dst = query.Select(q => new UsuariosAtivosTuple(){TAFxUsuarioID = q.TAFxUsuario.TAFxUsuarioID,
+                                      Login = q.TAFxUsuario.Login,
+                                      CORxEstadoID = q.TAFxUsuario.CORxEstadoID});
             var dataset = new UsuariosAtivosDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

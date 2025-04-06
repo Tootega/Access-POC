@@ -1,6 +1,6 @@
-using STX.App.Core.INF.Perfil;
+using TFX.App.Core.INF.Perfil;
 
-namespace STX.App.Core.TST.Perfil
+namespace TFX.App.Core.TST.Perfil
 {
     public class PerfilSAMInsercoesTestSVCRule : PerfilSAMInsercoesTestSVC.Rule
     {

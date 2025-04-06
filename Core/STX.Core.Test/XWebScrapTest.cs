@@ -1,13 +1,13 @@
 using System;
 using System.Threading;
 
-using STX.Core.Model;
-using STX.Core.Test.Factories;
-using STX.Core.Test.Interfaces;
+using TFX.Core.Model;
+using TFX.Core.Test.Factories;
+using TFX.Core.Test.Interfaces;
 
 using Xunit;
 
-namespace STX.Access
+namespace TFX.Access
 {
     public sealed class XWebScrapSetup : IDisposable
     {

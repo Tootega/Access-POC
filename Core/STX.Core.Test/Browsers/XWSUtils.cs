@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Threading;
 
-namespace STX.Core.Test.Browsers
+namespace TFX.Core.Test.Browsers
 {
     public static class XWSUtils
     {

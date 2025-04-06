@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Http;
 
-using STX.Core.IDs.Model;
+using TFX.Core.IDs.Model;
 
-namespace STX.Core.Interfaces
+namespace TFX.Core.Interfaces
 {
     public interface XILoginService : XIService
     {

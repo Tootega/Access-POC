@@ -6,25 +6,25 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="STX.App.Core.INF.dsmdl" />
+      <None Remove="TFX.App.Core.INF.dsmdl" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="STX.App.Core.INF.dsmdl">
+      <Content Include="TFX.App.Core.INF.dsmdl">
         <Generator>XDASEGenerator</Generator>
-        <LastGenOutput>STX.App.Core.INF.Module.cs</LastGenOutput>
+        <LastGenOutput>TFX.App.Core.INF.Module.cs</LastGenOutput>
       </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Core\STX.Core.Access\STX.Core.Access.csproj">
+      <ProjectReference Include="..\..\..\Core\TFX.Core.Access\TFX.Core.Access.csproj">
         <ExcludeAssets>Yes</ExcludeAssets>
         <IncludeAssets>No</IncludeAssets>
         <PrivateAssets>Yes</PrivateAssets>
       </ProjectReference>
-      <ProjectReference Include="..\..\..\Core\STX.Core\STX.Core.csproj" />
-      <ProjectReference Include="..\STX.App.Core.MDL\STX.App.Core.MDL.csproj" />
-      <ProjectReference Include="..\STX.App.Core.RLE\STX.App.Core.RLE.csproj" />
+      <ProjectReference Include="..\..\..\Core\TFX.Core\TFX.Core.csproj" />
+      <ProjectReference Include="..\TFX.App.Core.MDL\TFX.App.Core.MDL.csproj" />
+      <ProjectReference Include="..\TFX.App.Core.RLE\TFX.App.Core.RLE.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -105,10 +105,10 @@
       <Compile Update="Properties\AssemblyInfo.cs">
         <Visible>True</Visible>
       </Compile>
-      <Compile Update="STX.App.Core.INF.Module.cs">
+      <Compile Update="TFX.App.Core.INF.Module.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>STX.App.Core.INF.dsmdl</DependentUpon>
+        <DependentUpon>TFX.App.Core.INF.dsmdl</DependentUpon>
         <Visible>False</Visible>
       </Compile>
       <Compile Update="Usuario\Usuario.cs">

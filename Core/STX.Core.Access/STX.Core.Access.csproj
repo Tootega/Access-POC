@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>STX.Access</RootNamespace>
+    <RootNamespace>TFX.Access</RootNamespace>
       <MyType>DASE</MyType>
   </PropertyGroup>
 
@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <None Remove="STX.Core.Access.dsmdl" />
+    <None Remove="TFX.Core.Access.dsmdl" />
     <None Remove="TAF.Access.dsmdl" />
   </ItemGroup>
 
@@ -19,6 +20,10 @@
     <Content Include="STX.Core.Access.dsmdl">
       <Generator>XDASEGenerator</Generator>
       <LastGenOutput>STX.Core.Access.Module.cs</LastGenOutput>
+    </Content>
+    <Content Include="TFX.Core.Access.dsmdl">
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>TFX.Core.Access.Module.cs</LastGenOutput>
     </Content>
   </ItemGroup>
 
@@ -28,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\STX.Core\STX.Core.csproj" />
+    <ProjectReference Include="..\TFX.Core\TFX.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,9 +55,15 @@
       <Visible>True</Visible>
     </Compile>
     <Compile Update="STX.Core.Access.Module.cs">
+      <Visible>False</Visible>
+      <DependentUpon>STX.Core.Access.dsmdl</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>STX.Core.Access.dsmdl</DependentUpon>
+    </Compile>
+    <Compile Update="TFX.Core.Access.Module.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TFX.Core.Access.dsmdl</DependentUpon>
       <Visible>False</Visible>
     </Compile>
     <Compile Update="Usuarios\UsuariosAtivos.Controller.cs">

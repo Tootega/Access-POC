@@ -5,19 +5,19 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-using STX.Core.Access.Usuarios;
-using STX.Core.Cache;
-using STX.Core.Exceptions;
-using STX.Core.IDs.Model;
-using STX.Core.Interfaces;
-using STX.Core.Services;
+using TFX.Core.Access.Usuarios;
+using TFX.Core.Cache;
+using TFX.Core.Exceptions;
+using TFX.Core.IDs.Model;
+using TFX.Core.Interfaces;
+using TFX.Core.Services;
 using Microsoft.AspNetCore.Http;
 using System;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication;
 
-namespace STX.Core.Access.Service
+namespace TFX.Core.Access.Service
 {
     public class XLoginService : XILoginService
     {

@@ -1,11 +1,11 @@
 using System;
 
-using STX.Core.Test.Interfaces;
+using TFX.Core.Test.Interfaces;
 
-using STX.Core.Test.PlayWright;
+using TFX.Core.Test.PlayWright;
 
 
-namespace STX.Core.Test.Factories
+namespace TFX.Core.Test.Factories
 {
     public enum XSCDriver
     {

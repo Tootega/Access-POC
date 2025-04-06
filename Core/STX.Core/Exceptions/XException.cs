@@ -1,6 +1,6 @@
 using System;
 
-namespace STX.Core.Exceptions
+namespace TFX.Core.Exceptions
 {
     public delegate void XCathException(Object pSender, Exception pException);
 

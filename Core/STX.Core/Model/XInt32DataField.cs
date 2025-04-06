@@ -1,8 +1,8 @@
 using System;
 
-using STX.Core.Model;
+using TFX.Core.Model;
 
-namespace STX.Core.Model
+namespace TFX.Core.Model
 {
 	public class XInt32DataField : XDataField<Int32>
 	{

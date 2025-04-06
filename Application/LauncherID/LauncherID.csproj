@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\STX.Core.Access\STX.Core.Access.csproj" />
-    <ProjectReference Include="..\..\Core\STX.Core\STX.Core.csproj" />
+    <ProjectReference Include="..\..\Core\TFX.Core.Access\TFX.Core.Access.csproj" />
+    <ProjectReference Include="..\..\Core\TFX.Core\TFX.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

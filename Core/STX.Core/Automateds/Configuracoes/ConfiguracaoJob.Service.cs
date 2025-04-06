@@ -6,10 +6,10 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core;
-using STX.Core.Model;
-using STX.Core.Services;
-using STX.Core.Reflections;
+using TFX.Core;
+using TFX.Core.Model;
+using TFX.Core.Services;
+using TFX.Core.Reflections;
 using STX.Core.Automateds.Configuracoes;
 using STX.Core.Automateds;
 
@@ -38,14 +38,14 @@ namespace STX.Core.Automateds.Configuracoes
                 {
                     ett.HasKey(e => e.CORxJobConfiguracaoID).HasName("PK_CORxJobConfiguracao");
                     
-                    ett.Property(d => d.CORxJobConfiguracaoID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.Dados).HasColumnType(GetDBType("Byte[]", 0, 0));
-                    ett.Property(d => d.CORxJobID).HasColumnType(GetDBType("Guid", 0, 0));
+                    ett.Property(d => d.CORxJobConfiguracaoID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.Dados).HasColumnType(GetDBType("Byte[]"));
+                    ett.Property(d => d.CORxJobID).HasColumnType(GetDBType("Guid"));
                     ett.ToTable("CORxJobConfiguracao");
 
-                    ett.HasOne(d => d.CORxJob)
-                       .WithMany(p => p.CORxJobConfiguracao)
-                       .HasForeignKey(d => d.CORxJobID)
+                    ett.HasOne("CORxJob")
+                       .WithMany("CORxJobConfiguracao")
+                       .HasForeignKey("CORxJobID")
                        .OnDelete(DeleteBehavior.Restrict)
                        .HasConstraintName("FK_F6BABB8A554A4A2CAA9BD16B8A9148F5");
 
@@ -138,9 +138,9 @@ namespace STX.Core.Automateds.Configuracoes
             if (pRequest != null)
                 query = query.Where(q => q.CORxJobConfiguracao.CORxJobConfiguracaoID == pRequest.CORxJobConfiguracaoID);
 
-            var dst = query.Select(q => new ConfiguracaoJobTuple(){CORxJobConfiguracaoID = new XGuidDataField(q.CORxJobConfiguracao.CORxJobConfiguracaoID),
-                                       Dados = new XBinaryDataField(q.CORxJobConfiguracao.Dados),
-                                       CORxJobID = new XGuidDataField(q.CORxJobConfiguracao.CORxJobID)});
+            var dst = query.Select(q => new ConfiguracaoJobTuple(){CORxJobConfiguracaoID = q.CORxJobConfiguracao.CORxJobConfiguracaoID,
+                                       Dados = XLzma.Decode(q.CORxJobConfiguracao.Dados),
+                                       CORxJobID = q.CORxJobConfiguracao.CORxJobID});
             var dataset = new ConfiguracaoJobDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

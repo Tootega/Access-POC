@@ -7,13 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Newtonsoft.Json;
 
-using STX.Core.Automateds.Configuracoes;
-using STX.Core.Automateds.Jobs;
-using STX.Core.Cache;
-using STX.Core.Interfaces;
-using STX.Core.Model;
+using TFX.Core.Automateds.Configuracoes;
+using TFX.Core.Automateds.Jobs;
+using TFX.Core.Cache;
+using TFX.Core.Interfaces;
+using TFX.Core.Model;
 
-namespace STX.Core.Services
+namespace TFX.Core.Services
 {
 	public static class XJobManager
 	{

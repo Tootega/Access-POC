@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json.Linq;
 
-namespace STX.Core.Reflections
+namespace TFX.Core.Reflections
 {
 	public class XGuidAttribute : Attribute
 	{

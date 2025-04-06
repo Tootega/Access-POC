@@ -5,7 +5,7 @@ using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace STX.Core.Lzma
+namespace TFX.Core.Lzma
 {
   public static class XLzma
 	{
@@ -15,11 +15,11 @@ namespace STX.Core.Lzma
 		}
 		private static IntPtr MapAndLoad(string pLibrary, Assembly pAssembly, DllImportSearchPath? dllImportSearchPath)
 		{
-			string mappedName = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "STX.Runtime.dll" : "STX.Runtime.so";
+			string mappedName = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "TFX.Runtime.dll" : "TFX.Runtime.so";
 			return NativeLibrary.Load(mappedName, pAssembly, dllImportSearchPath);
 		}
 
-		private const String _DllName = "STX.Runtime";
+		private const String _DllName = "TFX.Runtime";
 
 		[HandleProcessCorruptedStateExceptions]
 		[SecurityCritical]

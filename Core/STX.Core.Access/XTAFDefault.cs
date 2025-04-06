@@ -1,4 +1,4 @@
-namespace STX.Access
+namespace TFX.Access
 {
     public static class XTAFDefault
     {

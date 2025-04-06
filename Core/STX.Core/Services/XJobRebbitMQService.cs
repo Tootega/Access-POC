@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
 
-using STX.Core.Interfaces;
-using STX.Core.Model;
+using TFX.Core.Interfaces;
+using TFX.Core.Model;
 
-namespace STX.Core.Services
+namespace TFX.Core.Services
 {
 	public abstract class XJobRebbitMQService : XJobService
 	{

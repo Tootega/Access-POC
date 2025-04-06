@@ -6,10 +6,10 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core;
-using STX.Core.Model;
-using STX.Core.Services;
-using STX.Core.Reflections;
+using TFX.Core;
+using TFX.Core.Model;
+using TFX.Core.Services;
+using TFX.Core.Reflections;
 using STX.Core.Automateds.Jobs;
 using STX.Core.Automateds;
 
@@ -38,8 +38,8 @@ namespace STX.Core.Automateds.Jobs
                 {
                     ett.HasKey(e => e.CORxJobID).HasName("PK_CORxJob");
                     
-                    ett.Property(d => d.CORxJobID).HasColumnType(GetDBType("Guid", 0, 0));
-                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 128, 0));
+                    ett.Property(d => d.CORxJobID).HasColumnType(GetDBType("Guid"));
+                    ett.Property(d => d.Nome).HasColumnType(GetDBType("String", 128));
                     ett.ToTable("CORxJob");
                 });
             }
@@ -146,8 +146,8 @@ namespace STX.Core.Automateds.Jobs
             if (pFilter?.TakeRows > 0)
                 query = query.Take(pFilter.TakeRows);
 
-            var dst = query.Select(q => new JobTuple(){CORxJobID = new XGuidDataField(q.CORxJob.CORxJobID),
-                           Nome = new XStringDataField(q.CORxJob.Nome)});
+            var dst = query.Select(q => new JobTuple(){CORxJobID = q.CORxJob.CORxJobID,
+                           Nome = q.CORxJob.Nome});
             var dataset = new JobDataSet { Tuples = dst.ToList() };
             _Rule.InternalAfterSelect(dataset.Tuples);
             return dataset;

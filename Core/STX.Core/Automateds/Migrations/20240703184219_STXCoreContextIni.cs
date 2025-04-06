@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace STX.Core.Automateds.Migrations
+namespace TFX.Core.Automateds.Migrations
 {
     /// <inheritdoc />
-    public partial class STXCoreContextIni : Migration
+    public partial class TFXCoreContextIni : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

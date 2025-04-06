@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace STX.Core.Automateds
+namespace TFX.Core.Automateds
 {
     public  static class CORModel
     {

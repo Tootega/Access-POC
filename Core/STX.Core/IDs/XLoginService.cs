@@ -8,11 +8,11 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 
-using STX.Core.Cache;
-using STX.Core.IDs.Model;
-using STX.Core.Interfaces;
+using TFX.Core.Cache;
+using TFX.Core.IDs.Model;
+using TFX.Core.Interfaces;
 
-namespace STX.Core.IDs
+namespace TFX.Core.IDs
 {
 	public class XLoginService : XILoginService
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-using STX.Core.Exceptions;
+using TFX.Core.Exceptions;
 
 
-namespace STX.Core
+namespace TFX.Core
 {
     public class XCommandLines
     {

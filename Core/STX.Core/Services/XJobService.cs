@@ -3,10 +3,10 @@ using System.Threading;
 
 using Microsoft.Extensions.Logging;
 
-using STX.Core.Cache;
-using STX.Core.Model;
+using TFX.Core.Cache;
+using TFX.Core.Model;
 
-namespace STX.Core.Services
+namespace TFX.Core.Services
 {
 	public abstract class XJobService : XService
 	{

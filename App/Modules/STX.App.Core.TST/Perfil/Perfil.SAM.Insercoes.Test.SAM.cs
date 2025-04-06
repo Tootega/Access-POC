@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using STX.Core;
-using STX.Core.Model;
-using STX.Core.Interfaces;
-using STX.Core.Services;
-using STX.Core.Test.Interfaces;
-using STX.App.Core.INF.Perfil;
+using TFX.Core;
+using TFX.Core.Model;
+using TFX.Core.Interfaces;
+using TFX.Core.Services;
+using TFX.Core.Test.Interfaces;
+using TFX.App.Core.INF.Perfil;
 
-namespace STX.App.Core.TST.Perfil
+namespace TFX.App.Core.TST.Perfil
 {
 
     public class PerfilSAMInsercoesTestSAM : XWebScrapTest<PerfilApp, PerfilSAMInsercoesTestSVCRule, PerfilTuple>
@@ -38,6 +38,7 @@ namespace STX.App.Core.TST.Perfil
 
         private async void PageLoaded()
         {
+            await Setup.Browser.CurrentPage.GetById(new Guid("620df346-cc9d-4333-b57e-8b5454e5617c")).ClickToVisible();
             await Setup.Browser.CurrentPage.GetById(App.MenuID).ClickToVisible();
             await Setup.Browser.CurrentPage.GetById(App.BtnNewID).ClickAsync();
             if (Setup.Browser.CurrentPage.CheckElement("div", new XAtt("id", PerfilApp.FRMPerfil.ID.AsString())) == true)

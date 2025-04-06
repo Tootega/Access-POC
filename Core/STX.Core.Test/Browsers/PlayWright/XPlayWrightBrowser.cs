@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 using Microsoft.Playwright;
 
-using STX.Core.Test.Browsers;
-using STX.Core.Test.Interfaces;
+using TFX.Core.Test.Browsers;
+using TFX.Core.Test.Interfaces;
 
-namespace STX.Core.Test.PlayWright
+namespace TFX.Core.Test.PlayWright
 {
     public sealed class XPlayWrightBrowser : XIWSBrowser
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace STX.Core.Model
+namespace TFX.Core.Model
 {
     public abstract class XSAMApplication
     {

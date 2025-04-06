@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>STX.Access</RootNamespace>
+    <RootNamespace>TFX.Access</RootNamespace>
   </PropertyGroup>
 
     <ItemGroup>
@@ -45,6 +45,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\STX.Core\STX.Core.csproj" />
+      <ProjectReference Include="..\TFX.Core\TFX.Core.csproj" />
     </ItemGroup>
 </Project>

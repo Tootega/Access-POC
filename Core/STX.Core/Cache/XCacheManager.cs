@@ -12,13 +12,13 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Newtonsoft.Json;
 
-using STX.Core.Automateds.Configuracoes;
-using STX.Core.IDs.Model;
-using STX.Core.Model;
-using STX.Core.Reflections;
-using STX.Core.Services;
+using TFX.Core.Automateds.Configuracoes;
+using TFX.Core.IDs.Model;
+using TFX.Core.Model;
+using TFX.Core.Reflections;
+using TFX.Core.Services;
 
-namespace STX.Core.Cache
+namespace TFX.Core.Cache
 {
 	public static class XCacheManager
 	{

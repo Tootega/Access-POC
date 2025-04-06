@@ -1,4 +1,4 @@
-﻿namespace STX.Core.Model
+namespace TFX.Core.Model
 {
     public class XRequest
     {

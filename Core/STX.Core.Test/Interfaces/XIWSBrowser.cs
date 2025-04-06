@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
 
-using STX.Core.Test.PlayWright;
+using TFX.Core.Test.PlayWright;
 
-namespace STX.Core.Test.Interfaces
+namespace TFX.Core.Test.Interfaces
 {
 
     public class XSCBrowserConfig

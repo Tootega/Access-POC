@@ -1,8 +1,8 @@
 using System;
 
-using STX.Core.Model;
+using TFX.Core.Model;
 
-namespace STX.Core.Interfaces
+namespace TFX.Core.Interfaces
 {
     public interface XIDataField
     {

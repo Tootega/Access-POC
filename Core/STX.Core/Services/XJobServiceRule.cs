@@ -3,7 +3,7 @@ using System.Linq;
 
 using Microsoft.Extensions.Logging;
 
-namespace STX.Core.Services
+namespace TFX.Core.Services
 {
 
 	public abstract class XJobServiceRule<T, TPK> : XServiceRuleA<T, TPK>

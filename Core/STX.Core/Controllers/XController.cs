@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
-using STX.Core.Authorize;
-using STX.Core.Exceptions;
+using TFX.Core.Authorize;
+using TFX.Core.Exceptions;
 
-namespace STX.Core.Controllers
+namespace TFX.Core.Controllers
 {
 	public class XStopwatchAttribute : ActionFilterAttribute
 	{

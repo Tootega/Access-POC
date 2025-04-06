@@ -4,11 +4,11 @@ using System.Text;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using STX.Core.Controllers;
-using STX.Core.Exceptions;
-using STX.Core.Services;
+using TFX.Core.Controllers;
+using TFX.Core.Exceptions;
+using TFX.Core.Services;
 
-namespace STX.Core.Automateds.Configuracoes
+namespace TFX.Core.Automateds.Configuracoes
 {
     public class ConfiguracaoJobRule : BaseConfiguracaoJobRule
     {

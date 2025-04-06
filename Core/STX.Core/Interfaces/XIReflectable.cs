@@ -1,4 +1,4 @@
-namespace STX.Core.Interfaces
+namespace TFX.Core.Interfaces
 {
     public interface XIReflectable
     {

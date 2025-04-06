@@ -1,6 +1,6 @@
-using STX.Core.Model;
+using TFX.Core.Model;
 
-namespace STX.Access
+namespace TFX.Access
 {
     public abstract class XTest<Rule, Tuple>
         where Tuple : XServiceDataTuple

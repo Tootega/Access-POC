@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-using STX.Core.Model;
+using TFX.Core.Model;
 
-namespace STX.Access
+namespace TFX.Access
 {
     public class XTestData<T> : IEnumerable<Object[]> where T : XServiceDataTuple
     {
