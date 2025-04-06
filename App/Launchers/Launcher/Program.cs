@@ -6,8 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using TFX.App.Core.INF;
-using TFX.App.Core.INF.DB;
 using TFX.Core;
 using TFX.Core.Cache;
 using TFX.Core.IDs;
@@ -41,7 +39,7 @@ namespace Launcher
 
             ConfigureServices(builder.Services);
 
-            builder.Services.AddDbContext<TFXAppCoreINFContext>();
+            //builder.Services.AddDbContext<TFXAppCoreINFContext>();
             builder.Services.AddSingleton<XILoginService, XLoginService>();
 
             App = builder.Build();
@@ -55,8 +53,8 @@ namespace Launcher
             App.UseStaticFiles();
 
             using var scop = App.Services.CreateScope();
-            using var ctl1 = scop.ServiceProvider.GetRequiredService<TFXAppCoreINFContext>();
-            ctl1.Database.Migrate();
+            //using var ctl1 = scop.ServiceProvider.GetRequiredService<TFXAppCoreINFContext>();
+            //ctl1.Database.Migrate();
             XSessionManager.Initialize(App.Services);
             App.Run("https://+:7000");
         }
@@ -77,7 +75,6 @@ namespace Launcher
             {
                 options.AllowSynchronousIO = true;
             });
-            new TFXAppCoreINFModule().Initialize(pServices);
         }
     }
 }

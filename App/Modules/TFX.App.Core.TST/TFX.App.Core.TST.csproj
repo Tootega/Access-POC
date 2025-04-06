@@ -1,0 +1,126 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+      <MyType>DASETest</MyType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Perfil\Perfil.SAM.Insercoes.Test.dscit" />
+    <None Remove="TFX.App.Core.TST.dsmdl" />
+    <None Remove="Usuario\Usuario.SAM.Insercoes.Test.dscit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Perfil\Perfil.SAM.Insercoes.Test.dscit">
+      <Visible>True</Visible>
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>Perfil.SAM.Insercoes.Test.SVC.cs</LastGenOutput>
+    </Content>
+    <Content Include="TFX.App.Core.TST.dsmdl">
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>TFX.App.Core.TST.Module.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Usuario\Usuario.SAM.Insercoes.Test.dscit">
+      <Visible>True</Visible>
+      <Generator>XDASEGenerator</Generator>
+      <LastGenOutput>Usuario.SAM.Insercoes.Test.SVC.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="NSubstitute" Version="5.1.0" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.3" />
+    <PackageReference Include="xunit.analyzers" Version="1.15.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.assert" Version="2.9.0" />
+    <PackageReference Include="xunit.core" Version="2.9.0" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.9.0" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.9.0" />
+    <PackageReference Include="xunit.runner.console" Version="2.9.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\TFX.Core.Test\TFX.Core.Test.csproj" />
+    <ProjectReference Include="..\TFX.App.Core.INF\TFX.App.Core.INF.csproj" />
+    <ProjectReference Include="..\TFX.App.Core.MDL\TFX.App.Core.MDL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SAM.cs">
+      <Visible>False</Visible>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SAM.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SVC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Perfil\Perfil.SAM.Insercoes.Test.SVC.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Perfil.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="TFX.App.Core.TST.Module.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TFX.App.Core.TST.dsmdl</DependentUpon>
+      <Visible>False</Visible>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SAM.cs">
+      <Visible>False</Visible>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SAM.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SVC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Insercoes.Test.SVC.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>Usuario.SAM.Insercoes.Test.dscit</DependentUpon>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Web.Test.CIT.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Usuario\Usuario.SAM.Web.Test.Rule.cs">
+      <Visible>True</Visible>
+    </Compile>
+  </ItemGroup>
+
+</Project>
