@@ -43,7 +43,6 @@ namespace TFX.Core.IDs
         }
         [HttpPost, Route("X21")]
         [XAuthorizeFilter]
-        //[XAuthorize()]
         public ActionResult X21()
         {
             return Ok($"We alive since {_Alive} ({(DateTime.Now - _Alive)})");

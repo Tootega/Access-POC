@@ -1,6 +1,8 @@
 using System;
+using System.Text.Json;
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 
 using TFX.Core;
 using TFX.Core.Cache;
+using TFX.Core.Controllers;
 using TFX.Core.IDs;
 using TFX.Core.Interfaces;
 namespace Launcher
@@ -23,7 +26,8 @@ namespace Launcher
                 Args = args,
                 WebRootPath = "/Tootega/Source/Access-POC/App/Launchers/WebUI/dist/ef6-angular-poc"
             });
-
+            builder.Services.UseOpenApi();
+            builder.Services.AddJWT();
             builder.Services.AddCors(options =>
             {
                 options.AddDefaultPolicy(b => b.AllowAnyOrigin()
@@ -32,49 +36,21 @@ namespace Launcher
                                                .WithExposedHeaders("*"));
             });
 
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            builder.Services.AddControllers().AddJsonOptions(js => { js.JsonSerializerOptions.PropertyNamingPolicy = null; });
 
-            ConfigureServices(builder.Services);
-
-            //builder.Services.AddDbContext<TFXAppCoreINFContext>();
+            builder.Services.ConfigureServices();
             builder.Services.AddSingleton<XILoginService, XLoginService>();
 
             App = builder.Build();
-            if (App.Environment.IsDevelopment())
-                App.UseSwagger().UseSwaggerUI();
-
-            App.UseHttpsRedirection();
             App.UseCors();
             App.UseAuthorization();
+            App.UseAuthentication();
             App.MapControllers();
             App.UseStaticFiles();
-
-            using var scop = App.Services.CreateScope();
-            //using var ctl1 = scop.ServiceProvider.GetRequiredService<TFXAppCoreINFContext>();
-            //ctl1.Database.Migrate();
+            App.AddScalar();
             XSessionManager.Initialize(App.Services);
-            App.Run("https://+:7000");
+            App.Run("http://+:7000");
         }
 
-
-        public static void ConfigureServices(IServiceCollection pServices)
-        {
-            pServices.AddRouting();
-            pServices.AddAuthentication(XDefault.JWTKey)
-
-            .AddCookie(XDefault.JWTKey, o =>
-            {
-                o.LoginPath = "/Access/Login";
-                o.Cookie.Name = XDefault.JWTKey;
-                o.Cookie.Path = "/";
-            });
-            pServices.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
-        }
+       
     }
 }

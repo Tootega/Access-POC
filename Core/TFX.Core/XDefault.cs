@@ -14,10 +14,10 @@ namespace TFX.Core
             String loc = typeof(XDefault).Assembly.Location;
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(loc);
             InitializePath(Path.GetDirectoryName(loc));
-            JWTKey = "7DC49BD6-6404-434D-AE31-38D44EFDB639";
+            JWTKey = XEnvironment.Read("JWT_SECRET", "7DC49BD6-6404-434D-AE31-38D44EFDB639");
+            Emissor = XEnvironment.Read("JWT_EMISSOR", "https://tootega.com.br");
+            ValidoEm = new[] { XEnvironment.Read("JWT_EMISSOR", "https://tootega.com.br") };
         }
-
-        public static string JWTKey;
 
         public static string Unauthorized()
         {
@@ -27,6 +27,10 @@ namespace TFX.Core
         public const String FullDateTimeFormat = "yyyy-MM-dd HH:mm:ss.FFFFFFF";
         public static DateTime NullDateTime = new DateTime(1753, 1, 1, 0, 0, 0, 1);
         public static Boolean ForceDebugTime = false;
+        public static string JWTKey;
+        public static string Emissor;
+        public static string[] ValidoEm;
+
 #if (DEBUG)
         public static Boolean IsDebug = true;
 #else

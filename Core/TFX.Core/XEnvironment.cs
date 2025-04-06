@@ -8,10 +8,12 @@ namespace TFX.Core
 		public const String NewLine = "\r\n";
 #if DEBUG
 		public static bool IsDebug = true;
+        public static bool AtivarScalar = true;
 #else
+        public static bool AtivarScalar = false;
 		public static bool IsDebug = false;
 #endif
-		public static T Read<T>(string varName, T defaultValue = default, string varEmptyError = null)
+        public static T Read<T>(string varName, T defaultValue = default, string varEmptyError = null)
 			where T : IComparable, IConvertible
 		{
 			if (varName.IsEmpty())
