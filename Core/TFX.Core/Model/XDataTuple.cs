@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TFX.Core.Model
@@ -26,6 +27,18 @@ namespace TFX.Core.Model
         public XTupleState State
         {
             get; set;
+        }
+        public Object this[string pField]
+        {
+            get
+            {
+                var vlr = XUtils.GetValue(this, pField);
+                return vlr;
+            }
+            set
+            {
+                XUtils.SetValue(this, pField, value);
+            }
         }
     }
 }

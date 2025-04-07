@@ -27,14 +27,6 @@ namespace Launcher
                 WebRootPath = "/Tootega/Source/Access-POC/App/Launchers/WebUI/dist/ef6-angular-poc"
             });
             builder.Services.UseOpenApi();
-            builder.Services.AddJWT();
-            builder.Services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(b => b.AllowAnyOrigin()
-                                               .AllowAnyMethod()
-                                               .AllowAnyHeader()
-                                               .WithExposedHeaders("*"));
-            });
 
 
             builder.Services.ConfigureServices();

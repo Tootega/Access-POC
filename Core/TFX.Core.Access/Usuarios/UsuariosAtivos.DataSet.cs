@@ -5,31 +5,44 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
 using TFX.Core.Reflections;
 using TFX.Core.Model;
 using TFX.Core.Interfaces;
 using TFX.Core;
 using TFX.Core.Services;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
+using TFX.Core.Lzma;
 
 namespace TFX.Core.Access.Usuarios
 {
     public class UsuariosAtivosTuple : XServiceDataTuple
     {
-        public XGuidNullableDataField TAFxUsuarioID {get;set;}
-        public XStringDataField Login {get;set;}
-        public XInt16DataField CORxEstadoID {get;set;}
-        public override void Initialize()
-        {
-            TAFxUsuarioID = new XGuidNullableDataField();
-            Login = new XStringDataField();
-            CORxEstadoID = new XInt16DataField();
-        }
+        [Required()]
+        [Display(Name = "Usuários")]
+        public Guid TAFxUsuarioID {get;set;}
+        [Required()]
+        public String Login {get;set;}
+        [Required()]
+        [Display(Name = "Ativo")]
+        public Int16 CORxEstadoID {get;set;}
     }
 
     public class UsuariosAtivosFilter : XFilter
     {
-        public XInt16DataField CORxEstadoID {get;set;}
-        public XStringDataField Login {get;set;}
+
+        public UsuariosAtivosFilter()
+        {
+        }
+
+        public UsuariosAtivosFilter(Int16 pCORxEstadoID, String pLogin)
+        {
+            CORxEstadoID = pCORxEstadoID;
+            Login = pLogin;
+        }
+        public Int16? CORxEstadoID {get;set;}
+        public String Login {get;set;}
     }
     public static class FRMUsuariosAtivosFilter
     {
@@ -44,25 +57,27 @@ namespace TFX.Core.Access.Usuarios
 
     public interface IUsuariosAtivosService : XIService
     {
-        void Flush(UsuariosAtivosDataSet pDataSet);
-        UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true);
-        UsuariosAtivosDataSet Select(UsuariosAtivosFilter pFilter, Boolean pFull = false);
-        UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull = false);
-        UsuariosAtivosDataSet Select(Boolean pFull = false)
-        {
-            return Select(null, pFull);
-        }
+        object Flush(UsuariosAtivosDataSet pDataSet);
+
+        UsuariosAtivosDataSet Execute(UsuariosAtivosFilter pFilter);
+        IQueryable<UsuariosAtivosTuple> ExecuteQuery(UsuariosAtivosFilter pFilter);
     }
 
-    public abstract class BaseUsuariosAtivosRule : XServiceRuleC<List<UsuariosAtivosTuple>, UsuariosAtivosFilter, UsuariosAtivosRequest>
+    public abstract class BaseUsuariosAtivosRule : XServiceRule<UsuariosAtivosTuple, UsuariosAtivosTuple>
     {
         public BaseUsuariosAtivosRule(XService pOwner)
             :base(pOwner)
         {
         }
+
+        public virtual UsuariosAtivosFilter Execute(UsuariosAtivosFilter pFilter)
+        {
+            return pFilter;
+        }
     }
 
     public class UsuariosAtivosDataSet : XDataSet<UsuariosAtivosTuple>
     {
+        public override Guid ID => new Guid("961B7E48-A442-4096-80DF-B65F8C459754");
     }
 }

@@ -10,6 +10,15 @@ using TFX.Core;
 using TFX.Core.Model;
 using TFX.Core.Services;
 using TFX.Core.Reflections;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Extensions.DependencyInjection;
+using TFX.Core.Exceptions;
+using Microsoft.AspNetCore.Http;
+using System.Data;
+using TFX.Core.Lzma;
+using TFX.Core.Identity;
+using TFX.Core.Access.Usuarios.Rules;
 using TFX.Core.Access.Usuarios;
 using TFX.Core.Access.DB;
 
@@ -20,27 +29,19 @@ namespace TFX.Core.Access.Usuarios
     {
         public class DBContext : XDBContext
         {
-            internal static DBContext Create(XDBContext pOwner = null)
-            {
-                return new DBContext(new DbContextOptions<DBContext>(), pOwner);
-            }
-
-            private DBContext(DbContextOptions<DBContext> pOtions, XDBContext pOwner)
-                   : base(pOtions, pOwner)
+            public DBContext(DbContextOptions<DBContext> pOptions, XITenantProvider pTenantProvider, XISharedTransaction pSharedTransaction)
+                   : base(pOptions, pTenantProvider, pSharedTransaction)
             {
             }
 
-            internal DbSet<TAFxUsuario> TAFxUsuario
-            {
-                get; set;
-            }
+            public DbSet<TAFxUsuario> TAFxUsuario{get; set;}
 
             private void ConfigureTAFxUsuario(ModelBuilder pBuilder)
             {
                 pBuilder.Entity<TAFxUsuario>(ett =>
                 {
                     ett.HasKey(e => e.TAFxUsuarioID).HasName("PK_TAFxUsuario");
-
+                    
                     ett.Property(d => d.TAFxUsuarioID).HasColumnType(GetDBType("Guid"));
                     ett.Property(d => d.Login).HasColumnType(GetDBType("String"));
                     ett.Property(d => d.CORxEstadoID).HasColumnType(GetDBType("Int16"));
@@ -51,51 +52,124 @@ namespace TFX.Core.Access.Usuarios
             protected override void OnModelCreating(ModelBuilder pBuilder)
             {
                 ConfigureTAFxUsuario(pBuilder);
+                base.OnModelCreating(pBuilder);
+            }
+
+            protected override string GetConnectionString()
+            {
+                if (ConnectionString != null)
+                    return ConnectionString;
+                return XEnvironment.Read("SQL_SERVER_TFX", base.GetConnectionString());
             }
         }
 
-        public UsuariosAtivosService(XService pOwner)
-               : base(pOwner)
+        public abstract class BaseINFUsuariosAtivosServiceRule : XServiceINFRule<UsuariosAtivosService, UsuariosAtivosTuple>
         {
-            _Rule = new UsuariosAtivosRule(this);
+            public BaseINFUsuariosAtivosServiceRule(UsuariosAtivosService pService)
+                : base(pService)
+            {
+            }
+            protected DBContext Context
+            {
+                get;
+                private set;
+            }
+            protected internal virtual T GetWhere<T>(T pQuery)
+            {
+                return pQuery;
+            }
+            internal void SetContext(DBContext pContext)
+            {
+                Context = pContext;
+            }
+
         }
 
-        public UsuariosAtivosService(ILogger<XService> pLogger)
-               : base(pLogger)
+        public UsuariosAtivosService(ILogger<XService> pLogger, DBContext pContext)
+               :base(pLogger)
         {
-            _Rule = new UsuariosAtivosRule(this);
+            Rule = new UsuariosAtivosRule(this);
+            _INFRule = new INFUsuariosAtivosServiceRule(this);
+            Context = pContext;
+            _INFRule.SetContext(Context);
         }
 
-        private XIServiceRuleC _Rule;
+        internal XIServiceRule<UsuariosAtivosTuple, UsuariosAtivosTuple> Rule;
+        private INFUsuariosAtivosServiceRule _INFRule;
 
         public override Guid ID => new Guid("961B7E48-A442-4096-80DF-B65F8C459754");
 
-        protected override XDBContext CreateContext(XDBContext pOwner)
-        {
-            return DBContext.Create(pOwner);
-        }
-
         public DBContext Context
         {
-            get
-            {
-                return (DBContext)ProtectedContext ?? GetContext<DBContext>();
-            }
+            get;
         }
 
-        [HttpPost, Route("Flush")]
-        public void Flush(UsuariosAtivosDataSet pDataSet)
+        public override void GracefullyClose()
         {
-            var ctx = GetContext<DBContext>();
-            ctx.BeginTransaction();
-            _Rule?.InternalBeforeFlush(pDataSet.Tuples);
+            Context.Commit();
+        }
+        public IQueryable<UsuariosAtivosTuple> ExecuteQuery(UsuariosAtivosFilter pFilter)
+        {
+            var ctx = Context;
+            var query = from TAFxUsuario in ctx.TAFxUsuario
+                        
+                        select new {TAFxUsuario};
+            query = _INFRule.GetWhere(query);
 
-            SetUsuariosAtivosValues(ctx, pDataSet);
-            ctx.SaveChanges();
 
-            _Rule?.InternalAfterFlush(pDataSet.Tuples);
+            if (pFilter != null)
+            {
+                if (pFilter.CORxEstadoID.HasValue)
+                    query = query.Where(q => q.TAFxUsuario.CORxEstadoID == pFilter.CORxEstadoID);
+                if (!pFilter.Login.IsEmpty())
+                    query = query.Where(q => q.TAFxUsuario.Login == pFilter.Login);
+            }
 
-            ctx.Commit();
+            if (!LoadAll)
+            {
+                if (pFilter?.SkipRows > 0)
+                    query = query.Skip(pFilter.SkipRows.Value);
+
+                if (pFilter != null && pFilter.TakeRows.HasValue)
+                    query = query.Take(pFilter.TakeRows.Value);
+                else
+                    query = query.Take(75);
+            }
+
+            var qry = query.Select(q => new UsuariosAtivosTuple(){TAFxUsuarioID = q.TAFxUsuario.TAFxUsuarioID,
+                                      Login = q.TAFxUsuario.Login,
+                                      CORxEstadoID = q.TAFxUsuario.CORxEstadoID});
+            return qry;
+        }
+
+        public UsuariosAtivosDataSet Execute(UsuariosAtivosFilter pFilter)
+        {
+            _INFRule.InternalBeforeExecute();
+            var qry = ExecuteQuery(pFilter);
+            var tuples = qry.ToList();
+            tuples = Rule.InternalAfterSelect(tuples);
+            _INFRule.InternalAfterExecute(tuples);
+            var dataset = new UsuariosAtivosDataSet { Tuples = tuples };
+            return dataset;
+        }
+
+        public object Flush(UsuariosAtivosDataSet pDataSet)
+        {
+            if (pDataSet?.Tuples.Count == 0)
+                throw new XUnconformity("Não é permitido Flush sem Tuplas.");
+            using (var scope = XEnvironment.Services.CreateScope())
+            using (var ctx = scope.ServiceProvider.GetRequiredService<DBContext>())
+            {
+                Rule?.InternalBeforeFlush(pDataSet.Tuples);
+
+                SetUsuariosAtivosValues(ctx, pDataSet);
+                ctx.SaveChanges();
+
+                Rule?.InternalAfterFlush(pDataSet.Tuples);
+                pDataSet.AssignBack(pDataSet);
+
+                return XEndPointMessage.Ok;
+            }
         }
 
         private void SetUsuariosAtivosValues(DBContext ctx, UsuariosAtivosDataSet pDataSet)
@@ -104,67 +178,20 @@ namespace TFX.Core.Access.Usuarios
                 return;
             foreach (UsuariosAtivosTuple stpl in pDataSet.Tuples)
             {
-                if (HasChanges(stpl, stpl.TAFxUsuarioID, stpl.Login, stpl.CORxEstadoID))
-                {
-                    var TAFxUsuariotpl = new TAFxUsuario();
-                    TAFxUsuariotpl.TAFxUsuarioID = stpl.TAFxUsuarioID.Value;
-                    TAFxUsuariotpl.Login = stpl.Login.Value;
-                    TAFxUsuariotpl.CORxEstadoID = stpl.CORxEstadoID.Value;
-                    var tbl = ctx.TAFxUsuario.Add(TAFxUsuariotpl);
-                    tbl.State = GetState(stpl, stpl.TAFxUsuarioID, stpl.Login, stpl.CORxEstadoID);
-                }
+                var TAFxUsuariotpl = new TAFxUsuario();
+                stpl.EntityTuple = TAFxUsuariotpl;
+                TAFxUsuariotpl.TAFxUsuarioID = stpl.TAFxUsuarioID;
+                TAFxUsuariotpl.Login = stpl.Login;
+                TAFxUsuariotpl.CORxEstadoID = stpl.CORxEstadoID;
+                var sb = TAFxUsuariotpl.Validate();
+                if (sb.Length > 0)
+                    throw new Exception(sb.ToString());
+                ctx.TAFxUsuario.Add(TAFxUsuariotpl);
+                if (!TAFxUsuariotpl.IsPKEmpty)
+                    ctx.Entry(TAFxUsuariotpl).State = EntityState.Modified;
+                else
+                    ctx.Entry(TAFxUsuariotpl).State = EntityState.Added;
             }
-        }
-
-        public UsuariosAtivosDataSet GetByPK(UsuariosAtivosRequest pRequest, Boolean pFull = true)
-        {
-            var dataset = Select(pRequest, null, pFull);
-            return dataset;
-        }
-
-        UsuariosAtivosDataSet IUsuariosAtivosService.Select(UsuariosAtivosFilter pFilter, Boolean pFull = false)
-        {
-            var dataset = Select(null, pFilter, pFull);
-            return dataset;
-        }
-
-        public UsuariosAtivosDataSet Select(UsuariosAtivosRequest pRequest, UsuariosAtivosFilter pFilter, Boolean pFull)
-        {
-            var ctx = Context;
-            var query = from TAFxUsuario in ctx.TAFxUsuario
-                        select new
-                        {
-                            TAFxUsuario
-                        };
-
-            query = _Rule?.InternalGetWhere(query, pRequest, pFilter, pFull);
-
-            if (pRequest != null)
-                query = query.Where(q => q.TAFxUsuario.TAFxUsuarioID == pRequest.TAFxUsuarioID);
-
-            if (pFilter != null)
-            {
-                if (pFilter.CORxEstadoID != null && pFilter.CORxEstadoID.State != XFieldState.Empty)
-                    query = query.Where(q => q.TAFxUsuario.CORxEstadoID == pFilter.CORxEstadoID.Value);
-                if (pFilter.Login != null && pFilter.Login.State != XFieldState.Empty)
-                    query = query.Where(q => q.TAFxUsuario.Login == pFilter.Login.Value);
-            }
-
-            if (pFilter?.SkipRows > 0)
-                query = query.Skip(pFilter.SkipRows);
-
-            if (pFilter?.TakeRows > 0)
-                query = query.Take(pFilter.TakeRows);
-
-            var dst = query.Select(q => new UsuariosAtivosTuple
-            {
-                TAFxUsuarioID = { Value = q.TAFxUsuario.TAFxUsuarioID },
-                Login = { Value = q.TAFxUsuario.Login },
-                CORxEstadoID = { Value = q.TAFxUsuario.CORxEstadoID }
-            });
-            var dataset = new UsuariosAtivosDataSet { Tuples = dst.ToList() };
-            _Rule.InternalAfterSelect(dataset.Tuples);
-            return dataset;
         }
     }
 }

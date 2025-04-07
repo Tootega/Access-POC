@@ -2,40 +2,69 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TFX.Core.Controllers;
+using TFX.Core.Services;
+using System;
+using TFX.Core.Model;
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using TFX.Core.Data;
+using TFX.Core.Access.Usuarios;
+using TFX.Core.Access.Usuarios.Rules;
+using TFX.Core.Access.DB;
 
 namespace TFX.Core.Access.Usuarios
 {
-    [Route("TFXCoreAccess/Usuarios/UsuariosAtivos")]
+    [Route("UsuariosAtivos")]
     [ApiController]
     public class UsuariosAtivosController : XController
     {
+        public abstract class BaseINFUsuariosAtivosControllerRule : XControllerINFRule<UsuariosAtivosController>
+        {
+            public BaseINFUsuariosAtivosControllerRule(UsuariosAtivosController pController)
+                :base(pController)
+            {
+            }
+        }
+
         public UsuariosAtivosController(IUsuariosAtivosService pService, ILogger<XController> pLogger)
                :base(pLogger)
         {
-            _Service = pService;
+            Service = pService;
+            _Rule = new INFUsuariosAtivosControllerRule(this);
         }
 
-        private readonly IUsuariosAtivosService _Service;
+        internal readonly IUsuariosAtivosService Service;
+        private readonly INFUsuariosAtivosControllerRule _Rule;
 
-        [HttpPost("GetByPK")]
-        public UsuariosAtivosDataSet GetByPK([FromBody] UsuariosAtivosRequest pRequest)
+        [HttpPost("Execute")]
+        public IActionResult Execute([FromBody] UsuariosAtivosFilter pFilter)
         {
-            var dataset = _Service.Select(pRequest, null, true);
-            return dataset;
+            try
+            {
+                var dst = Service.Execute(pFilter);
+                return Ok(dst);
+            }
+            catch (Exception pEx)
+            {
+                return StatusCode(404, XEndPointMessage.Erro(pEx));
+            }  
         }
 
-        [HttpPost("Flush")]
+        [HttpPost("IncluirAlterar")]
+        [XEndpointDescription(typeof(TAFxUsuario))]
         public IActionResult Flush([FromBody] UsuariosAtivosDataSet pDataSet)
         {
-            _Service.Flush(pDataSet);
-            return new OkResult();
-        }
-
-        [HttpPost("Search")]
-        public UsuariosAtivosDataSet Search([FromBody] UsuariosAtivosFilter pFilter)
-        {
-            var dataset = _Service.Select(null, pFilter, false);
-            return dataset;
+            try
+            {
+                var result = Service.Flush(pDataSet);
+                Service.GracefullyClose();
+                return Ok(result);
+            }
+            catch (Exception pEx)
+            {
+                return StatusCode(404, XEndPointMessage.Erro(pEx));
+            }  
         }
     }
 }

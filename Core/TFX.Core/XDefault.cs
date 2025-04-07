@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Security.Claims;
 using System.Threading;
 
 namespace TFX.Core
@@ -30,6 +31,7 @@ namespace TFX.Core
         public static string JWTKey;
         public static string Emissor;
         public static string[] ValidoEm;
+        public const string TenantFieldName = "";
 
 #if (DEBUG)
         public static Boolean IsDebug = true;

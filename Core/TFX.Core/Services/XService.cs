@@ -41,7 +41,14 @@ namespace TFX.Core.Services
 		private bool _Dispoded;
 
 		public virtual string Name => GetType().Name;
-		public virtual Guid ID
+
+        public bool LoadAll
+        {
+            get;
+            set;
+        }
+
+        public virtual Guid ID
 		{
 			get;
 		}
@@ -50,7 +57,10 @@ namespace TFX.Core.Services
 			get;
 		}
 
-		public XService Owner
+        public virtual void GracefullyClose()
+        {
+        }
+        public XService Owner
 		{
 			get;
 		}

@@ -66,6 +66,10 @@
       <Visible>False</Visible>
       <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
     </Compile>
+    <Compile Update="Usuarios\UsuariosAtivos.Rule.cs">
+      <Visible>True</Visible>
+      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
+    </Compile>
     <Compile Update="Usuarios\UsuariosAtivos.Service.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -74,10 +78,6 @@
     </Compile>
     <Compile Update="Usuarios\UsuariosAtivos.DataSet.cs">
       <Visible>False</Visible>
-      <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
-    </Compile>
-    <Compile Update="Usuarios\UsuariosAtivos.Rule.cs">
-      <Visible>True</Visible>
       <DependentUpon>UsuariosAtivos.dssvc</DependentUpon>
     </Compile>
   </ItemGroup>

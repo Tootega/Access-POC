@@ -39,10 +39,10 @@ namespace TAF.Access.Test
         [Fact]
         public void LoginParallel()
         {
-            //_Setup.Open();
-            //Do(0);
-            for (int i = 0; i < 10; i++)
-                ThreadPool.QueueUserWorkItem((a) => Do(0));
+            _Setup.Open();
+            Do(0);
+            //for (int i = 0; i < 10; i++)
+            //    ThreadPool.QueueUserWorkItem((a) => Do(0));
             Console.ReadLine();
         }
 
@@ -56,7 +56,7 @@ namespace TAF.Access.Test
                     using var st = new StringContent("{ \"Login\": \"Maria\" }", Encoding.UTF8, "application/json");
                     using HttpClient client = new HttpClient();
 
-                    using HttpResponseMessage response = client.PostAsync("http://localhost:5000/Access/Login", st).Result;
+                    using HttpResponseMessage response = client.PostAsync("http://localhost:7000/Access/Login", st).Result;
                     response.EnsureSuccessStatusCode();
                     if (response.StatusCode == HttpStatusCode.OK)
                     {

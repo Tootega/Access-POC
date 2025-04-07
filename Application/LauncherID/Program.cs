@@ -23,79 +23,26 @@ namespace Launcher
 
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
-            var athb=builder.Services.AddAuthentication(opt =>
+            var builder = WebApplication.CreateBuilder(new WebApplicationOptions
             {
-                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                Args = args,
+                WebRootPath = "/Tootega/Source/Access-POC/App/Launchers/WebUI/dist/ef6-angular-poc"
             });
-            athb.AddJwtBearer(opt =>
-            {
-                opt.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidIssuer = "https://joydipkanjilal.com/",
-                    ValidAudience = "https://joydipkanjilal.com/",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is a sample secret key - please don't use in production environment.'")),
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = false,
-                    ValidateIssuerSigningKey = true
-                };
-            });
-            builder.Services.AddCors(opt =>
-            {
-                opt.AddDefaultPolicy(b =>
-                b.AllowAnyOrigin()
-                 .AllowAnyMethod()
-                 .AllowAnyHeader()
-                 .WithExposedHeaders("*"));
-            });
-            builder.Services.AddAuthorization();
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            builder.Services.AddControllers().AddJsonOptions(opt =>{opt.JsonSerializerOptions.PropertyNamingPolicy = null;});
-            ConfigureServices(builder.Services);
+            builder.Services.UseOpenApi();
+
+
+            builder.Services.ConfigureServices();
             builder.Services.AddSingleton<XILoginService, XLoginService>();
+
             App = builder.Build();
-            if (App.Environment.IsDevelopment())
-            {
-                App.UseSwagger();
-                App.UseSwaggerUI();
-            }
-            App.UseHttpsRedirection();
             App.UseCors();
             App.UseAuthorization();
+            App.UseAuthentication();
             App.MapControllers();
             App.UseStaticFiles();
-            Initialize(App.Services);
-
+            App.AddScalar();
             XSessionManager.Initialize(App.Services);
-            App.Run("https://+:5000");
-        }
-
-        private static void Initialize(IServiceProvider pServices)
-        {
-            var svc = (XLoginService)pServices.GetService<XILoginService>();
-            svc.RefreshCache();
-        }
-
-        public static void ConfigureServices(IServiceCollection pServices)
-        {
-            pServices.AddRouting();
-            pServices.AddAuthentication(XDefault.JWTKey)
-            .AddCookie(XDefault.JWTKey, o =>
-            {
-                o.LoginPath = "/Access/Login";
-                o.Cookie.Name = XDefault.JWTKey;
-                o.Cookie.Path = "/";
-            });
-            pServices.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
-
+            App.Run("http://+:7000");
         }
     }
 }

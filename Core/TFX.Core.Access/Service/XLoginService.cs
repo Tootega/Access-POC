@@ -32,7 +32,11 @@ namespace TFX.Core.Access.Service
         {
             get; set;
         }
-
+        public bool LoadAll
+        {
+            get;
+            set;
+        }
         public XUserSession DoLogin(HttpContext pHttpContext, XUser pUser)
         {
             var session = XSessionCache.GetSession(pUser.SessionID);
@@ -89,18 +93,23 @@ namespace TFX.Core.Access.Service
 
         public void RefreshCache(Dictionary<string, XUser> pUsers = null)
         {
-            if (pUsers == null)
-            {
-                pUsers = new Dictionary<string, XUser>();
-                using var srv = new UsuariosAtivosService((XService)null);
-                var dst = srv.Select(null, null, true);
-                foreach (var item in dst.Tuples)
-                {
-                    pUsers.Add(item.Login.Value, new XUser { ID = item.TAFxUsuarioID.Value, Login = item.Login.Value });
-                }
-            }
-            lock (_Users)
-                _Users.Swap(pUsers);
+            //if (pUsers == null)
+            //{
+            //    pUsers = new Dictionary<string, XUser>();
+            //    using var srv = new UsuariosAtivosService((XService)null);
+            //    var dst = srv.Select(null, null, true);
+            //    foreach (var item in dst.Tuples)
+            //    {
+            //        pUsers.Add(item.Login.Value, new XUser { ID = item.TAFxUsuarioID.Value, Login = item.Login.Value });
+            //    }
+            //}
+            //lock (_Users)
+            //    _Users.Swap(pUsers);
+        }
+
+        public void GracefullyClose()
+        {
+            
         }
     }
 }

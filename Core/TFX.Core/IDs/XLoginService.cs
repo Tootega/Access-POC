@@ -23,8 +23,17 @@ namespace TFX.Core.IDs
 		public void Dispose()
 		{
 		}
+        public bool LoadAll
+        {
+            get;
+            set;
+        }
 
-		public XUserSession DoLogin(HttpContext pHttpContext, XUser pUser)
+        public virtual void GracefullyClose()
+        {
+        }
+
+        public XUserSession DoLogin(HttpContext pHttpContext, XUser pUser)
         {
             var session = XSessionCache.GetSession(pUser.ID.Value);
             if (session != null)
