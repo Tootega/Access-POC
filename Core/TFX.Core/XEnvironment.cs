@@ -5,7 +5,9 @@ namespace TFX.Core
 {
 	public class XEnvironment
 	{
-		public const String NewLine = "\r\n";
+        public static IServiceProvider Services;
+
+        public const String NewLine = "\r\n";
 #if DEBUG
 		public static bool IsDebug = true;
         public static bool AtivarScalar = true;

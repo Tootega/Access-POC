@@ -10,10 +10,6 @@ namespace TFX.Core.Model
 		{
 		}
 
-		public XInt32DataField(int? pValue)
-			: base(pValue.HasValue ? pValue.Value : 0)
-		{
-		}
 		public XInt32DataField(int pValue)
 			: base(pValue)
 		{
@@ -34,4 +30,32 @@ namespace TFX.Core.Model
 		{
 		}
 	}
+
+    public class XInt32NullableDataField : XDataField<Int32?>
+    {
+        public XInt32NullableDataField()
+        {
+        }
+
+
+        public XInt32NullableDataField(Int32? pValue)
+            : base(pValue)
+        {
+        }
+
+        public XInt32NullableDataField(XFieldState pState, Int32? pValue)
+            : base(pState, pValue)
+        {
+        }
+
+        public XInt32NullableDataField(XFieldState pState, Object pValue)
+            : base(pState, pValue)
+        {
+        }
+
+        public XInt32NullableDataField(XFieldState pState, Int32? pValue, Object pOldValue)
+            : base(pState, pValue, pOldValue)
+        {
+        }
+    }
 }

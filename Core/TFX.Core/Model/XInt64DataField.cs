@@ -15,11 +15,6 @@ namespace TFX.Core.Model
 		{
 		}
 
-		public XInt64DataField(long? pValue)
-			: base(pValue.HasValue ? pValue.Value : 0)
-		{
-		}
-
 		public XInt64DataField(XFieldState pState, long pValue)
 			: base(pState, pValue)
 		{
@@ -35,4 +30,32 @@ namespace TFX.Core.Model
 		{
 		}
 	}
+
+
+    public class XInt64NullableDataField : XDataField<Int64?>
+    {
+        public XInt64NullableDataField()
+        {
+        }
+
+        public XInt64NullableDataField(Int64? pValue)
+            : base(pValue)
+        {
+        }
+
+        public XInt64NullableDataField(XFieldState pState, Int64? pValue)
+            : base(pState, pValue)
+        {
+        }
+
+        public XInt64NullableDataField(XFieldState pState, Object pValue)
+            : base(pState, pValue)
+        {
+        }
+
+        public XInt64NullableDataField(XFieldState pState, Int64? pValue, Object pOldValue)
+            : base(pState, pValue, pOldValue)
+        {
+        }
+    }
 }

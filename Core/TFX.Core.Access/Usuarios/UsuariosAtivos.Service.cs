@@ -130,15 +130,15 @@ namespace TFX.Core.Access.Usuarios
                 if (pFilter?.SkipRows > 0)
                     query = query.Skip(pFilter.SkipRows.Value);
 
-                if (pFilter != null && pFilter.TakeRows.HasValue)
+                if (pFilter?.TakeRows > 0)
                     query = query.Take(pFilter.TakeRows.Value);
                 else
                     query = query.Take(75);
             }
 
-            var qry = query.Select(q => new UsuariosAtivosTuple(){TAFxUsuarioID = q.TAFxUsuario.TAFxUsuarioID,
-                                      Login = q.TAFxUsuario.Login,
-                                      CORxEstadoID = q.TAFxUsuario.CORxEstadoID});
+            var qry = query.Select(q => new UsuariosAtivosTuple(q.TAFxUsuario.TAFxUsuarioID,
+                                    q.TAFxUsuario.Login,
+                                    q.TAFxUsuario.CORxEstadoID));
             return qry;
         }
 
@@ -180,9 +180,10 @@ namespace TFX.Core.Access.Usuarios
             {
                 var TAFxUsuariotpl = new TAFxUsuario();
                 stpl.EntityTuple = TAFxUsuariotpl;
-                TAFxUsuariotpl.TAFxUsuarioID = stpl.TAFxUsuarioID;
-                TAFxUsuariotpl.Login = stpl.Login;
-                TAFxUsuariotpl.CORxEstadoID = stpl.CORxEstadoID;
+                if (stpl.TAFxUsuarioID.Value != Guid.Empty)
+                    TAFxUsuariotpl.TAFxUsuarioID = stpl.TAFxUsuarioID.Value;
+                TAFxUsuariotpl.Login = stpl.Login.Value;
+                TAFxUsuariotpl.CORxEstadoID = stpl.CORxEstadoID.Value;
                 var sb = TAFxUsuariotpl.Validate();
                 if (sb.Length > 0)
                     throw new Exception(sb.ToString());

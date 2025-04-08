@@ -12,6 +12,8 @@ using AspNetCore.Scalar;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,9 +26,63 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using TFX.Core;
 using TFX.Core.Controllers;
 using TFX.Core.Extensions;
+using TFX.Core.Interfaces;
+public class CustomControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
+{
+    public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
+    {
+        var assemblys = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Sittax") || a.FullName.StartsWith("STX")).ToList();
+        foreach (var assembly in assemblys)
+        {
+
+            var controllers = assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract && typeof(XController).IsAssignableFrom(t));
+
+            foreach (var controller in controllers)
+            {
+                if (!feature.Controllers.Contains(controller))
+                {
+                    feature.Controllers.Add(controller.GetTypeInfo());
+                }
+            }
+        }
+    }
+}
 
 public static class XServiceExtensions
 {
+    public static WebApplicationBuilder AddDependencies(this WebApplicationBuilder pBuilder)
+    {
+        var assemblys = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("TFX")).ToList();
+        var mvcBuilder = pBuilder.Services.AddControllers();
+        mvcBuilder.ConfigureApplicationPartManager(apm =>
+        {
+            apm.ApplicationParts.Add(new AssemblyPart(typeof(CustomControllerFeatureProvider).Assembly));
+            apm.FeatureProviders.Add(new CustomControllerFeatureProvider());
+        });
+        foreach (var assembly in assemblys)
+        {
+            var types = assembly.GetTypes();
+            foreach (var type in types.Where(t => !t.IsAbstract && t.Implemnts<XIScoped>()))
+            {
+                var iface = type.GetInterfaces().FirstOrDefault(i => type.BaseType != null && type.BaseType.GetInterfaces().All(si => si != i));
+                Console.WriteLine(iface?.FullName + " " + type.FullName);
+                if (iface != null)
+                    pBuilder.Services.AddScoped(iface, type);
+                else
+                    pBuilder.Services.AddTransient(type);
+            }
+        }
+
+        var intef = typeof(XIModule);
+
+        var implementations = assemblys.SelectMany(a => a.GetTypes()).Where(t => intef.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
+        foreach (var tp in implementations)
+        {
+            var mdl = tp.CreateInstance<XIModule>();
+            mdl.Initialize(pBuilder.Services);
+        }
+        return pBuilder;
+    }
     public static void ConfigureServices(this IServiceCollection pServices)
     {
         pServices.AddJWT();

@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using TFX.Core;
 using TFX.Core.Access.Service;
 using TFX.Core.Cache;
+using TFX.Core.Identity;
 using TFX.Core.Interfaces;
 
 using static System.Net.WebRequestMethods;
@@ -30,11 +31,14 @@ namespace Launcher
             });
             builder.Services.UseOpenApi();
 
-
             builder.Services.ConfigureServices();
             builder.Services.AddSingleton<XILoginService, XLoginService>();
+            builder.Services.AddScoped<XITenantProvider, XTenantProvider>();
+            builder.Services.AddScoped<XISharedTransaction, XSharedTransaction>();
+            builder.AddDependencies();
 
             App = builder.Build();
+            XEnvironment.Services = App.Services;
             App.UseCors();
             App.UseAuthorization();
             App.UseAuthentication();

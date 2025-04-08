@@ -29,4 +29,30 @@ namespace TFX.Core.Model
         {
         }
     }
+
+    public class XInt16NullableDataField : XDataField<Int16?>
+    {
+        public XInt16NullableDataField()
+        {
+        }
+
+        public XInt16NullableDataField(Int16? pValue) : base(pValue)
+        {
+        }
+
+        public XInt16NullableDataField(XFieldState pState, Int16? pValue)
+            : base(pState, pValue)
+        {
+        }
+
+        public XInt16NullableDataField(XFieldState pState, Object pValue)
+            : base(pState, pValue)
+        {
+        }
+
+        public XInt16NullableDataField(XFieldState pState, Int16? pValue, Object pOldValue)
+            : base(pState, pValue, pOldValue)
+        {
+        }
+    }
 }

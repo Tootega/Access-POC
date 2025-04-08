@@ -12,6 +12,7 @@ namespace TFX.Core.Access
         public override void Initialize(IServiceCollection pServices)
         {
             pServices.AddTransient<IUsuariosAtivosService, UsuariosAtivosService>();
+            pServices.AddDbContext<UsuariosAtivosService.DBContext>();
         }
     }
 }

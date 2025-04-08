@@ -16,6 +16,7 @@ using System;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace TFX.Core.Access.Service
 {
@@ -93,23 +94,27 @@ namespace TFX.Core.Access.Service
 
         public void RefreshCache(Dictionary<string, XUser> pUsers = null)
         {
-            //if (pUsers == null)
-            //{
-            //    pUsers = new Dictionary<string, XUser>();
-            //    using var srv = new UsuariosAtivosService((XService)null);
-            //    var dst = srv.Select(null, null, true);
-            //    foreach (var item in dst.Tuples)
-            //    {
-            //        pUsers.Add(item.Login.Value, new XUser { ID = item.TAFxUsuarioID.Value, Login = item.Login.Value });
-            //    }
-            //}
-            //lock (_Users)
-            //    _Users.Swap(pUsers);
+            if (pUsers == null)
+            {
+                using (var scope = XEnvironment.Services.CreateScope())
+                {
+                    var svc = scope.ServiceProvider.GetRequiredService<IUsuariosAtivosService>();
+
+                    pUsers = new Dictionary<string, XUser>();
+                    var dst = svc.Execute(null);
+                    foreach (var item in dst.Tuples)
+                    {
+                        pUsers.Add(item.Login.Value, new XUser { ID = item.TAFxUsuarioID.Value, Login = item.Login.Value });
+                    }
+                }
+            }
+            lock (_Users)
+                _Users.Swap(pUsers);
         }
 
         public void GracefullyClose()
         {
-            
+
         }
     }
 }

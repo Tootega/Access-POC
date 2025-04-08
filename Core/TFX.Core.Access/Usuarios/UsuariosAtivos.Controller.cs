@@ -51,7 +51,7 @@ namespace TFX.Core.Access.Usuarios
             }  
         }
 
-        [HttpPost("IncluirAlterar")]
+        [HttpPost("Flush")]
         [XEndpointDescription(typeof(TAFxUsuario))]
         public IActionResult Flush([FromBody] UsuariosAtivosDataSet pDataSet)
         {

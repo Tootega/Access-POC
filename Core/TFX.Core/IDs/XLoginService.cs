@@ -81,5 +81,10 @@ namespace TFX.Core.IDs
                 return (null, session);
             return (new XUser { Login = pLogin }, null);
         }
+
+        public void RefreshCache(Dictionary<string, XUser> pUsers = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

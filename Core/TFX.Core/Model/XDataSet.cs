@@ -11,6 +11,23 @@ namespace TFX.Core.Model
         {
             Tuples = new List<T>();
         }
+
+         public void Assign(XDataSet<T> pSource)
+        {
+            Tuples.Clear();
+            foreach (var stpl in pSource.Tuples)
+            {
+                var ttpl = AddTuple();
+                ttpl.Assign((XDataTuple)stpl);
+            }
+        }
+        public void AssignBack(XDataSet<T> pSource)
+        {
+            foreach (XServiceDataTuple stpl in pSource.Tuples)
+            {
+                stpl.Assign(stpl.EntityTuple);
+            }
+        }
         public T AddTuple()
         {
             var tpl = new T();

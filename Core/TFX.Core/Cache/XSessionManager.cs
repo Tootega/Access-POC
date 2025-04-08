@@ -19,6 +19,7 @@ namespace TFX.Core.Cache
         public static void Initialize(IServiceProvider pServices)
         {
             _LoginService = pServices.GetService<XILoginService>();
+            _LoginService.RefreshCache();
         }
 
         public static XUserSession DoLogin(HttpContext pHttpContext, XUserLogin pLogin)

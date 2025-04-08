@@ -19,14 +19,34 @@ namespace TFX.Core.Access.Usuarios
 {
     public class UsuariosAtivosTuple : XServiceDataTuple
     {
+        public UsuariosAtivosTuple()
+        {
+            Initialize();
+        }
+
+        public UsuariosAtivosTuple(Guid? pTAFxUsuarioID, String pLogin, Int16 pCORxEstadoID)
+            : this()
+        {
+            TAFxUsuarioID.Value = pTAFxUsuarioID;
+            Login.Value = pLogin;
+            CORxEstadoID.Value = pCORxEstadoID;
+        }
+
+        public override void Initialize()
+        {
+            TAFxUsuarioID = new XGuidNullableDataField();
+            Login = new XStringDataField();
+            CORxEstadoID = new XInt16DataField();
+        }
+
         [Required()]
         [Display(Name = "Usuários")]
-        public Guid TAFxUsuarioID {get;set;}
+        public XGuidNullableDataField TAFxUsuarioID {get;set;}
         [Required()]
-        public String Login {get;set;}
+        public XStringDataField Login {get;set;}
         [Required()]
         [Display(Name = "Ativo")]
-        public Int16 CORxEstadoID {get;set;}
+        public XInt16DataField CORxEstadoID {get;set;}
     }
 
     public class UsuariosAtivosFilter : XFilter
